@@ -1,5 +1,5 @@
 SWIFTLINT=${PODS_ROOT}/SwiftLint/swiftlint
-SWIFTLINT_CONFIG=../setup/.swiftlint.yml
+SWIFTLINT_CONFIG=setup/.swiftlint.yml
 ROOT_PATH=$(git rev-parse --show-toplevel)
 NEWLINE=$'\n'
 
