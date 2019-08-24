@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# Hook script for commit message.
+# Adds `TASK_ID` to the beginning of your commit, based on the prefix of the current branch `feature/ZZM-01-add-linter`
+# Example: `Added SwiftLint`` -> `ZZM-01 Added SwiftLint``
+
+if [ -z "$BRANCHES_TO_SKIP" ]; then
+  BRANCHES_TO_SKIP=(master develop test)
+fi
+
+COMMIT_FILE=$1
+COMMIT_MSG=$(cat $1)
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+JIRA_ID_REGEX="[A-Z0-9]{1,10}-?[A-Z0-9]+-\d+"
+JIRA_ID_IN_CURRENT_BRANCH_NAME=$(echo "$CURRENT_BRANCH" | grep -Eo "$JIRA_ID_REGEX")
+JIRA_ID_IN_COMMIT_MESSAGE=$(echo "$COMMIT_MSG" | grep -Eo "$JIRA_ID_REGEX")
+
+if [[ -z "$JIRA_ID_IN_CURRENT_BRANCH_NAME" ]]; then
+    echo "Could not determine task id from branch name"
+    exit 1
+fi
+
+
+if [[ ! -z "$JIRA_ID_IN_COMMIT_MESSAGE" ]]; then
+  if [[ $JIRA_ID_IN_COMMIT_MESSAGE == *"$JIRA_ID_IN_CURRENT_BRANCH_NAME"* ]]; then
+    echo "Commit message already contains the JIRA ID of the current branch '$JIRA_ID_IN_COMMIT_MESSAGE'"
+    exit 0
+  fi
+fi
+
+
+echo "$JIRA_ID_IN_CURRENT_BRANCH_NAME $COMMIT_MSG" > $COMMIT_FILE
+echo "JIRA ID '$JIRA_ID_IN_CURRENT_BRANCH_NAME' has been added to the commit message."
+
+exit 0

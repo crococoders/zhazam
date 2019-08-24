@@ -1,0 +1,71 @@
+#!/bin/bash
+
+# Hook script for SwiftLint. 
+# Runs on every commit and checks for errors
+
+export PATH=/usr/local/bin:$PATH
+
+SWIFTLINT=Pods/SwiftLint/swiftlint
+SWIFTLINT_CONFIG=setup/.swiftlint.yml
+ROOT_PATH=$(git rev-parse --show-toplevel)
+NEWLINE=$'\n'
+
+# Check if SwiftLint is installed
+if [ -f "$SWIFTLINT" ]; then
+	printf "Found SwiftLint: '$SWIFTLINT'.\n"
+else
+	printf "SwiftLint is not installed. Please install pods and re-run the script.\n"
+	exit 1
+fi
+
+# Run SwiftLint
+printf "Launching SwiftLint.\n"
+
+RESULT=""
+
+# Runs swiftlint for a file by a given path
+lint_file() {
+    local filename=$1
+
+    local fileResult=$($SWIFTLINT --quiet --strict --path "${filename}" --config "${SWIFTLINT_CONFIG}")
+
+    if [ "$fileResult" != '' ]; then
+    	RESULT="${RESULT}${fileResult}${NEWLINE}"
+    fi
+}
+
+# Runs swiftlint for modified swift files in staged state
+lint_changed_files() {
+    for filename in $(git diff --cached --name-only | egrep "\.swift$")
+    do
+    	lint_file "${ROOT_PATH}/${filename}" 
+	done
+}
+
+lint_changed_files
+
+if [[ "$RESULT" == '' ]]; then
+	printf "SwiftLint Finished.\n\n"
+else
+	printf "SwiftLint Failed. Please check results below:\n\n"
+
+	while read -r line; do
+		if [ "$line" == '' ]; then
+			continue
+		fi
+
+		FILEPATH=$(echo $line | cut -d : -f 1)
+		L=$(echo $line | cut -d : -f 2)
+		C=$(echo $line | cut -d : -f 3)
+		TYPE=$(echo $line | cut -d : -f 4 | cut -c 2-)
+		MESSAGE=$(echo $line | cut -d : -f 5 | cut -c 2-)
+		DESCRIPTION=$(echo $line | cut -d : -f 6 | cut -c 2-)
+		printf "\n $TYPE\n"
+		printf "    $FILEPATH:$L:$C\n"
+		printf "    $MESSAGE - $DESCRIPTION\n"
+	done <<< "$RESULT"
+
+	printf "\nCOMMIT ABORTED. Please fix them before commiting.\n"
+
+	exit 1
+fi

@@ -12,6 +12,7 @@
 		0D1F8A59230C5FF200ECE3B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A57230C5FF200ECE3B4 /* Main.storyboard */; };
 		0D1F8A5B230C5FF500ECE3B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A5A230C5FF500ECE3B4 /* Assets.xcassets */; };
 		0D1F8A5E230C5FF500ECE3B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A5C230C5FF500ECE3B4 /* LaunchScreen.storyboard */; };
+		26DB65869802A9A19CBA5D54 /* libPods-zhazam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F607F6FDF4A06F042882CD4C /* libPods-zhazam.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		0D1F8A5A230C5FF500ECE3B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D1F8A5D230C5FF500ECE3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D1F8A5F230C5FF500ECE3B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0D3B98F6F39B6FC0063B84C /* Pods-zhazam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhazam.release.xcconfig"; path = "Target Support Files/Pods-zhazam/Pods-zhazam.release.xcconfig"; sourceTree = "<group>"; };
+		E341680D7D0FDCD32C0F280A /* Pods-zhazam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhazam.debug.xcconfig"; path = "Target Support Files/Pods-zhazam/Pods-zhazam.debug.xcconfig"; sourceTree = "<group>"; };
+		F607F6FDF4A06F042882CD4C /* libPods-zhazam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zhazam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26DB65869802A9A19CBA5D54 /* libPods-zhazam.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				0D1F8A52230C5FF200ECE3B4 /* zhazam */,
 				0D1F8A51230C5FF200ECE3B4 /* Products */,
+				F2CDC132518C053D1AFA4841 /* Pods */,
+				D0C75ED0ACE4C9203FD56A2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = zhazam;
 			sourceTree = "<group>";
 		};
+		D0C75ED0ACE4C9203FD56A2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F607F6FDF4A06F042882CD4C /* libPods-zhazam.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F2CDC132518C053D1AFA4841 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E341680D7D0FDCD32C0F280A /* Pods-zhazam.debug.xcconfig */,
+				A0D3B98F6F39B6FC0063B84C /* Pods-zhazam.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D1F8A62230C5FF500ECE3B4 /* Build configuration list for PBXNativeTarget "zhazam" */;
 			buildPhases = (
+				5456D8712F78CF6C55D0F72B /* [CP] Check Pods Manifest.lock */,
 				0D1F8A4C230C5FF200ECE3B4 /* Sources */,
 				0D1F8A4D230C5FF200ECE3B4 /* Frameworks */,
 				0D1F8A4E230C5FF200ECE3B4 /* Resources */,
+				0DDE226123112DEF0028B954 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DDE226123112DEF0028B954 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/setup/XCodeLint.sh\n";
+		};
+		5456D8712F78CF6C55D0F72B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-zhazam-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0D1F8A4C230C5FF200ECE3B4 /* Sources */ = {
@@ -280,10 +349,12 @@
 		};
 		0D1F8A63230C5FF500ECE3B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E341680D7D0FDCD32C0F280A /* Pods-zhazam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = zhazam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -297,10 +368,12 @@
 		};
 		0D1F8A64230C5FF500ECE3B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0D3B98F6F39B6FC0063B84C /* Pods-zhazam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = zhazam/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

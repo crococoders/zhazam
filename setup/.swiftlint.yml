@@ -1,0 +1,41 @@
+disabled_rules:
+  - trailing_whitespace
+  - todo
+  - force_cast
+  - force_try
+excluded:
+  - Pods
+  
+file_length:
+  error: 400
+  
+for_where:
+  severity: error
+  
+function_body_length:
+  error: 20
+
+function_parameter_count:
+  error: 5
+
+identifier_name:
+  min_length:
+    error: 2
+    warning: 2
+  max_length:
+    error: 60
+    warning: 60
+  
+line_length:
+  error: 120
+  
+type_body_length:
+  error: 200
+  
+type_name:
+  min_length:
+    error: 2
+    warning: 2
+  max_length:
+    error: 60
+    warning: 60
