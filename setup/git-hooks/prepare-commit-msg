@@ -11,25 +11,25 @@ fi
 COMMIT_FILE=$1
 COMMIT_MSG=$(cat $1)
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-JIRA_ID_REGEX="[A-Z0-9]{1,10}-?[A-Z0-9]+-\d+"
-JIRA_ID_IN_CURRENT_BRANCH_NAME=$(echo "$CURRENT_BRANCH" | grep -Eo "$JIRA_ID_REGEX")
-JIRA_ID_IN_COMMIT_MESSAGE=$(echo "$COMMIT_MSG" | grep -Eo "$JIRA_ID_REGEX")
+TASK_ID_REGEX="[A-Z0-9]{1,10}-?[A-Z0-9]+-\d+"
+TASK_ID_IN_CURRENT_BRANCH_NAME=$(echo "$CURRENT_BRANCH" | grep -Eo "$TASK_ID_REGEX")
+TASK_ID_IN_COMMIT_MESSAGE=$(echo "$COMMIT_MSG" | grep -Eo "$TASK_ID_REGEX")
 
-if [[ -z "$JIRA_ID_IN_CURRENT_BRANCH_NAME" ]]; then
+if [[ -z "$TASK_ID_IN_CURRENT_BRANCH_NAME" ]]; then
     echo "Could not determine task id from branch name"
     exit 1
 fi
 
 
-if [[ ! -z "$JIRA_ID_IN_COMMIT_MESSAGE" ]]; then
-  if [[ $JIRA_ID_IN_COMMIT_MESSAGE == *"$JIRA_ID_IN_CURRENT_BRANCH_NAME"* ]]; then
-    echo "Commit message already contains the JIRA ID of the current branch '$JIRA_ID_IN_COMMIT_MESSAGE'"
+if [[ ! -z "$TASK_ID_IN_COMMIT_MESSAGE" ]]; then
+  if [[ $TASK_ID_IN_COMMIT_MESSAGE == *"$TASK_ID_IN_CURRENT_BRANCH_NAME"* ]]; then
+    echo "Commit message already contains the TASK ID of the current branch '$TASK_ID_IN_COMMIT_MESSAGE'"
     exit 0
   fi
 fi
 
 
-echo "$JIRA_ID_IN_CURRENT_BRANCH_NAME $COMMIT_MSG" > $COMMIT_FILE
-echo "JIRA ID '$JIRA_ID_IN_CURRENT_BRANCH_NAME' has been added to the commit message."
+echo "$TASK_ID_IN_CURRENT_BRANCH_NAME $COMMIT_MSG" > $COMMIT_FILE
+echo "TASK ID '$TASK_ID_IN_CURRENT_BRANCH_NAME' has been added to the commit message."
 
 exit 0
