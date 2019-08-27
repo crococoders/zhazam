@@ -17,6 +17,21 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
+  /// This `R.color` struct is generated, and contains static references to 1 colors.
+  struct color {
+    /// Color `testBlue`.
+    static let testBlue = Rswift.ColorResource(bundle: R.hostingBundle, name: "testBlue")
+    
+    /// `UIColor(named: "testBlue", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func testBlue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.testBlue, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
   /// This `R.font` struct is generated, and contains static references to 1 fonts.
   struct font: Rswift.Validatable {
     /// Font `AvenirNext-Regular`.
@@ -36,19 +51,19 @@ struct R: Rswift.Validatable {
   
   /// This `R.image` struct is generated, and contains static references to 2 images.
   struct image {
-    /// Image `barda`.
-    static let barda = Rswift.ImageResource(bundle: R.hostingBundle, name: "barda")
-    /// Image `lee`.
-    static let lee = Rswift.ImageResource(bundle: R.hostingBundle, name: "lee")
+    /// Image `Image`.
+    static let image = Rswift.ImageResource(bundle: R.hostingBundle, name: "Image")
+    /// Image `jobs`.
+    static let jobs = Rswift.ImageResource(bundle: R.hostingBundle, name: "jobs")
     
-    /// `UIImage(named: "barda", bundle: ..., traitCollection: ...)`
-    static func barda(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.barda, compatibleWith: traitCollection)
+    /// `UIImage(named: "Image", bundle: ..., traitCollection: ...)`
+    static func image(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.image, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "lee", bundle: ..., traitCollection: ...)`
-    static func lee(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.lee, compatibleWith: traitCollection)
+    /// `UIImage(named: "jobs", bundle: ..., traitCollection: ...)`
+    static func jobs(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.jobs, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -74,13 +89,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 3 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.launchScreen` struct is generated, and contains static references to 0 localization keys.
-    struct launchScreen {
-      fileprivate init() {}
-    }
-    
     /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
     struct localizable {
       /// en translation: Hello %@
@@ -106,11 +116,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("Test", bundle: R.hostingBundle, comment: "")
       }
       
-      fileprivate init() {}
-    }
-    
-    /// This `R.string.main` struct is generated, and contains static references to 0 localization keys.
-    struct main {
       fileprivate init() {}
     }
     

@@ -7,4 +7,4 @@
 */
 
 "Test" = "Привіт Світ";
-"Test.withSymbol" = "Hello %@";
+"Test.withSymbol" = "Привіт %@";
