@@ -1,0 +1,2 @@
+excluded:
+  - R.generated.swift

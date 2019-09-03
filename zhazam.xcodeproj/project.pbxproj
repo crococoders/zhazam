@@ -3,29 +3,39 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */; };
 		0D1F8A56230C5FF200ECE3B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A55230C5FF200ECE3B4 /* ViewController.swift */; };
-		0D1F8A59230C5FF200ECE3B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A57230C5FF200ECE3B4 /* Main.storyboard */; };
-		0D1F8A5B230C5FF500ECE3B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A5A230C5FF500ECE3B4 /* Assets.xcassets */; };
-		0D1F8A5E230C5FF500ECE3B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A5C230C5FF500ECE3B4 /* LaunchScreen.storyboard */; };
-		26DB65869802A9A19CBA5D54 /* libPods-zhazam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F607F6FDF4A06F042882CD4C /* libPods-zhazam.a */; };
+		0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A5A230C5FF500ECE3B4 /* Images.xcassets */; };
+		B0172A02231532120041EF2E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0172A01231532120041EF2E /* R.generated.swift */; };
+		B0172A0F2315338F0041EF2E /* AvenirNext-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0172A082315338F0041EF2E /* AvenirNext-Regular.ttf */; };
+		B0172A192315347E0041EF2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0172A1B2315347E0041EF2E /* Localizable.strings */; };
+		B0172A25231556EF0041EF2E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0172A24231556EF0041EF2E /* Colors.xcassets */; };
+		B05AEDE92318F76C00CCA98F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B05AEDE82318F76C00CCA98F /* Main.storyboard */; };
+		B05AEDEB2318F77500CCA98F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B05AEDEA2318F77500CCA98F /* LaunchScreen.storyboard */; };
+		E1633C00D0C5FAEBFF4DDDEF /* Pods_zhazam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8911543EF91E674FF818AD0 /* Pods_zhazam.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D1F8A50230C5FF200ECE3B4 /* zhazam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhazam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D1F8A55230C5FF200ECE3B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0D1F8A58230C5FF200ECE3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0D1F8A5A230C5FF500ECE3B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0D1F8A5D230C5FF500ECE3B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0D1F8A5A230C5FF500ECE3B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0D1F8A5F230C5FF500ECE3B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0D3B98F6F39B6FC0063B84C /* Pods-zhazam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhazam.release.xcconfig"; path = "Target Support Files/Pods-zhazam/Pods-zhazam.release.xcconfig"; sourceTree = "<group>"; };
+		B0172A01231532120041EF2E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		B0172A082315338F0041EF2E /* AvenirNext-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNext-Regular.ttf"; sourceTree = "<group>"; };
+		B0172A1A2315347E0041EF2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B0172A1E2315350F0041EF2E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B0172A212315351C0041EF2E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B0172A24231556EF0041EF2E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		B05AEDE82318F76C00CCA98F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B05AEDEA2318F77500CCA98F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C8911543EF91E674FF818AD0 /* Pods_zhazam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_zhazam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E341680D7D0FDCD32C0F280A /* Pods-zhazam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhazam.debug.xcconfig"; path = "Target Support Files/Pods-zhazam/Pods-zhazam.debug.xcconfig"; sourceTree = "<group>"; };
-		F607F6FDF4A06F042882CD4C /* libPods-zhazam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-zhazam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26DB65869802A9A19CBA5D54 /* libPods-zhazam.a in Frameworks */,
+				E1633C00D0C5FAEBFF4DDDEF /* Pods_zhazam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,20 +71,72 @@
 		0D1F8A52230C5FF200ECE3B4 /* zhazam */ = {
 			isa = PBXGroup;
 			children = (
-				0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */,
+				B0172A22231537AA0041EF2E /* Application */,
+				B0172A00231531F60041EF2E /* Resources */,
 				0D1F8A55230C5FF200ECE3B4 /* ViewController.swift */,
-				0D1F8A57230C5FF200ECE3B4 /* Main.storyboard */,
-				0D1F8A5A230C5FF500ECE3B4 /* Assets.xcassets */,
-				0D1F8A5C230C5FF500ECE3B4 /* LaunchScreen.storyboard */,
+				B05AEDE82318F76C00CCA98F /* Main.storyboard */,
 				0D1F8A5F230C5FF500ECE3B4 /* Info.plist */,
 			);
 			path = zhazam;
 			sourceTree = "<group>";
 		};
+		B0172A00231531F60041EF2E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B0172A23231556DF0041EF2E /* Colors */,
+				B0172A15231533C90041EF2E /* Images */,
+				B0172A062315335F0041EF2E /* Fonts */,
+				B0172A162315345D0041EF2E /* Strings */,
+				B0172A01231532120041EF2E /* R.generated.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B0172A062315335F0041EF2E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B0172A082315338F0041EF2E /* AvenirNext-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B0172A15231533C90041EF2E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0D1F8A5A230C5FF500ECE3B4 /* Images.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		B0172A162315345D0041EF2E /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				B0172A1B2315347E0041EF2E /* Localizable.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		B0172A22231537AA0041EF2E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */,
+				B05AEDEA2318F77500CCA98F /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B0172A23231556DF0041EF2E /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				B0172A24231556EF0041EF2E /* Colors.xcassets */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
 		D0C75ED0ACE4C9203FD56A2E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F607F6FDF4A06F042882CD4C /* libPods-zhazam.a */,
+				C8911543EF91E674FF818AD0 /* Pods_zhazam.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -96,10 +158,12 @@
 			buildConfigurationList = 0D1F8A62230C5FF500ECE3B4 /* Build configuration list for PBXNativeTarget "zhazam" */;
 			buildPhases = (
 				5456D8712F78CF6C55D0F72B /* [CP] Check Pods Manifest.lock */,
+				B01729FF23152FE70041EF2E /* ShellScript */,
 				0D1F8A4C230C5FF200ECE3B4 /* Sources */,
 				0D1F8A4D230C5FF200ECE3B4 /* Frameworks */,
 				0D1F8A4E230C5FF200ECE3B4 /* Resources */,
 				0DDE226123112DEF0028B954 /* SwiftLint */,
+				710B1BF560B4DDFD735C1369 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +196,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				uk,
 			);
 			mainGroup = 0D1F8A47230C5FF200ECE3B4;
 			productRefGroup = 0D1F8A51230C5FF200ECE3B4 /* Products */;
@@ -148,9 +214,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D1F8A5E230C5FF500ECE3B4 /* LaunchScreen.storyboard in Resources */,
-				0D1F8A5B230C5FF500ECE3B4 /* Assets.xcassets in Resources */,
-				0D1F8A59230C5FF200ECE3B4 /* Main.storyboard in Resources */,
+				B0172A192315347E0041EF2E /* Localizable.strings in Resources */,
+				B05AEDE92318F76C00CCA98F /* Main.storyboard in Resources */,
+				0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */,
+				B05AEDEB2318F77500CCA98F /* LaunchScreen.storyboard in Resources */,
+				B0172A25231556EF0041EF2E /* Colors.xcassets in Resources */,
+				B0172A0F2315338F0041EF2E /* AvenirNext-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +266,42 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		710B1BF560B4DDFD735C1369 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-zhazam/Pods-zhazam-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-zhazam/Pods-zhazam-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-zhazam/Pods-zhazam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B01729FF23152FE70041EF2E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -206,26 +311,21 @@
 			files = (
 				0D1F8A56230C5FF200ECE3B4 /* ViewController.swift in Sources */,
 				0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */,
+				B0172A02231532120041EF2E /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0D1F8A57230C5FF200ECE3B4 /* Main.storyboard */ = {
+		B0172A1B2315347E0041EF2E /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0D1F8A58230C5FF200ECE3B4 /* Base */,
+				B0172A1A2315347E0041EF2E /* en */,
+				B0172A1E2315350F0041EF2E /* ru */,
+				B0172A212315351C0041EF2E /* uk */,
 			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0D1F8A5C230C5FF500ECE3B4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0D1F8A5D230C5FF500ECE3B4 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -235,6 +335,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -296,6 +397,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
