@@ -13,12 +13,11 @@
 		70236EF2234BA69E00FCD963 /* HelveticaNeue-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70236EF0234BA69E00FCD963 /* HelveticaNeue-Light.ttf */; };
 		70236EF4234BA6D300FCD963 /* HelveticaNeue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70236EF3234BA6D300FCD963 /* HelveticaNeue-Bold.ttf */; };
 		70236EFA234BA7FC00FCD963 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236EF9234BA7FC00FCD963 /* UIViewController+Extension.swift */; };
-		70236EFC234BA81C00FCD963 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236EFB234BA81C00FCD963 /* UIStoryboard+Extension.swift */; };
 		70236EFE234BA83E00FCD963 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236EFD234BA83E00FCD963 /* UIView+Extension.swift */; };
 		70236F02234CC68700FCD963 /* AsyncResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F01234CC68700FCD963 /* AsyncResult.swift */; };
 		70236F07234CC76700FCD963 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F06234CC76700FCD963 /* Reusable.swift */; };
 		70236F0A234CC8B500FCD963 /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F09234CC8B500FCD963 /* UserPreference.swift */; };
-		70236F0E234CCACA00FCD963 /* Comand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F0D234CCACA00FCD963 /* Comand.swift */; };
+		70236F0E234CCACA00FCD963 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F0D234CCACA00FCD963 /* Command.swift */; };
 		70236F10234CCAEA00FCD963 /* CommandsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F0F234CCAEA00FCD963 /* CommandsBuilder.swift */; };
 		70236F15234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F14234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift */; };
 		70236F17234CCE0100FCD963 /* WindowConfigurationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F16234CCE0100FCD963 /* WindowConfigurationCommand.swift */; };
@@ -40,12 +39,11 @@
 		70236EF0234BA69E00FCD963 /* HelveticaNeue-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Light.ttf"; sourceTree = "<group>"; };
 		70236EF3234BA6D300FCD963 /* HelveticaNeue-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Bold.ttf"; sourceTree = "<group>"; };
 		70236EF9234BA7FC00FCD963 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		70236EFB234BA81C00FCD963 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		70236EFD234BA83E00FCD963 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		70236F01234CC68700FCD963 /* AsyncResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncResult.swift; sourceTree = "<group>"; };
 		70236F06234CC76700FCD963 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		70236F09234CC8B500FCD963 /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
-		70236F0D234CCACA00FCD963 /* Comand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comand.swift; sourceTree = "<group>"; };
+		70236F0D234CCACA00FCD963 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		70236F0F234CCAEA00FCD963 /* CommandsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandsBuilder.swift; sourceTree = "<group>"; };
 		70236F14234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarAppearanceCommand.swift; sourceTree = "<group>"; };
 		70236F16234CCE0100FCD963 /* WindowConfigurationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowConfigurationCommand.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				70236EF9234BA7FC00FCD963 /* UIViewController+Extension.swift */,
-				70236EFB234BA81C00FCD963 /* UIStoryboard+Extension.swift */,
 				70236EFD234BA83E00FCD963 /* UIView+Extension.swift */,
 				70236F1A234CD0EF00FCD963 /* UITextField+Extension.swift */,
 			);
@@ -121,17 +118,17 @@
 			isa = PBXGroup;
 			children = (
 				70236F08234CC88F00FCD963 /* User */,
-				70236F00234CC67400FCD963 /* AsynResult */,
+				70236F00234CC67400FCD963 /* AsyncResult */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		70236F00234CC67400FCD963 /* AsynResult */ = {
+		70236F00234CC67400FCD963 /* AsyncResult */ = {
 			isa = PBXGroup;
 			children = (
 				70236F01234CC68700FCD963 /* AsyncResult.swift */,
 			);
-			path = AsynResult;
+			path = AsyncResult;
 			sourceTree = "<group>";
 		};
 		70236F03234CC6FD00FCD963 /* Utility */ = {
@@ -163,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				70236F11234CCB1A00FCD963 /* Commands */,
-				70236F0D234CCACA00FCD963 /* Comand.swift */,
+				70236F0D234CCACA00FCD963 /* Command.swift */,
 				70236F0F234CCAEA00FCD963 /* CommandsBuilder.swift */,
 			);
 			path = Configuration;
@@ -417,13 +414,12 @@
 				70236F10234CCAEA00FCD963 /* CommandsBuilder.swift in Sources */,
 				70236EFE234BA83E00FCD963 /* UIView+Extension.swift in Sources */,
 				70236F0A234CC8B500FCD963 /* UserPreference.swift in Sources */,
-				70236F0E234CCACA00FCD963 /* Comand.swift in Sources */,
+				70236F0E234CCACA00FCD963 /* Command.swift in Sources */,
 				70236F07234CC76700FCD963 /* Reusable.swift in Sources */,
 				0D1F8A56230C5FF200ECE3B4 /* ViewController.swift in Sources */,
 				70236F17234CCE0100FCD963 /* WindowConfigurationCommand.swift in Sources */,
 				0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */,
 				B0172A02231532120041EF2E /* R.generated.swift in Sources */,
-				70236EFC234BA81C00FCD963 /* UIStoryboard+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

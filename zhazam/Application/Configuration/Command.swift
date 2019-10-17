@@ -1,5 +1,5 @@
 //
-//  Comand.swift
+//  Command.swift
 //  zhazam
 //
 //  Created by Almas Zainoldin on 10/8/19.
