@@ -17,6 +17,6 @@ struct WindowConfigurationCommand: Command {
         window?.layer.cornerRadius = 10
         window?.layer.masksToBounds = true
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: ViewController.create(name: "Main"))
+        window?.rootViewController = OnboardingViewController()
     }
 }
