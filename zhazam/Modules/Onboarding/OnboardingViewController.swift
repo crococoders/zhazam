@@ -9,14 +9,26 @@
 import UIKit
 
 class OnboardingViewController: UIViewController {
-
-    @IBOutlet weak var label: UILabel!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var percentageLabel: UILabel!
+    var randomNumber = Int.random(in: 1...10) * 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        label.font = R.font.helveticaNeueLight(size: 14)
-        label.backgroundColor = R.color.red()
-        label.text = R.string.localizable.test()
+        generateRandomPercents()
     }
-
+    
+    func generateRandomPercents() {
+        if randomNumber < 100 {
+            randomNumber = Int.random(in: randomNumber/10...10) * 10
+            percentageLabel.text = randomNumber == 100 ? "\(randomNumber)." : "0\(randomNumber)."
+            let time = Double.random(in: 0.5...1)
+            DispatchQueue.main.asyncAfter(deadline: .now() + time) {
+                self.generateRandomPercents()
+            }
+        } else {
+            // push to vc
+        }
+    }
 }
