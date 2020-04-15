@@ -9,11 +9,11 @@
 import UIKit
 
 final class LoadingViewController: UIViewController {
-    enum LocalConstants {
-        static let loadedPercentage: Int = 10
+    private enum Constants {
+        static let maxAvailablePercentage: Int = 10
     }
     
-    @IBOutlet var percentageLabel: UILabel!
+    @IBOutlet private var percentageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +21,11 @@ final class LoadingViewController: UIViewController {
     }
     
     private func generateFakeLoading(from percentage: Int) {
-        guard percentage < LocalConstants.loadedPercentage else {
+        guard percentage < Constants.maxAvailablePercentage else {
             //push to next vc
             return
         }
-        let randomNumber = Int.random(in: percentage...LocalConstants.loadedPercentage)
+        let randomNumber = Int.random(in: percentage...Constants.maxAvailablePercentage)
         let delayTime = Double.random(in: 0.5...1)
         setPercentageLabel(number: randomNumber)
         DispatchQueue.main.asyncAfter(deadline: .now() + delayTime) { [weak self] in
@@ -34,6 +34,6 @@ final class LoadingViewController: UIViewController {
     }
     
     private func setPercentageLabel(number: Int) {
-        percentageLabel.text = number < LocalConstants.loadedPercentage ? "0\(number)0." : "\(number)0."
+        percentageLabel.text = number < Constants.maxAvailablePercentage ? "0\(number)0." : "\(number)0."
     }
 }
