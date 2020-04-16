@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */; };
-		0D1F8A56230C5FF200ECE3B4 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A55230C5FF200ECE3B4 /* OnboardingViewController.swift */; };
+		0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A55230C5FF200ECE3B4 /* LoadingViewController.swift */; };
 		0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A5A230C5FF500ECE3B4 /* Images.xcassets */; };
-		0DCC8FDF2358D1670047EB90 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DCC8FDE2358D1670047EB90 /* OnboardingViewController.xib */; };
+		0DCC8FDF2358D1670047EB90 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DCC8FDE2358D1670047EB90 /* LoadingViewController.xib */; };
 		70236EF2234BA69E00FCD963 /* HelveticaNeue-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70236EF0234BA69E00FCD963 /* HelveticaNeue-Light.ttf */; };
 		70236EF4234BA6D300FCD963 /* HelveticaNeue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70236EF3234BA6D300FCD963 /* HelveticaNeue-Bold.ttf */; };
 		70236EFE234BA83E00FCD963 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236EFD234BA83E00FCD963 /* UIView+Extension.swift */; };
@@ -32,10 +32,10 @@
 /* Begin PBXFileReference section */
 		0D1F8A50230C5FF200ECE3B4 /* zhazam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhazam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0D1F8A55230C5FF200ECE3B4 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		0D1F8A55230C5FF200ECE3B4 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		0D1F8A5A230C5FF500ECE3B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0D1F8A5F230C5FF500ECE3B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0DCC8FDE2358D1670047EB90 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		0DCC8FDE2358D1670047EB90 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		70236EF0234BA69E00FCD963 /* HelveticaNeue-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Light.ttf"; sourceTree = "<group>"; };
 		70236EF3234BA6D300FCD963 /* HelveticaNeue-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Bold.ttf"; sourceTree = "<group>"; };
 		70236EFD234BA83E00FCD963 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -104,18 +104,18 @@
 		0DCC8FDC2358D13B0047EB90 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				0DCC8FDD2358D14F0047EB90 /* Onboarding */,
+				0DCC8FDD2358D14F0047EB90 /* Loading */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		0DCC8FDD2358D14F0047EB90 /* Onboarding */ = {
+		0DCC8FDD2358D14F0047EB90 /* Loading */ = {
 			isa = PBXGroup;
 			children = (
-				0D1F8A55230C5FF200ECE3B4 /* OnboardingViewController.swift */,
-				0DCC8FDE2358D1670047EB90 /* OnboardingViewController.xib */,
+				0D1F8A55230C5FF200ECE3B4 /* LoadingViewController.swift */,
+				0DCC8FDE2358D1670047EB90 /* LoadingViewController.xib */,
 			);
-			path = Onboarding;
+			path = Loading;
 			sourceTree = "<group>";
 		};
 		70236EEE234BA4B800FCD963 /* Extensions */ = {
@@ -327,7 +327,7 @@
 				70236EF4234BA6D300FCD963 /* HelveticaNeue-Bold.ttf in Resources */,
 				B0172A192315347E0041EF2E /* Localizable.strings in Resources */,
 				0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */,
-				0DCC8FDF2358D1670047EB90 /* OnboardingViewController.xib in Resources */,
+				0DCC8FDF2358D1670047EB90 /* LoadingViewController.xib in Resources */,
 				B05AEDEB2318F77500CCA98F /* LaunchScreen.storyboard in Resources */,
 				70236EF2234BA69E00FCD963 /* HelveticaNeue-Light.ttf in Resources */,
 				B0172A25231556EF0041EF2E /* Colors.xcassets in Resources */,
@@ -428,7 +428,7 @@
 				70236F0A234CC8B500FCD963 /* UserPreference.swift in Sources */,
 				70236F0E234CCACA00FCD963 /* Command.swift in Sources */,
 				70236F07234CC76700FCD963 /* Reusable.swift in Sources */,
-				0D1F8A56230C5FF200ECE3B4 /* OnboardingViewController.swift in Sources */,
+				0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */,
 				70236F17234CCE0100FCD963 /* WindowConfigurationCommand.swift in Sources */,
 				0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */,
 				B0172A02231532120041EF2E /* R.generated.swift in Sources */,
