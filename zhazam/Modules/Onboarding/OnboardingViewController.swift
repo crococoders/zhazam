@@ -16,7 +16,6 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
         label.font = R.font.helveticaNeueLight(size: 14)
         label.backgroundColor = R.color.red()
-        label.text = R.string.localizable.test()
     }
 
 }

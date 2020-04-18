@@ -6,5 +6,4 @@
   Copyright © 2019 Beknar Danabek. All rights reserved.
 */
 
-"Test" = "Hello World";
-"Test.withSymbol" = "Hello %@";
+"AppName" = "zhazam";
