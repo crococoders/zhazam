@@ -9,7 +9,12 @@
 import UIKit
 
 final class LogoView: UIView {
-    private let appName = R.string.localizable.appName()
+    private let appName = R.string.localizable.appName().lowercased()
+    
+    private enum Constants {
+        static let cursorAnimationDuration: TimeInterval = 0.8
+        static let timerTimeInterval = 0.4
+    }
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet private var cursorView: UIView!
@@ -26,6 +31,12 @@ final class LogoView: UIView {
         loadFromNib()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        animate()
+    }
+    
     func animate() {
         animateTitle {
             DispatchQueue.main.async {
@@ -35,22 +46,25 @@ final class LogoView: UIView {
     }
     
     private func animateCursor() {
-        UIView.animate(withDuration: 0.8, delay: 0, options: [.curveLinear, .repeat, .autoreverse], animations: {
+        UIView.animate(withDuration: Constants.cursorAnimationDuration,
+                       delay: 0,
+                       options: [.curveLinear, .repeat, .autoreverse], animations: {
             self.cursorView.alpha = 1
         }, completion: nil)
     }
     
     private func animateTitle(completion: @escaping() -> Void) {
-        DispatchQueue.global(qos: .userInteractive).async {
-            for character in self.appName {
-                DispatchQueue.main.async {
-                    self.titleLabel.text! += String(character)
-                }
-                
-                Thread.sleep(forTimeInterval: 0.4)
-            }
+        var characterIndex = 0
+        let characterArray = Array(self.appName)
+        
+        Timer.scheduledTimer(withTimeInterval: Constants.timerTimeInterval, repeats: true) { timer in
+            self.titleLabel.text! += String(characterArray[characterIndex])
+            characterIndex += 1
             
-            completion()
+            if characterArray.count == characterIndex {
+                timer.invalidate()
+                completion()
+            }
         }
     }
 }

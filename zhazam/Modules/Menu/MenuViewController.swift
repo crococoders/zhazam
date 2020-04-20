@@ -15,6 +15,19 @@ final class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        logoView.animate()
+    }
+    
+    @IBAction func openViewController(_ sender: UIButton) {
+        fadeButtons(with: sender) { _ in
+            //Perform navigation
+        }
+    }
+    
+    private func fadeButtons(with selectedButton: UIButton, completion: ((Bool) -> Void)?) {
+        for button in titleButtons where selectedButton.tag != button.tag {
+            UIView.animate(withDuration: 1.0, delay: 0, options: [.curveLinear], animations: {
+                button.alpha = 0
+            }, completion: completion)
+        }
     }
 }

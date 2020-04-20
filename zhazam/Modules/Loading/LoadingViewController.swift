@@ -11,14 +11,15 @@ import UIKit
 final class LoadingViewController: UIViewController {
     private enum Constants {
         static let maxAvailablePercentage: Int = 10
-        static let minDelayTime: Double = 0.6
-        static let maxDelayTime: Double = 0.8
+        static let minDelayTime: TimeInterval = 0.6
+        static let maxDelayTime: TimeInterval = 0.8
     }
     
     @IBOutlet private var percentageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupNavigation()
     }
     
@@ -61,8 +62,8 @@ final class LoadingViewController: UIViewController {
         return Int.random(in: lower...upper)
     }
     
-    private func generateRandomDelay() -> Double {
-        return Double.random(in: Constants.minDelayTime...Constants.maxDelayTime)
+    private func generateRandomDelay() -> TimeInterval {
+        return TimeInterval.random(in: Constants.minDelayTime...Constants.maxDelayTime)
     }
     
     private func setPercentageLabel(number: Int) {
