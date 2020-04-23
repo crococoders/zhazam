@@ -109,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				0DCC8FDD2358D14F0047EB90 /* Loading */,
-				24A61748244FA248007F92E6 /* StartGameTimer */,
+				24A61748244FA248007F92E6 /* CountDown */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -123,13 +123,13 @@
 			path = Loading;
 			sourceTree = "<group>";
 		};
-		24A61748244FA248007F92E6 /* StartGameTimer */ = {
+		24A61748244FA248007F92E6 /* CountDown */ = {
 			isa = PBXGroup;
 			children = (
 				24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */,
 				24A6174D244FA9CA007F92E6 /* CountdownViewController.xib */,
 			);
-			path = StartGameTimer;
+			path = CountDown;
 			sourceTree = "<group>";
 		};
 		70236EEE234BA4B800FCD963 /* Extensions */ = {

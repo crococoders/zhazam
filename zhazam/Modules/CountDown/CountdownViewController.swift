@@ -11,7 +11,7 @@ import UIKit
 final class CountdownViewController: UIViewController {
     
     private enum Constants {
-        static let time = 3
+        static let timerCount = 3
         static let pickerViewRowHeight: CGFloat = 200
         static let reusingViewFontSize: CGFloat = 140
         static let timerTimeInterval: TimeInterval = 1.0
@@ -46,8 +46,6 @@ final class CountdownViewController: UIViewController {
 //                                  options: .transitionFlipFromBottom,
 //                                  animations: {},
 //                                  completion: nil)
-        
-//        make transition to Game page
     }
     
     private func configureCountdownTimer(completion: @escaping() -> Void) {
@@ -55,8 +53,9 @@ final class CountdownViewController: UIViewController {
         Timer.scheduledTimer(withTimeInterval: Constants.timerTimeInterval, repeats: true) { timer in
             self.pickerView.selectRow(rowIndex, inComponent: 0, animated: true)
             rowIndex += 1
+            let isCountDownEnded: Bool = Constants.timerCount < rowIndex
             
-            if Constants.time < rowIndex {
+            if isCountDownEnded {
                 timer.invalidate()
                 completion()
             }
@@ -69,13 +68,11 @@ final class CountdownViewController: UIViewController {
     }
     
     private func labelCreations(row: Int) -> UILabel {
-        let timeLabel = Constants.time - row
-        
         let label = UILabel()
         label.textColor = R.color.textColor()
         label.textAlignment = .center
         label.font = R.font.helveticaNeueBold(size: Constants.reusingViewFontSize)
-        label.text = "\(timeLabel)"
+        label.text = "\(Constants.timerCount - row)"
         return label
     }
 }
@@ -86,7 +83,7 @@ extension CountdownViewController: UIPickerViewDelegate, UIPickerViewDataSource 
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Constants.time
+        return Constants.timerCount
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
