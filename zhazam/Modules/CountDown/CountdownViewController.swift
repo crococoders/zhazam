@@ -95,7 +95,7 @@ extension CountdownViewController: UIPickerViewDelegate, UIPickerViewDataSource 
                     forComponent component: Int,
                     reusing view: UIView?) -> UIView {
         hidePickerViewSelectionIndicator(pickerView: pickerView)
-        
-        return labelCreations(row: row)
+
+        return TimerRowView(rowData: "\(Constants.timerCount - row)")
     }
 }
