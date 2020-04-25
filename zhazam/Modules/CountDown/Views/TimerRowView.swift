@@ -10,8 +10,8 @@ import UIKit
 
 final class TimerRowView: UIView {
     
-    let rowData: String?
-    @IBOutlet weak var timerCounterLabel: UILabel!
+    private let rowData: String?
+    @IBOutlet private var timerCounterLabel: UILabel!
     
     init(frame: CGRect = .zero, rowData: String) {
         self.rowData = rowData

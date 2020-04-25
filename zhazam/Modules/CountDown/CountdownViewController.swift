@@ -34,18 +34,8 @@ final class CountdownViewController: UIViewController {
         super.viewDidAppear(animated)
         
         configureCountdownTimer {
-            self.performAnimatedTransition()
+            //Perform transition
         }
-    }
-    
-    private func performAnimatedTransition() {
-//                guard let window = UIApplication.shared.keyWindow else { return }
-//                window.rootViewController = UINavigationController(rootViewController: LoadingViewController())
-//                UIView.transition(with: window,
-//                                  duration: 0.7,
-//                                  options: .transitionFlipFromBottom,
-//                                  animations: {},
-//                                  completion: nil)
     }
     
     private func configureCountdownTimer(completion: @escaping() -> Void) {
@@ -65,15 +55,6 @@ final class CountdownViewController: UIViewController {
     private func hidePickerViewSelectionIndicator(pickerView: UIPickerView) {
         pickerView.subviews[1].isHidden = true
         pickerView.subviews[2].isHidden = true
-    }
-    
-    private func labelCreations(row: Int) -> UILabel {
-        let label = UILabel()
-        label.textColor = R.color.textColor()
-        label.textAlignment = .center
-        label.font = R.font.helveticaNeueBold(size: Constants.reusingViewFontSize)
-        label.text = "\(Constants.timerCount - row)"
-        return label
     }
 }
 

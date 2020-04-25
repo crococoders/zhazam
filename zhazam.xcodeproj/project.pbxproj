@@ -147,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				0499A2AB243A0050008C6FAD /* Views */,
-				0DCC8FDD2358D14F0047EB90 /* Onboarding */,
 				0499A2A62439FE0A008C6FAD /* Menu */,
 				0DCC8FDD2358D14F0047EB90 /* Loading */,
 				24A61748244FA248007F92E6 /* CountDown */,
@@ -395,7 +394,7 @@
 				0499A2AD243A024B008C6FAD /* LogoView.xib in Resources */,
 				0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */,
 				0499A2AA2439FE69008C6FAD /* MenuViewController.xib in Resources */,
-				0DCC8FDF2358D1670047EB90 /* OnboardingViewController.xib in Resources */,
+				0DCC8FDF2358D1670047EB90 /* LoadingViewController.xib in Resources */,
 				0DCC8FDF2358D1670047EB90 /* LoadingViewController.xib in Resources */,
 				24A6175D245209AC007F92E6 /* TimerRowView.xib in Resources */,
 				B05AEDEB2318F77500CCA98F /* LaunchScreen.storyboard in Resources */,
