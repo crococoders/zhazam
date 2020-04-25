@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0499A2A82439FE54008C6FAD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A2A72439FE54008C6FAD /* MenuViewController.swift */; };
+		0499A2AA2439FE69008C6FAD /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0499A2A92439FE68008C6FAD /* MenuViewController.xib */; };
+		0499A2AD243A024B008C6FAD /* LogoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0499A2AC243A024B008C6FAD /* LogoView.xib */; };
+		0499A2AF243A0257008C6FAD /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A2AE243A0257008C6FAD /* LogoView.swift */; };
 		0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */; };
 		0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A55230C5FF200ECE3B4 /* LoadingViewController.swift */; };
 		0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A5A230C5FF500ECE3B4 /* Images.xcassets */; };
@@ -34,6 +38,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0499A2A72439FE54008C6FAD /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		0499A2A92439FE68008C6FAD /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		0499A2AC243A024B008C6FAD /* LogoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoView.xib; sourceTree = "<group>"; };
+		0499A2AE243A0257008C6FAD /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		0D1F8A50230C5FF200ECE3B4 /* zhazam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhazam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D1F8A55230C5FF200ECE3B4 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +86,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0499A2A62439FE0A008C6FAD /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				0499A2A72439FE54008C6FAD /* MenuViewController.swift */,
+				0499A2A92439FE68008C6FAD /* MenuViewController.xib */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		0499A2AB243A0050008C6FAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0499A2B0243A0B43008C6FAD /* Logo */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0499A2B0243A0B43008C6FAD /* Logo */ = {
+			isa = PBXGroup;
+			children = (
+				0499A2AC243A024B008C6FAD /* LogoView.xib */,
+				0499A2AE243A0257008C6FAD /* LogoView.swift */,
+			);
+			path = Logo;
+			sourceTree = "<group>";
+		};
 		0D1F8A47230C5FF200ECE3B4 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +146,9 @@
 		0DCC8FDC2358D13B0047EB90 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0499A2AB243A0050008C6FAD /* Views */,
+				0DCC8FDD2358D14F0047EB90 /* Onboarding */,
+				0499A2A62439FE0A008C6FAD /* Menu */,
 				0DCC8FDD2358D14F0047EB90 /* Loading */,
 				24A61748244FA248007F92E6 /* CountDown */,
 			);
@@ -355,7 +392,10 @@
 				70236EF4234BA6D300FCD963 /* HelveticaNeue-Bold.ttf in Resources */,
 				B0172A192315347E0041EF2E /* Localizable.strings in Resources */,
 				24A6174E244FA9CA007F92E6 /* CountdownViewController.xib in Resources */,
+				0499A2AD243A024B008C6FAD /* LogoView.xib in Resources */,
 				0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */,
+				0499A2AA2439FE69008C6FAD /* MenuViewController.xib in Resources */,
+				0DCC8FDF2358D1670047EB90 /* OnboardingViewController.xib in Resources */,
 				0DCC8FDF2358D1670047EB90 /* LoadingViewController.xib in Resources */,
 				24A6175D245209AC007F92E6 /* TimerRowView.xib in Resources */,
 				B05AEDEB2318F77500CCA98F /* LaunchScreen.storyboard in Resources */,
@@ -458,9 +498,11 @@
 				70236F0A234CC8B500FCD963 /* UserPreference.swift in Sources */,
 				24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */,
 				70236F0E234CCACA00FCD963 /* Command.swift in Sources */,
+				0499A2A82439FE54008C6FAD /* MenuViewController.swift in Sources */,
 				70236F07234CC76700FCD963 /* Reusable.swift in Sources */,
 				0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */,
 				70236F17234CCE0100FCD963 /* WindowConfigurationCommand.swift in Sources */,
+				0499A2AF243A0257008C6FAD /* LogoView.swift in Sources */,
 				0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */,
 				B0172A02231532120041EF2E /* R.generated.swift in Sources */,
 				24A6175B245209A1007F92E6 /* TimerRowView.swift in Sources */,
