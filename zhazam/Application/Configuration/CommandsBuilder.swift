@@ -20,6 +20,7 @@ final class CommandsBuilder {
     func build() -> [Command] {
         return [
             WindowConfigurationCommand(window: window),
+            InterfaceStyleConfigurationCommand(window: window),
             NavigationBarAppearanceCommand()
         ]
     }

@@ -26,11 +26,11 @@ final class LoadingViewController: UIViewController {
     private func setupNavigation() {
         generateFakeLoading(from: generateRandomNumber(from: 0, to: 2)) { [weak self] in
             guard let self = self else { return }
-            self.performAnimatedTransition()
+            UserDefaultsStorage.isOnboardingCompleted ? self.routeToMainScreen() : self.routeToOnboarding()
         }
     }
     
-    private func performAnimatedTransition() {
+    private func routeToMainScreen() {
         guard let window = UIApplication.shared.keyWindow else { return }
         window.rootViewController = UINavigationController(rootViewController: MenuViewController())
         
@@ -41,7 +41,15 @@ final class LoadingViewController: UIViewController {
                           completion: nil)
     }
     
-    private func generateFakeLoading(from percentage: Int, completion: @escaping() -> Void) {
+    private func routeToOnboarding() {
+        let pages = getPages()
+        let viewController = OnboardingPageViewController(with: pages)
+        viewController.modalPresentationStyle = .fullScreen
+
+        self.present(viewController, animated: true, completion: nil)
+    }
+
+    private func generateFakeLoading(from percentage: Int, completion: @escaping Callback) {
         guard percentage < Constants.maxAvailablePercentage else {
             completion()
             return
@@ -69,4 +77,17 @@ final class LoadingViewController: UIViewController {
     private func setPercentageLabel(number: Int) {
         percentageLabel.text = number < Constants.maxAvailablePercentage ? "0\(number)0." : "\(number)0."
     }
+    
+    private func getPages() -> [OnboardingPage] {
+        let pages = OnboardingType.allCases.map { type -> OnboardingPage in
+            return OnboardingPage(type: type)
+        }
+
+        return pages
+    }
+}
+
+extension UserDefaultsStorage {
+    @UserDefaultsBacked(key: "isOnboardingCompleted", defaultValue: false)
+    static var isOnboardingCompleted: Bool
 }
