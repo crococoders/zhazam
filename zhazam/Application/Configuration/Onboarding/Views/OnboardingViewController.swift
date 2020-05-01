@@ -12,7 +12,7 @@ final class OnboardingViewController: UIViewController {
 
     @IBOutlet private var stackView: UIStackView!
     private var index: Int
-    private var page: OnboardingPage
+    private let page: OnboardingPage
     
     init(with page: OnboardingPage, index: Int) {
         self.page = page
@@ -28,17 +28,17 @@ final class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configure()
+        configureContent()
         hideKeyboardWhenTappedAround()
     }
     
-    private func configure() {
+    private func configureContent() {
         switch page.type {
         case .interfaceStyle:
             let horizontalView = HorizontalKeyValueView(key: R.string.localizable.light(),
                                                         value: getInterfaceStyleString())
             horizontalView.onTap = { [weak self] in
-                guard let `self` = self else { return }
+                guard let self = self else { return }
                 self.view.flash(numberOfFlashes: 2,
                                 completion: self.changeInterfaceStyle)
             }
@@ -47,7 +47,7 @@ final class OnboardingViewController: UIViewController {
         case .finish:
             let titledTextView = TitledTextView(title: R.string.localizable.letsStart(),
                                                 placeholder: R.string.localizable.start().lowercased(),
-                                                completionString: R.string.localizable.start().lowercased())
+                                                readyText: R.string.localizable.start().lowercased())
             titledTextView.onComplete = { [weak self] in
                 UserDefaultsStorage.isOnboardingCompleted = true
                 self?.routeToMainScreen()

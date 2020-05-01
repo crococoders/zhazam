@@ -10,11 +10,11 @@ import UIKit
 
 final class OnboardingPageViewController: UIPageViewController {
 
-    private var pages: [OnboardingPage]?
+    private let pages: [OnboardingPage]
     
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
-        pageControl.numberOfPages = pages?.count ?? 0
+        pageControl.numberOfPages = pages.count
         pageControl.currentPage = 0
         pageControl.currentPageIndicatorTintColor = R.color.textColor()
         pageControl.pageIndicatorTintColor = R.color.defaultGray()
@@ -31,7 +31,7 @@ final class OnboardingPageViewController: UIPageViewController {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        return nil
     }
     
     override func viewDidLoad() {
@@ -65,8 +65,7 @@ final class OnboardingPageViewController: UIPageViewController {
     }
     
     private func getPage(for index: Int) -> OnboardingViewController? {
-        guard let pages = pages, index >= 0,
-            index < pages.count else { return nil }
+        guard index >= 0, index < pages.count else { return nil }
         let viewController = OnboardingViewController(with: pages[index], index: index)
         
         return viewController

@@ -15,17 +15,17 @@ final class TitledTextView: UIView {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var textField: UITextField!
     
-    private var completionString: String?
+    private var readyText: String?
     
     convenience init(title: String,
                      placeholder: String,
-                     completionString: String? = nil) {
+                     readyText: String? = nil) {
         self.init(frame: CGRect.zero)
         
         titleLabel.text = title
         textField.delegate = self
         textField.placeholder = placeholder
-        self.completionString = completionString
+        self.readyText = readyText
     }
     
     override init(frame: CGRect) {
@@ -52,7 +52,7 @@ extension TitledTextView: UITextFieldDelegate {
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
         let updatedString = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
-        if updatedString == completionString {
+        if let text = readyText, updatedString == text {
             performCompletion()
         }
         
