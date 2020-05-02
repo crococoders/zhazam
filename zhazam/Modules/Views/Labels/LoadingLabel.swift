@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoadingLabel: UILabel {
+final class LoadingLabel: UILabel {
     private enum Constants {
         static let timerDelay: TimeInterval = 0.08
         static let minGrow: Int = 1
@@ -19,9 +19,10 @@ class LoadingLabel: UILabel {
     
     func generateFakeLoading(completion: @escaping() -> Void) {
         var number = 0
+        
         Timer.scheduledTimer(withTimeInterval: Constants.timerDelay, repeats: true) { timer in
             self.text = number.formattedPercentage()
-            number += RandomGenerator.generateBetween(Constants.minGrow, Constants.maxGrow)
+            number += self.generateBetween(Constants.minGrow, Constants.maxGrow)
             
             if number >= Constants.maxSupportedValue {
                 self.text = "\(Constants.maxSupportedValue)."
@@ -33,5 +34,9 @@ class LoadingLabel: UILabel {
                 }
             }
         }
+    }
+    
+    func generateBetween(_ lower: Int, _ upper: Int) -> Int {
+        return Int.random(in: lower...upper)
     }
 }

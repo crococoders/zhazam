@@ -14,7 +14,10 @@ final class MenuViewController: UIViewController {
     @IBOutlet private var titlesStackView: UIStackView!
     
     private let categories = CategoryViewModelStorage().viewModels
-    private let fadeDuration: TimeInterval = 1.0
+    
+    private enum Constants {
+        static let fadeDuration: TimeInterval = 1.0
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +41,7 @@ final class MenuViewController: UIViewController {
     }
     
     private func fade(view: UIView) {
-        UIView.animate(withDuration: fadeDuration, delay: 0, options: [.curveLinear], animations: {
+        UIView.animate(withDuration: Constants.fadeDuration, delay: 0, options: [.curveLinear], animations: {
             view.alpha = 0
         }, completion: nil)
     }
@@ -53,7 +56,7 @@ final class MenuViewController: UIViewController {
     }
     
     private func changeState(for view: LoadingButtonView) {
-        view.showLoading(withDuration: fadeDuration) { [weak self] in
+        view.showLoading(withDuration: Constants.fadeDuration) { [weak self] in
             guard let self = self else { return }
             //TODO: Push new view controller
         }

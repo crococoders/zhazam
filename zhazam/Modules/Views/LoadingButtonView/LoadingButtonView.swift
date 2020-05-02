@@ -12,8 +12,8 @@ protocol LoadingButtonViewDelegate: AnyObject {
     func didPressTitleButton(_ view: LoadingButtonView)
 }
 
-class LoadingButtonView: UIView {
-    let title: String
+final class LoadingButtonView: UIView {
+    private let title: String
     weak var delegate: LoadingButtonViewDelegate?
     
     @IBOutlet private var titleButton: UIButton!
