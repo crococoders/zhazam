@@ -12,28 +12,53 @@ final class MenuViewController: UIViewController {
     
     @IBOutlet private var logoView: LogoView!
     @IBOutlet private var titlesStackView: UIStackView!
+    @IBOutlet private var titlesStackViewHeightConstraint: NSLayoutConstraint!
     
-    private let categories = CategoryViewModelStorage().viewModels
+    private let storage: CategoryViewModelStorageProtocol
     
-    private enum Constants {
-        static let fadeDuration: TimeInterval = 1.0
+    private let fadeDuration: TimeInterval = 1.0
+    private let stackViewHeight: Int = 50
+    private let stackViewSpacing: Int = 10
+    
+    init(storage: CategoryViewModelStorageProtocol) {
+        self.storage = storage
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTitleViews()
+        configureHeaderView()
+        setupStackViewHeightConstraint()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        showHiddenViews()
+        setInitialState()
+    }
+    
+    private func configureHeaderView() {
+        logoView.isHidden = storage.headerIsHidden
+    }
+    
+    private func setupStackViewHeightConstraint() {
+        let categoriesCount = storage.categories.count
+        let height = categoriesCount * stackViewHeight + (categoriesCount - 1) * stackViewSpacing
+        
+        titlesStackViewHeightConstraint.constant = CGFloat(height)
+        titlesStackViewHeightConstraint.priority = .defaultHigh
     }
     
     private func setupTitleViews() {
-        for title in categories {
-            let buttonView = LoadingButtonView(title: title)
+        for category in storage.categories {
+            let buttonView = LoadingButtonView(category: category)
             buttonView.delegate = self
             
             titlesStackView.addArrangedSubview(buttonView)
@@ -41,12 +66,12 @@ final class MenuViewController: UIViewController {
     }
     
     private func fade(view: UIView) {
-        UIView.animate(withDuration: Constants.fadeDuration, delay: 0, options: [.curveLinear], animations: {
+        UIView.animate(withDuration: fadeDuration, delay: 0, options: [.curveLinear], animations: {
             view.alpha = 0
         }, completion: nil)
     }
     
-    private func showHiddenViews() {
+    private func setInitialState() {
         titlesStackView.arrangedSubviews.forEach { view in
             let loadingView = view as? LoadingButtonView
             loadingView?.alpha = 1
@@ -55,17 +80,17 @@ final class MenuViewController: UIViewController {
         }
     }
     
-    private func changeState(for view: LoadingButtonView) {
-        view.showLoading(withDuration: Constants.fadeDuration) { [weak self] in
-            guard let self = self else { return }
-            //TODO: Push new view controller
+    private func changeState(for view: LoadingButtonView, with viewController: UIViewController?) {
+        view.showLoading(withDuration: fadeDuration) { [weak self] in
+            guard let self = self, let viewController = viewController else { return }
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }
 
 extension MenuViewController: LoadingButtonViewDelegate {
-    func didPressTitleButton(_ view: LoadingButtonView) {
-        changeState(for: view)
+    func didPressTitleButton(view: LoadingButtonView, viewController: UIViewController?) {
+        changeState(for: view, with: viewController)
         
         for subview in titlesStackView.arrangedSubviews where view != subview {
             fade(view: subview)

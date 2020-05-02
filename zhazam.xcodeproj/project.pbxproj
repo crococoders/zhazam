@@ -130,13 +130,13 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
-		042E9CF8244F49A30017E596 /* LoadingButtonView */ = {
+		042E9CF8244F49A30017E596 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				04583707245C257C00DC0E1B /* LoadingButtonView.xib */,
 				04583705245C255200DC0E1B /* LoadingButtonView.swift */,
 			);
-			path = LoadingButtonView;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		0458370F245D640500DC0E1B /* Labels */ = {
@@ -150,6 +150,7 @@
 		0499A2A62439FE0A008C6FAD /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				042E9CF8244F49A30017E596 /* Views */,
 				04218FFC245586EB001FF96F /* Storage */,
 				0499A2A92439FE68008C6FAD /* MenuViewController.xib */,
 				0499A2A72439FE54008C6FAD /* MenuViewController.swift */,
@@ -164,7 +165,6 @@
 				7AF36DA1245C4CFE00048E2F /* TitledTextView */,
 				7AF36D9A245C4A5000048E2F /* ConfigurationView */,
 				0499A2B0243A0B43008C6FAD /* Logo */,
-				042E9CF8244F49A30017E596 /* LoadingButtonView */,
 			);
 			path = Views;
 			sourceTree = "<group>";

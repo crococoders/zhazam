@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingButtonView" customModule="zhazam" customModuleProvider="target">
+            <connections>
+                <outlet property="loadingLabel" destination="B8i-qp-B2B" id="XS6-DT-hJy"/>
+                <outlet property="titleButton" destination="bnR-C8-6z1" id="i2h-ZC-IdY"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="295" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-C8-6z1">
+                    <rect key="frame" x="0.0" y="0.0" width="129" height="50"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" name="textColor"/>
+                    </state>
+                    <connections>
+                        <action selector="titleButtonPressed:" destination="-1" eventType="touchUpInside" id="mr9-ah-ApF"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B8i-qp-B2B" customClass="LoadingLabel" customModule="zhazam" customModuleProvider="target">
+                    <rect key="frame" x="129" y="0.0" width="28" height="17"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" name="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" name="background"/>
+            <constraints>
+                <constraint firstItem="bnR-C8-6z1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="48z-2p-0gl"/>
+                <constraint firstItem="B8i-qp-B2B" firstAttribute="leading" secondItem="bnR-C8-6z1" secondAttribute="trailing" id="J7B-oG-dZm"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="bnR-C8-6z1" secondAttribute="bottom" id="bme-ra-G61"/>
+                <constraint firstItem="B8i-qp-B2B" firstAttribute="top" secondItem="bnR-C8-6z1" secondAttribute="top" id="fUq-7L-UJ8"/>
+                <constraint firstItem="bnR-C8-6z1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sCW-c9-9NG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="52" y="16"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
