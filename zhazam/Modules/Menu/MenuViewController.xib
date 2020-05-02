@@ -11,11 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="zhazam" customModuleProvider="target">
             <connections>
                 <outlet property="logoView" destination="6Tk-Kp-RDT" id="LdC-jn-mu5"/>
+                <outlet property="titlesStackView" destination="Lwy-fW-Sjb" id="8WW-dU-LJR"/>
                 <outlet property="view" destination="iN0-l3-epB" id="wjr-ES-V6e"/>
-                <outletCollection property="titleButtons" destination="ntT-po-BfG" collectionClass="NSMutableArray" id="Tip-dg-WYs"/>
-                <outletCollection property="titleButtons" destination="9tR-aD-Njx" collectionClass="NSMutableArray" id="Rmr-Eu-awL"/>
-                <outletCollection property="titleButtons" destination="y6v-0i-sDb" collectionClass="NSMutableArray" id="4AF-lA-wAs"/>
-                <outletCollection property="titleButtons" destination="EGg-6z-L1w" collectionClass="NSMutableArray" id="n9a-bs-Rzw"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,73 +20,28 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zmq-6P-yeM">
-                    <rect key="frame" x="20" y="233.5" width="335" height="240"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntT-po-BfG">
-                            <rect key="frame" x="0.0" y="0.0" width="335" height="53.5"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
-                            <state key="normal" title="Play">
-                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </state>
-                            <connections>
-                                <action selector="openViewController:" destination="-1" eventType="touchUpInside" id="TZ3-zM-fHF"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tR-aD-Njx">
-                            <rect key="frame" x="0.0" y="63.5" width="335" height="53"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
-                            <state key="normal" title="Leaderboard">
-                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </state>
-                            <connections>
-                                <action selector="openViewController:" destination="-1" eventType="touchUpInside" id="4II-30-3Y3"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6v-0i-sDb">
-                            <rect key="frame" x="0.0" y="126.5" width="335" height="53.5"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
-                            <state key="normal" title="Statistics">
-                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </state>
-                            <connections>
-                                <action selector="openViewController:" destination="-1" eventType="touchUpInside" id="tmR-Z2-ZWQ"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGg-6z-L1w">
-                            <rect key="frame" x="0.0" y="190" width="335" height="50"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
-                            <state key="normal" title="Settings">
-                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                            </state>
-                            <connections>
-                                <action selector="openViewController:" destination="-1" eventType="touchUpInside" id="kkL-EG-gba"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="240" id="WiN-DH-auv"/>
-                        <constraint firstItem="ntT-po-BfG" firstAttribute="leading" secondItem="Zmq-6P-yeM" secondAttribute="leading" id="y68-e6-WmJ"/>
-                        <constraint firstAttribute="trailing" secondItem="ntT-po-BfG" secondAttribute="trailing" id="zef-uo-lLq"/>
-                    </constraints>
-                </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Tk-Kp-RDT" customClass="LogoView" customModule="zhazam" customModuleProvider="target">
-                    <rect key="frame" x="20" y="123.5" width="335" height="30"/>
+                    <rect key="frame" x="40" y="118.5" width="295" height="30"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Ccw-V8-xEu"/>
+                        <constraint firstAttribute="height" constant="30" id="8oW-uN-4Kg"/>
                     </constraints>
                 </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lwy-fW-Sjb">
+                    <rect key="frame" x="40" y="228.5" width="295" height="230"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="230" id="XQ5-r9-aG5"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="6Tk-Kp-RDT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="ScT-7e-9xq"/>
-                <constraint firstItem="Zmq-6P-yeM" firstAttribute="top" secondItem="6Tk-Kp-RDT" secondAttribute="bottom" constant="80" id="WG6-vL-pcd"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6Tk-Kp-RDT" secondAttribute="trailing" constant="20" id="cmK-fF-YeY"/>
-                <constraint firstItem="Zmq-6P-yeM" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" constant="20" id="ezP-xW-qK6"/>
-                <constraint firstItem="Zmq-6P-yeM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="hqq-de-Wsh"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Zmq-6P-yeM" secondAttribute="trailing" constant="20" id="rDG-k7-SNg"/>
-                <constraint firstItem="Zmq-6P-yeM" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="zVj-LH-gER"/>
+                <constraint firstItem="Lwy-fW-Sjb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="5t2-iQ-zVa"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Lwy-fW-Sjb" secondAttribute="trailing" constant="40" id="AI5-Li-v2w"/>
+                <constraint firstItem="6Tk-Kp-RDT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="AuI-vg-o7g"/>
+                <constraint firstItem="Lwy-fW-Sjb" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" constant="10" id="PTL-rH-HY0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6Tk-Kp-RDT" secondAttribute="trailing" constant="40" id="g9M-cn-UXv"/>
+                <constraint firstItem="Lwy-fW-Sjb" firstAttribute="top" secondItem="6Tk-Kp-RDT" secondAttribute="bottom" constant="80" id="vcv-Hm-Sto"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="139" y="129"/>

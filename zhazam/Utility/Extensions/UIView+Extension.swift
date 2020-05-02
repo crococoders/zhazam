@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UIView {
+extension UIView {
     /// Loads an XIB file with the same name as view and adds the first object from the file as a subview
     func loadFromNib(_ bundle: Bundle? = Bundle.main) {
         let className = String(describing: type(of: self))

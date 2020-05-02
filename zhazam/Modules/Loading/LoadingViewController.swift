@@ -10,12 +10,14 @@ import UIKit
 
 final class LoadingViewController: UIViewController {
     private enum Constants {
-        static let maxAvailablePercentage: Int = 10
-        static let minDelayTime: TimeInterval = 0.6
-        static let maxDelayTime: TimeInterval = 0.8
+        static let timerDelay: TimeInterval = 0.08
+        static let minGrow: Int = 1
+        static let maxGrow: Int = 10
+        static let maxSupportedValue: Int = 100
+        static let completionDelay = 0.1
     }
     
-    @IBOutlet private var percentageLabel: UILabel!
+    @IBOutlet private var percentageLabel: LoadingLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,7 @@ final class LoadingViewController: UIViewController {
     }
     
     private func setupNavigation() {
-        generateFakeLoading(from: generateRandomNumber(from: 0, to: 2)) { [weak self] in
+        showLoading { [weak self] in
             guard let self = self else { return }
             self.performAnimatedTransition()
         }
@@ -41,32 +43,7 @@ final class LoadingViewController: UIViewController {
                           completion: nil)
     }
     
-    private func generateFakeLoading(from percentage: Int, completion: @escaping() -> Void) {
-        guard percentage < Constants.maxAvailablePercentage else {
-            completion()
-            return
-        }
-        
-        let randomNumber = generateRandomNumber(from: percentage,
-                                                to: Constants.maxAvailablePercentage)
-        
-        setPercentageLabel(number: randomNumber)
-        
-        let delayTime = generateRandomDelay()
-        DispatchQueue.main.asyncAfter(deadline: .now() + delayTime) { [weak self] in
-            self?.generateFakeLoading(from: randomNumber, completion: completion)
-        }
-    }
-    
-    private func generateRandomNumber(from lower: Int, to upper: Int) -> Int {
-        return Int.random(in: lower...upper)
-    }
-    
-    private func generateRandomDelay() -> TimeInterval {
-        return TimeInterval.random(in: Constants.minDelayTime...Constants.maxDelayTime)
-    }
-    
-    private func setPercentageLabel(number: Int) {
-        percentageLabel.text = number < Constants.maxAvailablePercentage ? "0\(number)0." : "\(number)0."
+    private func showLoading(completion: @escaping() -> Void) {
+        percentageLabel.generateFakeLoading(completion: completion)
     }
 }

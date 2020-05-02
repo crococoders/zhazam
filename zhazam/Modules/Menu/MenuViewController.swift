@@ -11,23 +11,61 @@ import UIKit
 final class MenuViewController: UIViewController {
     
     @IBOutlet private var logoView: LogoView!
-    @IBOutlet private var titleButtons: [UIButton]!
+    @IBOutlet private var titlesStackView: UIStackView!
+    
+    private let categories = CategoryViewModelStorage().viewModels
+    private let fadeDuration: TimeInterval = 1.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupTitleViews()
     }
     
-    @IBAction func openViewController(_ sender: UIButton) {
-        fadeButtons(with: sender) { _ in
-            //Perform navigation
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        showHiddenViews()
+    }
+    
+    private func setupTitleViews() {
+        for title in categories {
+            let buttonView = LoadingButtonView(title: title)
+            buttonView.delegate = self
+            
+            titlesStackView.addArrangedSubview(buttonView)
         }
     }
     
-    private func fadeButtons(with selectedButton: UIButton, completion: ((Bool) -> Void)?) {
-        for button in titleButtons where selectedButton.tag != button.tag {
-            UIView.animate(withDuration: 1.0, delay: 0, options: [.curveLinear], animations: {
-                button.alpha = 0
-            }, completion: completion)
+    private func fade(view: UIView) {
+        UIView.animate(withDuration: fadeDuration, delay: 0, options: [.curveLinear], animations: {
+            view.alpha = 0
+        }, completion: nil)
+    }
+    
+    private func showHiddenViews() {
+        titlesStackView.arrangedSubviews.forEach { view in
+            let loadingView = view as? LoadingButtonView
+            loadingView?.alpha = 1
+            
+            loadingView?.resetLoadingLabel()
+        }
+    }
+    
+    private func changeState(for view: LoadingButtonView) {
+        view.showLoading(withDuration: fadeDuration) { [weak self] in
+            guard let self = self else { return }
+            //TODO: Push new view controller
+        }
+    }
+}
+
+extension MenuViewController: LoadingButtonViewDelegate {
+    func didPressTitleButton(_ view: LoadingButtonView) {
+        changeState(for: view)
+        
+        for subview in titlesStackView.arrangedSubviews where view != subview {
+            self.fade(view: subview)
         }
     }
 }
