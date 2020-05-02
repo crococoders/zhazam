@@ -17,7 +17,7 @@ final class LoadingLabel: UILabel {
         static let completionDelay = 0.1
     }
     
-    func generateFakeLoading(completion: @escaping() -> Void) {
+    func generateFakeLoading(completion: @escaping Callback) {
         var number = 0
         
         Timer.scheduledTimer(withTimeInterval: Constants.timerDelay, repeats: true) { timer in

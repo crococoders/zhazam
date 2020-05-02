@@ -32,7 +32,7 @@ final class LoadingButtonView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func showLoading(withDuration: TimeInterval, completion: @escaping() -> Void) {
+    func showLoading(withDuration: TimeInterval, completion: @escaping Callback) {
         UIView.animate(withDuration: withDuration, delay: 0, options: [.curveLinear], animations: {
             self.loadingLabel.alpha = 1
         }, completion: { _ in
@@ -53,7 +53,7 @@ final class LoadingButtonView: UIView {
         delegate?.didPressTitleButton(self)
     }
     
-    private func animateTitle(completion: @escaping() -> Void) {
+    private func animateTitle(completion: @escaping Callback) {
         loadingLabel.generateFakeLoading(completion: completion)
     }
 }

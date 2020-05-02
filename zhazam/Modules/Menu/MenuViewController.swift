@@ -68,7 +68,7 @@ extension MenuViewController: LoadingButtonViewDelegate {
         changeState(for: view)
         
         for subview in titlesStackView.arrangedSubviews where view != subview {
-            self.fade(view: subview)
+            fade(view: subview)
         }
     }
 }

@@ -36,7 +36,7 @@ final class LoadingViewController: UIViewController {
                           completion: nil)
     }
     
-    private func showLoading(completion: @escaping() -> Void) {
+    private func showLoading(completion: @escaping Callback) {
         percentageLabel.generateFakeLoading(completion: completion)
     }
     
