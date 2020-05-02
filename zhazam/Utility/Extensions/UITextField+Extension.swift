@@ -9,7 +9,6 @@
 import UIKit
 
 extension UITextField {
-    
     var isActive: Bool {
         return self.isFirstResponder
     }
@@ -25,5 +24,4 @@ extension UITextField {
     func resignResponder() {
         self.resignFirstResponder()
     }
-    
 }

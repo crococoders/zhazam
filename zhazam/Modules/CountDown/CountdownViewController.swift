@@ -38,7 +38,7 @@ final class CountdownViewController: UIViewController {
         }
     }
     
-    private func configureCountdownTimer(completion: @escaping() -> Void) {
+    private func configureCountdownTimer(completion: @escaping Callback) {
         var rowIndex = 0
         Timer.scheduledTimer(withTimeInterval: Constants.timerTimeInterval, repeats: true) { timer in
             self.pickerView.selectRow(rowIndex, inComponent: 0, animated: true)

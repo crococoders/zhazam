@@ -7,6 +7,10 @@
 */
 
 "AppName" = "Zhazam";
+"Play" = "Играть";
+"Leaderboard" = "Таблица лидеров";
+"Statistics" = "Статистика";
+"Settings" = "Настройки";
 "Language" = "Язык";
 "Light" = "Свет";
 "On" = "Вкл";
