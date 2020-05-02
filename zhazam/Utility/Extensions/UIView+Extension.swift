@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UIView {
+extension UIView {
     /// Loads an XIB file with the same name as view and adds the first object from the file as a subview
     func loadFromNib(_ bundle: Bundle? = Bundle.main) {
         let className = String(describing: type(of: self))
@@ -31,5 +31,17 @@ public extension UIView {
         }
         
         return view
+    }
+    
+    func flash(numberOfFlashes: Float, completion: @escaping Callback) {
+        UIView.animate(withDuration: 0.15, delay: 0.0,
+                       options: [.curveEaseInOut, .autoreverse, .repeat],
+                       animations: {
+                        UIView.setAnimationRepeatCount(numberOfFlashes)
+                        self.backgroundColor = R.color.textColor()?.withAlphaComponent(0.5)
+        }, completion: { _ in
+            self.backgroundColor = R.color.background()
+            completion()
+        })
     }
 }

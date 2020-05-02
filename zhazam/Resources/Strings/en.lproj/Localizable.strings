@@ -7,3 +7,9 @@
 */
 
 "AppName" = "Zhazam";
+"Language" = "Language";
+"Light" = "Light";
+"On" = "On";
+"Off" = "Off";
+"LetsStart" = "Let's start?";
+"Start" = "Start";

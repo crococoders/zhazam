@@ -22,5 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .forEach { $0.execute() }
         return true
     }
-
+    
+    func changeInterfaceStyle() {
+        if #available(iOS 13.0, *) {
+            let isDarkModeEnabled = window?.overrideUserInterfaceStyle == .dark
+            window?.overrideUserInterfaceStyle = isDarkModeEnabled ? .light : .dark
+            UserDefaultsStorage.isDarkModeEnabled = !isDarkModeEnabled
+        }
+    }
 }
