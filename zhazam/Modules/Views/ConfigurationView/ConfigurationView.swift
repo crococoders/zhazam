@@ -1,5 +1,5 @@
 //
-//  HorizontalKeyValueView.swift
+//  ConfigurationView.swift
 //  zhazam
 //
 //  Created by Nurbek Ismagulov on 5/1/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class HorizontalKeyValueView: UIView {
+final class ConfigurationView: UIView {
 
     var onTap: Callback?
     var value: String? {

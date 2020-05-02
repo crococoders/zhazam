@@ -37,8 +37,8 @@
 		7AF36D95245C48AB00048E2F /* OnboardingPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF36D93245C48AB00048E2F /* OnboardingPageViewController.xib */; };
 		7AF36D98245C491800048E2F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36D96245C491800048E2F /* OnboardingViewController.swift */; };
 		7AF36D99245C491800048E2F /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF36D97245C491800048E2F /* OnboardingViewController.xib */; };
-		7AF36D9E245C4A8C00048E2F /* HorizontalKeyValueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF36D9D245C4A8C00048E2F /* HorizontalKeyValueView.xib */; };
-		7AF36DA0245C4A9B00048E2F /* HorizontalKeyValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36D9F245C4A9B00048E2F /* HorizontalKeyValueView.swift */; };
+		7AF36D9E245C4A8C00048E2F /* ConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF36D9D245C4A8C00048E2F /* ConfigurationView.xib */; };
+		7AF36DA0245C4A9B00048E2F /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36D9F245C4A9B00048E2F /* ConfigurationView.swift */; };
 		7AF36DA3245C4D1200048E2F /* TitledTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36DA2245C4D1200048E2F /* TitledTextView.swift */; };
 		7AF36DA5245C4D1D00048E2F /* TitledTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF36DA4245C4D1D00048E2F /* TitledTextView.xib */; };
 		7AF36DA7245C502300048E2F /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36DA6245C502300048E2F /* Optional+Extension.swift */; };
@@ -83,8 +83,8 @@
 		7AF36D93245C48AB00048E2F /* OnboardingPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingPageViewController.xib; sourceTree = "<group>"; };
 		7AF36D96245C491800048E2F /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		7AF36D97245C491800048E2F /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
-		7AF36D9D245C4A8C00048E2F /* HorizontalKeyValueView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalKeyValueView.xib; sourceTree = "<group>"; };
-		7AF36D9F245C4A9B00048E2F /* HorizontalKeyValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalKeyValueView.swift; sourceTree = "<group>"; };
+		7AF36D9D245C4A8C00048E2F /* ConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationView.xib; sourceTree = "<group>"; };
+		7AF36D9F245C4A9B00048E2F /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
 		7AF36DA2245C4D1200048E2F /* TitledTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextView.swift; sourceTree = "<group>"; };
 		7AF36DA4245C4D1D00048E2F /* TitledTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitledTextView.xib; sourceTree = "<group>"; };
 		7AF36DA6245C502300048E2F /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				7AF36DA1245C4CFE00048E2F /* TitledTextView */,
-				7AF36D9A245C4A5000048E2F /* HorizontalKeyValueView */,
+				7AF36D9A245C4A5000048E2F /* ConfigurationView */,
 				0499A2B0243A0B43008C6FAD /* Logo */,
 			);
 			path = Views;
@@ -322,13 +322,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		7AF36D9A245C4A5000048E2F /* HorizontalKeyValueView */ = {
+		7AF36D9A245C4A5000048E2F /* ConfigurationView */ = {
 			isa = PBXGroup;
 			children = (
-				7AF36D9D245C4A8C00048E2F /* HorizontalKeyValueView.xib */,
-				7AF36D9F245C4A9B00048E2F /* HorizontalKeyValueView.swift */,
+				7AF36D9D245C4A8C00048E2F /* ConfigurationView.xib */,
+				7AF36D9F245C4A9B00048E2F /* ConfigurationView.swift */,
 			);
-			path = HorizontalKeyValueView;
+			path = ConfigurationView;
 			sourceTree = "<group>";
 		};
 		7AF36DA1245C4CFE00048E2F /* TitledTextView */ = {
@@ -477,7 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70236EF4234BA6D300FCD963 /* HelveticaNeue-Bold.ttf in Resources */,
-				7AF36D9E245C4A8C00048E2F /* HorizontalKeyValueView.xib in Resources */,
+				7AF36D9E245C4A8C00048E2F /* ConfigurationView.xib in Resources */,
 				B0172A192315347E0041EF2E /* Localizable.strings in Resources */,
 				24A6174E244FA9CA007F92E6 /* CountdownViewController.xib in Resources */,
 				7AF36D99245C491800048E2F /* OnboardingViewController.xib in Resources */,
@@ -592,7 +592,7 @@
 				70236EFE234BA83E00FCD963 /* UIView+Extension.swift in Sources */,
 				70236F0A234CC8B500FCD963 /* UserPreference.swift in Sources */,
 				24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */,
-				7AF36DA0245C4A9B00048E2F /* HorizontalKeyValueView.swift in Sources */,
+				7AF36DA0245C4A9B00048E2F /* ConfigurationView.swift in Sources */,
 				70236F0E234CCACA00FCD963 /* Command.swift in Sources */,
 				7AF36DA9245C504B00048E2F /* UIViewController+Extension.swift in Sources */,
 				0499A2A82439FE54008C6FAD /* MenuViewController.swift in Sources */,

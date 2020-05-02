@@ -35,7 +35,7 @@ final class OnboardingViewController: UIViewController {
     private func configureContent() {
         switch page.type {
         case .interfaceStyle:
-            let horizontalView = HorizontalKeyValueView(key: R.string.localizable.light(),
+            let horizontalView = ConfigurationView(key: R.string.localizable.light(),
                                                         value: getInterfaceStyleString())
             horizontalView.onTap = { [weak self] in
                 guard let self = self else { return }
@@ -97,7 +97,7 @@ final class OnboardingViewController: UIViewController {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        guard let view = stackView.arrangedSubviews.first as? HorizontalKeyValueView,
+        guard let view = stackView.arrangedSubviews.first as? ConfigurationView,
             page.type == .interfaceStyle else { return }
         view.value = getInterfaceStyleString()
     }
