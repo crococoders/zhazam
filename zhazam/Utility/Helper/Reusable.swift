@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias Callback = () -> Void
+
 protocol Reusable {
     var identifier: String { get }
 }

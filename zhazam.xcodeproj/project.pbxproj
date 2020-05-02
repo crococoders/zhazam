@@ -21,6 +21,10 @@
 		0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A55230C5FF200ECE3B4 /* LoadingViewController.swift */; };
 		0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A5A230C5FF500ECE3B4 /* Images.xcassets */; };
 		0DCC8FDF2358D1670047EB90 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DCC8FDE2358D1670047EB90 /* LoadingViewController.xib */; };
+		24A6174E244FA9CA007F92E6 /* CountdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A6174D244FA9CA007F92E6 /* CountdownViewController.xib */; };
+		24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */; };
+		24A6175B245209A1007F92E6 /* TimerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6175A245209A1007F92E6 /* TimerRowView.swift */; };
+		24A6175D245209AC007F92E6 /* TimerRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A6175C245209AC007F92E6 /* TimerRowView.xib */; };
 		70236EF2234BA69E00FCD963 /* HelveticaNeue-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70236EF0234BA69E00FCD963 /* HelveticaNeue-Light.ttf */; };
 		70236EF4234BA6D300FCD963 /* HelveticaNeue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70236EF3234BA6D300FCD963 /* HelveticaNeue-Bold.ttf */; };
 		70236EFE234BA83E00FCD963 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236EFD234BA83E00FCD963 /* UIView+Extension.swift */; };
@@ -32,6 +36,19 @@
 		70236F15234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F14234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift */; };
 		70236F17234CCE0100FCD963 /* WindowConfigurationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F16234CCE0100FCD963 /* WindowConfigurationCommand.swift */; };
 		70236F1B234CD0EF00FCD963 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F1A234CD0EF00FCD963 /* UITextField+Extension.swift */; };
+		7ACE4529245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */; };
+		7ACE452C245C45C70016E080 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE452B245C45C70016E080 /* UserDefaultsStorage.swift */; };
+		7AF36D90245C479500048E2F /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36D8F245C479500048E2F /* OnboardingPage.swift */; };
+		7AF36D94245C48AB00048E2F /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36D92245C48AB00048E2F /* OnboardingPageViewController.swift */; };
+		7AF36D95245C48AB00048E2F /* OnboardingPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF36D93245C48AB00048E2F /* OnboardingPageViewController.xib */; };
+		7AF36D98245C491800048E2F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36D96245C491800048E2F /* OnboardingViewController.swift */; };
+		7AF36D99245C491800048E2F /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF36D97245C491800048E2F /* OnboardingViewController.xib */; };
+		7AF36D9E245C4A8C00048E2F /* ConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF36D9D245C4A8C00048E2F /* ConfigurationView.xib */; };
+		7AF36DA0245C4A9B00048E2F /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36D9F245C4A9B00048E2F /* ConfigurationView.swift */; };
+		7AF36DA3245C4D1200048E2F /* TitledTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36DA2245C4D1200048E2F /* TitledTextView.swift */; };
+		7AF36DA5245C4D1D00048E2F /* TitledTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF36DA4245C4D1D00048E2F /* TitledTextView.xib */; };
+		7AF36DA7245C502300048E2F /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36DA6245C502300048E2F /* Optional+Extension.swift */; };
+		7AF36DA9245C504B00048E2F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36DA8245C504B00048E2F /* UIViewController+Extension.swift */; };
 		B0172A02231532120041EF2E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0172A01231532120041EF2E /* R.generated.swift */; };
 		B0172A192315347E0041EF2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0172A1B2315347E0041EF2E /* Localizable.strings */; };
 		B0172A25231556EF0041EF2E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0172A24231556EF0041EF2E /* Colors.xcassets */; };
@@ -56,6 +73,10 @@
 		0D1F8A5A230C5FF500ECE3B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0D1F8A5F230C5FF500ECE3B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DCC8FDE2358D1670047EB90 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
+		24A6174D244FA9CA007F92E6 /* CountdownViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountdownViewController.xib; sourceTree = "<group>"; };
+		24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
+		24A6175A245209A1007F92E6 /* TimerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRowView.swift; sourceTree = "<group>"; };
+		24A6175C245209AC007F92E6 /* TimerRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerRowView.xib; sourceTree = "<group>"; };
 		70236EF0234BA69E00FCD963 /* HelveticaNeue-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Light.ttf"; sourceTree = "<group>"; };
 		70236EF3234BA6D300FCD963 /* HelveticaNeue-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Bold.ttf"; sourceTree = "<group>"; };
 		70236EFD234BA83E00FCD963 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -67,6 +88,19 @@
 		70236F14234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarAppearanceCommand.swift; sourceTree = "<group>"; };
 		70236F16234CCE0100FCD963 /* WindowConfigurationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowConfigurationCommand.swift; sourceTree = "<group>"; };
 		70236F1A234CD0EF00FCD963 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceStyleConfigurationCommand.swift; sourceTree = "<group>"; };
+		7ACE452B245C45C70016E080 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		7AF36D8F245C479500048E2F /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
+		7AF36D92245C48AB00048E2F /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		7AF36D93245C48AB00048E2F /* OnboardingPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingPageViewController.xib; sourceTree = "<group>"; };
+		7AF36D96245C491800048E2F /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		7AF36D97245C491800048E2F /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		7AF36D9D245C4A8C00048E2F /* ConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationView.xib; sourceTree = "<group>"; };
+		7AF36D9F245C4A9B00048E2F /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
+		7AF36DA2245C4D1200048E2F /* TitledTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextView.swift; sourceTree = "<group>"; };
+		7AF36DA4245C4D1D00048E2F /* TitledTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitledTextView.xib; sourceTree = "<group>"; };
+		7AF36DA6245C502300048E2F /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
+		7AF36DA8245C504B00048E2F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		A0D3B98F6F39B6FC0063B84C /* Pods-zhazam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhazam.release.xcconfig"; path = "Target Support Files/Pods-zhazam/Pods-zhazam.release.xcconfig"; sourceTree = "<group>"; };
 		B0172A01231532120041EF2E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		B0172A1A2315347E0041EF2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -129,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				0458370F245D640500DC0E1B /* Labels */,
+				7AF36DA1245C4CFE00048E2F /* TitledTextView */,
+				7AF36D9A245C4A5000048E2F /* ConfigurationView */,
 				0499A2B0243A0B43008C6FAD /* Logo */,
 				042E9CF8244F49A30017E596 /* LoadingButton */,
 			);
@@ -179,8 +215,10 @@
 			isa = PBXGroup;
 			children = (
 				0499A2AB243A0050008C6FAD /* Views */,
+				7AF36D8E245C474700048E2F /* Onboarding */,
 				0499A2A62439FE0A008C6FAD /* Menu */,
 				0DCC8FDD2358D14F0047EB90 /* Loading */,
+				24A61748244FA248007F92E6 /* CountDown */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -194,12 +232,33 @@
 			path = Loading;
 			sourceTree = "<group>";
 		};
+		24A61748244FA248007F92E6 /* CountDown */ = {
+			isa = PBXGroup;
+			children = (
+				24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */,
+				24A6174D244FA9CA007F92E6 /* CountdownViewController.xib */,
+				24A6175E24521ADD007F92E6 /* Views */,
+			);
+			path = CountDown;
+			sourceTree = "<group>";
+		};
+		24A6175E24521ADD007F92E6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				24A6175A245209A1007F92E6 /* TimerRowView.swift */,
+				24A6175C245209AC007F92E6 /* TimerRowView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		70236EEE234BA4B800FCD963 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				70236EFD234BA83E00FCD963 /* UIView+Extension.swift */,
 				70236F1A234CD0EF00FCD963 /* UITextField+Extension.swift */,
 				0458370D245C9A3C00DC0E1B /* Int+Extension.swift */,
+				7AF36DA6245C502300048E2F /* Optional+Extension.swift */,
+				7AF36DA8245C504B00048E2F /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -207,6 +266,7 @@
 		70236EFF234CC66A00FCD963 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7ACE452A245C45AE0016E080 /* UserDefaultsStorage */,
 				70236F08234CC88F00FCD963 /* User */,
 				70236F00234CC67400FCD963 /* AsyncResult */,
 			);
@@ -262,8 +322,64 @@
 			children = (
 				70236F14234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift */,
 				70236F16234CCE0100FCD963 /* WindowConfigurationCommand.swift */,
+				7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */,
 			);
 			path = Commands;
+			sourceTree = "<group>";
+		};
+		7AB3D095245C46F1004B9339 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7AF36D8F245C479500048E2F /* OnboardingPage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7ACE452A245C45AE0016E080 /* UserDefaultsStorage */ = {
+			isa = PBXGroup;
+			children = (
+				7ACE452B245C45C70016E080 /* UserDefaultsStorage.swift */,
+			);
+			path = UserDefaultsStorage;
+			sourceTree = "<group>";
+		};
+		7AF36D8E245C474700048E2F /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				7AF36D91245C480300048E2F /* Views */,
+				7AB3D095245C46F1004B9339 /* Model */,
+			);
+			name = Onboarding;
+			path = ../Application/Configuration/Onboarding;
+			sourceTree = "<group>";
+		};
+		7AF36D91245C480300048E2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7AF36D92245C48AB00048E2F /* OnboardingPageViewController.swift */,
+				7AF36D93245C48AB00048E2F /* OnboardingPageViewController.xib */,
+				7AF36D96245C491800048E2F /* OnboardingViewController.swift */,
+				7AF36D97245C491800048E2F /* OnboardingViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7AF36D9A245C4A5000048E2F /* ConfigurationView */ = {
+			isa = PBXGroup;
+			children = (
+				7AF36D9D245C4A8C00048E2F /* ConfigurationView.xib */,
+				7AF36D9F245C4A9B00048E2F /* ConfigurationView.swift */,
+			);
+			path = ConfigurationView;
+			sourceTree = "<group>";
+		};
+		7AF36DA1245C4CFE00048E2F /* TitledTextView */ = {
+			isa = PBXGroup;
+			children = (
+				7AF36DA2245C4D1200048E2F /* TitledTextView.swift */,
+				7AF36DA4245C4D1D00048E2F /* TitledTextView.xib */,
+			);
+			path = TitledTextView;
 			sourceTree = "<group>";
 		};
 		B0172A00231531F60041EF2E /* Resources */ = {
@@ -403,13 +519,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				70236EF4234BA6D300FCD963 /* HelveticaNeue-Bold.ttf in Resources */,
+				7AF36D9E245C4A8C00048E2F /* ConfigurationView.xib in Resources */,
 				B0172A192315347E0041EF2E /* Localizable.strings in Resources */,
+				24A6174E244FA9CA007F92E6 /* CountdownViewController.xib in Resources */,
+				7AF36D99245C491800048E2F /* OnboardingViewController.xib in Resources */,
 				0499A2AD243A024B008C6FAD /* LogoView.xib in Resources */,
 				0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */,
 				04583708245C257C00DC0E1B /* LoadingButtonView.xib in Resources */,
 				0499A2AA2439FE69008C6FAD /* MenuViewController.xib in Resources */,
 				0DCC8FDF2358D1670047EB90 /* LoadingViewController.xib in Resources */,
+				7AF36DA5245C4D1D00048E2F /* TitledTextView.xib in Resources */,
+				7AF36D95245C48AB00048E2F /* OnboardingPageViewController.xib in Resources */,
 				0DCC8FDF2358D1670047EB90 /* LoadingViewController.xib in Resources */,
+				24A6175D245209AC007F92E6 /* TimerRowView.xib in Resources */,
 				B05AEDEB2318F77500CCA98F /* LaunchScreen.storyboard in Resources */,
 				70236EF2234BA69E00FCD963 /* HelveticaNeue-Light.ttf in Resources */,
 				B0172A25231556EF0041EF2E /* Colors.xcassets in Resources */,
@@ -503,7 +625,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				70236F1B234CD0EF00FCD963 /* UITextField+Extension.swift in Sources */,
+				7AF36DA7245C502300048E2F /* Optional+Extension.swift in Sources */,
+				7ACE4529245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift in Sources */,
+				7AF36D90245C479500048E2F /* OnboardingPage.swift in Sources */,
 				70236F15234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift in Sources */,
+				7AF36D98245C491800048E2F /* OnboardingViewController.swift in Sources */,
 				70236F02234CC68700FCD963 /* AsyncResult.swift in Sources */,
 				70236F10234CCAEA00FCD963 /* CommandsBuilder.swift in Sources */,
 				04583711245D641200DC0E1B /* LoadingLabel.swift in Sources */,
@@ -513,14 +639,21 @@
 				70236F0E234CCACA00FCD963 /* Command.swift in Sources */,
 				04583706245C255200DC0E1B /* LoadingButtonView.swift in Sources */,
 				0458370E245C9A3C00DC0E1B /* Int+Extension.swift in Sources */,
+				24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */,
+				7AF36DA0245C4A9B00048E2F /* ConfigurationView.swift in Sources */,
+				7AF36DA9245C504B00048E2F /* UIViewController+Extension.swift in Sources */,
 				0499A2A82439FE54008C6FAD /* MenuViewController.swift in Sources */,
 				70236F07234CC76700FCD963 /* Reusable.swift in Sources */,
+				7AF36D94245C48AB00048E2F /* OnboardingPageViewController.swift in Sources */,
 				0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */,
 				70236F17234CCE0100FCD963 /* WindowConfigurationCommand.swift in Sources */,
 				04218FFE24558752001FF96F /* CategoryViewModelStorage.swift in Sources */,
 				0499A2AF243A0257008C6FAD /* LogoView.swift in Sources */,
 				0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */,
 				B0172A02231532120041EF2E /* R.generated.swift in Sources */,
+				7AF36DA3245C4D1200048E2F /* TitledTextView.swift in Sources */,
+				7ACE452C245C45C70016E080 /* UserDefaultsStorage.swift in Sources */,
+				24A6175B245209A1007F92E6 /* TimerRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

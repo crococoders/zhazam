@@ -9,13 +9,6 @@
 import UIKit
 
 final class LoadingViewController: UIViewController {
-    private enum Constants {
-        static let timerDelay: TimeInterval = 0.08
-        static let minGrow: Int = 1
-        static let maxGrow: Int = 10
-        static let maxSupportedValue: Int = 100
-        static let completionDelay = 0.1
-    }
     
     @IBOutlet private var percentageLabel: LoadingLabel!
     
@@ -28,11 +21,11 @@ final class LoadingViewController: UIViewController {
     private func setupNavigation() {
         showLoading { [weak self] in
             guard let self = self else { return }
-            self.performAnimatedTransition()
+            UserDefaultsStorage.isOnboardingCompleted ? self.routeToMainScreen() : self.routeToOnboarding()
         }
     }
     
-    private func performAnimatedTransition() {
+    private func routeToMainScreen() {
         guard let window = UIApplication.shared.keyWindow else { return }
         window.rootViewController = UINavigationController(rootViewController: MenuViewController())
         
@@ -46,4 +39,25 @@ final class LoadingViewController: UIViewController {
     private func showLoading(completion: @escaping() -> Void) {
         percentageLabel.generateFakeLoading(completion: completion)
     }
+    
+    private func routeToOnboarding() {
+        let pages = getPages()
+        let viewController = OnboardingPageViewController(with: pages)
+        viewController.modalPresentationStyle = .fullScreen
+
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    private func getPages() -> [OnboardingPage] {
+        let pages = OnboardingType.allCases.map { type -> OnboardingPage in
+            return OnboardingPage(type: type)
+        }
+
+        return pages
+    }
+}
+
+extension UserDefaultsStorage {
+    @UserDefaultsBacked(key: "isOnboardingCompleted", defaultValue: false)
+    static var isOnboardingCompleted: Bool
 }

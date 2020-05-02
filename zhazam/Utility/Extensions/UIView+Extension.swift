@@ -32,4 +32,16 @@ extension UIView {
         
         return view
     }
+    
+    func flash(numberOfFlashes: Float, completion: @escaping Callback) {
+        UIView.animate(withDuration: 0.15, delay: 0.0,
+                       options: [.curveEaseInOut, .autoreverse, .repeat],
+                       animations: {
+                        UIView.setAnimationRepeatCount(numberOfFlashes)
+                        self.backgroundColor = R.color.textColor()?.withAlphaComponent(0.5)
+        }, completion: { _ in
+            self.backgroundColor = R.color.background()
+            completion()
+        })
+    }
 }

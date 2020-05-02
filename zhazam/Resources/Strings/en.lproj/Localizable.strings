@@ -11,5 +11,9 @@
 "Leaderboard" = "Leaderboard";
 "Statistics" = "Statistics";
 "Settings" = "Settings";
-
-
+"Language" = "Language";
+"Light" = "Light";
+"On" = "On";
+"Off" = "Off";
+"LetsStart" = "Let's start?";
+"Start" = "Start";

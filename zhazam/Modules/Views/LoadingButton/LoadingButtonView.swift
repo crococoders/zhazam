@@ -16,14 +16,6 @@ class LoadingButtonView: UIView {
     let title: String
     weak var delegate: LoadingButtonViewDelegate?
     
-    private enum Constants {
-        static let timerDelay: TimeInterval = 0.05
-        static let minGrow: Int = 1
-        static let maxGrow: Int = 10
-        static let maxSupportedValue: Int = 100
-        static let completionDelay = 0.1
-    }
-    
     @IBOutlet private var titleButton: UIButton!
     @IBOutlet private var loadingLabel: LoadingLabel!
     
