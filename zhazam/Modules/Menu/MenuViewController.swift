@@ -36,6 +36,7 @@ final class MenuViewController: UIViewController {
         setupTitleViews()
         configureHeaderView()
         setupStackViewHeightConstraint()
+        setupHiddenNavigationTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,6 +86,11 @@ final class MenuViewController: UIViewController {
             guard let self = self, let viewController = viewController else { return }
             self.navigationController?.pushViewController(viewController, animated: true)
         }
+    }
+    
+    private func setupHiddenNavigationTitle() {
+        title = storage.title
+        navigationItem.titleView = UIView()
     }
 }
 

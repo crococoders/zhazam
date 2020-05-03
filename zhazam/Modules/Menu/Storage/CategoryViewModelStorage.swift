@@ -11,6 +11,7 @@ import UIKit
 protocol CategoryViewModelStorageProtocol {
     var categories: [CategoryViewModel] { get }
     var headerIsHidden: Bool { get }
+    var title: String { get }
 }
 
 struct CategoryViewModel {
@@ -21,6 +22,7 @@ struct CategoryViewModel {
 struct MenuViewModelStorage: CategoryViewModelStorageProtocol {
     var categories: [CategoryViewModel]
     var headerIsHidden: Bool = false
+    var title: String = R.string.localizable.menu().lowercased()
     
     init() {
         categories = [CategoryViewModel(title: R.string.localizable.play(),
@@ -35,6 +37,7 @@ struct MenuViewModelStorage: CategoryViewModelStorageProtocol {
 struct GameModesViewModelStorage: CategoryViewModelStorageProtocol {
     var categories: [CategoryViewModel]
     var headerIsHidden: Bool = true
+    var title: String = R.string.localizable.modes().lowercased()
     
     init() {
         categories = [CategoryViewModel(title: R.string.localizable.classic(), viewController: nil),
