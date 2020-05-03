@@ -48,6 +48,10 @@
 		7AF36DA5245C4D1D00048E2F /* TitledTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF36DA4245C4D1D00048E2F /* TitledTextView.xib */; };
 		7AF36DA7245C502300048E2F /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36DA6245C502300048E2F /* Optional+Extension.swift */; };
 		7AF36DA9245C504B00048E2F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36DA8245C504B00048E2F /* UIViewController+Extension.swift */; };
+		7AF36DAD245ED31C00048E2F /* ClassicModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36DAB245ED31C00048E2F /* ClassicModeViewController.swift */; };
+		7AF36DAE245ED31C00048E2F /* ClassicModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF36DAC245ED31C00048E2F /* ClassicModeViewController.xib */; };
+		7AF36DB2245ED95100048E2F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36DB1245ED95100048E2F /* Game.swift */; };
+		7AF36DB5245EDACA00048E2F /* KeyboardStateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36DB4245EDACA00048E2F /* KeyboardStateObserver.swift */; };
 		B0172A02231532120041EF2E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0172A01231532120041EF2E /* R.generated.swift */; };
 		B0172A192315347E0041EF2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0172A1B2315347E0041EF2E /* Localizable.strings */; };
 		B0172A25231556EF0041EF2E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0172A24231556EF0041EF2E /* Colors.xcassets */; };
@@ -99,6 +103,10 @@
 		7AF36DA4245C4D1D00048E2F /* TitledTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitledTextView.xib; sourceTree = "<group>"; };
 		7AF36DA6245C502300048E2F /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		7AF36DA8245C504B00048E2F /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		7AF36DAB245ED31C00048E2F /* ClassicModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicModeViewController.swift; sourceTree = "<group>"; };
+		7AF36DAC245ED31C00048E2F /* ClassicModeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassicModeViewController.xib; sourceTree = "<group>"; };
+		7AF36DB1245ED95100048E2F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		7AF36DB4245EDACA00048E2F /* KeyboardStateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStateObserver.swift; sourceTree = "<group>"; };
 		A0D3B98F6F39B6FC0063B84C /* Pods-zhazam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhazam.release.xcconfig"; path = "Target Support Files/Pods-zhazam/Pods-zhazam.release.xcconfig"; sourceTree = "<group>"; };
 		B0172A01231532120041EF2E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		B0172A1A2315347E0041EF2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -212,6 +220,7 @@
 		0DCC8FDC2358D13B0047EB90 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7AF36DAF245ED93400048E2F /* Game */,
 				0499A2AB243A0050008C6FAD /* Views */,
 				7AF36D8E245C474700048E2F /* Onboarding */,
 				0499A2A62439FE0A008C6FAD /* Menu */,
@@ -264,6 +273,7 @@
 		70236EFF234CC66A00FCD963 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				7AF36DB3245EDAAF00048E2F /* KeyboardStateObserver */,
 				7ACE452A245C45AE0016E080 /* UserDefaultsStorage */,
 				70236F08234CC88F00FCD963 /* User */,
 				70236F00234CC67400FCD963 /* AsyncResult */,
@@ -324,6 +334,15 @@
 			path = Commands;
 			sourceTree = "<group>";
 		};
+		7A87F32D245F79A40016E4B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7AF36DAB245ED31C00048E2F /* ClassicModeViewController.swift */,
+				7AF36DAC245ED31C00048E2F /* ClassicModeViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7AB3D095245C46F1004B9339 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +396,39 @@
 				7AF36DA4245C4D1D00048E2F /* TitledTextView.xib */,
 			);
 			path = TitledTextView;
+			sourceTree = "<group>";
+		};
+		7AF36DAA245ED2E400048E2F /* ClassicMode */ = {
+			isa = PBXGroup;
+			children = (
+				7A87F32D245F79A40016E4B4 /* View */,
+			);
+			path = ClassicMode;
+			sourceTree = "<group>";
+		};
+		7AF36DAF245ED93400048E2F /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				7AF36DB0245ED94100048E2F /* Models */,
+				7AF36DAA245ED2E400048E2F /* ClassicMode */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		7AF36DB0245ED94100048E2F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7AF36DB1245ED95100048E2F /* Game.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7AF36DB3245EDAAF00048E2F /* KeyboardStateObserver */ = {
+			isa = PBXGroup;
+			children = (
+				7AF36DB4245EDACA00048E2F /* KeyboardStateObserver.swift */,
+			);
+			path = KeyboardStateObserver;
 			sourceTree = "<group>";
 		};
 		B0172A00231531F60041EF2E /* Resources */ = {
@@ -521,6 +573,7 @@
 				24A6174E244FA9CA007F92E6 /* CountdownViewController.xib in Resources */,
 				7AF36D99245C491800048E2F /* OnboardingViewController.xib in Resources */,
 				0499A2AD243A024B008C6FAD /* LogoView.xib in Resources */,
+				7AF36DAE245ED31C00048E2F /* ClassicModeViewController.xib in Resources */,
 				0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */,
 				04583708245C257C00DC0E1B /* LoadingButtonView.xib in Resources */,
 				0499A2AA2439FE69008C6FAD /* MenuViewController.xib in Resources */,
@@ -629,6 +682,7 @@
 				7AF36D98245C491800048E2F /* OnboardingViewController.swift in Sources */,
 				70236F02234CC68700FCD963 /* AsyncResult.swift in Sources */,
 				70236F10234CCAEA00FCD963 /* CommandsBuilder.swift in Sources */,
+				7AF36DAD245ED31C00048E2F /* ClassicModeViewController.swift in Sources */,
 				04583711245D641200DC0E1B /* LoadingLabel.swift in Sources */,
 				70236EFE234BA83E00FCD963 /* UIView+Extension.swift in Sources */,
 				70236F0A234CC8B500FCD963 /* UserPreference.swift in Sources */,
@@ -636,12 +690,14 @@
 				04583706245C255200DC0E1B /* LoadingButtonView.swift in Sources */,
 				0458370E245C9A3C00DC0E1B /* Int+Extension.swift in Sources */,
 				24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */,
+				7AF36DB5245EDACA00048E2F /* KeyboardStateObserver.swift in Sources */,
 				7AF36DA0245C4A9B00048E2F /* ConfigurationView.swift in Sources */,
 				7AF36DA9245C504B00048E2F /* UIViewController+Extension.swift in Sources */,
 				0499A2A82439FE54008C6FAD /* MenuViewController.swift in Sources */,
 				70236F07234CC76700FCD963 /* Reusable.swift in Sources */,
 				7AF36D94245C48AB00048E2F /* OnboardingPageViewController.swift in Sources */,
 				0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */,
+				7AF36DB2245ED95100048E2F /* Game.swift in Sources */,
 				70236F17234CCE0100FCD963 /* WindowConfigurationCommand.swift in Sources */,
 				04218FFE24558752001FF96F /* CategoryViewModelStorage.swift in Sources */,
 				0499A2AF243A0257008C6FAD /* LogoView.swift in Sources */,

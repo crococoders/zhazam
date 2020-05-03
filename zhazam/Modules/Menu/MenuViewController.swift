@@ -59,6 +59,8 @@ final class MenuViewController: UIViewController {
         view.showLoading(withDuration: Constants.fadeDuration) { [weak self] in
             guard let self = self else { return }
             //TODO: Push new view controller
+            let vc = ClassicModeViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
