@@ -67,9 +67,9 @@ final class MenuViewController: UIViewController {
     }
     
     private func fade(view: UIView) {
-        UIView.animate(withDuration: fadeDuration, delay: 0, options: [.curveLinear], animations: {
+        UIView.animate(withDuration: fadeDuration) {
             view.alpha = 0
-        }, completion: nil)
+        }
     }
     
     private func setInitialState() {
@@ -82,10 +82,22 @@ final class MenuViewController: UIViewController {
     }
     
     private func changeState(for view: LoadingButtonView, with viewController: UIViewController?) {
-        view.showLoading(withDuration: fadeDuration) { [weak self] in
-            guard let self = self, let viewController = viewController else { return }
-            self.navigationController?.pushViewController(viewController, animated: true)
+        if !storage.hasLoader {
+            DispatchQueue.main.asyncAfter(deadline: .now() + fadeDuration) { [weak self] in
+                guard let self = self else { return }
+                self.navigateToNextPage(with: viewController)
+            }
+        } else {
+            view.showLoading(withDuration: fadeDuration) { [weak self] in
+                guard let self = self else { return }
+                self.navigateToNextPage(with: viewController)
+            }
         }
+    }
+    
+    private func navigateToNextPage(with viewController: UIViewController?) {
+        guard let viewController = viewController else { return }
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func setupHiddenNavigationTitle() {
