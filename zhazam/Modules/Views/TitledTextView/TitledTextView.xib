@@ -26,7 +26,7 @@
                     <color key="textColor" name="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="start" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jrk-FI-wV6">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="start" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jrk-FI-wV6" customClass="PrimaryTextField" customModule="zhazam" customModuleProvider="target">
                     <rect key="frame" x="4" y="78" width="406" height="68"/>
                     <color key="tintColor" name="textColor"/>
                     <color key="textColor" name="textColor"/>

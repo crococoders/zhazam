@@ -35,6 +35,7 @@
 		70236F15234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F14234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift */; };
 		70236F17234CCE0100FCD963 /* WindowConfigurationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F16234CCE0100FCD963 /* WindowConfigurationCommand.swift */; };
 		70236F1B234CD0EF00FCD963 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F1A234CD0EF00FCD963 /* UITextField+Extension.swift */; };
+		7A5498752461DC9600BE4F15 /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5498742461DC9600BE4F15 /* PrimaryTextField.swift */; };
 		7ACE4529245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */; };
 		7ACE452C245C45C70016E080 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE452B245C45C70016E080 /* UserDefaultsStorage.swift */; };
 		7AF36D90245C479500048E2F /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36D8F245C479500048E2F /* OnboardingPage.swift */; };
@@ -90,6 +91,7 @@
 		70236F14234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarAppearanceCommand.swift; sourceTree = "<group>"; };
 		70236F16234CCE0100FCD963 /* WindowConfigurationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowConfigurationCommand.swift; sourceTree = "<group>"; };
 		70236F1A234CD0EF00FCD963 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		7A5498742461DC9600BE4F15 /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
 		7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceStyleConfigurationCommand.swift; sourceTree = "<group>"; };
 		7ACE452B245C45C70016E080 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		7AF36D8F245C479500048E2F /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		0499A2AB243A0050008C6FAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A5498732461DC6200BE4F15 /* PrimaryTextField */,
 				0458370F245D640500DC0E1B /* Labels */,
 				7AF36DA1245C4CFE00048E2F /* TitledTextView */,
 				7AF36D9A245C4A5000048E2F /* ConfigurationView */,
@@ -332,6 +335,14 @@
 				7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */,
 			);
 			path = Commands;
+			sourceTree = "<group>";
+		};
+		7A5498732461DC6200BE4F15 /* PrimaryTextField */ = {
+			isa = PBXGroup;
+			children = (
+				7A5498742461DC9600BE4F15 /* PrimaryTextField.swift */,
+			);
+			path = PrimaryTextField;
 			sourceTree = "<group>";
 		};
 		7A87F32D245F79A40016E4B4 /* View */ = {
@@ -695,6 +706,7 @@
 				7AF36DA9245C504B00048E2F /* UIViewController+Extension.swift in Sources */,
 				0499A2A82439FE54008C6FAD /* MenuViewController.swift in Sources */,
 				70236F07234CC76700FCD963 /* Reusable.swift in Sources */,
+				7A5498752461DC9600BE4F15 /* PrimaryTextField.swift in Sources */,
 				7AF36D94245C48AB00048E2F /* OnboardingPageViewController.swift in Sources */,
 				0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */,
 				7AF36DB2245ED95100048E2F /* Game.swift in Sources */,

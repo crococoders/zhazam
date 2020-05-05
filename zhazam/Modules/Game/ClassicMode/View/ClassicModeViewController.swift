@@ -25,24 +25,27 @@ final class ClassicModeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         keyboardObserver.startListening()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         keyboardObserver.stopListening()
     }
     
     private func configureTextField() {
         textField.becomeResponder()
+        textField.delegate = self
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     private func configureKeyboardObserving() {
         keyboardObserver.willShow = { [weak self] rect, _, curve in
             self?.updateTextFieldConstraints(offset: rect.height - 12, curve: curve)
-
         }
+        
         keyboardObserver.willHide = { [weak self] _, _, curve in
             self?.updateTextFieldConstraints(offset: 12, curve: curve)
         }
@@ -68,5 +71,25 @@ final class ClassicModeViewController: UIViewController {
         UIView.animate(withDuration: 0.5) {
             self.textView.contentOffset = CGPoint(x: 0, y: rect.origin.y + 6.0)
         }
+    }
+    
+    private func scroll(to location: Int) {
+        let range = NSRange(location: location, length: 0)
+        let rect = textView.layoutManager.boundingRect(forGlyphRange: range, in: textView.textContainer)
+        
+        UIView.animate(withDuration: 0.5) {
+            self.textView.contentOffset = CGPoint(x: 0, y: rect.origin.y + 6.0)
+        }
+    }
+}
+
+extension ClassicModeViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        let updatedString = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
+        scroll(to: updatedString?.count ?? 0)
+        
+        return true
     }
 }
