@@ -38,7 +38,6 @@ final class ClassicModeViewController: UIViewController {
     private func configureTextField() {
         textField.becomeResponder()
         textField.delegate = self
-        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     private func configureKeyboardObserving() {
@@ -60,17 +59,6 @@ final class ClassicModeViewController: UIViewController {
                 self?.textFieldBottomConstraint.constant = offset
                 self?.view.layoutIfNeeded()
         })
-    }
-    
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        let count: Int = textField.text?.count ?? 0
-        
-        let rect = textView.layoutManager.boundingRect(forGlyphRange: NSRange(location: count,
-                                                                              length: 0),
-                                                                              in: textView.textContainer)
-        UIView.animate(withDuration: 0.5) {
-            self.textView.contentOffset = CGPoint(x: 0, y: rect.origin.y + 6.0)
-        }
     }
     
     private func scroll(to location: Int) {
