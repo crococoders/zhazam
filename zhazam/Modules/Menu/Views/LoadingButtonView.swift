@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol LoadingButtonViewDelegate: AnyObject {
+protocol LoadingButtonViewDelegate: MenuSubviewsDelegate {
     func didPressTitleButton(view: LoadingButtonView, viewController: UIViewController?)
 }
 
@@ -19,7 +19,7 @@ final class LoadingButtonView: UIView {
     @IBOutlet private var titleButton: UIButton!
     @IBOutlet private var loadingLabel: LoadingLabel!
     
-    init(category: CategoryViewModel) {
+    init(_ category: CategoryViewModel) {
         self.category = category
         
         super.init(frame: .zero)

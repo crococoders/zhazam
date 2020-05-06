@@ -8,10 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		04218FFE24558752001FF96F /* CategoryViewModelStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04218FFD24558752001FF96F /* CategoryViewModelStorage.swift */; };
+		0421FC422461E6CD0093E23D /* ExtendedConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421FC412461E6CD0093E23D /* ExtendedConfigurationView.swift */; };
+		0421FC442461E6E90093E23D /* ExtendedConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0421FC432461E6E90093E23D /* ExtendedConfigurationView.xib */; };
 		04583706245C255200DC0E1B /* LoadingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04583705245C255200DC0E1B /* LoadingButtonView.swift */; };
 		04583708245C257C00DC0E1B /* LoadingButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04583707245C257C00DC0E1B /* LoadingButtonView.xib */; };
 		0458370E245C9A3C00DC0E1B /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458370D245C9A3C00DC0E1B /* Int+Extension.swift */; };
 		04583711245D641200DC0E1B /* LoadingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04583710245D641200DC0E1B /* LoadingLabel.swift */; };
+		0484560524632E0E00932906 /* MainMenuStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484560424632E0E00932906 /* MainMenuStorage.swift */; };
+		0484560724632EE400932906 /* GameModesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484560624632EE400932906 /* GameModesStorage.swift */; };
+		0484560A24632F2200932906 /* SettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484560924632F2200932906 /* SettingsStorage.swift */; };
 		0499A2A82439FE54008C6FAD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A2A72439FE54008C6FAD /* MenuViewController.swift */; };
 		0499A2AA2439FE69008C6FAD /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0499A2A92439FE68008C6FAD /* MenuViewController.xib */; };
 		0499A2AD243A024B008C6FAD /* LogoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0499A2AC243A024B008C6FAD /* LogoView.xib */; };
@@ -57,10 +62,15 @@
 
 /* Begin PBXFileReference section */
 		04218FFD24558752001FF96F /* CategoryViewModelStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModelStorage.swift; sourceTree = "<group>"; };
+		0421FC412461E6CD0093E23D /* ExtendedConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendedConfigurationView.swift; sourceTree = "<group>"; };
+		0421FC432461E6E90093E23D /* ExtendedConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExtendedConfigurationView.xib; sourceTree = "<group>"; };
 		04583705245C255200DC0E1B /* LoadingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButtonView.swift; sourceTree = "<group>"; };
 		04583707245C257C00DC0E1B /* LoadingButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingButtonView.xib; sourceTree = "<group>"; };
 		0458370D245C9A3C00DC0E1B /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		04583710245D641200DC0E1B /* LoadingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingLabel.swift; sourceTree = "<group>"; };
+		0484560424632E0E00932906 /* MainMenuStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuStorage.swift; sourceTree = "<group>"; };
+		0484560624632EE400932906 /* GameModesStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesStorage.swift; sourceTree = "<group>"; };
+		0484560924632F2200932906 /* SettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStorage.swift; sourceTree = "<group>"; };
 		0499A2A72439FE54008C6FAD /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		0499A2A92439FE68008C6FAD /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		0499A2AC243A024B008C6FAD /* LogoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoView.xib; sourceTree = "<group>"; };
@@ -122,12 +132,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04218FFC245586EB001FF96F /* Storage */ = {
+		04218FFC245586EB001FF96F /* Storages */ = {
 			isa = PBXGroup;
 			children = (
 				04218FFD24558752001FF96F /* CategoryViewModelStorage.swift */,
+				0484560424632E0E00932906 /* MainMenuStorage.swift */,
+				0484560624632EE400932906 /* GameModesStorage.swift */,
+				0484560924632F2200932906 /* SettingsStorage.swift */,
 			);
-			path = Storage;
+			path = Storages;
 			sourceTree = "<group>";
 		};
 		042E9CF8244F49A30017E596 /* Views */ = {
@@ -135,6 +148,8 @@
 			children = (
 				04583707245C257C00DC0E1B /* LoadingButtonView.xib */,
 				04583705245C255200DC0E1B /* LoadingButtonView.swift */,
+				0421FC432461E6E90093E23D /* ExtendedConfigurationView.xib */,
+				0421FC412461E6CD0093E23D /* ExtendedConfigurationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				042E9CF8244F49A30017E596 /* Views */,
-				04218FFC245586EB001FF96F /* Storage */,
+				04218FFC245586EB001FF96F /* Storages */,
 				0499A2A92439FE68008C6FAD /* MenuViewController.xib */,
 				0499A2A72439FE54008C6FAD /* MenuViewController.swift */,
 			);
@@ -531,6 +546,7 @@
 				24A6175D245209AC007F92E6 /* TimerRowView.xib in Resources */,
 				B05AEDEB2318F77500CCA98F /* LaunchScreen.storyboard in Resources */,
 				70236EF2234BA69E00FCD963 /* HelveticaNeue-Light.ttf in Resources */,
+				0421FC442461E6E90093E23D /* ExtendedConfigurationView.xib in Resources */,
 				B0172A25231556EF0041EF2E /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,6 +643,7 @@
 				7AF36D90245C479500048E2F /* OnboardingPage.swift in Sources */,
 				70236F15234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift in Sources */,
 				7AF36D98245C491800048E2F /* OnboardingViewController.swift in Sources */,
+				0421FC422461E6CD0093E23D /* ExtendedConfigurationView.swift in Sources */,
 				70236F02234CC68700FCD963 /* AsyncResult.swift in Sources */,
 				70236F10234CCAEA00FCD963 /* CommandsBuilder.swift in Sources */,
 				04583711245D641200DC0E1B /* LoadingLabel.swift in Sources */,
@@ -635,7 +652,9 @@
 				70236F0E234CCACA00FCD963 /* Command.swift in Sources */,
 				04583706245C255200DC0E1B /* LoadingButtonView.swift in Sources */,
 				0458370E245C9A3C00DC0E1B /* Int+Extension.swift in Sources */,
+				0484560524632E0E00932906 /* MainMenuStorage.swift in Sources */,
 				24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */,
+				0484560A24632F2200932906 /* SettingsStorage.swift in Sources */,
 				7AF36DA0245C4A9B00048E2F /* ConfigurationView.swift in Sources */,
 				7AF36DA9245C504B00048E2F /* UIViewController+Extension.swift in Sources */,
 				0499A2A82439FE54008C6FAD /* MenuViewController.swift in Sources */,
@@ -643,6 +662,7 @@
 				7AF36D94245C48AB00048E2F /* OnboardingPageViewController.swift in Sources */,
 				0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */,
 				70236F17234CCE0100FCD963 /* WindowConfigurationCommand.swift in Sources */,
+				0484560724632EE400932906 /* GameModesStorage.swift in Sources */,
 				04218FFE24558752001FF96F /* CategoryViewModelStorage.swift in Sources */,
 				0499A2AF243A0257008C6FAD /* LogoView.swift in Sources */,
 				0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */,
@@ -794,7 +814,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 3CHG2WRTC8;
 				INFOPLIST_FILE = zhazam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

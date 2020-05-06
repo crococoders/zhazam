@@ -44,4 +44,10 @@ extension UIView {
             completion()
         })
     }
+    
+    func fade(withDuration: TimeInterval, till value: CGFloat) {
+        UIView.animate(withDuration: withDuration) {
+            self.alpha = value
+        }
+    }
 }

@@ -14,13 +14,13 @@ final class MenuViewController: UIViewController {
     @IBOutlet private var titlesStackView: UIStackView!
     @IBOutlet private var titlesStackViewHeightConstraint: NSLayoutConstraint!
     
-    private let storage: CategoryViewModelStorageProtocol
+    private let storage: CategoryStorageProtocol
     
     private let fadeDuration: TimeInterval = 1.0
     private let stackViewHeight: Int = 50
     private let stackViewSpacing: Int = 10
     
-    init(storage: CategoryViewModelStorageProtocol) {
+    init(storage: CategoryStorageProtocol) {
         self.storage = storage
         
         super.init(nibName: nil, bundle: nil)
@@ -59,21 +59,14 @@ final class MenuViewController: UIViewController {
     
     private func setupTitleViews() {
         for category in storage.categories {
-            let buttonView = LoadingButtonView(category: category)
-            buttonView.delegate = self
-            
-            titlesStackView.addArrangedSubview(buttonView)
-        }
-    }
-    
-    private func fade(view: UIView) {
-        UIView.animate(withDuration: fadeDuration) {
-            view.alpha = 0
+            titlesStackView.addArrangedSubview(category.view(self))
         }
     }
     
     private func setInitialState() {
         titlesStackView.arrangedSubviews.forEach { view in
+            view.alpha = 1
+            
             let loadingView = view as? LoadingButtonView
             loadingView?.alpha = 1
             
@@ -111,7 +104,20 @@ extension MenuViewController: LoadingButtonViewDelegate {
         changeState(for: view, with: viewController)
         
         for subview in titlesStackView.arrangedSubviews where view != subview {
-            fade(view: subview)
+            subview.fade(withDuration: fadeDuration, till: 0)
+        }
+    }
+}
+
+extension MenuViewController: ConfigurationViewDelegate {
+    func didPressValueButton() {
+        //
+    }
+    
+    func didTapView(_ view: ExtendedConfigurationView, _ isActive: Bool) {
+        for subview in titlesStackView.arrangedSubviews where view != subview {
+            subview.isUserInteractionEnabled = !isActive
+            subview.fade(withDuration: fadeDuration, till: isActive ? 0.25 : 1)
         }
     }
 }
