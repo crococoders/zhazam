@@ -13,7 +13,7 @@ enum ConfigurationCellType {
     case language
 }
 
-class ConfigurationViewModel {
+final class ConfigurationViewModel {
     var index: Int = 0
     
     var type: ConfigurationCellType

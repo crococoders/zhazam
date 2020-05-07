@@ -13,7 +13,7 @@ protocol ConfigurationViewDelegate: MenuSubviewsDelegate {
     func didTapView(_ view: MenuConfigurationView, _ isActive: Bool)
 }
 
-class MenuConfigurationView: UIView {
+final class MenuConfigurationView: UIView {
     
     weak var delegate: ConfigurationViewDelegate?
     
