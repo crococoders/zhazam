@@ -15,6 +15,11 @@
 		0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A55230C5FF200ECE3B4 /* LoadingViewController.swift */; };
 		0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A5A230C5FF500ECE3B4 /* Images.xcassets */; };
 		0DCC8FDF2358D1670047EB90 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DCC8FDE2358D1670047EB90 /* LoadingViewController.xib */; };
+		24729FAD245B43F500A69CC3 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24729FAC245B43F500A69CC3 /* StatisticsViewController.swift */; };
+		24729FAF245B440900A69CC3 /* StatisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24729FAE245B440900A69CC3 /* StatisticsViewController.xib */; };
+		24729FB2245B447900A69CC3 /* StatisticsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24729FB1245B447900A69CC3 /* StatisticsCollectionCell.swift */; };
+		24729FB4245B448700A69CC3 /* StatisticsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24729FB3245B448700A69CC3 /* StatisticsCollectionCell.xib */; };
+		24729FB7245C7B1A00A69CC3 /* StatisticsRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24729FB6245C7B1A00A69CC3 /* StatisticsRowModel.swift */; };
 		24A6174E244FA9CA007F92E6 /* CountdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A6174D244FA9CA007F92E6 /* CountdownViewController.xib */; };
 		24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */; };
 		24A6175B245209A1007F92E6 /* TimerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6175A245209A1007F92E6 /* TimerRowView.swift */; };
@@ -48,6 +53,11 @@
 		0D1F8A5A230C5FF500ECE3B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0D1F8A5F230C5FF500ECE3B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DCC8FDE2358D1670047EB90 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
+		24729FAC245B43F500A69CC3 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		24729FAE245B440900A69CC3 /* StatisticsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsViewController.xib; sourceTree = "<group>"; };
+		24729FB1245B447900A69CC3 /* StatisticsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionCell.swift; sourceTree = "<group>"; };
+		24729FB3245B448700A69CC3 /* StatisticsCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsCollectionCell.xib; sourceTree = "<group>"; };
+		24729FB6245C7B1A00A69CC3 /* StatisticsRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRowModel.swift; sourceTree = "<group>"; };
 		24A6174D244FA9CA007F92E6 /* CountdownViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountdownViewController.xib; sourceTree = "<group>"; };
 		24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
 		24A6175A245209A1007F92E6 /* TimerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRowView.swift; sourceTree = "<group>"; };
@@ -150,6 +160,7 @@
 				0499A2A62439FE0A008C6FAD /* Menu */,
 				0DCC8FDD2358D14F0047EB90 /* Loading */,
 				24A61748244FA248007F92E6 /* CountDown */,
+				24729FAB245B43C500A69CC3 /* Statistics */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -161,6 +172,26 @@
 				0DCC8FDE2358D1670047EB90 /* LoadingViewController.xib */,
 			);
 			path = Loading;
+			sourceTree = "<group>";
+		};
+		24729FAB245B43C500A69CC3 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				24729FAC245B43F500A69CC3 /* StatisticsViewController.swift */,
+				24729FAE245B440900A69CC3 /* StatisticsViewController.xib */,
+				24729FB0245B443600A69CC3 /* Views */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		24729FB0245B443600A69CC3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				24729FB1245B447900A69CC3 /* StatisticsCollectionCell.swift */,
+				24729FB6245C7B1A00A69CC3 /* StatisticsRowModel.swift */,
+				24729FB3245B448700A69CC3 /* StatisticsCollectionCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		24A61748244FA248007F92E6 /* CountDown */ = {
@@ -392,9 +423,11 @@
 				B0172A192315347E0041EF2E /* Localizable.strings in Resources */,
 				24A6174E244FA9CA007F92E6 /* CountdownViewController.xib in Resources */,
 				0499A2AD243A024B008C6FAD /* LogoView.xib in Resources */,
+				24729FAF245B440900A69CC3 /* StatisticsViewController.xib in Resources */,
 				0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */,
 				0499A2AA2439FE69008C6FAD /* MenuViewController.xib in Resources */,
 				0DCC8FDF2358D1670047EB90 /* LoadingViewController.xib in Resources */,
+				24729FB4245B448700A69CC3 /* StatisticsCollectionCell.xib in Resources */,
 				0DCC8FDF2358D1670047EB90 /* LoadingViewController.xib in Resources */,
 				24A6175D245209AC007F92E6 /* TimerRowView.xib in Resources */,
 				B05AEDEB2318F77500CCA98F /* LaunchScreen.storyboard in Resources */,
@@ -491,11 +524,14 @@
 			files = (
 				70236F1B234CD0EF00FCD963 /* UITextField+Extension.swift in Sources */,
 				70236F15234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift in Sources */,
+				24729FB2245B447900A69CC3 /* StatisticsCollectionCell.swift in Sources */,
+				24729FB7245C7B1A00A69CC3 /* StatisticsRowModel.swift in Sources */,
 				70236F02234CC68700FCD963 /* AsyncResult.swift in Sources */,
 				70236F10234CCAEA00FCD963 /* CommandsBuilder.swift in Sources */,
 				70236EFE234BA83E00FCD963 /* UIView+Extension.swift in Sources */,
 				70236F0A234CC8B500FCD963 /* UserPreference.swift in Sources */,
 				24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */,
+				24729FAD245B43F500A69CC3 /* StatisticsViewController.swift in Sources */,
 				70236F0E234CCACA00FCD963 /* Command.swift in Sources */,
 				0499A2A82439FE54008C6FAD /* MenuViewController.swift in Sources */,
 				70236F07234CC76700FCD963 /* Reusable.swift in Sources */,
