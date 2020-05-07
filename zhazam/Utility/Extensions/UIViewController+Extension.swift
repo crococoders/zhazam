@@ -18,4 +18,19 @@ extension UIViewController {
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
+    
+    func blinkBackground(flashCount: Float = 2) {
+        view.flash(numberOfFlashes: flashCount) { [weak self] in
+            guard let self = self else { return }
+            self.changeInterfaceStyle()
+        }
+    }
+    
+    private func changeInterfaceStyle() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+           return
+        }
+        
+        appDelegate.changeInterfaceStyle()
+    }
 }

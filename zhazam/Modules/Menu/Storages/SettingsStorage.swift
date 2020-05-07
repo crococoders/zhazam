@@ -16,8 +16,15 @@ struct SettingsStorage: CategoryStorageProtocol {
     
     init() {
         categories = [CategoryViewModel(title: R.string.localizable.nickname(), viewController: nil),
-                      CategoryViewModel(title: R.string.localizable.light(), viewController: nil, action: .choose),
-                      CategoryViewModel(title: R.string.localizable.language(), viewController: nil, action: .choose),
+                      CategoryViewModel(title: R.string.localizable.lights(),
+                                        viewController: nil,
+                                        action: .choose,
+                                        configuration: ConfigurationViewModel(type: .lights,
+                                                                              values: [R.string.localizable.off(),
+                                                                                       R.string.localizable.on()])),
+                      CategoryViewModel(title: R.string.localizable.language(),
+                                        viewController: nil,
+                                        action: .choose),
                       CategoryViewModel(title: R.string.localizable.share(), viewController: nil),
                       CategoryViewModel(title: R.string.localizable.contact(), viewController: nil),
                       CategoryViewModel(title: R.string.localizable.rate(), viewController: nil)]

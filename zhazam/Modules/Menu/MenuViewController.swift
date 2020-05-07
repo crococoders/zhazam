@@ -19,6 +19,7 @@ final class MenuViewController: UIViewController {
     private let fadeDuration: TimeInterval = 1.0
     private let stackViewHeight: Int = 50
     private let stackViewSpacing: Int = 10
+    private let flashCount: Float = 2
     
     init(storage: CategoryStorageProtocol) {
         self.storage = storage
@@ -39,8 +40,8 @@ final class MenuViewController: UIViewController {
         setupHiddenNavigationTitle()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         
         setInitialState()
     }
@@ -66,12 +67,16 @@ final class MenuViewController: UIViewController {
     private func setInitialState() {
         titlesStackView.arrangedSubviews.forEach { view in
             view.alpha = 1
+            view.isUserInteractionEnabled = true
             
             let loadingView = view as? LoadingButtonView
             loadingView?.alpha = 1
-            
             loadingView?.resetLoadingLabel()
+            
+            let configurationView = view as? MenuConfigurationView
+            configurationView?.resetState()
         }
+        //TODO: refactor
     }
     
     private func changeState(for view: LoadingButtonView, with viewController: UIViewController?) {
@@ -97,27 +102,33 @@ final class MenuViewController: UIViewController {
         title = storage.title
         navigationItem.titleView = UIView()
     }
+    
+    private func fadeUnselectedViews(for view: UIView, till value: CGFloat, _ interactionEnabled: Bool) {
+        for subview in titlesStackView.arrangedSubviews where view != subview {
+            subview.isUserInteractionEnabled = interactionEnabled
+            subview.fade(withDuration: fadeDuration, till: value)
+        }
+    }
 }
 
 extension MenuViewController: LoadingButtonViewDelegate {
     func didPressTitleButton(view: LoadingButtonView, viewController: UIViewController?) {
         changeState(for: view, with: viewController)
-        
-        for subview in titlesStackView.arrangedSubviews where view != subview {
-            subview.fade(withDuration: fadeDuration, till: 0)
-        }
+        fadeUnselectedViews(for: view, till: 0, false)
     }
 }
 
 extension MenuViewController: ConfigurationViewDelegate {
-    func didPressValueButton() {
-        //
+    func didPressValueButton(type: ConfigurationCellType) {
+        switch type {
+        case .lights:
+            blinkBackground()
+        default:
+            break
+        }
     }
     
-    func didTapView(_ view: ExtendedConfigurationView, _ isActive: Bool) {
-        for subview in titlesStackView.arrangedSubviews where view != subview {
-            subview.isUserInteractionEnabled = !isActive
-            subview.fade(withDuration: fadeDuration, till: isActive ? 0.25 : 1)
-        }
+    func didTapView(_ view: MenuConfigurationView, _ isActive: Bool) {
+        fadeUnselectedViews(for: view, till: isActive ? 0.25 : 1, !isActive)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CategoryViewModelStorage.swift
+//  CategoryViewModel.swift
 //  zhazam
 //
 //  Created by Sanzhar Alim on 4/26/20.
@@ -26,6 +26,7 @@ struct CategoryViewModel {
     var title: String
     var viewController: UIViewController?
     var action: Action = .navigate
+    var configuration: ConfigurationViewModel?
     
     func view(_ delegate: MenuSubviewsDelegate) -> UIView {
         switch action {
@@ -35,7 +36,7 @@ struct CategoryViewModel {
             
             return buttonView
         case .choose:
-            let configurationView = ExtendedConfigurationView(self)
+            let configurationView = MenuConfigurationView(self)
             configurationView.delegate = delegate as? ConfigurationViewDelegate
             
             return configurationView

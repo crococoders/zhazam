@@ -1,5 +1,5 @@
 //
-//  ExtendedConfigurationView.swift
+//  MenuConfigurationView.swift
 //  zhazam
 //
 //  Created by Sanzhar Alim on 5/6/20.
@@ -9,11 +9,11 @@
 import UIKit
 
 protocol ConfigurationViewDelegate: MenuSubviewsDelegate {
-    func didPressValueButton()
-    func didTapView(_ view: ExtendedConfigurationView, _ isActive: Bool)
+    func didPressValueButton(type: ConfigurationCellType)
+    func didTapView(_ view: MenuConfigurationView, _ isActive: Bool)
 }
 
-class ExtendedConfigurationView: UIView {
+class MenuConfigurationView: UIView {
     
     weak var delegate: ConfigurationViewDelegate?
     
@@ -41,6 +41,10 @@ class ExtendedConfigurationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func resetState() {
+        isActive = false
+    }
+    
     private func changeViewState() {
         valueButton.isUserInteractionEnabled = self.isActive
         
@@ -49,6 +53,7 @@ class ExtendedConfigurationView: UIView {
     
     private func setupInitialState() {
         titleLabel.text = category.title
+        valueButton.setTitle(category.configuration?.currentValue, for: .normal)
         
         valueButton.alpha = 0
         valueButton.isUserInteractionEnabled = false
@@ -63,12 +68,19 @@ class ExtendedConfigurationView: UIView {
     }
     
     @IBAction private func valueButtonPressed(_ sender: UIButton) {
-        delegate?.didPressValueButton()
+        guard let configuration = category.configuration else { return }
+        manageButton()
+        delegate?.didPressValueButton(type: configuration.type)
     }
     
     @IBAction private func didTapView(_ sender: UITapGestureRecognizer) {
         isActive = !isActive
         
         delegate?.didTapView(self, isActive)
+    }
+    
+    private func manageButton() {
+        category.configuration?.next()
+        valueButton.setTitle(category.configuration?.currentValue, for: .normal)
     }
 }
