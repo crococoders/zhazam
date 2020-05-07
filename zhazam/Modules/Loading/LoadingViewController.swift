@@ -27,7 +27,8 @@ final class LoadingViewController: UIViewController {
     
     private func routeToMainScreen() {
         guard let window = UIApplication.shared.keyWindow else { return }
-        window.rootViewController = UINavigationController(rootViewController: MenuViewController())
+        let rootViewController = MenuViewController(storage: MainMenuStorage())
+        window.rootViewController = UINavigationController(rootViewController: rootViewController)
         
         UIView.transition(with: window,
                           duration: 0.7,

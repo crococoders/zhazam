@@ -35,12 +35,11 @@ final class OnboardingViewController: UIViewController {
     private func configureContent() {
         switch page.type {
         case .interfaceStyle:
-            let horizontalView = ConfigurationView(key: R.string.localizable.light(),
+            let horizontalView = ConfigurationView(key: R.string.localizable.lights(),
                                                         value: getInterfaceStyleString())
             horizontalView.onTap = { [weak self] in
                 guard let self = self else { return }
-                self.view.flash(numberOfFlashes: 2,
-                                completion: self.changeInterfaceStyle)
+                self.blinkBackground()
             }
             
             stackView.addArrangedSubview(horizontalView)
@@ -77,17 +76,10 @@ final class OnboardingViewController: UIViewController {
         return true
     }
     
-    private func changeInterfaceStyle() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-           return
-        }
-        
-        appDelegate.changeInterfaceStyle()
-    }
-    
     private func routeToMainScreen() {
         guard let window = UIApplication.shared.keyWindow else { return }
-        window.rootViewController = UINavigationController(rootViewController: MenuViewController())
+        let rootViewController = MenuViewController(storage: MainMenuStorage())
+        window.rootViewController = UINavigationController(rootViewController: rootViewController)
         
         UIView.transition(with: window,
                           duration: 0.7,

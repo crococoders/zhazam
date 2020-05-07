@@ -8,19 +8,19 @@
 
 import UIKit
 
-protocol LoadingButtonViewDelegate: AnyObject {
-    func didPressTitleButton(_ view: LoadingButtonView)
+protocol LoadingButtonViewDelegate: MenuSubviewsDelegate {
+    func didPressTitleButton(view: LoadingButtonView, viewController: UIViewController?)
 }
 
 final class LoadingButtonView: UIView {
-    private let title: String
+    private let category: CategoryViewModel
     weak var delegate: LoadingButtonViewDelegate?
     
     @IBOutlet private var titleButton: UIButton!
     @IBOutlet private var loadingLabel: LoadingLabel!
     
-    init(title: String) {
-        self.title = title
+    init(_ category: CategoryViewModel) {
+        self.category = category
         
         super.init(frame: .zero)
         
@@ -46,11 +46,11 @@ final class LoadingButtonView: UIView {
     }
     
     private func setupTitle() {
-        titleButton.setTitle(title, for: .normal)
+        titleButton.setTitle(category.title, for: .normal)
     }
     
     @IBAction private func titleButtonPressed(_ sender: UIButton) {
-        delegate?.didPressTitleButton(self)
+        delegate?.didPressTitleButton(view: self, viewController: category.viewController)
     }
     
     private func animateTitle(completion: @escaping Callback) {

@@ -37,7 +37,7 @@ final class LogoView: UIView {
         animate()
     }
     
-    func animate() {
+    private func animate() {
         animateTitle {
             DispatchQueue.main.async {
                 self.animateCursor()

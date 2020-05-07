@@ -33,7 +33,7 @@ extension UIView {
         return view
     }
     
-    func flash(numberOfFlashes: Float, completion: @escaping Callback) {
+    func flash(numberOfFlashes: Float, completion: Callback?) {
         UIView.animate(withDuration: 0.15, delay: 0.0,
                        options: [.curveEaseInOut, .autoreverse, .repeat],
                        animations: {
@@ -41,7 +41,13 @@ extension UIView {
                         self.backgroundColor = R.color.textColor()?.withAlphaComponent(0.5)
         }, completion: { _ in
             self.backgroundColor = R.color.background()
-            completion()
+            completion?()
         })
+    }
+    
+    func fade(withDuration: TimeInterval, till value: CGFloat) {
+        UIView.animate(withDuration: withDuration) {
+            self.alpha = value
+        }
     }
 }

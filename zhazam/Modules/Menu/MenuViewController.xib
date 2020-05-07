@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="logoView" destination="6Tk-Kp-RDT" id="LdC-jn-mu5"/>
                 <outlet property="titlesStackView" destination="Lwy-fW-Sjb" id="8WW-dU-LJR"/>
+                <outlet property="titlesStackViewHeightConstraint" destination="XQ5-r9-aG5" id="BLU-NU-zDE"/>
                 <outlet property="view" destination="iN0-l3-epB" id="wjr-ES-V6e"/>
             </connections>
         </placeholder>
@@ -31,7 +32,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lwy-fW-Sjb">
                     <rect key="frame" x="40" y="228.5" width="295" height="230"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="230" id="XQ5-r9-aG5"/>
+                        <constraint firstAttribute="height" priority="250" constant="230" id="XQ5-r9-aG5"/>
                     </constraints>
                 </stackView>
             </subviews>
