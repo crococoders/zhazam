@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class StatisticsViewController: UIViewController {
+final class StatisticsViewController: UIViewController, Reusable {
     
     private enum Constants {
         static let loopingMargin = 100
@@ -44,7 +44,7 @@ final class StatisticsViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(
             StatisticsCollectionCell.self,
-            forCellWithReuseIdentifier: StatisticsCollectionCell.identifier)
+            forCellWithReuseIdentifier: identifier)
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -105,7 +105,7 @@ extension StatisticsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: StatisticsCollectionCell.identifier,
+            withReuseIdentifier: identifier,
             for: indexPath) as! StatisticsCollectionCell
         let currentIndex = indexPath.item % storage.statistics.count
         let statisticsModel = storage.statistics[currentIndex]

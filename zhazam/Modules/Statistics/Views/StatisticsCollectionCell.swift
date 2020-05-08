@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class StatisticsCollectionCell: UICollectionViewCell, Reusable {
+final class StatisticsCollectionCell: UICollectionViewCell {
     
     @IBOutlet private var totalResult: UILabel!
     @IBOutlet private var measurement: UILabel!
