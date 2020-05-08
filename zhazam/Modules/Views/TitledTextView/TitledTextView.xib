@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitledTextView" customModule="zhazam" customModuleProvider="target">
+            <connections>
+                <outlet property="textField" destination="Jrk-FI-wV6" id="7ND-d1-2fR"/>
+                <outlet property="titleLabel" destination="VK1-8A-gXx" id="XOD-bk-Xbt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="146"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's start?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VK1-8A-gXx">
+                    <rect key="frame" x="4" y="0.0" width="406" height="48"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                    <color key="textColor" name="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="start" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jrk-FI-wV6" customClass="PrimaryTextField" customModule="zhazam" customModuleProvider="target">
+                    <rect key="frame" x="4" y="78" width="406" height="68"/>
+                    <color key="tintColor" name="textColor"/>
+                    <color key="textColor" name="textColor"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                            <color key="value" name="defaultGray"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" name="background"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Jrk-FI-wV6" secondAttribute="bottom" id="1dJ-ly-Lgs"/>
+                <constraint firstItem="Jrk-FI-wV6" firstAttribute="top" secondItem="VK1-8A-gXx" secondAttribute="bottom" constant="30" id="CEm-x5-myC"/>
+                <constraint firstItem="VK1-8A-gXx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NFY-Ve-MTV"/>
+                <constraint firstItem="Jrk-FI-wV6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="4" id="alK-RR-qW9"/>
+                <constraint firstItem="VK1-8A-gXx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="4" id="ltu-KR-JbO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Jrk-FI-wV6" secondAttribute="trailing" constant="4" id="tP1-NV-r3o"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VK1-8A-gXx" secondAttribute="trailing" constant="4" id="uC3-qJ-Qdu"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="defaultGray">
+            <color red="0.80784313725490198" green="0.80784313725490198" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -15,6 +15,13 @@ struct NavigationBarAppearanceCommand: Command {
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().backgroundColor = .clear
         UINavigationBar.appearance().isTranslucent = true
+        
+        let fontAttributes =
+            [NSAttributedString.Key.foregroundColor: UIColor(named: R.color.textColor.name)!,
+             NSAttributedString.Key.font: UIFont(name: R.font.helveticaNeueBold.fontName, size: 20)!]
+        
+        UINavigationBar.appearance().backIndicatorImage = UIImage()
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage()
+        UIBarButtonItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
     }
-    
 }

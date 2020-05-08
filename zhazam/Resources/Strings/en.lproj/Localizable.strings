@@ -7,3 +7,22 @@
 */
 
 "AppName" = "Zhazam";
+"Play" = "Play";
+"Leaderboard" = "Leaderboard";
+"Statistics" = "Statistics";
+"Settings" = "Settings";
+"Language" = "Language";
+"Lights" = "Lights";
+"On" = "On";
+"Off" = "Off";
+"LetsStart" = "Let's start?";
+"Start" = "Start";
+"Classic" = "Classic";
+"Arcade" = "Arcade";
+"Time" = "Time";
+"Menu" = "Menu";
+"Modes" = "GameModes";
+"Nickname" = "Nickname";
+"Share" = "Share";
+"Contacts" = "Contacts";
+"Rate" = "Rate";

@@ -37,7 +37,7 @@ final class LogoView: UIView {
         animate()
     }
     
-    func animate() {
+    private func animate() {
         animateTitle {
             DispatchQueue.main.async {
                 self.animateCursor()
@@ -53,7 +53,7 @@ final class LogoView: UIView {
         }, completion: nil)
     }
     
-    private func animateTitle(completion: @escaping() -> Void) {
+    private func animateTitle(completion: @escaping Callback) {
         var characterIndex = 0
         let characterArray = Array(self.appName)
         
