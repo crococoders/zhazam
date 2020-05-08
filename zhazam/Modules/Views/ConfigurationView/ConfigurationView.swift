@@ -30,22 +30,15 @@ final class ConfigurationView: UIView {
         super.init(frame: frame)
         
         loadFromNib()
-        setupGesture()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
         loadFromNib()
-        setupGesture()
     }
     
-    private func setupGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTap))
-        addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func didTap() {
+    @IBAction func didTapView(_ sender: UITapGestureRecognizer) {
         onTap?()
     }
 }

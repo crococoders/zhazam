@@ -12,65 +12,123 @@ final class MenuViewController: UIViewController {
     
     @IBOutlet private var logoView: LogoView!
     @IBOutlet private var titlesStackView: UIStackView!
+    @IBOutlet private var titlesStackViewHeightConstraint: NSLayoutConstraint!
     
-    private let categories = CategoryViewModelStorage().viewModels
+    private let storage: CategoryStorageProtocol
     
-    private enum Constants {
-        static let fadeDuration: TimeInterval = 1.0
+    private let fadeDuration: TimeInterval = 1.0
+    private let stackViewHeight: Int = 50
+    private let stackViewSpacing: Int = 10
+    private let flashCount: Float = 2
+    
+    init(storage: CategoryStorageProtocol) {
+        self.storage = storage
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTitleViews()
+        configureHeaderView()
+        setupStackViewHeightConstraint()
+        setupHiddenNavigationTitle()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         
-        showHiddenViews()
+        setInitialState()
+    }
+    
+    private func configureHeaderView() {
+        logoView.isHidden = storage.headerIsHidden
+    }
+    
+    private func setupStackViewHeightConstraint() {
+        let categoriesCount = storage.categories.count
+        let height = categoriesCount * stackViewHeight + (categoriesCount - 1) * stackViewSpacing
+        
+        titlesStackViewHeightConstraint.constant = CGFloat(height)
+        titlesStackViewHeightConstraint.priority = .defaultHigh
     }
     
     private func setupTitleViews() {
-        for title in categories {
-            let buttonView = LoadingButtonView(title: title)
-            buttonView.delegate = self
-            
-            titlesStackView.addArrangedSubview(buttonView)
+        for category in storage.categories {
+            titlesStackView.addArrangedSubview(category.view(self))
         }
     }
     
-    private func fade(view: UIView) {
-        UIView.animate(withDuration: Constants.fadeDuration, delay: 0, options: [.curveLinear], animations: {
-            view.alpha = 0
-        }, completion: nil)
-    }
-    
-    private func showHiddenViews() {
+    private func setInitialState() {
         titlesStackView.arrangedSubviews.forEach { view in
+            view.alpha = 1
+            view.isUserInteractionEnabled = true
+            
             let loadingView = view as? LoadingButtonView
             loadingView?.alpha = 1
-            
             loadingView?.resetLoadingLabel()
+            
+            let configurationView = view as? MenuConfigurationView
+            configurationView?.resetState()
+        }
+        //TODO: refactor
+    }
+    
+    private func changeState(for view: LoadingButtonView, with viewController: UIViewController?) {
+        if !storage.hasLoader {
+            DispatchQueue.main.asyncAfter(deadline: .now() + fadeDuration) { [weak self] in
+                guard let self = self else { return }
+                self.navigateToNextPage(with: viewController)
+            }
+        } else {
+            view.showLoading(withDuration: fadeDuration) { [weak self] in
+                guard let self = self else { return }
+                self.navigateToNextPage(with: viewController)
+            }
         }
     }
     
-    private func changeState(for view: LoadingButtonView) {
-        view.showLoading(withDuration: Constants.fadeDuration) { [weak self] in
-            guard let self = self else { return }
-            //TODO: Push new view controller
-            let vc = ClassicModeViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
+    private func navigateToNextPage(with viewController: UIViewController?) {
+        guard let viewController = viewController else { return }
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func setupHiddenNavigationTitle() {
+        title = storage.title
+        navigationItem.titleView = UIView()
+    }
+    
+    private func fadeUnselectedViews(for view: UIView, till value: CGFloat, _ interactionEnabled: Bool) {
+        for subview in titlesStackView.arrangedSubviews where view != subview {
+            subview.isUserInteractionEnabled = interactionEnabled
+            subview.fade(withDuration: fadeDuration, till: value)
         }
     }
 }
 
 extension MenuViewController: LoadingButtonViewDelegate {
-    func didPressTitleButton(_ view: LoadingButtonView) {
-        changeState(for: view)
-        
-        for subview in titlesStackView.arrangedSubviews where view != subview {
-            fade(view: subview)
+    func didPressTitleButton(view: LoadingButtonView, viewController: UIViewController?) {
+        changeState(for: view, with: viewController)
+        fadeUnselectedViews(for: view, till: 0, false)
+    }
+}
+
+extension MenuViewController: ConfigurationViewDelegate {
+    func didPressValueButton(type: ConfigurationCellType) {
+        switch type {
+        case .lights:
+            blinkBackground()
+        default:
+            break
         }
+    }
+    
+    func didTapView(_ view: MenuConfigurationView, _ isActive: Bool) {
+        fadeUnselectedViews(for: view, till: isActive ? 0.25 : 1, !isActive)
     }
 }

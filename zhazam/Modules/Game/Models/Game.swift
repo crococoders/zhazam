@@ -97,7 +97,7 @@ final class Game {
     private func getCurrentWord() -> String? {
         guard let unwrappedWord = words[safe: index] else { return nil }
         var currentWord = unwrappedWord
-        if type == .classic || type == .arcade {
+        if type == .classic || type == .arcade && isLastWord {
             currentWord += Constants.delimeter
         }
         return currentWord
