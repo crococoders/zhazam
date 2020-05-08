@@ -10,8 +10,8 @@ import UIKit
 
 final class ClassicModeViewController: UIViewController {
     
-    private var keyboardObserver: KeyboardStateObservering = KeyboardStateObserver()
-    private var gameProcess = ClassicGameModel(game: Game(type: .classic))
+    private var keyboardObserver: KeyboardStateObservable = KeyboardStateObserver()
+    private var gameProcess: GameProcessable = ClassicGameModel(game: Game(type: .classic))
 
     @IBOutlet private var textView: UITextView!
     @IBOutlet private var textField: UITextField!
@@ -39,6 +39,7 @@ final class ClassicModeViewController: UIViewController {
         keyboardObserver.stopListening()
     }
     
+    // TODO: refactor
     private func setupNavigationBar() {
         let rightButtonItem = UIBarButtonItem(customView: barButtonItem)
         navigationItem.rightBarButtonItem = rightButtonItem
@@ -57,11 +58,13 @@ final class ClassicModeViewController: UIViewController {
     
     private func configureKeyboardObserving() {
         keyboardObserver.willShow = { [weak self] rect, _, curve in
-            self?.updateTextFieldConstraints(offset: rect.height - 12, curve: curve)
+            guard let self = self else { return }
+            self.updateTextFieldConstraints(offset: rect.height - 12, curve: curve)
         }
         
         keyboardObserver.willHide = { [weak self] _, _, curve in
-            self?.updateTextFieldConstraints(offset: 12, curve: curve)
+            guard let self = self else { return }
+            self.updateTextFieldConstraints(offset: 12, curve: curve)
         }
     }
     
@@ -71,13 +74,11 @@ final class ClassicModeViewController: UIViewController {
     }
     
     private func updateTextFieldConstraints(offset: CGFloat, curve: UInt) {
-        UIView.animate(
-            withDuration: 0.3,
-            delay: 0.0,
-            options: UIView.AnimationOptions(rawValue: curve),
-            animations: { [weak self] in
-                self?.textFieldBottomConstraint.constant = offset
-                self?.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.3, delay: 0.0, options:
+            UIView.AnimationOptions(rawValue: curve), animations: { [weak self] in
+                guard let self = self else { return }
+                self.textFieldBottomConstraint.constant = offset
+                self.view.layoutIfNeeded()
         })
     }
     
@@ -94,7 +95,7 @@ final class ClassicModeViewController: UIViewController {
     }
 }
 
-extension ClassicModeViewController: ClassicGameDelegate {
+extension ClassicModeViewController: GameProcessDelegate {
     func didUpdate(text: NSMutableAttributedString) {
         textView.attributedText = text
     }
@@ -108,7 +109,7 @@ extension ClassicModeViewController: ClassicGameDelegate {
         scroll(to: location)
     }
     
-    func didUpdate(wpm: Int) {
-        barButtonItem.setScore(score: wpm)
+    func didUpdate(score: Int) {
+        barButtonItem.setScore(score: score)
     }
 }

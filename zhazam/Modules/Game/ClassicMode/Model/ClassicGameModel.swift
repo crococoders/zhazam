@@ -8,16 +8,16 @@
 
 import Foundation
 
-protocol ClassicGameDelegate: AnyObject {
+protocol GameProcessDelegate: AnyObject {
     func didUpdate(text: NSMutableAttributedString)
     func didUpdate(word: NSMutableAttributedString)
-    func didUpdate(wpm: Int)
+    func didUpdate(score: Int)
     func didFinishWord(location: Int)
 }
 
-final class ClassicGameModel {
-    weak var delegate: ClassicGameDelegate?
-    private var game: Gaming
+final class ClassicGameModel: GameProcessable {
+    weak var delegate: GameProcessDelegate?
+    var game: Gaming
     
     init(game: Gaming) {
         self.game = game
@@ -25,21 +25,11 @@ final class ClassicGameModel {
     }
     
     func loadGame() {
-        let text = "If you want to use a layout manager on a background thread"
+        var text = "If you want to use a layout manager on a background thread. "
+        text += text
+        text += text
         game.text = text
         game.start()
-    }
-    
-    func pause() {
-        game.pause()
-    }
-    
-    func resume() {
-        game.resume()
-    }
-    
-    func update(word: String) {
-        game.update(word: word)
     }
 }
 
@@ -53,7 +43,7 @@ extension ClassicGameModel: GameDelegate {
     }
     
     func didUpdateTime() {
-        delegate?.didUpdate(wpm: game.wpm)
+        delegate?.didUpdate(score: game.wpm)
     }
     
     func didFinishText() {

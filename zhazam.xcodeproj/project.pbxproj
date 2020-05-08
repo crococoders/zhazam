@@ -47,6 +47,8 @@
 		7A6D06502464BC8D00405665 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6D064F2464BC8D00405665 /* Array+Extension.swift */; };
 		7A6D06532464C0CE00405665 /* GameBarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6D06522464C0CE00405665 /* GameBarButtonView.swift */; };
 		7A6D06552464C0DC00405665 /* GameBarButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6D06542464C0DC00405665 /* GameBarButtonView.xib */; };
+		7AA49B6324659FD8005F4364 /* Gaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA49B6224659FD8005F4364 /* Gaming.swift */; };
+		7AA49B6524659FF2005F4364 /* GameProcessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA49B6424659FF2005F4364 /* GameProcessable.swift */; };
 		7ACE4529245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */; };
 		7ACE452C245C45C70016E080 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE452B245C45C70016E080 /* UserDefaultsStorage.swift */; };
 		7AF36D90245C479500048E2F /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36D8F245C479500048E2F /* OnboardingPage.swift */; };
@@ -114,6 +116,8 @@
 		7A6D064F2464BC8D00405665 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		7A6D06522464C0CE00405665 /* GameBarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBarButtonView.swift; sourceTree = "<group>"; };
 		7A6D06542464C0DC00405665 /* GameBarButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameBarButtonView.xib; sourceTree = "<group>"; };
+		7AA49B6224659FD8005F4364 /* Gaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gaming.swift; sourceTree = "<group>"; };
+		7AA49B6424659FF2005F4364 /* GameProcessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProcessable.swift; sourceTree = "<group>"; };
 		7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceStyleConfigurationCommand.swift; sourceTree = "<group>"; };
 		7ACE452B245C45C70016E080 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		7AF36D8F245C479500048E2F /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
@@ -494,7 +498,9 @@
 			isa = PBXGroup;
 			children = (
 				7AF36DB1245ED95100048E2F /* Game.swift */,
+				7AA49B6224659FD8005F4364 /* Gaming.swift */,
 				7A6D064D2464977F00405665 /* GameType.swift */,
+				7AA49B6424659FF2005F4364 /* GameProcessable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -755,6 +761,7 @@
 				70236F1B234CD0EF00FCD963 /* UITextField+Extension.swift in Sources */,
 				7AF36DA7245C502300048E2F /* Optional+Extension.swift in Sources */,
 				7ACE4529245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift in Sources */,
+				7AA49B6324659FD8005F4364 /* Gaming.swift in Sources */,
 				7AF36D90245C479500048E2F /* OnboardingPage.swift in Sources */,
 				7A6D06532464C0CE00405665 /* GameBarButtonView.swift in Sources */,
 				70236F15234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift in Sources */,
@@ -772,6 +779,7 @@
 				0458370E245C9A3C00DC0E1B /* Int+Extension.swift in Sources */,
 				0484560524632E0E00932906 /* MainMenuStorage.swift in Sources */,
 				24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */,
+				7AA49B6524659FF2005F4364 /* GameProcessable.swift in Sources */,
 				7AF36DB5245EDACA00048E2F /* KeyboardStateObserver.swift in Sources */,
 				7A6D06502464BC8D00405665 /* Array+Extension.swift in Sources */,
 				0484560A24632F2200932906 /* SettingsStorage.swift in Sources */,

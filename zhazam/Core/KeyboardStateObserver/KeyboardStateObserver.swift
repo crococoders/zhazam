@@ -8,14 +8,14 @@
 
 import UIKit
 
-typealias KeyboardStateEventClosure = (_ rect: CGRect, _ animationTime: TimeInterval, _ animationCurve: UInt) -> Void
+typealias KeyboardStateEvent = (_ rect: CGRect, _ animationTime: TimeInterval, _ animationCurve: UInt) -> Void
 
-protocol KeyboardStateObservering {
+protocol KeyboardStateObservable {
     func startListening()
     func stopListening()
     
-    var willShow: KeyboardStateEventClosure? { get set }
-    var willHide: KeyboardStateEventClosure? { get set }
+    var willShow: KeyboardStateEvent? { get set }
+    var willHide: KeyboardStateEvent? { get set }
 }
 
 struct KeyboardNotificationInfo {
@@ -24,10 +24,10 @@ struct KeyboardNotificationInfo {
     var curve: UInt
 }
 
-class KeyboardStateObserver: KeyboardStateObservering {
+class KeyboardStateObserver: KeyboardStateObservable {
     
-    var willShow: KeyboardStateEventClosure?
-    var willHide: KeyboardStateEventClosure?
+    var willShow: KeyboardStateEvent?
+    var willHide: KeyboardStateEvent?
     private var observers: [Any]?
     
     func startListening() {
@@ -38,6 +38,7 @@ class KeyboardStateObserver: KeyboardStateObservering {
                 guard let info = self.getNotificationInfo(note: note) else { return }
                 self.willShow?(info.rect, info.time, info.curve)
         }
+        
         let willHideObserver = NotificationCenter.default.addObserver(
             forName: UIResponder.keyboardWillHideNotification,
             object: nil,
@@ -61,10 +62,7 @@ class KeyboardStateObserver: KeyboardStateObservering {
         guard let info = note.userInfo,
             let rect = (info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
             let time = info[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
-            let curve = info[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt
-            else {
-                return nil
-        }
+            let curve = info[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt else { return nil }
         
         return KeyboardNotificationInfo(rect: rect, time: time, curve: curve)
     }
