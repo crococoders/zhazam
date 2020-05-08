@@ -26,7 +26,7 @@ struct SettingsStorage: CategoryStorageProtocol {
                                         viewController: nil,
                                         action: .choose),
                       CategoryViewModel(title: R.string.localizable.share(), viewController: nil),
-                      CategoryViewModel(title: R.string.localizable.contact(), viewController: nil),
+                      CategoryViewModel(title: R.string.localizable.contacts(), viewController: nil),
                       CategoryViewModel(title: R.string.localizable.rate(), viewController: nil)]
     }
 }
