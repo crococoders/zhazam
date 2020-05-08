@@ -25,14 +25,16 @@
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jWf-o9-Fkj" customClass="PrimaryTextField" customModule="zhazam" customModuleProvider="target">
                     <rect key="frame" x="24" y="800.5" width="366" height="49.5"/>
                     <color key="tintColor" name="textColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49.5" id="ZN0-TC-vhu"/>
+                    </constraints>
                     <color key="textColor" name="textColor"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                 </textField>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G5Y-Xo-AFu">
-                    <rect key="frame" x="24" y="74" width="366" height="708.5"/>
+                    <rect key="frame" x="24" y="118" width="366" height="664.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <color key="textColor" name="defaultGray"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -48,6 +50,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="G5Y-Xo-AFu" secondAttribute="trailing" constant="24" id="lwn-s5-a4G"/>
                 <constraint firstItem="G5Y-Xo-AFu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="vGN-zK-fQv"/>
             </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="153"/>
         </view>

@@ -11,16 +11,20 @@ import UIKit
 final class ClassicModeViewController: UIViewController {
     
     private var keyboardObserver: KeyboardStateObservering = KeyboardStateObserver()
+    private var gameProcess = ClassicGameModel(game: Game(type: .classic))
 
     @IBOutlet private var textView: UITextView!
     @IBOutlet private var textField: UITextField!
     @IBOutlet private var textFieldBottomConstraint: NSLayoutConstraint!
+    private var barButtonItem = GameBarButtonView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureTextField()
         configureKeyboardObserving()
+        setupGameModel()
+        setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,9 +39,20 @@ final class ClassicModeViewController: UIViewController {
         keyboardObserver.stopListening()
     }
     
+    private func setupNavigationBar() {
+        let rightButtonItem = UIBarButtonItem(customView: barButtonItem)
+        navigationItem.rightBarButtonItem = rightButtonItem
+        rightButtonItem.customView?.translatesAutoresizingMaskIntoConstraints = false
+        guard let customView = rightButtonItem.customView else { return }
+        NSLayoutConstraint.activate([
+            customView.heightAnchor.constraint(equalToConstant: 70),
+            customView.widthAnchor.constraint(equalToConstant: 70)
+        ])
+    }
+    
     private func configureTextField() {
         textField.becomeResponder()
-        textField.delegate = self
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     private func configureKeyboardObserving() {
@@ -48,6 +63,11 @@ final class ClassicModeViewController: UIViewController {
         keyboardObserver.willHide = { [weak self] _, _, curve in
             self?.updateTextFieldConstraints(offset: 12, curve: curve)
         }
+    }
+    
+    private func setupGameModel() {
+        gameProcess.delegate = self
+        gameProcess.loadGame()
     }
     
     private func updateTextFieldConstraints(offset: CGFloat, curve: UInt) {
@@ -63,21 +83,32 @@ final class ClassicModeViewController: UIViewController {
     
     private func scroll(to location: Int) {
         let range = NSRange(location: location, length: 0)
-        let rect = textView.layoutManager.boundingRect(forGlyphRange: range, in: textView.textContainer)
-        
-        UIView.animate(withDuration: 0.5) {
-            self.textView.contentOffset = CGPoint(x: 0, y: rect.origin.y + 6.0)
-        }
+        let rect = textView.layoutManager.boundingRect(forGlyphRange: range,
+                                                       in: textView.textContainer)
+        textView.setContentOffset(CGPoint(x: 0, y: rect.origin.y + 8.0), animated: true)
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        gameProcess.update(word: text)
     }
 }
 
-extension ClassicModeViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField,
-                   shouldChangeCharactersIn range: NSRange,
-                   replacementString string: String) -> Bool {
-        let updatedString = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
-        scroll(to: updatedString?.count ?? 0)
-        
-        return true
+extension ClassicModeViewController: ClassicGameDelegate {
+    func didUpdate(text: NSMutableAttributedString) {
+        textView.attributedText = text
+    }
+    
+    func didUpdate(word: NSMutableAttributedString) {
+        textField.attributedText = word
+    }
+    
+    func didFinishWord(location: Int) {
+        textField.text = ""
+        scroll(to: location)
+    }
+    
+    func didUpdate(wpm: Int) {
+        barButtonItem.setScore(score: wpm)
     }
 }
