@@ -9,6 +9,8 @@
 import Foundation
 
 protocol Handler {
+    var router: Router<EndPoint> { get }
+    
     func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<Error>
 }
 

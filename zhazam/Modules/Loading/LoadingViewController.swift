@@ -16,8 +16,6 @@ final class LoadingViewController: UIViewController {
         super.viewDidLoad()
         
         setupNavigation()
-        
-        print(TokenGenerator.shared.getToken())
     }
     
     private func setupNavigation() {

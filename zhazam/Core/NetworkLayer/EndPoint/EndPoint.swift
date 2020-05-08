@@ -13,17 +13,13 @@ enum NetworkEnvironment {
 }
 
 public enum EndPoint {
-    case popular
-    case newMovies(page:Int)
+    case addGameScore(score: Int)
 }
 
 extension EndPoint: EndPointType {
     
     var environmentBaseURL: String {
-        switch NetworkManager.environment {
-        case .production:
-            return "https://api.themoviedb.org/3/movie/"
-        }
+        return "typo-server.herokuapp.com/"
     }
     
     var baseURL: URL {
@@ -33,10 +29,8 @@ extension EndPoint: EndPointType {
     
     var path: String {
         switch self {
-        case .popular:
-            return "popular"
-        case .newMovies:
-            return "now_playing"
+        case .addGameScore:
+            return "user/score"
         }
     }
     
@@ -46,12 +40,8 @@ extension EndPoint: EndPointType {
     
     var task: HTTPTask {
         switch self {
-        case .popular:
-            return .requestWithParameters(bodyParameters: nil,
-                                      urlParameters: ["api_key": NetworkManager.apiKey,
-                                                      "language": "en"])
-        default:
-            return .request
+        case .addGameScore(let score):
+            return .requestWithParameters(bodyParameters: ["wpm": score], urlParameters: nil)
         }
     }
     

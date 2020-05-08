@@ -24,16 +24,19 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         self.task?.resume()
     }
     
+    // swiftlint:disable function_body_length
     private func buildRequest(from route: EndPoint) throws -> URLRequest {
         var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path),
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: 10.0)
         request.httpMethod = route.httpMethod.rawValue
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.setValue(TokenGenerator.shared.getToken() ?? "", forHTTPHeaderField: "X-Token")
         
         do {
             switch route.task {
             case .request:
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                return request
             case .requestWithParameters(let bodyParameters, let urlParameters):
                 try self.configureParameters(bodyParameters: bodyParameters,
                                              urlParameters: urlParameters,
@@ -45,11 +48,13 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                                              urlParameters: urlParameters,
                                              request: &request)
             }
+            
             return request
         } catch {
             throw error
         }
     }
+    // swiftlint:enable function_body_length
     
     private func configureParameters(bodyParameters: Parameters?,
                                      urlParameters: Parameters?,
