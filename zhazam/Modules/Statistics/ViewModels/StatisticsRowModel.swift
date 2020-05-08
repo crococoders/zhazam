@@ -9,7 +9,7 @@
 import UIKit
 
 struct StatisticsRowModel {
-    let totalResult: String?
-    let measurement: String?
-    let resultTitle: String?
+    let totalResult: String
+    let measurement: String
+    let resultTitle: String
 }

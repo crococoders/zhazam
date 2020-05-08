@@ -20,6 +20,7 @@
 		24729FB2245B447900A69CC3 /* StatisticsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24729FB1245B447900A69CC3 /* StatisticsCollectionCell.swift */; };
 		24729FB4245B448700A69CC3 /* StatisticsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24729FB3245B448700A69CC3 /* StatisticsCollectionCell.xib */; };
 		24729FB7245C7B1A00A69CC3 /* StatisticsRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24729FB6245C7B1A00A69CC3 /* StatisticsRowModel.swift */; };
+		24729FE12465254300A69CC3 /* StatisticsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24729FE02465254300A69CC3 /* StatisticsStorage.swift */; };
 		24A6174E244FA9CA007F92E6 /* CountdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A6174D244FA9CA007F92E6 /* CountdownViewController.xib */; };
 		24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */; };
 		24A6175B245209A1007F92E6 /* TimerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6175A245209A1007F92E6 /* TimerRowView.swift */; };
@@ -58,6 +59,7 @@
 		24729FB1245B447900A69CC3 /* StatisticsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionCell.swift; sourceTree = "<group>"; };
 		24729FB3245B448700A69CC3 /* StatisticsCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsCollectionCell.xib; sourceTree = "<group>"; };
 		24729FB6245C7B1A00A69CC3 /* StatisticsRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRowModel.swift; sourceTree = "<group>"; };
+		24729FE02465254300A69CC3 /* StatisticsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsStorage.swift; sourceTree = "<group>"; };
 		24A6174D244FA9CA007F92E6 /* CountdownViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountdownViewController.xib; sourceTree = "<group>"; };
 		24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
 		24A6175A245209A1007F92E6 /* TimerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRowView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,8 @@
 			children = (
 				24729FAC245B43F500A69CC3 /* StatisticsViewController.swift */,
 				24729FAE245B440900A69CC3 /* StatisticsViewController.xib */,
+				24729FDF246524A100A69CC3 /* Storages */,
+				24729FDE2465248300A69CC3 /* ViewModels */,
 				24729FB0245B443600A69CC3 /* Views */,
 			);
 			path = Statistics;
@@ -188,10 +192,25 @@
 			isa = PBXGroup;
 			children = (
 				24729FB1245B447900A69CC3 /* StatisticsCollectionCell.swift */,
-				24729FB6245C7B1A00A69CC3 /* StatisticsRowModel.swift */,
 				24729FB3245B448700A69CC3 /* StatisticsCollectionCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		24729FDE2465248300A69CC3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				24729FB6245C7B1A00A69CC3 /* StatisticsRowModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		24729FDF246524A100A69CC3 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				24729FE02465254300A69CC3 /* StatisticsStorage.swift */,
+			);
+			path = Storages;
 			sourceTree = "<group>";
 		};
 		24A61748244FA248007F92E6 /* CountDown */ = {
@@ -536,6 +555,7 @@
 				0499A2A82439FE54008C6FAD /* MenuViewController.swift in Sources */,
 				70236F07234CC76700FCD963 /* Reusable.swift in Sources */,
 				0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */,
+				24729FE12465254300A69CC3 /* StatisticsStorage.swift in Sources */,
 				70236F17234CCE0100FCD963 /* WindowConfigurationCommand.swift in Sources */,
 				0499A2AF243A0257008C6FAD /* LogoView.swift in Sources */,
 				0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */,

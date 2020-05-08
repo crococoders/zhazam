@@ -16,17 +16,22 @@ final class StatisticsViewController: UIViewController {
         static let cellSpacing: CGFloat = 10
         static let cellSize: CGFloat = 150
     }
-
-   private var statisticsArray: [StatisticsRowModel] = [
-        StatisticsRowModel(totalResult: "30", measurement: "wpm", resultTitle: "best result"),
-        StatisticsRowModel(totalResult: "20", measurement: "wpm", resultTitle: "worst result"),
-        StatisticsRowModel(totalResult: "12", measurement: "levels", resultTitle: "best arcade result"),
-        StatisticsRowModel(totalResult: "3", measurement: "levels", resultTitle: "worst arcade result")
-    ]
     
     @IBOutlet private var collectionView: UICollectionView!
+    
     weak var delegate: UICollectionViewDelegate?
+    private let storage: StatisticsStorage
     private(set) var selectedIndex: Int = 0
+    
+    init(storage: StatisticsStorage) {
+        self.storage = storage
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +44,7 @@ final class StatisticsViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(
             StatisticsCollectionCell.self,
-            forCellWithReuseIdentifier: NSStringFromClass(StatisticsCollectionCell.self))
+            forCellWithReuseIdentifier: StatisticsCollectionCell.identifier)
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -93,21 +98,17 @@ extension StatisticsViewController: UICollectionViewDelegate {
 }
 
 extension StatisticsViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Constants.loopingMargin * statisticsArray.count
+        return Constants.loopingMargin * storage.statistics.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: NSStringFromClass(StatisticsCollectionCell.self),
+            withReuseIdentifier: StatisticsCollectionCell.identifier,
             for: indexPath) as! StatisticsCollectionCell
-        let currentIndex = indexPath.item % statisticsArray.count
-        let statisticsModel = statisticsArray[currentIndex]
+        let currentIndex = indexPath.item % storage.statistics.count
+        let statisticsModel = storage.statistics[currentIndex]
         cell.configureItems(model: statisticsModel)
         
         return cell
@@ -152,13 +153,6 @@ extension StatisticsViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: Constants.cellSize)
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
     }
     
     func collectionView(

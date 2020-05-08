@@ -9,11 +9,11 @@
 import Foundation
 
 protocol Reusable {
-    var identifier: String { get }
+    static var identifier: String { get }
 }
 
 extension Reusable {
-    var identifier: String {
+    static var identifier: String {
         return String(describing: self)
     }
 }
