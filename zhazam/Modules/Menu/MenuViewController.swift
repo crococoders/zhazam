@@ -44,7 +44,6 @@ final class MenuViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         setInitialState()
-        dch_checkDeallocation()
     }
     
     private func configureHeaderView() {
