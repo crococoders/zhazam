@@ -9,6 +9,7 @@ def common_pods
     
     pod 'R.swift', '~> 5.0.3'
     pod 'R.swift.Library', '~> 5.0.0'
+    pod 'Hero'
     
 end
 
