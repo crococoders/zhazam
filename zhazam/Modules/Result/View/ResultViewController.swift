@@ -15,7 +15,6 @@ enum GameState {
 final class ResultViewController: UIViewController {
     
     private let score: Int
-    private let isFinished: Bool
     private let type: GameType
 
     @IBOutlet private var scoreLabel: UILabel!
@@ -24,9 +23,8 @@ final class ResultViewController: UIViewController {
     @IBOutlet private var restartButton: UIButton!
     @IBOutlet private var quitButton: UIButton!
     
-    init(score: Int, type: GameType, isFinished: Bool = true) {
+    init(score: Int, type: GameType) {
         self.score = score
-        self.isFinished = isFinished
         self.type = type
         
         super.init(nibName: String(describing: Self.self), bundle: nil)
@@ -38,33 +36,36 @@ final class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        localizeViews()
         configureViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     private func localizeViews() {
         quitButton.setTitle(R.string.localizable.exit(), for: .normal)
+        restartButton.setTitle(R.string.localizable.again().lowercased(), for: .normal)
     }
     
     private func configureViews() {
-        scoreLabel.text = "\(score)\(type.measurement)"
-        stateLabel.text = isFinished ? "good job!" : "you lost"
+        scoreLabel.text = "\(score)\(type.unit)"
+        stateLabel.text = R.string.localizable.goodJob().lowercased()
         
     }
     @IBAction private func restartPressed(_ sender: UIButton) {
         guard var viewControllers = navigationController?.viewControllers else { return }
-        let countDownController = CountdownViewController()
+        let countDownController = CountdownViewController(type: type)
         viewControllers.removeLast(3)
         viewControllers.append(countDownController)
         

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameScoreView" customModule="zhazam" customModuleProvider="target">
             <connections>
+                <outlet property="measurementLabel" destination="01Z-f0-OMg" id="M03-vu-GJM"/>
                 <outlet property="scoreLabel" destination="jXV-P3-QmA" id="74h-wd-jPg"/>
             </connections>
         </placeholder>

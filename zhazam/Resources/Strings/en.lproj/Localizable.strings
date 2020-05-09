@@ -31,3 +31,6 @@
 "Exit" = "exit";
 "Restart" = "restart";
 "Continue" = "continue";
+"Again" = "Again";
+"GoodJob" = "Good job!";
+"Sec" = "Sec";

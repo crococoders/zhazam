@@ -10,6 +10,7 @@ import UIKit
 
 final class GameScoreView: UIView {
     @IBOutlet private var scoreLabel: UILabel!
+    @IBOutlet var measurementLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +24,8 @@ final class GameScoreView: UIView {
         loadFromNib()
     }
     
-    func setScore(score: Int) {
+    func setScore(score: Int, type: GameType) {
         scoreLabel.text = "\(score)"
+        measurementLabel.text = type.measurement
     }
 }

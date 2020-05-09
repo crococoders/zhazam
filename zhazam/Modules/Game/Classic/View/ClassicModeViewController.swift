@@ -31,15 +31,14 @@ final class ClassicModeViewController: UIViewController {
         
         keyboardObserver.startListening()
         textField.becomeResponder()
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         
         keyboardObserver.stopListening()
-        textField.resignResponder()
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     private func configureKeyboardObserving() {
@@ -133,7 +132,7 @@ extension ClassicModeViewController: GameProcessDelegate {
     }
     
     func didUpdate(score: Int) {
-        scoreView.setScore(score: score)
+        scoreView.setScore(score: score, type: .classic)
     }
     
     func didFinishText(with score: Int) {

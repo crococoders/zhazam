@@ -89,8 +89,8 @@ final class MenuViewController: UIViewController {
             viewController = MenuViewController(storage: GameModesStorage())
         case .settings:
             viewController = MenuViewController(storage: SettingsStorage())
-        case .countdown:
-            viewController = CountdownViewController()
+        case .countdown(let type):
+            viewController = CountdownViewController(type: type)
         default:
             viewController = MenuViewController(storage: MainMenuStorage())
         }

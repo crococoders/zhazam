@@ -1,23 +1,14 @@
 //
-//  ClassicGameModel.swift
+//  ArcadeGameModel.swift
 //  zhazam
 //
-//  Created by Nurbek Ismagulov on 5/6/20.
+//  Created by Nurbek Ismagulov on 5/9/20.
 //  Copyright © 2020 crococoders. All rights reserved.
 //
 
 import Foundation
 
-protocol GameProcessDelegate: AnyObject {
-    func didUpdate(text: NSMutableAttributedString)
-    func didUpdate(word: NSMutableAttributedString)
-    func didUpdate(score: Int)
-    func didFinishWord(location: Int)
-    func didFinishText(with score: Int)
-    func didResume(at location: Int)
-}
-
-final class ClassicGameModel: GameProcessable {
+final class ArcadeGameModel: GameProcessable {
     weak var delegate: GameProcessDelegate?
     var game: Gaming
     
@@ -27,7 +18,9 @@ final class ClassicGameModel: GameProcessable {
     }
     
     func loadGame() {
-        let text = "If you want to use a layout manager on a background thread."
+        var text = "If you want to use a layout manager on a background thread. "
+        text += text
+        text += text
         game.text = text
         game.start()
     }
@@ -39,7 +32,7 @@ final class ClassicGameModel: GameProcessable {
     }
 }
 
-extension ClassicGameModel: GameDelegate {
+extension ArcadeGameModel: GameDelegate {
     func didUpdate(text: NSMutableAttributedString) {
         delegate?.didUpdate(text: text)
     }
@@ -49,7 +42,7 @@ extension ClassicGameModel: GameDelegate {
     }
     
     func didUpdateTime() {
-        delegate?.didUpdate(score: game.wpm)
+        delegate?.didUpdate(score: game.time)
     }
     
     func didFinishText(with score: Int) {
