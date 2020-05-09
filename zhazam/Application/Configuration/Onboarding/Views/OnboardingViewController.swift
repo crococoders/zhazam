@@ -44,13 +44,16 @@ final class OnboardingViewController: UIViewController {
             
             stackView.addArrangedSubview(horizontalView)
         case .finish:
-            let titledTextView = TitledTextView(title: R.string.localizable.letsStart(),
-                                                placeholder: R.string.localizable.start().lowercased(),
-                                                readyText: R.string.localizable.start().lowercased())
-            titledTextView.onComplete = { [weak self] in
+            let onStart = { [weak self] in
+                guard let self = self else { return }
                 UserDefaultsStorage.isOnboardingCompleted = true
-                self?.routeToMainScreen()
+                self.routeToMainScreen()
             }
+            let action = [R.string.localizable.start().lowercased(): onStart]
+            let viewModel = TitledTextViewModel(title: R.string.localizable.letsStart(),
+                                                placeholder: R.string.localizable.start().lowercased(),
+                                                actions: action)
+            let titledTextView = TitledTextView(viewModel: viewModel)
             
             stackView.addArrangedSubview(titledTextView)
         }

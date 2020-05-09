@@ -13,6 +13,7 @@ protocol GameProcessDelegate: AnyObject {
     func didUpdate(word: NSMutableAttributedString)
     func didUpdate(score: Int)
     func didFinishWord(location: Int)
+    func didFinishText(with score: Int)
 }
 
 final class ClassicGameModel: GameProcessable {
@@ -25,9 +26,7 @@ final class ClassicGameModel: GameProcessable {
     }
     
     func loadGame() {
-        var text = "If you want to use a layout manager on a background thread. "
-        text += text
-        text += text
+        let text = "If you want to use a layout manager on a background thread."
         game.text = text
         game.start()
     }
@@ -46,11 +45,11 @@ extension ClassicGameModel: GameDelegate {
         delegate?.didUpdate(score: game.wpm)
     }
     
-    func didFinishText() {
-        
+    func didFinishText(with score: Int) {
+        delegate?.didFinishText(with: score)
     }
     
-    func didFinish(_ word: String) {
+    func didFinish() {
         let location = game.correctWordsCount + (game.nextWord?.count ?? 0)
         delegate?.didFinishWord(location: location)
     }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChoiceViewController" customModule="zhazam" customModuleProvider="target">
+            <connections>
+                <outlet property="backButton" destination="pAq-MX-Zze" id="qgb-cc-dsp"/>
+                <outlet property="textField" destination="q2H-Xv-ScR" id="yyR-Qp-akU"/>
+                <outlet property="titleLabel" destination="fz0-At-fD0" id="kPi-wl-KsW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's start?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz0-At-fD0">
+                    <rect key="frame" x="40" y="325.5" width="334" height="48"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                    <color key="textColor" name="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="start" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2H-Xv-ScR" customClass="PrimaryTextField" customModule="zhazam" customModuleProvider="target">
+                    <rect key="frame" x="40" y="403.5" width="334" height="49.5"/>
+                    <color key="tintColor" name="textColor"/>
+                    <color key="textColor" name="textColor"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                            <color key="value" name="defaultGray"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAq-MX-Zze">
+                    <rect key="frame" x="24" y="74" width="47" height="36"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                    <state key="normal" title="back">
+                        <color key="titleColor" name="textColor"/>
+                    </state>
+                    <connections>
+                        <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="LPL-iD-tep"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="q2H-Xv-ScR" firstAttribute="top" secondItem="fz0-At-fD0" secondAttribute="bottom" constant="30" id="1pz-Af-Lvc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fz0-At-fD0" secondAttribute="trailing" constant="40" id="FUX-Pe-ity"/>
+                <constraint firstItem="q2H-Xv-ScR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="MlY-cz-kIz"/>
+                <constraint firstItem="q2H-Xv-ScR" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="QlS-EN-xm4"/>
+                <constraint firstItem="pAq-MX-Zze" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="SSb-B9-Ub4"/>
+                <constraint firstItem="pAq-MX-Zze" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="d18-bX-mNv"/>
+                <constraint firstItem="fz0-At-fD0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="sv9-ag-MzU"/>
+                <constraint firstItem="fz0-At-fD0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="wV4-nW-icN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="q2H-Xv-ScR" secondAttribute="trailing" constant="40" id="z02-9g-pE9"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="defaultGray">
+            <color red="0.80784313725490198" green="0.80784313725490198" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,5 +1,5 @@
 //
-//  GameBarButtonView.swift
+//  GameScoreView.swift
 //  zhazam
 //
 //  Created by Nurbek Ismagulov on 5/8/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GameBarButtonView: UIView {
+final class GameScoreView: UIView {
     @IBOutlet private var scoreLabel: UILabel!
     
     override init(frame: CGRect) {

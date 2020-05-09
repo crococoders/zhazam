@@ -11,5 +11,14 @@ import Foundation
 enum GameType {
     case classic
     case arcade
-    case timer
+    case time
+    
+    var measurement: String {
+        switch self {
+        case .classic, .time:
+            return "wpm"
+        case .arcade:
+            return "level"
+        }
+    }
 }

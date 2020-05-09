@@ -51,11 +51,11 @@ class KeyboardStateObserver: KeyboardStateObservable {
     }
     
     func stopListening() {
-        observers?.forEach { NotificationCenter.default.removeObserver($0) }
+        _ = observers?.map { NotificationCenter.default.removeObserver($0) }
     }
     
     deinit {
-        observers?.forEach { NotificationCenter.default.removeObserver($0) }
+        _ = observers?.map { NotificationCenter.default.removeObserver($0) }
     }
     
     private func getNotificationInfo(note: Notification) -> KeyboardNotificationInfo? {

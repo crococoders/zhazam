@@ -44,6 +44,7 @@ final class MenuViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         setInitialState()
+        dch_checkDeallocation()
     }
     
     private func configureHeaderView() {
@@ -79,7 +80,21 @@ final class MenuViewController: UIViewController {
         //TODO: refactor
     }
     
-    private func changeState(for view: LoadingButtonView, with viewController: UIViewController?) {
+    private func changeState(for view: LoadingButtonView, with type: ViewControllerType?) {
+        guard let type = type else { return }
+        
+        var viewController: UIViewController
+        
+        switch type {
+        case .gameModes:
+            viewController = MenuViewController(storage: GameModesStorage())
+        case .settings:
+            viewController = MenuViewController(storage: SettingsStorage())
+        case .countdown:
+            viewController = CountdownViewController()
+        default:
+            viewController = MenuViewController(storage: MainMenuStorage())
+        }
         if !storage.hasLoader {
             DispatchQueue.main.asyncAfter(deadline: .now() + fadeDuration) { [weak self] in
                 guard let self = self else { return }
@@ -112,8 +127,8 @@ final class MenuViewController: UIViewController {
 }
 
 extension MenuViewController: LoadingButtonViewDelegate {
-    func didPressTitleButton(view: LoadingButtonView, viewController: UIViewController?) {
-        changeState(for: view, with: viewController)
+    func didPressTitleButton(view: LoadingButtonView, type: ViewControllerType?) {
+        changeState(for: view, with: type)
         fadeUnselectedViews(for: view, till: 0, false)
     }
 }

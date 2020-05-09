@@ -16,44 +16,30 @@ final class ClassicModeViewController: UIViewController {
     @IBOutlet private var textView: UITextView!
     @IBOutlet private var textField: UITextField!
     @IBOutlet private var textFieldBottomConstraint: NSLayoutConstraint!
-    private var barButtonItem = GameBarButtonView()
+    @IBOutlet private var scoreView: GameScoreView!
+    @IBOutlet private var menuButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureTextField()
         configureKeyboardObserving()
         setupGameModel()
-        setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         keyboardObserver.startListening()
+        textField.becomeResponder()
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         keyboardObserver.stopListening()
-    }
-    
-    // TODO: refactor
-    private func setupNavigationBar() {
-        let rightButtonItem = UIBarButtonItem(customView: barButtonItem)
-        navigationItem.rightBarButtonItem = rightButtonItem
-        rightButtonItem.customView?.translatesAutoresizingMaskIntoConstraints = false
-        guard let customView = rightButtonItem.customView else { return }
-        NSLayoutConstraint.activate([
-            customView.heightAnchor.constraint(equalToConstant: 70),
-            customView.widthAnchor.constraint(equalToConstant: 70)
-        ])
-    }
-    
-    private func configureTextField() {
-        textField.becomeResponder()
-        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        textField.resignResponder()
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     private func configureKeyboardObserving() {
@@ -74,12 +60,13 @@ final class ClassicModeViewController: UIViewController {
     }
     
     private func updateTextFieldConstraints(offset: CGFloat, curve: UInt) {
-        UIView.animate(withDuration: 0.3, delay: 0.0, options:
-            UIView.AnimationOptions(rawValue: curve), animations: { [weak self] in
-                guard let self = self else { return }
-                self.textFieldBottomConstraint.constant = offset
-                self.view.layoutIfNeeded()
-        })
+//        UIView.animate(withDuration: 0.3, delay: 0.0, options:
+//            UIView.AnimationOptions(rawValue: curve), animations: { [weak self] in
+//                guard let self = self else { return }
+//                self.textFieldBottomConstraint.constant = offset
+//                self.view.layoutIfNeeded()
+//        })
+        textFieldBottomConstraint.constant = offset
     }
     
     private func scroll(to location: Int) {
@@ -89,9 +76,41 @@ final class ClassicModeViewController: UIViewController {
         textView.setContentOffset(CGPoint(x: 0, y: rect.origin.y + 8.0), animated: true)
     }
     
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        guard let text = textField.text else { return }
+    @IBAction private func textFieldDidChange(_ sender: PrimaryTextField) {
+        guard let text = sender.text else { return }
         gameProcess.update(word: text)
+    }
+    
+    @IBAction private func menuButtonPressed(_ sender: UIButton) {
+        gameProcess.pause()
+        let viewModel = setupMenuViewModel()
+        let viewController = ChoiceViewController(viewModel: viewModel)
+        viewController.modalPresentationStyle = .fullScreen
+        
+        present(viewController, animated: false, completion: nil)
+    }
+    
+    private func setupMenuViewModel() -> TitledTextViewModel {
+        let onExit = { [weak self] in
+            guard let self = self else { return }
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        let onRestart = { [weak self] in
+            guard let self = self else { return }
+//            self.gameProcess.restart()
+        }
+        let actions = [R.string.localizable.exit(): onExit, R.string.localizable.restart(): onRestart]
+        let onDismiss: Callback = { [weak self] in
+            guard let self = self else { return }
+            self.textField.becomeResponder()
+            self.gameProcess.resume()
+            
+        }
+        let viewModel = TitledTextViewModel(title: R.string.localizable.exitOrRestartQuestion(),
+                                            placeholder: R.string.localizable.exitOrRestart(),
+                                            actions: actions,
+                                            onDismiss: onDismiss)
+        return viewModel
     }
 }
 
@@ -110,6 +129,11 @@ extension ClassicModeViewController: GameProcessDelegate {
     }
     
     func didUpdate(score: Int) {
-        barButtonItem.setScore(score: score)
+        scoreView.setScore(score: score)
+    }
+    
+    func didFinishText(with score: Int) {
+        let viewController = ResultViewController(score: score, type: .classic)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
