@@ -1,5 +1,5 @@
 //
-//  Score.swift
+//  Username.swift
 //  zhazam
 //
 //  Created by Sanzhar Alim on 5/9/20.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct GameResultApiResponse: Codable {
-    var status: String?
+struct UsernameApiResponse: Codable {
+    var status: Status?
     var message: String?
-    var data: GameResult?
+    var data: Username?
 }
 
-struct GameResult: Codable {
-    var percentage: String?
+struct Username: Codable {
+    var username: String?
 }

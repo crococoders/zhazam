@@ -20,18 +20,8 @@ final class StatisticsViewController: UIViewController, Reusable {
     @IBOutlet private var collectionView: UICollectionView!
     
     weak var delegate: UICollectionViewDelegate?
-    private let storage: StatisticsStorage
-    private(set) var selectedIndex: Int = 0
-    
-    init(storage: StatisticsStorage) {
-        self.storage = storage
-        
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private let storage: StatisticsStorage = StatisticsStorage()
+    private var selectedIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()

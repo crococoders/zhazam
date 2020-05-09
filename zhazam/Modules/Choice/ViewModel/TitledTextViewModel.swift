@@ -10,8 +10,10 @@ import Foundation
 
 // TODO: - refactor
 struct TitledTextViewModel {
-    var title: String
+    var title: String = ""
     var placeholder: String
     var actions: [String: Callback] = [:]
     var onDismiss: Callback?
+    var onSave: Callback?
+    var buttonIsHidden: Bool = false
 }

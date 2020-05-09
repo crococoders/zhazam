@@ -11,6 +11,7 @@ import UIKit
 final class ChoiceViewController: UIViewController {
 
     private var viewModel: TitledTextViewModel
+    private let provider = ChoiceProvider()
     
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var textField: PrimaryTextField!
@@ -33,10 +34,13 @@ final class ChoiceViewController: UIViewController {
         configureTextField()
         hideKeyboardWhenTappedAround()
         configure(viewModel: viewModel)
+        configureProvider()
+        setupBarButtonItem()
     }
     
     private func setupLocalization() {
         backButton.setTitle(R.string.localizable.continue(), for: .normal)
+        backButton.isHidden = viewModel.buttonIsHidden
     }
     
     private func configureTextField() {
@@ -49,6 +53,11 @@ final class ChoiceViewController: UIViewController {
         textField.placeholder = viewModel.placeholder
     }
     
+    private func configureProvider() {
+        provider.delegate = self
+        provider.setUsername()
+    }
+    
     private func perform(action: @escaping Callback) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.textField.resignResponder()
@@ -56,8 +65,29 @@ final class ChoiceViewController: UIViewController {
         }
     }
     
+    private func setupBarButtonItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.save().lowercased(),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(saveTapped))
+    }
+    
     @IBAction private func backButtonPressed(_ sender: UIButton) {
         dismiss(animated: false, completion: viewModel.onDismiss)
+    }
+    
+    @objc private func saveTapped() {
+        provider.saveUsername(with: textField.text)
+    }
+}
+
+extension ChoiceViewController: ChoiceProviderDelegate {
+    func didSetUsername(_ username: String?) {
+        textField.text = username
+    }
+    
+    func didSaveName() {
+        navigationController?.popViewController(animated: true)
     }
 }
 

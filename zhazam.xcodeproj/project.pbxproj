@@ -38,6 +38,10 @@
 		04BE896C24655C2800D39C9E /* KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE896B24655C2800D39C9E /* KeychainAccess.swift */; };
 		04BE896F246569C000D39C9E /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE896E246569C000D39C9E /* TokenGenerator.swift */; };
 		04DA41632465F3BC00C9CF87 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA41622465F3BC00C9CF87 /* GameResult.swift */; };
+		04DA41652466F39600C9CF87 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA41642466F39600C9CF87 /* Username.swift */; };
+		04DA41682467035F00C9CF87 /* ChoiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA41672467035F00C9CF87 /* ChoiceProvider.swift */; };
+		04DA416A24672FDE00C9CF87 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA416924672FDE00C9CF87 /* Statistics.swift */; };
+		04DA416C246734DF00C9CF87 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA416B246734DF00C9CF87 /* Status.swift */; };
 		0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */; };
 		0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A55230C5FF200ECE3B4 /* LoadingViewController.swift */; };
 		0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A5A230C5FF500ECE3B4 /* Images.xcassets */; };
@@ -132,6 +136,10 @@
 		04BE896B24655C2800D39C9E /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccess.swift; sourceTree = "<group>"; };
 		04BE896E246569C000D39C9E /* TokenGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
 		04DA41622465F3BC00C9CF87 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
+		04DA41642466F39600C9CF87 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
+		04DA41672467035F00C9CF87 /* ChoiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceProvider.swift; sourceTree = "<group>"; };
+		04DA416924672FDE00C9CF87 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		04DA416B246734DF00C9CF87 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		0D1F8A50230C5FF200ECE3B4 /* zhazam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhazam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D1F8A55230C5FF200ECE3B4 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -286,7 +294,6 @@
 		04BE8949246480CF00D39C9E /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
-				04BE8966246487B400D39C9E /* Services */,
 				04BE894E246480CF00D39C9E /* Manager */,
 				04BE8952246480CF00D39C9E /* EndPoint */,
 				04BE894A246480CF00D39C9E /* Encoding */,
@@ -336,13 +343,6 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
-		04BE8966246487B400D39C9E /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		04BE896D2465698F00D39C9E /* KeychainStorage */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,8 +356,19 @@
 			isa = PBXGroup;
 			children = (
 				04DA41622465F3BC00C9CF87 /* GameResult.swift */,
+				04DA41642466F39600C9CF87 /* Username.swift */,
+				04DA416924672FDE00C9CF87 /* Statistics.swift */,
+				04DA416B246734DF00C9CF87 /* Status.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		04DA41662467034E00C9CF87 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				04DA41672467035F00C9CF87 /* ChoiceProvider.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		0D1F8A47230C5FF200ECE3B4 = {
@@ -571,6 +582,8 @@
 		7A571F1B2465F64000CFCEC7 /* Choice */ = {
 			isa = PBXGroup;
 			children = (
+				04DA41662467034E00C9CF87 /* Provider */,
+				7A708C732465E5230047F20D /* ViewModel */,
 				7A571F1C2465F86600CFCEC7 /* View */,
 			);
 			path = Choice;
@@ -685,7 +698,6 @@
 		7AF36DA1245C4CFE00048E2F /* TitledTextView */ = {
 			isa = PBXGroup;
 			children = (
-				7A708C732465E5230047F20D /* ViewModel */,
 				7AF36DA2245C4D1200048E2F /* TitledTextView.swift */,
 				7AF36DA4245C4D1D00048E2F /* TitledTextView.xib */,
 			);
@@ -981,6 +993,7 @@
 			files = (
 				70236F1B234CD0EF00FCD963 /* UITextField+Extension.swift in Sources */,
 				7AF36DA7245C502300048E2F /* Optional+Extension.swift in Sources */,
+				04DA416A24672FDE00C9CF87 /* Statistics.swift in Sources */,
 				7ACE4529245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift in Sources */,
 				7AA49B6324659FD8005F4364 /* Gaming.swift in Sources */,
 				7AF36D90245C479500048E2F /* OnboardingPage.swift in Sources */,
@@ -989,6 +1002,7 @@
 				04BE896C24655C2800D39C9E /* KeychainAccess.swift in Sources */,
 				24729FB2245B447900A69CC3 /* StatisticsCollectionCell.swift in Sources */,
 				24729FB7245C7B1A00A69CC3 /* StatisticsRowModel.swift in Sources */,
+				04DA41682467035F00C9CF87 /* ChoiceProvider.swift in Sources */,
 				04BE89482464458000D39C9E /* ConfigurationViewModel.swift in Sources */,
 				7AF36D98245C491800048E2F /* OnboardingViewController.swift in Sources */,
 				04BE895A246480CF00D39C9E /* ParameterEncoding.swift in Sources */,
@@ -1003,7 +1017,9 @@
 				70236F0A234CC8B500FCD963 /* UserPreference.swift in Sources */,
 				04BE895D246480CF00D39C9E /* NetworkResponse.swift in Sources */,
 				04BE896A24648C8C00D39C9E /* Handler.swift in Sources */,
+				04DA416C246734DF00C9CF87 /* Status.swift in Sources */,
 				7AF36DAD245ED31C00048E2F /* ClassicModeViewController.swift in Sources */,
+				04DA41652466F39600C9CF87 /* Username.swift in Sources */,
 				04583711245D641200DC0E1B /* LoadingLabel.swift in Sources */,
 				70236EFE234BA83E00FCD963 /* UIView+Extension.swift in Sources */,
 				70236F0A234CC8B500FCD963 /* UserPreference.swift in Sources */,

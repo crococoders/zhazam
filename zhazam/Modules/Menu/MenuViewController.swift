@@ -79,6 +79,7 @@ final class MenuViewController: UIViewController {
         //TODO: refactor
     }
     
+    // swiftlint:disable function_body_length
     private func changeState(for view: LoadingButtonView, with type: ViewControllerType?) {
         guard let type = type else { return }
         
@@ -91,8 +92,11 @@ final class MenuViewController: UIViewController {
             viewController = MenuViewController(storage: SettingsStorage())
         case .countdown:
             viewController = CountdownViewController()
-        default:
-            viewController = MenuViewController(storage: MainMenuStorage())
+        case .choice:
+            viewController = ChoiceViewController(viewModel:
+                TitledTextViewModel(placeholder: R.string.localizable.nickname(), buttonIsHidden: true))
+        case .statistics:
+            viewController = StatisticsViewController()
         }
         if !storage.hasLoader {
             DispatchQueue.main.asyncAfter(deadline: .now() + fadeDuration) { [weak self] in
@@ -106,6 +110,7 @@ final class MenuViewController: UIViewController {
             }
         }
     }
+    // swiftlint:enable function_body_length
     
     private func navigateToNextPage(with viewController: UIViewController?) {
         guard let viewController = viewController else { return }

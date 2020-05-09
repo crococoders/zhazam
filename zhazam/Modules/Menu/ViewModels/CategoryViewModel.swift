@@ -14,7 +14,7 @@ enum Action {
 }
 
 enum ViewControllerType {
-    case menu, settings, gameModes, countdown
+    case settings, gameModes, countdown, choice, statistics
 }
 
 protocol MenuSubviewsDelegate: AnyObject {}
