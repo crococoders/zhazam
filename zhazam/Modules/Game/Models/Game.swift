@@ -10,8 +10,8 @@ import Foundation
 
 protocol GameDelegate: AnyObject {
     func didUpdateTime()
-    func didFinishText()
-    func didFinish(_ word: String)
+    func didFinishText(with wpm: Int)
+    func didFinish()
     func didUpdate(text: NSMutableAttributedString)
     func didUpdate(word: NSMutableAttributedString)
 }
@@ -84,7 +84,7 @@ final class Game {
     private func getCurrentWord() -> String? {
         guard let unwrappedWord = words[safe: index] else { return nil }
         var currentWord = unwrappedWord
-        if type == .classic || type == .arcade && isLastWord {
+        if (type == .classic || type == .arcade) && !isLastWord {
             currentWord += Constants.delimeter
         }
         return currentWord
@@ -110,7 +110,7 @@ extension Game: Gaming {
         attribute(word: word)
         attribute(text: attributedText, with: word)
         if word == currentWord {
-            isLastWord ? delegate?.didFinishText() : delegate?.didFinish(word)
+            isLastWord ? delegate?.didFinishText(with: wpm) : delegate?.didFinish()
             index += 1
             lastUpdatedWord = ""
             correctWordsCount += currentWord.count

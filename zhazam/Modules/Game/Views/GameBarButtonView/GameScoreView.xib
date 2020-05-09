@@ -9,24 +9,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameBarButtonView" customModule="zhazam" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameScoreView" customModule="zhazam" customModuleProvider="target">
             <connections>
                 <outlet property="scoreLabel" destination="jXV-P3-QmA" id="74h-wd-jPg"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="89" height="58"/>
+            <rect key="frame" x="0.0" y="0.0" width="89" height="48"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wpm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01Z-f0-OMg">
-                    <rect key="frame" x="42" y="34" width="47" height="24"/>
+                    <rect key="frame" x="42" y="24" width="47" height="24"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                     <color key="textColor" name="defaultGray"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="104" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXV-P3-QmA">
-                    <rect key="frame" x="55" y="10" width="34" height="24"/>
+                    <rect key="frame" x="55" y="0.0" width="34" height="24"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                     <color key="textColor" name="textColor"/>
                     <nil key="highlightedColor"/>
@@ -35,6 +35,7 @@
             <color key="backgroundColor" name="background"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="jXV-P3-QmA" secondAttribute="trailing" id="eSj-rE-c9o"/>
+                <constraint firstItem="jXV-P3-QmA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="efv-do-q4Z"/>
                 <constraint firstItem="01Z-f0-OMg" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ek3-t1-KJ4"/>
                 <constraint firstItem="01Z-f0-OMg" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="g1X-N6-scP"/>
                 <constraint firstItem="01Z-f0-OMg" firstAttribute="top" secondItem="jXV-P3-QmA" secondAttribute="bottom" id="wbu-gC-YRr"/>

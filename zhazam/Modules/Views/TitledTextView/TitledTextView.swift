@@ -9,23 +9,17 @@
 import UIKit
 
 final class TitledTextView: UIView {
-    
-    var onComplete: Callback?
 
+    private var actions: [String: Callback]?
+    
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var textField: UITextField!
     
-    private var readyText: String?
-    
-    convenience init(title: String,
-                     placeholder: String,
-                     readyText: String? = nil) {
+    convenience init(viewModel: TitledTextViewModel) {
         self.init(frame: CGRect.zero)
         
-        titleLabel.text = title
         textField.delegate = self
-        textField.placeholder = placeholder
-        self.readyText = readyText
+        configure(viewModel: viewModel)
     }
     
     override init(frame: CGRect) {
@@ -40,10 +34,16 @@ final class TitledTextView: UIView {
         loadFromNib()
     }
     
-    private func performCompletion() {
+    private func perform(action: @escaping Callback) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.onComplete?()
+            action()
         }
+    }
+    
+    private func configure(viewModel: TitledTextViewModel) {
+        titleLabel.text = viewModel.title
+        textField.placeholder = viewModel.placeholder
+        actions = viewModel.actions
     }
 }
 
@@ -52,8 +52,8 @@ extension TitledTextView: UITextFieldDelegate {
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
         let updatedString = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
-        if let text = readyText, updatedString == text {
-            performCompletion()
+        if let action = actions?[updatedString ?? ""] {
+            perform(action: action)
         }
         
         return true

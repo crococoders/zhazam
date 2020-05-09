@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResultViewController" customModule="zhazam" customModuleProvider="target">
+            <connections>
+                <outlet property="percentageLabel" destination="oBJ-1C-5kd" id="Ktv-g7-cgY"/>
+                <outlet property="quitButton" destination="Vcz-y8-VJ0" id="C5l-60-GsR"/>
+                <outlet property="restartButton" destination="Jrk-Fk-R0l" id="e9p-BP-eol"/>
+                <outlet property="scoreLabel" destination="Sx2-qI-RYy" id="DuS-gn-A2Z"/>
+                <outlet property="stateLabel" destination="txo-ub-cka" id="c0N-lK-pdC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="good job!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txo-ub-cka">
+                    <rect key="frame" x="40" y="343.5" width="334" height="77.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="65"/>
+                    <color key="textColor" name="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45wpm" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sx2-qI-RYy">
+                    <rect key="frame" x="40" y="260" width="334" height="83.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="70"/>
+                    <color key="textColor" name="defaultGray"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrk-Fk-R0l">
+                    <rect key="frame" x="40" y="752" width="76" height="30"/>
+                    <color key="backgroundColor" name="background"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="pxI-wa-pse"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                    <state key="normal" title="restart">
+                        <color key="titleColor" name="textColor"/>
+                    </state>
+                    <connections>
+                        <action selector="restartPressed:" destination="-1" eventType="touchUpInside" id="aWb-7q-2jp"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcz-y8-VJ0">
+                    <rect key="frame" x="40" y="792" width="44" height="30"/>
+                    <color key="backgroundColor" name="background"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="SUs-OY-kPu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                    <state key="normal" title="quit">
+                        <color key="titleColor" name="defaultGray"/>
+                    </state>
+                    <connections>
+                        <action selector="quitPressed:" destination="-1" eventType="touchUpInside" id="1ET-wy-n6V"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="your results beats 58% of players" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBJ-1C-5kd">
+                    <rect key="frame" x="40" y="441" width="334" height="24"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                    <color key="textColor" name="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" name="background"/>
+            <constraints>
+                <constraint firstItem="Vcz-y8-VJ0" firstAttribute="top" secondItem="Jrk-Fk-R0l" secondAttribute="bottom" constant="10" id="AUw-gj-HVk"/>
+                <constraint firstItem="oBJ-1C-5kd" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="FUl-W7-eKd"/>
+                <constraint firstItem="oBJ-1C-5kd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="Ntm-LP-YIT"/>
+                <constraint firstItem="txo-ub-cka" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="SWu-Dj-8CD"/>
+                <constraint firstItem="Jrk-Fk-R0l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="fX1-5P-iwr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Sx2-qI-RYy" secondAttribute="trailing" constant="40" id="kdd-gM-S99"/>
+                <constraint firstItem="Vcz-y8-VJ0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="oSf-ST-QJt"/>
+                <constraint firstItem="txo-ub-cka" firstAttribute="top" secondItem="Sx2-qI-RYy" secondAttribute="bottom" id="vCp-v0-KeL"/>
+                <constraint firstItem="Sx2-qI-RYy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="vbJ-2t-qoL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Vcz-y8-VJ0" secondAttribute="bottom" constant="40" id="wYL-Yf-7GK"/>
+                <constraint firstItem="oBJ-1C-5kd" firstAttribute="top" secondItem="txo-ub-cka" secondAttribute="bottom" constant="20" id="wjp-Gf-9oB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oBJ-1C-5kd" secondAttribute="trailing" constant="40" id="xoh-YN-MLX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="txo-ub-cka" secondAttribute="trailing" constant="40" id="y2E-d7-ckS"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="defaultGray">
+            <color red="0.80784313725490198" green="0.80784313725490198" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

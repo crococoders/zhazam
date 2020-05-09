@@ -15,9 +15,8 @@ struct GameModesStorage: CategoryStorageProtocol {
     var title: String = R.string.localizable.modes().lowercased()
     
     init() {
-        categories = [CategoryViewModel(title: R.string.localizable.classic(),
-                                        viewController: ClassicModeViewController()),
-                      CategoryViewModel(title: R.string.localizable.arcade(), viewController: nil),
-                      CategoryViewModel(title: R.string.localizable.time(), viewController: nil)]
+        categories = [CategoryViewModel(title: R.string.localizable.classic(), type: .countdown),
+                      CategoryViewModel(title: R.string.localizable.arcade()),
+                      CategoryViewModel(title: R.string.localizable.time())]
     }
 }

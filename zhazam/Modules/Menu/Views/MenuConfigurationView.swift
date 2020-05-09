@@ -62,7 +62,8 @@ final class MenuConfigurationView: UIView {
     private func fadeButton() {
         valueButton.alpha = isActive ? 0 : 1
         
-        UIView.animate(withDuration: 1.0, delay: 0, options: [.curveLinear], animations: {
+        UIView.animate(withDuration: 1.0, delay: 0, options: [.curveLinear], animations: { [weak self] in
+            guard let self = self else { return }
             self.valueButton.alpha = self.isActive ? 1 : 0
         }, completion: nil)
     }

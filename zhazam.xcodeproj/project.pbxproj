@@ -65,10 +65,15 @@
 		70236F1B234CD0EF00FCD963 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236F1A234CD0EF00FCD963 /* UITextField+Extension.swift */; };
 		7A5498752461DC9600BE4F15 /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5498742461DC9600BE4F15 /* PrimaryTextField.swift */; };
 		7A5498782462159600BE4F15 /* ClassicGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5498772462159600BE4F15 /* ClassicGameModel.swift */; };
+		7A571F1F2465F89000CFCEC7 /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A571F1D2465F89000CFCEC7 /* ChoiceViewController.swift */; };
+		7A571F202465F89000CFCEC7 /* ChoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A571F1E2465F89000CFCEC7 /* ChoiceViewController.xib */; };
+		7A571F2524663C8900CFCEC7 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A571F2324663C8900CFCEC7 /* ResultViewController.swift */; };
+		7A571F2624663C8900CFCEC7 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A571F2424663C8900CFCEC7 /* ResultViewController.xib */; };
 		7A6D064E2464977F00405665 /* GameType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6D064D2464977F00405665 /* GameType.swift */; };
 		7A6D06502464BC8D00405665 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6D064F2464BC8D00405665 /* Array+Extension.swift */; };
-		7A6D06532464C0CE00405665 /* GameBarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6D06522464C0CE00405665 /* GameBarButtonView.swift */; };
-		7A6D06552464C0DC00405665 /* GameBarButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6D06542464C0DC00405665 /* GameBarButtonView.xib */; };
+		7A6D06532464C0CE00405665 /* GameScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6D06522464C0CE00405665 /* GameScoreView.swift */; };
+		7A6D06552464C0DC00405665 /* GameScoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6D06542464C0DC00405665 /* GameScoreView.xib */; };
+		7A708C752465E53C0047F20D /* TitledTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A708C742465E53C0047F20D /* TitledTextViewModel.swift */; };
 		7AA49B6324659FD8005F4364 /* Gaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA49B6224659FD8005F4364 /* Gaming.swift */; };
 		7AA49B6524659FF2005F4364 /* GameProcessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA49B6424659FF2005F4364 /* GameProcessable.swift */; };
 		7ACE4529245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */; };
@@ -156,10 +161,15 @@
 		70236F1A234CD0EF00FCD963 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		7A5498742461DC9600BE4F15 /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
 		7A5498772462159600BE4F15 /* ClassicGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicGameModel.swift; sourceTree = "<group>"; };
+		7A571F1D2465F89000CFCEC7 /* ChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
+		7A571F1E2465F89000CFCEC7 /* ChoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceViewController.xib; sourceTree = "<group>"; };
+		7A571F2324663C8900CFCEC7 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		7A571F2424663C8900CFCEC7 /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		7A6D064D2464977F00405665 /* GameType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameType.swift; sourceTree = "<group>"; };
 		7A6D064F2464BC8D00405665 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
-		7A6D06522464C0CE00405665 /* GameBarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBarButtonView.swift; sourceTree = "<group>"; };
-		7A6D06542464C0DC00405665 /* GameBarButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameBarButtonView.xib; sourceTree = "<group>"; };
+		7A6D06522464C0CE00405665 /* GameScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreView.swift; sourceTree = "<group>"; };
+		7A6D06542464C0DC00405665 /* GameScoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameScoreView.xib; sourceTree = "<group>"; };
+		7A708C742465E53C0047F20D /* TitledTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextViewModel.swift; sourceTree = "<group>"; };
 		7AA49B6224659FD8005F4364 /* Gaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gaming.swift; sourceTree = "<group>"; };
 		7AA49B6424659FF2005F4364 /* GameProcessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProcessable.swift; sourceTree = "<group>"; };
 		7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceStyleConfigurationCommand.swift; sourceTree = "<group>"; };
@@ -385,8 +395,10 @@
 		0DCC8FDC2358D13B0047EB90 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				7AF36DAF245ED93400048E2F /* Game */,
+				7A571F2124663C6400CFCEC7 /* Result */,
 				0499A2AB243A0050008C6FAD /* Views */,
+				7A571F1B2465F64000CFCEC7 /* Choice */,
+				7AF36DAF245ED93400048E2F /* Game */,
 				7AF36D8E245C474700048E2F /* Onboarding */,
 				0499A2A62439FE0A008C6FAD /* Menu */,
 				0DCC8FDD2358D14F0047EB90 /* Loading */,
@@ -556,6 +568,40 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7A571F1B2465F64000CFCEC7 /* Choice */ = {
+			isa = PBXGroup;
+			children = (
+				7A571F1C2465F86600CFCEC7 /* View */,
+			);
+			path = Choice;
+			sourceTree = "<group>";
+		};
+		7A571F1C2465F86600CFCEC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7A571F1D2465F89000CFCEC7 /* ChoiceViewController.swift */,
+				7A571F1E2465F89000CFCEC7 /* ChoiceViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7A571F2124663C6400CFCEC7 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				7A571F2224663C7C00CFCEC7 /* View */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		7A571F2224663C7C00CFCEC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7A571F2324663C8900CFCEC7 /* ResultViewController.swift */,
+				7A571F2424663C8900CFCEC7 /* ResultViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7A6D06512464C09200405665 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,10 +613,18 @@
 		7A6D06562464C0E200405665 /* GameBarButtonView */ = {
 			isa = PBXGroup;
 			children = (
-				7A6D06522464C0CE00405665 /* GameBarButtonView.swift */,
-				7A6D06542464C0DC00405665 /* GameBarButtonView.xib */,
+				7A6D06522464C0CE00405665 /* GameScoreView.swift */,
+				7A6D06542464C0DC00405665 /* GameScoreView.xib */,
 			);
 			path = GameBarButtonView;
+			sourceTree = "<group>";
+		};
+		7A708C732465E5230047F20D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7A708C742465E53C0047F20D /* TitledTextViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		7A87F32D245F79A40016E4B4 /* View */ = {
@@ -631,6 +685,7 @@
 		7AF36DA1245C4CFE00048E2F /* TitledTextView */ = {
 			isa = PBXGroup;
 			children = (
+				7A708C732465E5230047F20D /* ViewModel */,
 				7AF36DA2245C4D1200048E2F /* TitledTextView.swift */,
 				7AF36DA4245C4D1D00048E2F /* TitledTextView.xib */,
 			);
@@ -813,7 +868,8 @@
 			files = (
 				70236EF4234BA6D300FCD963 /* HelveticaNeue-Bold.ttf in Resources */,
 				7AF36D9E245C4A8C00048E2F /* ConfigurationView.xib in Resources */,
-				7A6D06552464C0DC00405665 /* GameBarButtonView.xib in Resources */,
+				7A571F202465F89000CFCEC7 /* ChoiceViewController.xib in Resources */,
+				7A6D06552464C0DC00405665 /* GameScoreView.xib in Resources */,
 				B0172A192315347E0041EF2E /* Localizable.strings in Resources */,
 				24A6174E244FA9CA007F92E6 /* CountdownViewController.xib in Resources */,
 				7AF36D99245C491800048E2F /* OnboardingViewController.xib in Resources */,
@@ -827,6 +883,7 @@
 				24729FB4245B448700A69CC3 /* StatisticsCollectionCell.xib in Resources */,
 				7AF36DA5245C4D1D00048E2F /* TitledTextView.xib in Resources */,
 				7AF36D95245C48AB00048E2F /* OnboardingPageViewController.xib in Resources */,
+				7A571F2624663C8900CFCEC7 /* ResultViewController.xib in Resources */,
 				0DCC8FDF2358D1670047EB90 /* LoadingViewController.xib in Resources */,
 				24A6175D245209AC007F92E6 /* TimerRowView.xib in Resources */,
 				B05AEDEB2318F77500CCA98F /* LaunchScreen.storyboard in Resources */,
@@ -927,7 +984,7 @@
 				7ACE4529245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift in Sources */,
 				7AA49B6324659FD8005F4364 /* Gaming.swift in Sources */,
 				7AF36D90245C479500048E2F /* OnboardingPage.swift in Sources */,
-				7A6D06532464C0CE00405665 /* GameBarButtonView.swift in Sources */,
+				7A6D06532464C0CE00405665 /* GameScoreView.swift in Sources */,
 				70236F15234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift in Sources */,
 				04BE896C24655C2800D39C9E /* KeychainAccess.swift in Sources */,
 				24729FB2245B447900A69CC3 /* StatisticsCollectionCell.swift in Sources */,
@@ -938,6 +995,7 @@
 				04BE895B246480CF00D39C9E /* URLParameterEncoder.swift in Sources */,
 				0421FC422461E6CD0093E23D /* MenuConfigurationView.swift in Sources */,
 				70236F02234CC68700FCD963 /* AsyncResult.swift in Sources */,
+				7A708C752465E53C0047F20D /* TitledTextViewModel.swift in Sources */,
 				70236F10234CCAEA00FCD963 /* CommandsBuilder.swift in Sources */,
 				04BE895F246480CF00D39C9E /* NetworkManager.swift in Sources */,
 				04583711245D641200DC0E1B /* LoadingLabel.swift in Sources */,
@@ -960,6 +1018,7 @@
 				24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */,
 				7AA49B6524659FF2005F4364 /* GameProcessable.swift in Sources */,
 				7AF36DB5245EDACA00048E2F /* KeyboardStateObserver.swift in Sources */,
+				7A571F2524663C8900CFCEC7 /* ResultViewController.swift in Sources */,
 				7A6D06502464BC8D00405665 /* Array+Extension.swift in Sources */,
 				0484560A24632F2200932906 /* SettingsStorage.swift in Sources */,
 				7AF36DA0245C4A9B00048E2F /* ConfigurationView.swift in Sources */,
@@ -983,6 +1042,7 @@
 				0499A2AF243A0257008C6FAD /* LogoView.swift in Sources */,
 				7A5498782462159600BE4F15 /* ClassicGameModel.swift in Sources */,
 				0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */,
+				7A571F1F2465F89000CFCEC7 /* ChoiceViewController.swift in Sources */,
 				B0172A02231532120041EF2E /* R.generated.swift in Sources */,
 				04DA41632465F3BC00C9CF87 /* GameResult.swift in Sources */,
 				7AF36DA3245C4D1200048E2F /* TitledTextView.swift in Sources */,

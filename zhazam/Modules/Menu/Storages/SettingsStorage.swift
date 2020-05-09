@@ -15,18 +15,16 @@ struct SettingsStorage: CategoryStorageProtocol {
     var title: String = R.string.localizable.settings().lowercased()
     
     init() {
-        categories = [CategoryViewModel(title: R.string.localizable.nickname(), viewController: nil),
+        categories = [CategoryViewModel(title: R.string.localizable.nickname()),
                       CategoryViewModel(title: R.string.localizable.lights(),
-                                        viewController: nil,
                                         action: .choose,
                                         configuration: ConfigurationViewModel(type: .lights,
                                                                               values: [R.string.localizable.off(),
                                                                                        R.string.localizable.on()])),
                       CategoryViewModel(title: R.string.localizable.language(),
-                                        viewController: nil,
                                         action: .choose),
-                      CategoryViewModel(title: R.string.localizable.share(), viewController: nil),
-                      CategoryViewModel(title: R.string.localizable.contacts(), viewController: nil),
-                      CategoryViewModel(title: R.string.localizable.rate(), viewController: nil)]
+                      CategoryViewModel(title: R.string.localizable.share()),
+                      CategoryViewModel(title: R.string.localizable.contacts()),
+                      CategoryViewModel(title: R.string.localizable.rate())]
     }
 }

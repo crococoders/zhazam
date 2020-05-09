@@ -26,3 +26,8 @@
 "Share" = "Share";
 "Contacts" = "Contacts";
 "Rate" = "Rate";
+"ExitOrRestart" = "exit or restart";
+"ExitOrRestartQuestion" = "Do you want to exit or start again?";
+"Exit" = "exit";
+"Restart" = "restart";
+"Continue" = "continue";
