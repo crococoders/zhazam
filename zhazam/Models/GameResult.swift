@@ -8,35 +8,35 @@
 
 import Foundation
 
-struct ScoreApiResponse: Codable {
+struct GameResultApiResponse: Codable {
     let status: String
     let message: String
-    let data: Score
+    var data: GameResult?
     
-    private enum ScoreApiResponseCodingKeys: String, CodingKey {
+    private enum GameResultApiResponseCodingKeys: String, CodingKey {
         case status
         case message
         case data
     }
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: ScoreApiResponseCodingKeys.self)
+        let container = try decoder.container(keyedBy: GameResultApiResponseCodingKeys.self)
         
         status = try container.decode(String.self, forKey: .status)
         message = try container.decode(String.self, forKey: .message)
-        data = try container.decode(Score.self, forKey: .data)
+        data = try container.decodeIfPresent(GameResult.self, forKey: .data)
     }
 }
 
-struct Score: Codable {
-    let percentage: String
+struct GameResult: Codable {
+    var percentage: String?
     
-    private enum ScoreCodingKeys: String, CodingKey {
+    private enum GameResultCodingKeys: String, CodingKey {
         case percentage
     }
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: ScoreCodingKeys.self)
+        let container = try decoder.container(keyedBy: GameResultCodingKeys.self)
         
         percentage = try container.decode(String.self, forKey: .percentage)
     }

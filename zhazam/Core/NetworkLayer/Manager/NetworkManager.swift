@@ -8,11 +8,12 @@
 
 import Foundation
 
+// TODO: Separate Services, use DIP
 struct NetworkManager: Handler {
-    typealias ScoreResponse = ((_ score: Score?, _ error: Error?) -> Void)
+    typealias GameResultResponse = ((_ score: GameResult?, _ error: Error?) -> Void)
     let router = Router<EndPoint>()
     
-    func sendGameResult(with wpm: Int, completion: @escaping ScoreResponse) {
+    func sendGameResult(with wpm: Int, completion: @escaping GameResultResponse) {
         router.request(.addGameScore(score: wpm)) { (data, response, error) in
             if error != nil {
                 completion(nil, NetworkResponse.noNetwork)
@@ -28,7 +29,7 @@ struct NetworkManager: Handler {
                     }
                     
                     do {
-                        let apiResponse = try JSONDecoder().decode(ScoreApiResponse.self, from: responseData)
+                        let apiResponse = try JSONDecoder().decode(GameResultApiResponse.self, from: responseData)
                         completion(apiResponse.data, nil)
                     } catch {
                         completion(nil, NetworkResponse.unableToDecode)

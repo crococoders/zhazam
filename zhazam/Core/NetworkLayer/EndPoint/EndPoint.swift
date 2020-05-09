@@ -19,7 +19,7 @@ public enum EndPoint {
 extension EndPoint: EndPointType {
     
     var environmentBaseURL: String {
-        return "typo-server.herokuapp.com/"
+        return "http://typo-server.herokuapp.com/"
     }
     
     var baseURL: URL {
@@ -35,7 +35,10 @@ extension EndPoint: EndPointType {
     }
     
     var httpMethod: HTTPMethod {
-        return .get
+        switch self {
+        case .addGameScore:
+            return .post
+        }
     }
     
     var task: HTTPTask {

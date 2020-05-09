@@ -30,7 +30,6 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: 10.0)
         request.httpMethod = route.httpMethod.rawValue
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.setValue(TokenGenerator.shared.getToken() ?? "", forHTTPHeaderField: "X-Token")
         
         do {
