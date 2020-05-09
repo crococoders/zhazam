@@ -22,6 +22,22 @@
 		0499A2AD243A024B008C6FAD /* LogoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0499A2AC243A024B008C6FAD /* LogoView.xib */; };
 		0499A2AF243A0257008C6FAD /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499A2AE243A0257008C6FAD /* LogoView.swift */; };
 		04BE89482464458000D39C9E /* ConfigurationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE89472464458000D39C9E /* ConfigurationViewModel.swift */; };
+		04BE895A246480CF00D39C9E /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE894B246480CF00D39C9E /* ParameterEncoding.swift */; };
+		04BE895B246480CF00D39C9E /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE894C246480CF00D39C9E /* URLParameterEncoder.swift */; };
+		04BE895C246480CF00D39C9E /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE894D246480CF00D39C9E /* JSONParameterEncoder.swift */; };
+		04BE895D246480CF00D39C9E /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE894F246480CF00D39C9E /* NetworkResponse.swift */; };
+		04BE895E246480CF00D39C9E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE8950246480CF00D39C9E /* Result.swift */; };
+		04BE895F246480CF00D39C9E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE8951246480CF00D39C9E /* NetworkManager.swift */; };
+		04BE8961246480CF00D39C9E /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE8955246480CF00D39C9E /* NetworkRouter.swift */; };
+		04BE8962246480CF00D39C9E /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE8956246480CF00D39C9E /* HTTPTask.swift */; };
+		04BE8963246480CF00D39C9E /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE8957246480CF00D39C9E /* HTTPMethod.swift */; };
+		04BE8964246480CF00D39C9E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE8958246480CF00D39C9E /* Router.swift */; };
+		04BE8965246480CF00D39C9E /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE8959246480CF00D39C9E /* EndPointType.swift */; };
+		04BE896824648B3900D39C9E /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE896724648B3900D39C9E /* EndPoint.swift */; };
+		04BE896A24648C8C00D39C9E /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE896924648C8C00D39C9E /* Handler.swift */; };
+		04BE896C24655C2800D39C9E /* KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE896B24655C2800D39C9E /* KeychainAccess.swift */; };
+		04BE896F246569C000D39C9E /* TokenGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE896E246569C000D39C9E /* TokenGenerator.swift */; };
+		04DA41632465F3BC00C9CF87 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA41622465F3BC00C9CF87 /* GameResult.swift */; };
 		0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */; };
 		0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A55230C5FF200ECE3B4 /* LoadingViewController.swift */; };
 		0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A5A230C5FF500ECE3B4 /* Images.xcassets */; };
@@ -95,6 +111,22 @@
 		0499A2AC243A024B008C6FAD /* LogoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoView.xib; sourceTree = "<group>"; };
 		0499A2AE243A0257008C6FAD /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		04BE89472464458000D39C9E /* ConfigurationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewModel.swift; sourceTree = "<group>"; };
+		04BE894B246480CF00D39C9E /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		04BE894C246480CF00D39C9E /* URLParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		04BE894D246480CF00D39C9E /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		04BE894F246480CF00D39C9E /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		04BE8950246480CF00D39C9E /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		04BE8951246480CF00D39C9E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		04BE8955246480CF00D39C9E /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		04BE8956246480CF00D39C9E /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		04BE8957246480CF00D39C9E /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		04BE8958246480CF00D39C9E /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		04BE8959246480CF00D39C9E /* EndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		04BE896724648B3900D39C9E /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		04BE896924648C8C00D39C9E /* Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handler.swift; sourceTree = "<group>"; };
+		04BE896B24655C2800D39C9E /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccess.swift; sourceTree = "<group>"; };
+		04BE896E246569C000D39C9E /* TokenGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGenerator.swift; sourceTree = "<group>"; };
+		04DA41622465F3BC00C9CF87 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		0D1F8A50230C5FF200ECE3B4 /* zhazam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhazam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D1F8A55230C5FF200ECE3B4 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +273,83 @@
 			path = Logo;
 			sourceTree = "<group>";
 		};
+		04BE8949246480CF00D39C9E /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				04BE8966246487B400D39C9E /* Services */,
+				04BE894E246480CF00D39C9E /* Manager */,
+				04BE8952246480CF00D39C9E /* EndPoint */,
+				04BE894A246480CF00D39C9E /* Encoding */,
+				04BE8954246480CF00D39C9E /* Request */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		04BE894A246480CF00D39C9E /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				04BE894B246480CF00D39C9E /* ParameterEncoding.swift */,
+				04BE894C246480CF00D39C9E /* URLParameterEncoder.swift */,
+				04BE894D246480CF00D39C9E /* JSONParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		04BE894E246480CF00D39C9E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				04BE8951246480CF00D39C9E /* NetworkManager.swift */,
+				04BE894F246480CF00D39C9E /* NetworkResponse.swift */,
+				04BE8950246480CF00D39C9E /* Result.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		04BE8952246480CF00D39C9E /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				04BE896724648B3900D39C9E /* EndPoint.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		04BE8954246480CF00D39C9E /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				04BE8955246480CF00D39C9E /* NetworkRouter.swift */,
+				04BE8956246480CF00D39C9E /* HTTPTask.swift */,
+				04BE8957246480CF00D39C9E /* HTTPMethod.swift */,
+				04BE8958246480CF00D39C9E /* Router.swift */,
+				04BE8959246480CF00D39C9E /* EndPointType.swift */,
+				04BE896924648C8C00D39C9E /* Handler.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		04BE8966246487B400D39C9E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		04BE896D2465698F00D39C9E /* KeychainStorage */ = {
+			isa = PBXGroup;
+			children = (
+				04BE896B24655C2800D39C9E /* KeychainAccess.swift */,
+				04BE896E246569C000D39C9E /* TokenGenerator.swift */,
+			);
+			path = KeychainStorage;
+			sourceTree = "<group>";
+		};
+		04DA41612465F18900C9CF87 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				04DA41622465F3BC00C9CF87 /* GameResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		0D1F8A47230C5FF200ECE3B4 = {
 			isa = PBXGroup;
 			children = (
@@ -263,8 +372,9 @@
 			isa = PBXGroup;
 			children = (
 				B0172A22231537AA0041EF2E /* Application */,
-				0DCC8FDC2358D13B0047EB90 /* Modules */,
 				70236EFF234CC66A00FCD963 /* Core */,
+				04DA41612465F18900C9CF87 /* Models */,
+				0DCC8FDC2358D13B0047EB90 /* Modules */,
 				70236F03234CC6FD00FCD963 /* Utility */,
 				B0172A00231531F60041EF2E /* Resources */,
 				0D1F8A5F230C5FF500ECE3B4 /* Info.plist */,
@@ -367,6 +477,8 @@
 		70236EFF234CC66A00FCD963 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				04BE896D2465698F00D39C9E /* KeychainStorage */,
+				04BE8949246480CF00D39C9E /* NetworkLayer */,
 				7AF36DB3245EDAAF00048E2F /* KeyboardStateObserver */,
 				7ACE452A245C45AE0016E080 /* UserDefaultsStorage */,
 				70236F08234CC88F00FCD963 /* User */,
@@ -817,13 +929,22 @@
 				7AF36D90245C479500048E2F /* OnboardingPage.swift in Sources */,
 				7A6D06532464C0CE00405665 /* GameBarButtonView.swift in Sources */,
 				70236F15234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift in Sources */,
+				04BE896C24655C2800D39C9E /* KeychainAccess.swift in Sources */,
 				24729FB2245B447900A69CC3 /* StatisticsCollectionCell.swift in Sources */,
 				24729FB7245C7B1A00A69CC3 /* StatisticsRowModel.swift in Sources */,
 				04BE89482464458000D39C9E /* ConfigurationViewModel.swift in Sources */,
 				7AF36D98245C491800048E2F /* OnboardingViewController.swift in Sources */,
+				04BE895A246480CF00D39C9E /* ParameterEncoding.swift in Sources */,
+				04BE895B246480CF00D39C9E /* URLParameterEncoder.swift in Sources */,
 				0421FC422461E6CD0093E23D /* MenuConfigurationView.swift in Sources */,
 				70236F02234CC68700FCD963 /* AsyncResult.swift in Sources */,
 				70236F10234CCAEA00FCD963 /* CommandsBuilder.swift in Sources */,
+				04BE895F246480CF00D39C9E /* NetworkManager.swift in Sources */,
+				04583711245D641200DC0E1B /* LoadingLabel.swift in Sources */,
+				70236EFE234BA83E00FCD963 /* UIView+Extension.swift in Sources */,
+				70236F0A234CC8B500FCD963 /* UserPreference.swift in Sources */,
+				04BE895D246480CF00D39C9E /* NetworkResponse.swift in Sources */,
+				04BE896A24648C8C00D39C9E /* Handler.swift in Sources */,
 				7AF36DAD245ED31C00048E2F /* ClassicModeViewController.swift in Sources */,
 				04583711245D641200DC0E1B /* LoadingLabel.swift in Sources */,
 				70236EFE234BA83E00FCD963 /* UIView+Extension.swift in Sources */,
@@ -833,7 +954,9 @@
 				70236F0E234CCACA00FCD963 /* Command.swift in Sources */,
 				04583706245C255200DC0E1B /* LoadingButtonView.swift in Sources */,
 				0458370E245C9A3C00DC0E1B /* Int+Extension.swift in Sources */,
+				04BE896824648B3900D39C9E /* EndPoint.swift in Sources */,
 				0484560524632E0E00932906 /* MainMenuStorage.swift in Sources */,
+				04BE8964246480CF00D39C9E /* Router.swift in Sources */,
 				24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */,
 				7AA49B6524659FF2005F4364 /* GameProcessable.swift in Sources */,
 				7AF36DB5245EDACA00048E2F /* KeyboardStateObserver.swift in Sources */,
@@ -845,20 +968,28 @@
 				70236F07234CC76700FCD963 /* Reusable.swift in Sources */,
 				7A5498752461DC9600BE4F15 /* PrimaryTextField.swift in Sources */,
 				7AF36D94245C48AB00048E2F /* OnboardingPageViewController.swift in Sources */,
+				04BE895E246480CF00D39C9E /* Result.swift in Sources */,
 				7A6D064E2464977F00405665 /* GameType.swift in Sources */,
 				0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */,
 				24729FE12465254300A69CC3 /* StatisticsStorage.swift in Sources */,
 				7AF36DB2245ED95100048E2F /* Game.swift in Sources */,
 				70236F17234CCE0100FCD963 /* WindowConfigurationCommand.swift in Sources */,
+				04BE896F246569C000D39C9E /* TokenGenerator.swift in Sources */,
 				0484560724632EE400932906 /* GameModesStorage.swift in Sources */,
+				04BE895C246480CF00D39C9E /* JSONParameterEncoder.swift in Sources */,
 				04218FFE24558752001FF96F /* CategoryViewModel.swift in Sources */,
+				04BE8962246480CF00D39C9E /* HTTPTask.swift in Sources */,
+				04BE8963246480CF00D39C9E /* HTTPMethod.swift in Sources */,
 				0499A2AF243A0257008C6FAD /* LogoView.swift in Sources */,
 				7A5498782462159600BE4F15 /* ClassicGameModel.swift in Sources */,
 				0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */,
 				B0172A02231532120041EF2E /* R.generated.swift in Sources */,
+				04DA41632465F3BC00C9CF87 /* GameResult.swift in Sources */,
 				7AF36DA3245C4D1200048E2F /* TitledTextView.swift in Sources */,
 				7ACE452C245C45C70016E080 /* UserDefaultsStorage.swift in Sources */,
 				24A6175B245209A1007F92E6 /* TimerRowView.swift in Sources */,
+				04BE8965246480CF00D39C9E /* EndPointType.swift in Sources */,
+				04BE8961246480CF00D39C9E /* NetworkRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
