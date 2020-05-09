@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 final class MenuViewController: UIViewController {
     
@@ -112,8 +113,20 @@ final class MenuViewController: UIViewController {
     }
     // swiftlint:enable function_body_length
     
+    private func shareScreenImageButton() {
+        guard let screenShot = UIApplication.shared.screenShot else { return }
+        let activityViewController = UIActivityViewController(activityItems: [screenShot], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+     }
+    
     private func navigateToNextPage(with viewController: UIViewController?) {
         guard let viewController = viewController else { return }
+        viewController.hero.isEnabled = true
+        self.navigationController?.hero.isEnabled = true
+        self.navigationController?.hero.navigationAnimationType = .selectBy(
+            presenting: .zoom,
+            dismissing: .zoomOut)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
