@@ -97,7 +97,7 @@ final class ClassicModeViewController: UIViewController {
         }
         let onRestart = { [weak self] in
             guard let self = self else { return }
-//            self.gameProcess.restart()
+            self.gameProcess.restart()
         }
         let actions = [R.string.localizable.exit(): onExit, R.string.localizable.restart(): onRestart]
         let onDismiss: Callback = { [weak self] in
@@ -115,6 +115,10 @@ final class ClassicModeViewController: UIViewController {
 }
 
 extension ClassicModeViewController: GameProcessDelegate {
+    func didResume(at location: Int) {
+        scroll(to: location)
+    }
+    
     func didUpdate(text: NSMutableAttributedString) {
         textView.attributedText = text
     }

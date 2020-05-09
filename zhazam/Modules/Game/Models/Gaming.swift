@@ -12,6 +12,7 @@ protocol Gaming {
     func start()
     func pause()
     func resume()
+    func restart()
     func update(word: String)
     var wpm: Int { get }
     var time: Int { get }

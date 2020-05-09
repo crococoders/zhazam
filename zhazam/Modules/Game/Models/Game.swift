@@ -68,12 +68,14 @@ final class Game {
         
         attributedText.addAttribute(.foregroundColor, value: R.color.textColor()!,
                                     range: NSRange(location: correctWordsCount, length: correctLettersLength))
-        attributedText.addAttribute(.foregroundColor, value: R.color.defaultRed()!,
-                                    range: NSRange(location: correctLettersLength + correctWordsCount,
-                                                   length: word.count - correctLettersLength))
+        if correctWordsCount + word.count <= text?.length ?? 0 {
+            attributedText.addAttribute(.foregroundColor, value: R.color.defaultRed()!,
+                                        range: NSRange(location: correctLettersLength + correctWordsCount,
+                                                       length: word.count - correctLettersLength))
+        }
         let location = correctWordsCount + word.count
         let length = lastUpdatedWord.count - word.count
-        if lastUpdatedWord.count > word.count && location + length < attributedText.length {
+        if lastUpdatedWord.count > word.count && location + length <= text?.length ?? 0 {
             attributedText.addAttribute(.foregroundColor, value: R.color.defaultGray()!,
             range: NSRange(location: correctWordsCount + word.count, length: length))
         }
@@ -88,6 +90,13 @@ final class Game {
             currentWord += Constants.delimeter
         }
         return currentWord
+    }
+    
+    private func setupTimer() {
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self,
+                                     selector: #selector(increaseTime),
+                                     userInfo: nil, repeats: true)
     }
     
     @objc private func increaseTime() {
@@ -119,10 +128,7 @@ extension Game: Gaming {
     }
     
     func start() {
-        timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self,
-                                     selector: #selector(increaseTime),
-                                     userInfo: nil, repeats: true)
+        setupTimer()
     }
     
     func pause() {
@@ -130,6 +136,17 @@ extension Game: Gaming {
     }
     
     func resume() {
-        timer.fire()
+        setupTimer()
+    }
+    
+    func restart() {
+        time = 0
+        index = 0
+        lastUpdatedWord = ""
+        setupTimer()
+        correctWordsCount = 0
+        guard let text = text else { return }
+        let attrText = NSMutableAttributedString(string: text, attributes: Constants.defaultAttributes)
+        delegate?.didUpdate(text: attrText)
     }
 }

@@ -14,6 +14,7 @@ protocol GameProcessDelegate: AnyObject {
     func didUpdate(score: Int)
     func didFinishWord(location: Int)
     func didFinishText(with score: Int)
+    func didResume(at location: Int)
 }
 
 final class ClassicGameModel: GameProcessable {
@@ -29,6 +30,12 @@ final class ClassicGameModel: GameProcessable {
         let text = "If you want to use a layout manager on a background thread."
         game.text = text
         game.start()
+    }
+    
+    func resume() {
+        let location = game.correctWordsCount + (game.nextWord?.count ?? 0)
+        delegate?.didResume(at: location)
+        game.resume()
     }
 }
 
