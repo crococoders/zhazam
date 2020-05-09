@@ -9,7 +9,20 @@
 import Foundation
 
 enum GameTypeApi: String, Codable {
-    case classic, arcade, timer
+    case classic, arcade, time
+}
+
+extension GameTypeApi {
+    func getName() -> String {
+        switch self {
+        case .classic:
+            return R.string.localizable.classic()
+        case .arcade:
+            return R.string.localizable.arcade()
+        case .time:
+            return R.string.localizable.time()
+        }
+    }
 }
 
 struct StatisticsApiResponse: Codable {

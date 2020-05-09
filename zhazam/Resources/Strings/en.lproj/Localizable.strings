@@ -32,3 +32,5 @@
 "Restart" = "restart";
 "Continue" = "continue";
 "Save" = "Save";
+"AverageAll" = "Average of all time";
+"AverageLast" = "Average of last 10 games";

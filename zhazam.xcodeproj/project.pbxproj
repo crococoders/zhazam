@@ -42,6 +42,7 @@
 		04DA41682467035F00C9CF87 /* ChoiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA41672467035F00C9CF87 /* ChoiceProvider.swift */; };
 		04DA416A24672FDE00C9CF87 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA416924672FDE00C9CF87 /* Statistics.swift */; };
 		04DA416C246734DF00C9CF87 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA416B246734DF00C9CF87 /* Status.swift */; };
+		04DA416F2467403E00C9CF87 /* StatisticsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA416E2467403E00C9CF87 /* StatisticsProvider.swift */; };
 		0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */; };
 		0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1F8A55230C5FF200ECE3B4 /* LoadingViewController.swift */; };
 		0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D1F8A5A230C5FF500ECE3B4 /* Images.xcassets */; };
@@ -51,7 +52,6 @@
 		24729FB2245B447900A69CC3 /* StatisticsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24729FB1245B447900A69CC3 /* StatisticsCollectionCell.swift */; };
 		24729FB4245B448700A69CC3 /* StatisticsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24729FB3245B448700A69CC3 /* StatisticsCollectionCell.xib */; };
 		24729FB7245C7B1A00A69CC3 /* StatisticsRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24729FB6245C7B1A00A69CC3 /* StatisticsRowModel.swift */; };
-		24729FE12465254300A69CC3 /* StatisticsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24729FE02465254300A69CC3 /* StatisticsStorage.swift */; };
 		24A6174E244FA9CA007F92E6 /* CountdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A6174D244FA9CA007F92E6 /* CountdownViewController.xib */; };
 		24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */; };
 		24A6175B245209A1007F92E6 /* TimerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6175A245209A1007F92E6 /* TimerRowView.swift */; };
@@ -140,6 +140,7 @@
 		04DA41672467035F00C9CF87 /* ChoiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceProvider.swift; sourceTree = "<group>"; };
 		04DA416924672FDE00C9CF87 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		04DA416B246734DF00C9CF87 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		04DA416E2467403E00C9CF87 /* StatisticsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsProvider.swift; sourceTree = "<group>"; };
 		0D1F8A50230C5FF200ECE3B4 /* zhazam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhazam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D1F8A53230C5FF200ECE3B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D1F8A55230C5FF200ECE3B4 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -151,7 +152,6 @@
 		24729FB1245B447900A69CC3 /* StatisticsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionCell.swift; sourceTree = "<group>"; };
 		24729FB3245B448700A69CC3 /* StatisticsCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsCollectionCell.xib; sourceTree = "<group>"; };
 		24729FB6245C7B1A00A69CC3 /* StatisticsRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRowModel.swift; sourceTree = "<group>"; };
-		24729FE02465254300A69CC3 /* StatisticsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsStorage.swift; sourceTree = "<group>"; };
 		24A6174D244FA9CA007F92E6 /* CountdownViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountdownViewController.xib; sourceTree = "<group>"; };
 		24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
 		24A6175A245209A1007F92E6 /* TimerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRowView.swift; sourceTree = "<group>"; };
@@ -371,6 +371,14 @@
 			path = Provider;
 			sourceTree = "<group>";
 		};
+		04DA416D2467402500C9CF87 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				04DA416E2467403E00C9CF87 /* StatisticsProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
 		0D1F8A47230C5FF200ECE3B4 = {
 			isa = PBXGroup;
 			children = (
@@ -431,11 +439,11 @@
 		24729FAB245B43C500A69CC3 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
-				24729FAC245B43F500A69CC3 /* StatisticsViewController.swift */,
-				24729FAE245B440900A69CC3 /* StatisticsViewController.xib */,
-				24729FDF246524A100A69CC3 /* Storages */,
+				04DA416D2467402500C9CF87 /* Provider */,
 				24729FDE2465248300A69CC3 /* ViewModels */,
 				24729FB0245B443600A69CC3 /* Views */,
+				24729FAC245B43F500A69CC3 /* StatisticsViewController.swift */,
+				24729FAE245B440900A69CC3 /* StatisticsViewController.xib */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -455,14 +463,6 @@
 				24729FB6245C7B1A00A69CC3 /* StatisticsRowModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		24729FDF246524A100A69CC3 /* Storages */ = {
-			isa = PBXGroup;
-			children = (
-				24729FE02465254300A69CC3 /* StatisticsStorage.swift */,
-			);
-			path = Storages;
 			sourceTree = "<group>";
 		};
 		24A61748244FA248007F92E6 /* CountDown */ = {
@@ -1024,6 +1024,7 @@
 				70236EFE234BA83E00FCD963 /* UIView+Extension.swift in Sources */,
 				70236F0A234CC8B500FCD963 /* UserPreference.swift in Sources */,
 				24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */,
+				04DA416F2467403E00C9CF87 /* StatisticsProvider.swift in Sources */,
 				24729FAD245B43F500A69CC3 /* StatisticsViewController.swift in Sources */,
 				70236F0E234CCACA00FCD963 /* Command.swift in Sources */,
 				04583706245C255200DC0E1B /* LoadingButtonView.swift in Sources */,
@@ -1046,7 +1047,6 @@
 				04BE895E246480CF00D39C9E /* Result.swift in Sources */,
 				7A6D064E2464977F00405665 /* GameType.swift in Sources */,
 				0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */,
-				24729FE12465254300A69CC3 /* StatisticsStorage.swift in Sources */,
 				7AF36DB2245ED95100048E2F /* Game.swift in Sources */,
 				70236F17234CCE0100FCD963 /* WindowConfigurationCommand.swift in Sources */,
 				04BE896F246569C000D39C9E /* TokenGenerator.swift in Sources */,
