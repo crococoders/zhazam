@@ -52,6 +52,7 @@
 		24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */; };
 		24A6175B245209A1007F92E6 /* TimerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6175A245209A1007F92E6 /* TimerRowView.swift */; };
 		24A6175D245209AC007F92E6 /* TimerRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A6175C245209AC007F92E6 /* TimerRowView.xib */; };
+		24C632AC2466DF9800FC0DFA /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C632AB2466DF9800FC0DFA /* UIApplication+Extension.swift */; };
 		70236EF2234BA69E00FCD963 /* HelveticaNeue-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70236EF0234BA69E00FCD963 /* HelveticaNeue-Light.ttf */; };
 		70236EF4234BA6D300FCD963 /* HelveticaNeue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70236EF3234BA6D300FCD963 /* HelveticaNeue-Bold.ttf */; };
 		70236EFE234BA83E00FCD963 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236EFD234BA83E00FCD963 /* UIView+Extension.swift */; };
@@ -143,6 +144,7 @@
 		24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
 		24A6175A245209A1007F92E6 /* TimerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRowView.swift; sourceTree = "<group>"; };
 		24A6175C245209AC007F92E6 /* TimerRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerRowView.xib; sourceTree = "<group>"; };
+		24C632AB2466DF9800FC0DFA /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		70236EF0234BA69E00FCD963 /* HelveticaNeue-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Light.ttf"; sourceTree = "<group>"; };
 		70236EF3234BA6D300FCD963 /* HelveticaNeue-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Bold.ttf"; sourceTree = "<group>"; };
 		70236EFD234BA83E00FCD963 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 				7AF36DA6245C502300048E2F /* Optional+Extension.swift */,
 				7AF36DA8245C504B00048E2F /* UIViewController+Extension.swift */,
 				7A6D064F2464BC8D00405665 /* Array+Extension.swift */,
+				24C632AB2466DF9800FC0DFA /* UIApplication+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -987,6 +990,7 @@
 				04DA41632465F3BC00C9CF87 /* GameResult.swift in Sources */,
 				7AF36DA3245C4D1200048E2F /* TitledTextView.swift in Sources */,
 				7ACE452C245C45C70016E080 /* UserDefaultsStorage.swift in Sources */,
+				24C632AC2466DF9800FC0DFA /* UIApplication+Extension.swift in Sources */,
 				24A6175B245209A1007F92E6 /* TimerRowView.swift in Sources */,
 				04BE8965246480CF00D39C9E /* EndPointType.swift in Sources */,
 				04BE8961246480CF00D39C9E /* NetworkRouter.swift in Sources */,
@@ -1134,7 +1138,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3CHG2WRTC8;
+				DEVELOPMENT_TEAM = "3CHG2WRTC8";
 				INFOPLIST_FILE = zhazam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1155,7 +1159,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3CHG2WRTC8;
+				DEVELOPMENT_TEAM = "3CHG2WRTC8";
 				INFOPLIST_FILE = zhazam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
