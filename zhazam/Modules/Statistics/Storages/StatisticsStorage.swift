@@ -9,12 +9,12 @@
 import Foundation
 
 struct StatisticsStorage {
-    var statistics: [StatisticsRowModel]
+    var statistics: [StatisticsViewModel]
     
     init() {
-        statistics = [StatisticsRowModel(totalResult: "30", measurement: "wpm", resultTitle: "best result"),
-                      StatisticsRowModel(totalResult: "20", measurement: "wpm", resultTitle: "worst result"),
-                      StatisticsRowModel(totalResult: "12", measurement: "levels", resultTitle: "best arcade result"),
-                      StatisticsRowModel(totalResult: "3", measurement: "levels", resultTitle: "worst arcade result")]
+        statistics = [StatisticsViewModel(totalResult: "30", measurement: "wpm", resultTitle: "best result"),
+                      StatisticsViewModel(totalResult: "20", measurement: "wpm", resultTitle: "worst result"),
+                      StatisticsViewModel(totalResult: "12", measurement: "levels", resultTitle: "best arcade result"),
+                      StatisticsViewModel(totalResult: "3", measurement: "levels", resultTitle: "worst arcade result")]
     }
 }

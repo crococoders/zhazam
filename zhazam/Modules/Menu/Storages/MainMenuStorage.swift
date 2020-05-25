@@ -18,8 +18,7 @@ struct MainMenuStorage: CategoryStorageProtocol {
         categories = [CategoryViewModel(title: R.string.localizable.play(),
                                         viewController: MenuViewController(storage: GameModesStorage())),
                       CategoryViewModel(title: R.string.localizable.leaderboard(),
-                                        viewController: LeaderBoardViewController(
-                                            storage: LeaderBoardStorage())),
+                                        viewController: LeaderBoardViewController()),
                       CategoryViewModel(title: R.string.localizable.statistics(), viewController: nil),
                       CategoryViewModel(title: R.string.localizable.settings(),
                                         viewController: MenuViewController(storage: SettingsStorage()))]

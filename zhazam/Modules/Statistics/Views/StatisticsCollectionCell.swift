@@ -24,7 +24,7 @@ final class StatisticsCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureItems(model: StatisticsRowModel) {
+    func configureItems(model: StatisticsViewModel) {
         self.totalResult.text = model.totalResult
         self.measurement.text = model.measurement
         self.resultTitle.text = model.resultTitle

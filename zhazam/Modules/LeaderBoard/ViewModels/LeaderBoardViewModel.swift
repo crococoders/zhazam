@@ -1,5 +1,5 @@
 //
-//  LeaderBoardRowModel.swift
+//  LeaderBoardViewModel.swift
 //  zhazam
 //
 //  Created by Abai Kalikov on 5/9/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LeaderBoardRowModel {
+struct LeaderBoardViewModel {
     let playerName: String
     let resultCount: String
     let measurement: String

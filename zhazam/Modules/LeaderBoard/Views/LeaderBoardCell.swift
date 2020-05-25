@@ -25,7 +25,7 @@ final class LeaderBoardCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureItems(model: LeaderBoardRowModel) {
+    func configureItems(model: LeaderBoardViewModel) {
         self.playerNickName.text = model.playerName
         self.placeStatus.text = model.placeTitle
         self.resultCount.text = model.resultCount

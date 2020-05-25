@@ -25,18 +25,8 @@ final class LeaderBoardViewController: UIViewController, Reusable {
         return rightBarButtonItem
     }()
     
-    private let storage: LeaderBoardStorage
-    var leaderBoards = [LeaderBoardRowModel]()
-    
-    init(storage: LeaderBoardStorage) {
-        self.storage = storage
-        
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private let storage = LeaderBoardStorage()
+    var leaderBoards = [LeaderBoardViewModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

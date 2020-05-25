@@ -46,20 +46,20 @@
 		24729FAF245B440900A69CC3 /* StatisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24729FAE245B440900A69CC3 /* StatisticsViewController.xib */; };
 		24729FB2245B447900A69CC3 /* StatisticsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24729FB1245B447900A69CC3 /* StatisticsCollectionCell.swift */; };
 		24729FB4245B448700A69CC3 /* StatisticsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24729FB3245B448700A69CC3 /* StatisticsCollectionCell.xib */; };
-		24729FB7245C7B1A00A69CC3 /* StatisticsRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24729FB6245C7B1A00A69CC3 /* StatisticsRowModel.swift */; };
+		24729FB7245C7B1A00A69CC3 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24729FB6245C7B1A00A69CC3 /* StatisticsViewModel.swift */; };
 		24729FE12465254300A69CC3 /* StatisticsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24729FE02465254300A69CC3 /* StatisticsStorage.swift */; };
 		24A6174E244FA9CA007F92E6 /* CountdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A6174D244FA9CA007F92E6 /* CountdownViewController.xib */; };
 		24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */; };
 		24A6175B245209A1007F92E6 /* TimerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6175A245209A1007F92E6 /* TimerRowView.swift */; };
 		24A6175D245209AC007F92E6 /* TimerRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A6175C245209AC007F92E6 /* TimerRowView.xib */; };
+		24C632AC2466DF9800FC0DFA /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C632AB2466DF9800FC0DFA /* UIApplication+Extension.swift */; };
 		24C632AF24671E4A00FC0DFA /* LeaderBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C632AE24671E4A00FC0DFA /* LeaderBoardViewController.swift */; };
 		24C632B124671E6D00FC0DFA /* LeaderBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C632B024671E6D00FC0DFA /* LeaderBoardViewController.xib */; };
 		24C632B424671F7D00FC0DFA /* LeaderBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C632B324671F7D00FC0DFA /* LeaderBoardCell.swift */; };
 		24C632B624671F8F00FC0DFA /* LeaderBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C632B524671F8F00FC0DFA /* LeaderBoardCell.xib */; };
-		24C632B92467261F00FC0DFA /* LeaderBoardRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C632B82467261F00FC0DFA /* LeaderBoardRowModel.swift */; };
+		24C632B92467261F00FC0DFA /* LeaderBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C632B82467261F00FC0DFA /* LeaderBoardViewModel.swift */; };
 		24C632BC246734C800FC0DFA /* LeaderBoardStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C632BB246734C800FC0DFA /* LeaderBoardStorage.swift */; };
 		24D9FB22246828E7006A6F57 /* LeaderBoardConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D9FB21246828E7006A6F57 /* LeaderBoardConfigurationModel.swift */; };
-		24C632AC2466DF9800FC0DFA /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C632AB2466DF9800FC0DFA /* UIApplication+Extension.swift */; };
 		70236EF2234BA69E00FCD963 /* HelveticaNeue-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70236EF0234BA69E00FCD963 /* HelveticaNeue-Light.ttf */; };
 		70236EF4234BA6D300FCD963 /* HelveticaNeue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70236EF3234BA6D300FCD963 /* HelveticaNeue-Bold.ttf */; };
 		70236EFE234BA83E00FCD963 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70236EFD234BA83E00FCD963 /* UIView+Extension.swift */; };
@@ -145,20 +145,20 @@
 		24729FAE245B440900A69CC3 /* StatisticsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsViewController.xib; sourceTree = "<group>"; };
 		24729FB1245B447900A69CC3 /* StatisticsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCollectionCell.swift; sourceTree = "<group>"; };
 		24729FB3245B448700A69CC3 /* StatisticsCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsCollectionCell.xib; sourceTree = "<group>"; };
-		24729FB6245C7B1A00A69CC3 /* StatisticsRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRowModel.swift; sourceTree = "<group>"; };
+		24729FB6245C7B1A00A69CC3 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		24729FE02465254300A69CC3 /* StatisticsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsStorage.swift; sourceTree = "<group>"; };
 		24A6174D244FA9CA007F92E6 /* CountdownViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountdownViewController.xib; sourceTree = "<group>"; };
 		24A6174F244FA9F8007F92E6 /* CountdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownViewController.swift; sourceTree = "<group>"; };
 		24A6175A245209A1007F92E6 /* TimerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerRowView.swift; sourceTree = "<group>"; };
 		24A6175C245209AC007F92E6 /* TimerRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerRowView.xib; sourceTree = "<group>"; };
+		24C632AB2466DF9800FC0DFA /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		24C632AE24671E4A00FC0DFA /* LeaderBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewController.swift; sourceTree = "<group>"; };
 		24C632B024671E6D00FC0DFA /* LeaderBoardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderBoardViewController.xib; sourceTree = "<group>"; };
 		24C632B324671F7D00FC0DFA /* LeaderBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardCell.swift; sourceTree = "<group>"; };
 		24C632B524671F8F00FC0DFA /* LeaderBoardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderBoardCell.xib; sourceTree = "<group>"; };
-		24C632B82467261F00FC0DFA /* LeaderBoardRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardRowModel.swift; sourceTree = "<group>"; };
+		24C632B82467261F00FC0DFA /* LeaderBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewModel.swift; sourceTree = "<group>"; };
 		24C632BB246734C800FC0DFA /* LeaderBoardStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardStorage.swift; sourceTree = "<group>"; };
 		24D9FB21246828E7006A6F57 /* LeaderBoardConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardConfigurationModel.swift; sourceTree = "<group>"; };
-		24C632AB2466DF9800FC0DFA /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		70236EF0234BA69E00FCD963 /* HelveticaNeue-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Light.ttf"; sourceTree = "<group>"; };
 		70236EF3234BA6D300FCD963 /* HelveticaNeue-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Bold.ttf"; sourceTree = "<group>"; };
 		70236EFD234BA83E00FCD963 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -446,7 +446,7 @@
 		24729FDE2465248300A69CC3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				24729FB6245C7B1A00A69CC3 /* StatisticsRowModel.swift */,
+				24729FB6245C7B1A00A69CC3 /* StatisticsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -502,7 +502,7 @@
 		24C632B7246725FC00FC0DFA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				24C632B82467261F00FC0DFA /* LeaderBoardRowModel.swift */,
+				24C632B82467261F00FC0DFA /* LeaderBoardViewModel.swift */,
 				24D9FB21246828E7006A6F57 /* LeaderBoardConfigurationModel.swift */,
 			);
 			path = ViewModels;
@@ -989,7 +989,7 @@
 				70236F15234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift in Sources */,
 				04BE896C24655C2800D39C9E /* KeychainAccess.swift in Sources */,
 				24729FB2245B447900A69CC3 /* StatisticsCollectionCell.swift in Sources */,
-				24729FB7245C7B1A00A69CC3 /* StatisticsRowModel.swift in Sources */,
+				24729FB7245C7B1A00A69CC3 /* StatisticsViewModel.swift in Sources */,
 				04BE89482464458000D39C9E /* ConfigurationViewModel.swift in Sources */,
 				7AF36D98245C491800048E2F /* OnboardingViewController.swift in Sources */,
 				04BE895A246480CF00D39C9E /* ParameterEncoding.swift in Sources */,
@@ -1043,7 +1043,7 @@
 				04BE8963246480CF00D39C9E /* HTTPMethod.swift in Sources */,
 				0499A2AF243A0257008C6FAD /* LogoView.swift in Sources */,
 				7A5498782462159600BE4F15 /* ClassicGameModel.swift in Sources */,
-				24C632B92467261F00FC0DFA /* LeaderBoardRowModel.swift in Sources */,
+				24C632B92467261F00FC0DFA /* LeaderBoardViewModel.swift in Sources */,
 				0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */,
 				B0172A02231532120041EF2E /* R.generated.swift in Sources */,
 				04DA41632465F3BC00C9CF87 /* GameResult.swift in Sources */,
@@ -1198,7 +1198,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "3CHG2WRTC8";
+				DEVELOPMENT_TEAM = 3CHG2WRTC8;
 				INFOPLIST_FILE = zhazam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1219,7 +1219,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "3CHG2WRTC8";
+				DEVELOPMENT_TEAM = 3CHG2WRTC8;
 				INFOPLIST_FILE = zhazam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
