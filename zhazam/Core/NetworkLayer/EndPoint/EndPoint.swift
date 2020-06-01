@@ -14,6 +14,7 @@ enum NetworkEnvironment {
 
 public enum EndPoint {
     case addGameScore(score: Int)
+    case leaderBoard(gameType: String)
 }
 
 extension EndPoint: EndPointType {
@@ -31,6 +32,8 @@ extension EndPoint: EndPointType {
         switch self {
         case .addGameScore:
             return "user/score"
+        case .leaderBoard(let gameType):
+            return "leaderboard?type=\(gameType)"
         }
     }
     
@@ -38,6 +41,8 @@ extension EndPoint: EndPointType {
         switch self {
         case .addGameScore:
             return .post
+        case .leaderBoard:
+            return .get
         }
     }
     
@@ -45,6 +50,8 @@ extension EndPoint: EndPointType {
         switch self {
         case .addGameScore(let score):
             return .requestWithParameters(bodyParameters: ["wpm": score], urlParameters: nil)
+        case .leaderBoard:
+            return .requestWithParameters(bodyParameters: nil, urlParameters: nil)
         }
     }
     

@@ -9,8 +9,10 @@
 import Foundation
 
 // TODO: Separate Services, use DIP
-struct NetworkManager: Handler {
+final class NetworkManager: Handler {
     typealias GameResultResponse = ((_ score: GameResult?, _ error: Error?) -> Void)
+    typealias LeaderBoardResponse = ((_ leaderBoard: [LeaderBoardResult]?, _ error: Error?) -> Void)
+    
     let router = Router<EndPoint>()
     
     func sendGameResult(with wpm: Int, completion: @escaping GameResultResponse) {
