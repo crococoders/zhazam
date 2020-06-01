@@ -24,6 +24,7 @@ final class ClassicModeViewController: UIViewController {
         
         configureKeyboardObserving()
         setupGameModel()
+        setupTextView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,18 +54,18 @@ final class ClassicModeViewController: UIViewController {
         }
     }
     
+    private func setupTextView() {
+        textView.contentInset = .zero
+        textView.textContainerInset = .zero
+        textView.textContainer.lineFragmentPadding = 0.0
+    }
+    
     private func setupGameModel() {
         gameProcess.delegate = self
         gameProcess.loadGame()
     }
     
     private func updateTextFieldConstraints(offset: CGFloat, curve: UInt) {
-//        UIView.animate(withDuration: 0.3, delay: 0.0, options:
-//            UIView.AnimationOptions(rawValue: curve), animations: { [weak self] in
-//                guard let self = self else { return }
-//                self.textFieldBottomConstraint.constant = offset
-//                self.view.layoutIfNeeded()
-//        })
         textFieldBottomConstraint.constant = offset
     }
     
@@ -72,7 +73,7 @@ final class ClassicModeViewController: UIViewController {
         let range = NSRange(location: location, length: 0)
         let rect = textView.layoutManager.boundingRect(forGlyphRange: range,
                                                        in: textView.textContainer)
-        textView.setContentOffset(CGPoint(x: 0, y: rect.origin.y + 8.0), animated: true)
+        textView.setContentOffset(CGPoint(x: 0, y: rect.origin.y), animated: true)
     }
     
     @IBAction private func textFieldDidChange(_ sender: PrimaryTextField) {
@@ -85,7 +86,6 @@ final class ClassicModeViewController: UIViewController {
         let viewModel = setupMenuViewModel()
         let viewController = ChoiceViewController(viewModel: viewModel)
         viewController.modalPresentationStyle = .fullScreen
-        
         present(viewController, animated: false, completion: nil)
     }
     
@@ -98,7 +98,8 @@ final class ClassicModeViewController: UIViewController {
             guard let self = self else { return }
             self.gameProcess.restart()
         }
-        let actions = [R.string.localizable.exit(): onExit, R.string.localizable.restart(): onRestart]
+        let actions = [R.string.localizable.exit().lowercased(): onExit,
+                       R.string.localizable.restart().lowercased(): onRestart]
         let onDismiss: Callback = { [weak self] in
             guard let self = self else { return }
             self.textField.becomeResponder()

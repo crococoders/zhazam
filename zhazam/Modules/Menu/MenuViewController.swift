@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 final class MenuViewController: UIViewController {
     
@@ -79,6 +80,7 @@ final class MenuViewController: UIViewController {
         //TODO: refactor
     }
     
+    // swiftlint:disable function_body_length
     private func changeState(for view: LoadingButtonView, with type: ViewControllerType?) {
         guard let type = type else { return }
         
@@ -91,8 +93,11 @@ final class MenuViewController: UIViewController {
             viewController = MenuViewController(storage: SettingsStorage())
         case .countdown(let type):
             viewController = CountdownViewController(type: type)
-        default:
-            viewController = MenuViewController(storage: MainMenuStorage())
+        case .choice:
+            viewController = ChoiceViewController(viewModel:
+                TitledTextViewModel(placeholder: R.string.localizable.nickname(), buttonIsHidden: true))
+        case .statistics:
+            viewController = StatisticsViewController()
         }
         if !storage.hasLoader {
             DispatchQueue.main.asyncAfter(deadline: .now() + fadeDuration) { [weak self] in
@@ -106,9 +111,22 @@ final class MenuViewController: UIViewController {
             }
         }
     }
+    // swiftlint:enable function_body_length
+    
+    private func shareScreenImageButton() {
+        guard let screenShot = UIApplication.shared.screenShot else { return }
+        let activityViewController = UIActivityViewController(activityItems: [screenShot], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+     }
     
     private func navigateToNextPage(with viewController: UIViewController?) {
         guard let viewController = viewController else { return }
+        viewController.hero.isEnabled = true
+        self.navigationController?.hero.isEnabled = true
+        self.navigationController?.hero.navigationAnimationType = .selectBy(
+            presenting: .zoom,
+            dismissing: .zoomOut)
         navigationController?.pushViewController(viewController, animated: true)
     }
     

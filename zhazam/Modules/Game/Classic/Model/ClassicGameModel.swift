@@ -17,6 +17,7 @@ protocol GameProcessDelegate: AnyObject {
     func didResume(at location: Int)
 }
 
+// swiftlint:disable line_length
 final class ClassicGameModel: GameProcessable {
     weak var delegate: GameProcessDelegate?
     var game: Gaming
@@ -27,7 +28,7 @@ final class ClassicGameModel: GameProcessable {
     }
     
     func loadGame() {
-        var text = "If you want to use a layout manager on a background thread."
+        let text = "The team recorded the keyboard strokes as the participants transcribed different sentences. The researchers were able to monitor their typing speed, errors and other factors linked to typing behavior."
         game.text = text
         game.start()
     }

@@ -139,7 +139,8 @@ final class ArcadeModeViewController: UIViewController {
             guard let self = self else { return }
             self.gameProcess.restart()
         }
-        let actions = [R.string.localizable.exit(): onExit, R.string.localizable.restart(): onRestart]
+        let actions = [R.string.localizable.exit().lowercased(): onExit,
+                       R.string.localizable.restart().lowercased(): onRestart]
         let onDismiss: Callback = { [weak self] in
             guard let self = self else { return }
             self.textField.becomeResponder()

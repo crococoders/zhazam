@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum GameType {
+enum GameType: String {
     case classic
     case arcade
     case time

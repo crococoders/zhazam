@@ -11,11 +11,11 @@ import Foundation
 struct SettingsStorage: CategoryStorageProtocol {
     var categories: [CategoryViewModel]
     var headerIsHidden: Bool = true
-    var hasLoader: Bool = true
+    var hasLoader: Bool = false
     var title: String = R.string.localizable.settings().lowercased()
     
     init() {
-        categories = [CategoryViewModel(title: R.string.localizable.nickname()),
+        categories = [CategoryViewModel(title: R.string.localizable.nickname(), type: .choice),
                       CategoryViewModel(title: R.string.localizable.lights(),
                                         action: .choose,
                                         configuration: ConfigurationViewModel(type: .lights,

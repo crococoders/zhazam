@@ -8,14 +8,11 @@
 
 import UIKit
 
-enum GameState {
-    case finished, lost
-}
-
 final class ResultViewController: UIViewController {
     
     private let score: Int
     private let type: GameType
+    private let provider = ResultProvider()
 
     @IBOutlet private var scoreLabel: UILabel!
     @IBOutlet private var stateLabel: UILabel!
@@ -39,6 +36,7 @@ final class ResultViewController: UIViewController {
         
         localizeViews()
         configureViews()
+        configureProvider()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,8 +59,13 @@ final class ResultViewController: UIViewController {
     private func configureViews() {
         scoreLabel.text = "\(score)\(type.unit)"
         stateLabel.text = R.string.localizable.goodJob().lowercased()
-        
     }
+    
+    private func configureProvider() {
+        provider.delegate = self
+        provider.save(score: score, with: type)
+    }
+    
     @IBAction private func restartPressed(_ sender: UIButton) {
         guard var viewControllers = navigationController?.viewControllers else { return }
         let countDownController = CountdownViewController(type: type)
@@ -73,6 +76,16 @@ final class ResultViewController: UIViewController {
     }
     
     @IBAction private func quitPressed(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension ResultViewController: ResultProviderDelegate {
+    func didSetResult(_ result: GameResult?) {
+        guard let percentage = result?.percentage else { return }
+        percentageLabel.text = R.string.localizable.beatenPercentage(percentage.formatted())
+        UIView.animate(withDuration: 0.5) {
+            self.percentageLabel.alpha = 1.0
+        }
     }
 }
