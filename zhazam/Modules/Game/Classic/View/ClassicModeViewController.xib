@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClassicModeViewController" customModule="zhazam" customModuleProvider="target">
             <connections>
+                <outlet property="menuButton" destination="T8b-TO-tpu" id="Yxq-Jw-42B"/>
+                <outlet property="scoreView" destination="Gdq-0f-Cy9" id="WKW-rL-je9"/>
                 <outlet property="textField" destination="jWf-o9-Fkj" id="6OF-nG-a97"/>
                 <outlet property="textFieldBottomConstraint" destination="1Jx-91-fr3" id="GC2-Vm-hFW"/>
                 <outlet property="textView" destination="G5Y-Xo-AFu" id="cMu-vE-WlT"/>
@@ -31,28 +33,51 @@
                     <color key="textColor" name="textColor"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                    <connections>
+                        <action selector="textFieldDidChange:" destination="-1" eventType="editingChanged" id="Pe3-KN-xXc"/>
+                    </connections>
                 </textField>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G5Y-Xo-AFu">
-                    <rect key="frame" x="24" y="118" width="366" height="664.5"/>
+                    <rect key="frame" x="24" y="175" width="366" height="607.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <color key="textColor" name="defaultGray"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="77" translatesAutoresizingMaskIntoConstraints="NO" id="Gdq-0f-Cy9" customClass="GameScoreView" customModule="zhazam" customModuleProvider="target">
+                    <rect key="frame" x="310" y="74" width="80" height="77"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="Gh5-0s-A0C"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8b-TO-tpu">
+                    <rect key="frame" x="24" y="74" width="54" height="36"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                    <state key="normal" title="menu">
+                        <color key="titleColor" name="textColor"/>
+                    </state>
+                    <connections>
+                        <action selector="menuButtonPressed:" destination="-1" eventType="touchUpInside" id="GOY-Pm-5UM"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" name="background"/>
             <constraints>
+                <constraint firstItem="T8b-TO-tpu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="0g0-0U-9CI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jWf-o9-Fkj" secondAttribute="bottom" constant="12" id="1Jx-91-fr3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jWf-o9-Fkj" secondAttribute="trailing" constant="24" id="C6d-NZ-tW0"/>
                 <constraint firstItem="jWf-o9-Fkj" firstAttribute="top" secondItem="G5Y-Xo-AFu" secondAttribute="bottom" constant="18" id="Jvt-dd-NFc"/>
-                <constraint firstItem="G5Y-Xo-AFu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="Qsh-0W-K3F"/>
+                <constraint firstItem="G5Y-Xo-AFu" firstAttribute="top" secondItem="Gdq-0f-Cy9" secondAttribute="bottom" constant="24" id="Qsh-0W-K3F"/>
+                <constraint firstItem="T8b-TO-tpu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="Y47-go-tTr"/>
+                <constraint firstItem="Gdq-0f-Cy9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="bxj-hV-1Z5"/>
                 <constraint firstItem="jWf-o9-Fkj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="lFn-tU-pq1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="G5Y-Xo-AFu" secondAttribute="trailing" constant="24" id="lwn-s5-a4G"/>
                 <constraint firstItem="G5Y-Xo-AFu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="vGN-zK-fQv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gdq-0f-Cy9" secondAttribute="trailing" constant="24" id="wEa-w0-vcQ"/>
             </constraints>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="153"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
         </view>
     </objects>
     <resources>

@@ -13,6 +13,10 @@ enum Action {
     case choose
 }
 
+enum ViewControllerType {
+    case settings, gameModes, countdown(type: GameType), choice, statistics, leaderBoards
+}
+
 protocol MenuSubviewsDelegate: AnyObject {}
 
 protocol CategoryStorageProtocol {
@@ -24,7 +28,7 @@ protocol CategoryStorageProtocol {
 
 struct CategoryViewModel {
     var title: String
-    var viewController: UIViewController?
+    var type: ViewControllerType?
     var action: Action = .navigate
     var configuration: ConfigurationViewModel?
     

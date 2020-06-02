@@ -15,6 +15,7 @@ protocol GameProcessable {
     func loadGame()
     func pause()
     func resume()
+    func restart()
     func update(word: String)
 }
 
@@ -22,10 +23,10 @@ extension GameProcessable {
     func pause() {
         game.pause()
     }
-    func resume() {
-        game.resume()
-    }
     func update(word: String) {
         game.update(word: word)
+    }
+    func restart() {
+        game.restart()
     }
 }

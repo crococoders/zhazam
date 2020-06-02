@@ -12,9 +12,12 @@ enum NetworkEnvironment {
     case production
 }
 
-public enum EndPoint {
-    case addGameScore(score: Int)
-    case leaderBoard(gameType: String)
+enum EndPoint {
+    case addGameScore(score: Int, type: GameType)
+    case createUser(username: String)
+    case getUsername
+    case getStatistics
+    case getLeaderBoard(type: GameType)
 }
 
 extension EndPoint: EndPointType {
@@ -32,8 +35,12 @@ extension EndPoint: EndPointType {
         switch self {
         case .addGameScore:
             return "user/score"
-        case .leaderBoard(let gameType):
-            return "leaderboard?type=\(gameType)"
+        case .getLeaderBoard:
+            return "leaderboard"
+        case .createUser, .getUsername:
+            return "user"
+        case .getStatistics:
+            return "user/stats"
         }
     }
     
@@ -41,17 +48,23 @@ extension EndPoint: EndPointType {
         switch self {
         case .addGameScore:
             return .post
-        case .leaderBoard:
+        case .createUser:
+            return .put
+        case .getUsername, .getStatistics, .getLeaderBoard:
             return .get
         }
     }
     
     var task: HTTPTask {
         switch self {
-        case .addGameScore(let score):
-            return .requestWithParameters(bodyParameters: ["wpm": score], urlParameters: nil)
-        case .leaderBoard:
-            return .requestWithParameters(bodyParameters: nil, urlParameters: nil)
+        case let .addGameScore(score, type):
+            return .requestWithParameters(bodyParameters: ["wpm": score, "type": type.rawValue], urlParameters: nil)
+        case .getLeaderBoard(let type):
+            return .requestWithParameters(bodyParameters: nil, urlParameters: ["type": type.rawValue])
+        case .createUser(let username):
+            return .requestWithParameters(bodyParameters: ["username": username], urlParameters: nil)
+        case .getUsername, .getStatistics:
+            return .request
         }
     }
     

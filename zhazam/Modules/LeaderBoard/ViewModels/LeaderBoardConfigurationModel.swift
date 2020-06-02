@@ -27,6 +27,17 @@ final class LeaderBoardConfigurationModel {
         currentValue = values[index]
     }
     
+    func setGameType() -> GameType {
+        switch index {
+        case 0:
+            return .classic
+        case 1:
+            return .arcade
+        default:
+            return .time
+        }
+    }
+    
     private func setInitialIndex() {
         currentValue = values[index]
     }

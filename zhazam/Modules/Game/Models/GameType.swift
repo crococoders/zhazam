@@ -8,8 +8,26 @@
 
 import Foundation
 
-enum GameType {
+enum GameType: String {
     case classic
     case arcade
-    case timer
+    case time
+    
+    var measurement: String {
+        switch self {
+        case .classic, .time:
+            return "wpm"
+        case .arcade:
+            return R.string.localizable.time().lowercased()
+        }
+    }
+    
+    var unit: String {
+        switch self {
+        case .classic, .time:
+            return "wpm"
+        case .arcade:
+            return R.string.localizable.sec().lowercased()
+        }
+    }
 }

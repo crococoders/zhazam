@@ -23,8 +23,8 @@ struct LeaderBoardResultApiResponse: Codable {
 }
 
 struct LeaderBoardResult: Codable {
-    var user: UserResult?
-    var score: ScoreResult?
+    var user: Username?
+    var score: GameTypeApiReponse?
     
     private enum LeaderBoardResultCodingKeys: String, CodingKey {
         case user
@@ -34,52 +34,7 @@ struct LeaderBoardResult: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: LeaderBoardResultCodingKeys.self)
         
-        user = try container.decode(UserResult.self, forKey: .user)
-        score = try container.decode(ScoreResult.self, forKey: .score)
-    }
-}
-
-struct UserResult: Codable {
-    var userName: String
-    
-    private enum UserResultCodingKeys: String, CodingKey {
-        case userName = "username"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: UserResultCodingKeys.self)
-        
-        userName = try container.decode(String.self, forKey: .userName)
-    }
-}
-
-struct ScoreResult: Codable {
-    var wpm: Int
-    var type: GameTypeResult?
-    
-    private enum ScoreResultCodingKeys: String, CodingKey {
-        case wpm
-        case type
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: ScoreResultCodingKeys.self)
-        
-        wpm = try container.decode(Int.self, forKey: .wpm)
-        type = try container.decode(GameTypeResult.self, forKey: .type)
-    }
-}
-
-struct GameTypeResult: Codable {
-    var gameType: String
-    
-    private enum GameTypeResultCodingKeys: String, CodingKey {
-        case gameType = "name"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: GameTypeResultCodingKeys.self)
-        
-        gameType = try container.decode(String.self, forKey: .gameType)
+        user = try container.decode(Username.self, forKey: .user)
+        score = try container.decode(GameTypeApiReponse.self, forKey: .score)
     }
 }
