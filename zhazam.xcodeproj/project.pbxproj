@@ -318,7 +318,6 @@
 			children = (
 				04BE8951246480CF00D39C9E /* NetworkManager.swift */,
 				04BE894F246480CF00D39C9E /* NetworkResponse.swift */,
-				04DA41622465F3BC00C9CF87 /* GameResult.swift */,
 				04BE8950246480CF00D39C9E /* Result.swift */,
 			);
 			path = Manager;
@@ -364,6 +363,7 @@
 		04DA41612465F18900C9CF87 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				04DA41622465F3BC00C9CF87 /* GameResult.swift */,
 				243556F52483860800A862F5 /* LeaderBoardResult.swift */,
 			);
 			path = Models;
