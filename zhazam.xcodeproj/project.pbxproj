@@ -63,7 +63,7 @@
 		24C632B424671F7D00FC0DFA /* LeaderBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C632B324671F7D00FC0DFA /* LeaderBoardCell.swift */; };
 		24C632B624671F8F00FC0DFA /* LeaderBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C632B524671F8F00FC0DFA /* LeaderBoardCell.xib */; };
 		24C632B92467261F00FC0DFA /* LeaderBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C632B82467261F00FC0DFA /* LeaderBoardViewModel.swift */; };
-		24CFF08824865E7B0048BCD8 /* LeaderBoardProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CFF08724865E7A0048BCD8 /* LeaderBoardProvider.swift */; };
+		24CFF08B2486AB560048BCD8 /* LeaderBoardProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CFF08A2486AB560048BCD8 /* LeaderBoardProvider.swift */; };
 		24D9FB22246828E7006A6F57 /* LeaderBoardConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D9FB21246828E7006A6F57 /* LeaderBoardConfigurationModel.swift */; };
 		70236EF2234BA69E00FCD963 /* HelveticaNeue-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70236EF0234BA69E00FCD963 /* HelveticaNeue-Light.ttf */; };
 		70236EF4234BA6D300FCD963 /* HelveticaNeue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70236EF3234BA6D300FCD963 /* HelveticaNeue-Bold.ttf */; };
@@ -178,7 +178,7 @@
 		24C632B324671F7D00FC0DFA /* LeaderBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardCell.swift; sourceTree = "<group>"; };
 		24C632B524671F8F00FC0DFA /* LeaderBoardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderBoardCell.xib; sourceTree = "<group>"; };
 		24C632B82467261F00FC0DFA /* LeaderBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardViewModel.swift; sourceTree = "<group>"; };
-		24CFF08724865E7A0048BCD8 /* LeaderBoardProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardProvider.swift; sourceTree = "<group>"; };
+		24CFF08A2486AB560048BCD8 /* LeaderBoardProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardProvider.swift; sourceTree = "<group>"; };
 		24D9FB21246828E7006A6F57 /* LeaderBoardConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardConfigurationModel.swift; sourceTree = "<group>"; };
 		70236EF0234BA69E00FCD963 /* HelveticaNeue-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Light.ttf"; sourceTree = "<group>"; };
 		70236EF3234BA6D300FCD963 /* HelveticaNeue-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeue-Bold.ttf"; sourceTree = "<group>"; };
@@ -519,9 +519,9 @@
 		24C632AD24671D8000FC0DFA /* LeaderBoard */ = {
 			isa = PBXGroup;
 			children = (
+				24CFF0892486AB560048BCD8 /* Provider */,
 				24C632AE24671E4A00FC0DFA /* LeaderBoardViewController.swift */,
 				24C632B024671E6D00FC0DFA /* LeaderBoardViewController.xib */,
-				24C632BA2467348700FC0DFA /* Storages */,
 				24C632B7246725FC00FC0DFA /* ViewModels */,
 				24C632B224671E7700FC0DFA /* Views */,
 			);
@@ -546,12 +546,12 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		24C632BA2467348700FC0DFA /* Storages */ = {
+		24CFF0892486AB560048BCD8 /* Provider */ = {
 			isa = PBXGroup;
 			children = (
-				24CFF08724865E7A0048BCD8 /* LeaderBoardProvider.swift */,
+				24CFF08A2486AB560048BCD8 /* LeaderBoardProvider.swift */,
 			);
-			path = Storages;
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		70236EEE234BA4B800FCD963 /* Extensions */ = {
@@ -1107,13 +1107,13 @@
 				7AF36DA7245C502300048E2F /* Optional+Extension.swift in Sources */,
 				04DA416A24672FDE00C9CF87 /* Statistics.swift in Sources */,
 				7ACE4529245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift in Sources */,
-				24CFF08824865E7B0048BCD8 /* LeaderBoardProvider.swift in Sources */,
 				7AA49B6324659FD8005F4364 /* Gaming.swift in Sources */,
 				7AF36D90245C479500048E2F /* OnboardingPage.swift in Sources */,
 				7A6D06532464C0CE00405665 /* GameScoreView.swift in Sources */,
 				70236F15234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift in Sources */,
 				04BE896C24655C2800D39C9E /* KeychainAccess.swift in Sources */,
 				24729FB2245B447900A69CC3 /* StatisticsCollectionCell.swift in Sources */,
+				24CFF08B2486AB560048BCD8 /* LeaderBoardProvider.swift in Sources */,
 				24729FB7245C7B1A00A69CC3 /* StatisticsViewModel.swift in Sources */,
 				04DA41682467035F00C9CF87 /* ChoiceProvider.swift in Sources */,
 				04BE89482464458000D39C9E /* ConfigurationViewModel.swift in Sources */,
