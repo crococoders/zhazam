@@ -84,30 +84,15 @@ final class MenuViewController: UIViewController {
     private func changeState(for view: LoadingButtonView, with type: ViewControllerType?) {
         guard let type = type else { return }
         
-        var viewController: UIViewController
-        
-        switch type {
-        case .gameModes:
-            viewController = MenuViewController(storage: GameModesStorage())
-        case .settings:
-            viewController = MenuViewController(storage: SettingsStorage())
-        case .countdown:
-            viewController = CountdownViewController()
-        case .choice:
-            viewController = ChoiceViewController(viewModel:
-                TitledTextViewModel(placeholder: R.string.localizable.nickname(), buttonIsHidden: true))
-        case .statistics:
-            viewController = StatisticsViewController()
-        }
         if !storage.hasLoader {
             DispatchQueue.main.asyncAfter(deadline: .now() + fadeDuration) { [weak self] in
                 guard let self = self else { return }
-                self.navigateToNextPage(with: viewController)
+                self.navigateToNextPage(with: type.viewController)
             }
         } else {
             view.showLoading(withDuration: fadeDuration) { [weak self] in
                 guard let self = self else { return }
-                self.navigateToNextPage(with: viewController)
+                self.navigateToNextPage(with: type.viewController)
             }
         }
     }
