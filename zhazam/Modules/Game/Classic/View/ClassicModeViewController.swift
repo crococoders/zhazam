@@ -24,6 +24,7 @@ final class ClassicModeViewController: UIViewController {
         
         configureKeyboardObserving()
         setupGameModel()
+        setupTextView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,15 +32,14 @@ final class ClassicModeViewController: UIViewController {
         
         keyboardObserver.startListening()
         textField.becomeResponder()
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         
         keyboardObserver.stopListening()
-        textField.resignResponder()
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     private func configureKeyboardObserving() {
@@ -54,26 +54,25 @@ final class ClassicModeViewController: UIViewController {
         }
     }
     
+    private func setupTextView() {
+        textView.contentInset = .zero
+        textView.textContainerInset = .zero
+        textView.textContainer.lineFragmentPadding = 0.0
+    }
+    
     private func setupGameModel() {
         gameProcess.delegate = self
         gameProcess.loadGame()
     }
     
     private func updateTextFieldConstraints(offset: CGFloat, curve: UInt) {
-//        UIView.animate(withDuration: 0.3, delay: 0.0, options:
-//            UIView.AnimationOptions(rawValue: curve), animations: { [weak self] in
-//                guard let self = self else { return }
-//                self.textFieldBottomConstraint.constant = offset
-//                self.view.layoutIfNeeded()
-//        })
         textFieldBottomConstraint.constant = offset
     }
     
     private func scroll(to location: Int) {
         let range = NSRange(location: location, length: 0)
-        let rect = textView.layoutManager.boundingRect(forGlyphRange: range,
-                                                       in: textView.textContainer)
-        textView.setContentOffset(CGPoint(x: 0, y: rect.origin.y + 8.0), animated: true)
+        let rect = textView.layoutManager.boundingRect(forGlyphRange: range, in: textView.textContainer)
+        textView.setContentOffset(CGPoint(x: 0, y: rect.origin.y), animated: true)
     }
     
     @IBAction private func textFieldDidChange(_ sender: PrimaryTextField) {
@@ -86,7 +85,6 @@ final class ClassicModeViewController: UIViewController {
         let viewModel = setupMenuViewModel()
         let viewController = ChoiceViewController(viewModel: viewModel)
         viewController.modalPresentationStyle = .fullScreen
-        
         present(viewController, animated: false, completion: nil)
     }
     
@@ -97,9 +95,10 @@ final class ClassicModeViewController: UIViewController {
         }
         let onRestart = { [weak self] in
             guard let self = self else { return }
-//            self.gameProcess.restart()
+            self.gameProcess.restart()
         }
-        let actions = [R.string.localizable.exit(): onExit, R.string.localizable.restart(): onRestart]
+        let actions = [R.string.localizable.exit().lowercased(): onExit,
+                       R.string.localizable.restart().lowercased(): onRestart]
         let onDismiss: Callback = { [weak self] in
             guard let self = self else { return }
             self.textField.becomeResponder()
@@ -115,6 +114,20 @@ final class ClassicModeViewController: UIViewController {
 }
 
 extension ClassicModeViewController: GameProcessDelegate {
+    func didCompleteWord(location: Int) {
+        textField.text = ""
+        scroll(to: location)
+    }
+    
+    func didFinish(with score: Int) {
+        let viewController = ResultViewController(score: score, type: .classic)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func didResume(at location: Int) {
+        scroll(to: location)
+    }
+    
     func didUpdate(text: NSMutableAttributedString) {
         textView.attributedText = text
     }
@@ -123,17 +136,7 @@ extension ClassicModeViewController: GameProcessDelegate {
         textField.attributedText = word
     }
     
-    func didFinishWord(location: Int) {
-        textField.text = ""
-        scroll(to: location)
-    }
-    
     func didUpdate(score: Int) {
-        scoreView.setScore(score: score)
-    }
-    
-    func didFinishText(with score: Int) {
-        let viewController = ResultViewController(score: score, type: .classic)
-        navigationController?.pushViewController(viewController, animated: true)
+        scoreView.setScore(score, type: .classic)
     }
 }

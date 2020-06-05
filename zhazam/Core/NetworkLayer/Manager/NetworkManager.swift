@@ -12,17 +12,17 @@ import Foundation
 struct NetworkManager: Handler {
     static let shared = NetworkManager()
     
-    typealias GameResultResponse = ((_ score: GameResult?, _ error: Error?) -> Void)
+    typealias GameResultResponse = ((_ score: GameResult?) -> Void)
     typealias StatusResponse = ((_ result: Status?) -> Void)
     typealias UsernameResponse = ((_ username: String?) -> Void)
     typealias StatisticsResponse = ((_ statistics: Statistics?) -> Void)
     
     let router = Router<EndPoint>()
     
-    func sendGameResult(with wpm: Int, completion: @escaping GameResultResponse) {
-        router.request(.addGameScore(score: wpm)) { (data, response, error) in
+    func sendGameResult(with score: Int, type: GameType, completion: @escaping GameResultResponse) {
+        router.request(.addGameScore(score: score, type: type)) { (data, response, error) in
             if error != nil {
-                completion(nil, NetworkResponse.noNetwork)
+                completion(nil)
             }
             
             if let response = response as? HTTPURLResponse {
@@ -30,18 +30,18 @@ struct NetworkManager: Handler {
                 switch result {
                 case .success:
                     guard let responseData = data else {
-                        completion(nil, NetworkResponse.noData)
+                        completion(nil)
                         return
                     }
                     
                     do {
                         let apiResponse = try JSONDecoder().decode(GameResultApiResponse.self, from: responseData)
-                        completion(apiResponse.data, nil)
+                        completion(apiResponse.data)
                     } catch {
-                        completion(nil, NetworkResponse.unableToDecode)
+                        completion(nil)
                     }
-                case .failure(let error):
-                    completion(nil, error)
+                case .failure:
+                    completion(nil)
                 }
             }
         }

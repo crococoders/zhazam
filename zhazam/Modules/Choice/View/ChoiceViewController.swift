@@ -38,14 +38,25 @@ final class ChoiceViewController: UIViewController {
         setupBarButtonItem()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        textField.becomeResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        textField.resignResponder()
+    }
+    
     private func setupLocalization() {
-        backButton.setTitle(R.string.localizable.continue(), for: .normal)
+        backButton.setTitle(R.string.localizable.continue().lowercased(), for: .normal)
         backButton.isHidden = viewModel.buttonIsHidden
     }
     
     private func configureTextField() {
         textField.delegate = self
-        textField.becomeResponder()
     }
     
     private func configure(viewModel: TitledTextViewModel) {
@@ -60,7 +71,6 @@ final class ChoiceViewController: UIViewController {
     
     private func perform(action: @escaping Callback) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.textField.resignResponder()
             self.dismiss(animated: false, completion: action)
         }
     }

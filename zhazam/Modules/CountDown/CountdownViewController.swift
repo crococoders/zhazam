@@ -19,8 +19,19 @@ final class CountdownViewController: UIViewController {
     private let count: Int = 3
     private var index = 0
     private var timer = Timer()
+    private var type: GameType
     
     @IBOutlet private var pickerView: UIPickerView!
+    
+    init(type: GameType) {
+        self.type = type
+        
+        super.init(nibName: String(describing: Self.self), bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        return nil
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +70,19 @@ final class CountdownViewController: UIViewController {
 
         if isCountDownEnded {
             timer.invalidate()
-            navigationController?.pushViewController(ClassicModeViewController(), animated: true)
+            routeToGame()
         }
+    }
+    
+    private func routeToGame() {
+        let viewController: UIViewController
+        switch type {
+        case .classic:
+            viewController = ClassicModeViewController()
+        default:
+            viewController = ArcadeModeViewController()
+        }
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

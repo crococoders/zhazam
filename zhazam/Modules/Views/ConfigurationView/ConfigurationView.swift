@@ -26,6 +26,7 @@ final class ConfigurationView: UIView {
         keyLabel.text = key
         valueLabel.text = value
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

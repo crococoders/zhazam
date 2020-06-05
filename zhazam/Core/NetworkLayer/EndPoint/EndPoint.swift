@@ -12,8 +12,8 @@ enum NetworkEnvironment {
     case production
 }
 
-public enum EndPoint {
-    case addGameScore(score: Int)
+enum EndPoint {
+    case addGameScore(score: Int, type: GameType)
     case createUser(username: String)
     case getUsername
     case getStatistics
@@ -54,8 +54,8 @@ extension EndPoint: EndPointType {
     
     var task: HTTPTask {
         switch self {
-        case .addGameScore(let score):
-            return .requestWithParameters(bodyParameters: ["wpm": score], urlParameters: nil)
+        case let .addGameScore(score, type):
+            return .requestWithParameters(bodyParameters: ["wpm": score, "type": type.rawValue], urlParameters: nil)
         case .createUser(let username):
             return .requestWithParameters(bodyParameters: ["username": username], urlParameters: nil)
         case .getUsername, .getStatistics:

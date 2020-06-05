@@ -9,14 +9,12 @@
 import Foundation
 
 protocol Gaming {
-    func start()
+    var delegate: GameDelegate? { get set }
+    
+    func start(with text: String)
     func pause()
     func resume()
+    func restart()
     func update(word: String)
-    var wpm: Int { get }
-    var time: Int { get }
-    var text: String? { get set }
-    var correctWordsCount: Int { get }
-    var nextWord: String? { get }
-    var delegate: GameDelegate? { get set }
+    func finish()
 }

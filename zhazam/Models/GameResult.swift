@@ -15,5 +15,5 @@ struct GameResultApiResponse: Codable {
 }
 
 struct GameResult: Codable {
-    var percentage: String?
+    var percentage: Double?
 }

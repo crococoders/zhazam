@@ -23,6 +23,15 @@ extension GameTypeApi {
             return R.string.localizable.time()
         }
     }
+    
+    func getUnit() -> String {
+        switch self {
+        case .classic, .time:
+            return "wpm"
+        case .arcade:
+            return R.string.localizable.sec().lowercased()
+        }
+    }
 }
 
 struct StatisticsApiResponse: Codable {

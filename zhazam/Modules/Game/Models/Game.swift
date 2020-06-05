@@ -8,41 +8,45 @@
 
 import Foundation
 
-protocol GameDelegate: AnyObject {
-    func didUpdateTime()
-    func didFinishText(with wpm: Int)
-    func didFinish()
+protocol GameDelegate: class {
+    func didFinish(with score: Int)
+    func didCompleteWord(_ location: Int)
+    func didUpdate(score: Int)
     func didUpdate(text: NSMutableAttributedString)
     func didUpdate(word: NSMutableAttributedString)
+    func didResume(_ location: Int)
+}
+
+private enum Constants {
+    static let delimeter = " "
+    static let defaultAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: R.color.defaultGray()!,
+                                                                   .font: R.font.helveticaNeueBold(size: 36)!]
 }
 
 final class Game {
-    private enum Constants {
-        static let delimeter = " "
-        static let defaultAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: R.color.defaultGray()!,
-                                                                       .font: R.font.helveticaNeueBold(size: 36)!]
-    }
-    
     weak var delegate: GameDelegate?
-    var time = 0
     var correctWordsCount = 0
-    var text: String? {
-        didSet {
-            guard let text = text else { return }
-            words = text.components(separatedBy: Constants.delimeter)
-            attributedText = NSMutableAttributedString(string: text, attributes: Constants.defaultAttributes)
-            delegate?.didUpdate(text: attributedText!)
-        }
-    }
+    private var time = 0
+    private var attributedText: NSMutableAttributedString?
     private var type: GameType
-    private var timer = Timer()
+    private var timer: Timer?
     private var words: [String] = []
     private var index = 0
     private var lastUpdatedWord = ""
     private var isLastWord: Bool {
         return index == words.count - 1
     }
-    private var attributedText: NSMutableAttributedString?
+    private var score: Int {
+        switch type {
+        case .classic, .time:
+            return wpm
+        case .arcade:
+            return time
+        }
+    }
+    private var wpm: Int {
+        Int((Double(index + 1) / Double(time)) * 60)
+    }
     
     init(type: GameType) {
         self.type = type
@@ -68,68 +72,98 @@ final class Game {
         
         attributedText.addAttribute(.foregroundColor, value: R.color.textColor()!,
                                     range: NSRange(location: correctWordsCount, length: correctLettersLength))
-        attributedText.addAttribute(.foregroundColor, value: R.color.defaultRed()!,
-                                    range: NSRange(location: correctLettersLength + correctWordsCount,
-                                                   length: word.count - correctLettersLength))
+        if correctWordsCount + word.count <= text?.length ?? 0 {
+            attributedText.addAttribute(.foregroundColor, value: R.color.defaultRed()!,
+                                        range: NSRange(location: correctLettersLength + correctWordsCount,
+                                                       length: word.count - correctLettersLength))
+        }
         let location = correctWordsCount + word.count
         let length = lastUpdatedWord.count - word.count
-        if lastUpdatedWord.count > word.count && location + length < attributedText.length {
+        if lastUpdatedWord.count > word.count && location + length <= text?.length ?? 0 {
             attributedText.addAttribute(.foregroundColor, value: R.color.defaultGray()!,
             range: NSRange(location: correctWordsCount + word.count, length: length))
         }
         delegate?.didUpdate(text: attributedText)
-        
     }
     
-    private func getCurrentWord() -> String? {
-        guard let unwrappedWord = words[safe: index] else { return nil }
-        var currentWord = unwrappedWord
+    private func startTimer() {
+        stopTimer()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self,
+                                     selector: #selector(increaseTime),
+                                     userInfo: nil, repeats: true)
+    }
+    
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc
+    private func increaseTime() {
+        time += 1
+        delegate?.didUpdate(score: score)
+    }
+}
+
+extension Game: Gaming {
+    func update(word: String) {
+        attribute(word: word)
+        attribute(text: attributedText, with: word)
+        lastUpdatedWord = word
+        completeWordIfNeeded(word)
+    }
+    
+    private func completeWordIfNeeded(_ word: String) {
+        guard let currentWord = getDelimiteredCurrentWord(), word == currentWord else { return }
+        lastUpdatedWord = ""
+        correctWordsCount += currentWord.count
+        if isLastWord {
+            stopTimer()
+            delegate?.didFinish(with: score)
+        } else {
+            delegate?.didCompleteWord(correctWordsCount)
+        }
+        index += 1
+    }
+    
+    private func getDelimiteredCurrentWord() -> String? {
+        guard var currentWord = words[safe: index] else { return nil }
         if (type == .classic || type == .arcade) && !isLastWord {
             currentWord += Constants.delimeter
         }
         return currentWord
     }
     
-    @objc private func increaseTime() {
-        time += 1
-        delegate?.didUpdateTime()
-    }
-}
-
-extension Game: Gaming {
-    var nextWord: String? {
-        return words[safe: index + 1]
-    }
-    
-    var wpm: Int {
-        Int((Double(index + 1) / Double(time)) * 60)
-    }
-    
-    func update(word: String) {
-        guard let currentWord = getCurrentWord() else { return }
-        attribute(word: word)
-        attribute(text: attributedText, with: word)
-        if word == currentWord {
-            isLastWord ? delegate?.didFinishText(with: wpm) : delegate?.didFinish()
-            index += 1
-            lastUpdatedWord = ""
-            correctWordsCount += currentWord.count
-        }
-        lastUpdatedWord = word
-    }
-    
-    func start() {
-        timer.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self,
-                                     selector: #selector(increaseTime),
-                                     userInfo: nil, repeats: true)
+    func start(with text: String) {
+        words = text.components(separatedBy: Constants.delimeter)
+        attributedText = NSMutableAttributedString(string: text, attributes: Constants.defaultAttributes)
+        delegate?.didUpdate(text: attributedText!)
+        startTimer()
     }
     
     func pause() {
-        timer.invalidate()
+        stopTimer()
+    }
+    
+    func finish() {
+        stopTimer()
+        delegate?.didFinish(with: score)
     }
     
     func resume() {
-        timer.fire()
+        startTimer()
+        delegate?.didResume(correctWordsCount)
+    }
+    
+    func restart() {
+        time = 0
+        index = 0
+        lastUpdatedWord = ""
+        correctWordsCount = 0
+        startTimer()
+        let range = NSRange(location: 0, length: attributedText?.string.count ?? 0)
+        attributedText?.setAttributes(Constants.defaultAttributes, range: range)
+        delegate?.didUpdate(text: attributedText!)
+        delegate?.didUpdate(word: NSMutableAttributedString(string: ""))
     }
 }

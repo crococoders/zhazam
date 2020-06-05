@@ -10,6 +10,6 @@ import UIKit
 
 struct StatisticsRowModel {
     let totalResult: String
-    let measurement: String = "wpm"
+    let measurement: String
     let resultTitle: String
 }
