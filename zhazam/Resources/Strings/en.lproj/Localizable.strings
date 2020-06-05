@@ -37,4 +37,4 @@
 "Save" = "Save";
 "AverageAll" = "Average of all time";
 "AverageLast" = "Average of last 10 games";
-"BeatenPercentage" = "Your results beats %@ of players";
+"BeatenPercentage" = "Your results beats %@%% of players";
