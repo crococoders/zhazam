@@ -8,12 +8,11 @@
 
 import Foundation
 
-protocol ResultProviderDelegate: AnyObject {
+protocol ResultProviderDelegate: class {
     func didSetResult(_ result: GameResult?)
 }
 
 class ResultProvider {
-    
     weak var delegate: ResultProviderDelegate?
     
     func save(score: Int, with type: GameType) {

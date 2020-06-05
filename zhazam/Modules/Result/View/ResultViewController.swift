@@ -9,7 +9,6 @@
 import UIKit
 
 final class ResultViewController: UIViewController {
-    
     private let score: Int
     private let type: GameType
     private let provider = ResultProvider()
@@ -52,7 +51,7 @@ final class ResultViewController: UIViewController {
     }
     
     private func localizeViews() {
-        quitButton.setTitle(R.string.localizable.exit(), for: .normal)
+        quitButton.setTitle(R.string.localizable.exit().lowercased(), for: .normal)
         restartButton.setTitle(R.string.localizable.again().lowercased(), for: .normal)
     }
     

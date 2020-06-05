@@ -20,18 +20,18 @@ final class ArcadeGameModel: GameProcessable {
     
     func loadGame() {
         let text = "This younger generation grew up with touch screen devices and smartphones, so this isn't such a surprise. Older generations have been typing on keyboards and smartphones for longer, however, due to the high turnover and changes in devices over the years, their ability to type as quickly is not on par with teenagers. The main finding, though, is that typing speeds between texting and keyboard typing is decreasing in general"
-        game.text = text
-        game.start()
-    }
-    
-    func resume() {
-        let location = game.correctWordsCount + (game.nextWord?.count ?? 0)
-        delegate?.didResume(at: location)
-        game.resume()
+        game.start(with: text)
     }
 }
 
 extension ArcadeGameModel: GameDelegate {
+    func didCompleteWord(_ location: Int) {
+        delegate?.didCompleteWord(location: location)
+    }
+    func didResume(_ location: Int) {
+        delegate?.didResume(at: location)
+    }
+    
     func didUpdate(text: NSMutableAttributedString) {
         delegate?.didUpdate(text: text)
     }
@@ -40,16 +40,11 @@ extension ArcadeGameModel: GameDelegate {
         delegate?.didUpdate(word: word)
     }
     
-    func didUpdateTime() {
-        delegate?.didUpdate(score: game.time)
+    func didUpdate(score: Int) {
+        delegate?.didUpdate(score: score)
     }
     
-    func didFinishText(with score: Int) {
-        delegate?.didFinishText(with: score)
-    }
-    
-    func didFinish() {
-        let location = game.correctWordsCount + (game.nextWord?.count ?? 0)
-        delegate?.didFinishWord(location: location)
+    func didFinish(with score: Int) {
+        delegate?.didFinish(with: score)
     }
 }

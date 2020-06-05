@@ -12,8 +12,8 @@ protocol GameProcessDelegate: AnyObject {
     func didUpdate(text: NSMutableAttributedString)
     func didUpdate(word: NSMutableAttributedString)
     func didUpdate(score: Int)
-    func didFinishWord(location: Int)
-    func didFinishText(with score: Int)
+    func didCompleteWord(location: Int)
+    func didFinish(with score: Int)
     func didResume(at location: Int)
 }
 
@@ -29,18 +29,23 @@ final class ClassicGameModel: GameProcessable {
     
     func loadGame() {
         let text = "The team recorded the keyboard strokes as the participants transcribed different sentences. The researchers were able to monitor their typing speed, errors and other factors linked to typing behavior."
-        game.text = text
-        game.start()
-    }
-    
-    func resume() {
-        let location = game.correctWordsCount + (game.nextWord?.count ?? 0)
-        delegate?.didResume(at: location)
-        game.resume()
+        game.start(with: text)
     }
 }
 
 extension ClassicGameModel: GameDelegate {
+    func didFinish(with score: Int) {
+        delegate?.didFinish(with: score)
+    }
+    
+    func didCompleteWord(_ location: Int) {
+        delegate?.didCompleteWord(location: location)
+    }
+    
+    func didResume(_ location: Int) {
+        delegate?.didResume(at: location)
+    }
+    
     func didUpdate(text: NSMutableAttributedString) {
         delegate?.didUpdate(text: text)
     }
@@ -49,16 +54,7 @@ extension ClassicGameModel: GameDelegate {
         delegate?.didUpdate(word: word)
     }
     
-    func didUpdateTime() {
-        delegate?.didUpdate(score: game.wpm)
-    }
-    
-    func didFinishText(with score: Int) {
-        delegate?.didFinishText(with: score)
-    }
-    
-    func didFinish() {
-        let location = game.correctWordsCount + (game.nextWord?.count ?? 0)
-        delegate?.didFinishWord(location: location)
+    func didUpdate(score: Int) {
+        delegate?.didUpdate(score: score)
     }
 }

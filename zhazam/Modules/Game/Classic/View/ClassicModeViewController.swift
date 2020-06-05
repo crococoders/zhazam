@@ -71,8 +71,7 @@ final class ClassicModeViewController: UIViewController {
     
     private func scroll(to location: Int) {
         let range = NSRange(location: location, length: 0)
-        let rect = textView.layoutManager.boundingRect(forGlyphRange: range,
-                                                       in: textView.textContainer)
+        let rect = textView.layoutManager.boundingRect(forGlyphRange: range, in: textView.textContainer)
         textView.setContentOffset(CGPoint(x: 0, y: rect.origin.y), animated: true)
     }
     
@@ -115,6 +114,16 @@ final class ClassicModeViewController: UIViewController {
 }
 
 extension ClassicModeViewController: GameProcessDelegate {
+    func didCompleteWord(location: Int) {
+        textField.text = ""
+        scroll(to: location)
+    }
+    
+    func didFinish(with score: Int) {
+        let viewController = ResultViewController(score: score, type: .classic)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func didResume(at location: Int) {
         scroll(to: location)
     }
@@ -127,17 +136,7 @@ extension ClassicModeViewController: GameProcessDelegate {
         textField.attributedText = word
     }
     
-    func didFinishWord(location: Int) {
-        textField.text = ""
-        scroll(to: location)
-    }
-    
     func didUpdate(score: Int) {
-        scoreView.setScore(score: score, type: .classic)
-    }
-    
-    func didFinishText(with score: Int) {
-        let viewController = ResultViewController(score: score, type: .classic)
-        navigationController?.pushViewController(viewController, animated: true)
+        scoreView.setScore(score, type: .classic)
     }
 }

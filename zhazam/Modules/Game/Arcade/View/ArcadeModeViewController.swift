@@ -14,9 +14,9 @@ final class ArcadeModeViewController: UIViewController {
     private var gameProcess: GameProcessable = ArcadeGameModel(game: Game(type: .arcade))
     
     private var textViewVerticalOffset: CGFloat = 0
-    // TODO: - refactor models, transfer data to models
     private var currentLocation: Int = 0
-    private var score: Int = 0
+    private var speed: CGFloat = 1
+    private var displayLink: CADisplayLink?
     
     @IBOutlet private var textView: UITextView!
     @IBOutlet private var textField: PrimaryTextField!
@@ -31,13 +31,8 @@ final class ArcadeModeViewController: UIViewController {
         configureGradient()
         configureKeyboardObserving()
         setupGameModel()
-        setupDisplayLink()
-        textView.textContainerInset = UIEdgeInsets(top: 200, left: 0,
-                                                   bottom: 0, right: 0)
+        textView.textContainerInset = UIEdgeInsets(top: 200, left: 0, bottom: 0, right: 0)
     }
-    
-    private var speed: CGFloat = 1
-    private var displayLink: CADisplayLink?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -68,11 +63,29 @@ final class ArcadeModeViewController: UIViewController {
         textView.layer.mask = gradient
     }
     
-    private func setupDisplayLink() {
+    private func startDisplayLink() {
+        stopDisplayLink()
+        let displayLink = CADisplayLink(target: self, selector: #selector(displayLinkDidFire))
+        displayLink.add(to: .main, forMode: .common)
+        displayLink.preferredFramesPerSecond = 15
+        self.displayLink = displayLink
+    }
+
+    private func stopDisplayLink() {
         displayLink?.invalidate()
-        displayLink = CADisplayLink(target: self, selector: #selector(step(displaylink:)))
-        displayLink?.preferredFramesPerSecond = 15
-        displayLink?.add(to: .current, forMode: RunLoop.Mode.default)
+        displayLink = nil
+    }
+
+    @objc
+    private func displayLinkDidFire(_ displayLink: CADisplayLink) {
+        let seconds = displayLink.targetTimestamp - displayLink.timestamp
+        textViewVerticalOffset = textView.contentOffset.y + speed * CGFloat(seconds) * 10
+        textView.setContentOffset(CGPoint(x: 0, y: textViewVerticalOffset), animated: false)
+        if textView.visibleRange?.location ?? 0 > currentLocation {
+            stopDisplayLink()
+            gameProcess.finish()
+        }
+        updateGradientFrame()
     }
     
     private func configureKeyboardObserving() {
@@ -90,27 +103,14 @@ final class ArcadeModeViewController: UIViewController {
     private func setupGameModel() {
         gameProcess.delegate = self
         gameProcess.loadGame()
+        startDisplayLink()
     }
         
     private func updateTextFieldConstraints(offset: CGFloat, curve: UInt) {
         textFieldBottomConstraint.constant = offset
     }
     
-    @objc func step(displaylink: CADisplayLink) {
-        if textView.visibleRange?.location ?? 0 > currentLocation {
-            pause()
-            routeToResult()
-            
-        }
-        let seconds = displaylink.targetTimestamp - displaylink.timestamp
-        textViewVerticalOffset = textView.contentOffset.y + speed * CGFloat(seconds) * 10
-        textView.setContentOffset(CGPoint(x: 0,
-                                          y: textViewVerticalOffset),
-                                  animated: false)
-        updateGradientFrame()
-    }
-    
-    @IBAction func textFieldChanged(_ sender: PrimaryTextField) {
+    @IBAction private func textFieldChanged(_ sender: PrimaryTextField) {
         guard let text = sender.text else { return }
         gameProcess.update(word: text)
     }
@@ -126,8 +126,7 @@ final class ArcadeModeViewController: UIViewController {
     
     private func pause() {
         gameProcess.pause()
-        displayLink?.invalidate()
-        displayLink = nil
+        stopDisplayLink()
     }
     
     private func setupMenuViewModel() -> TitledTextViewModel {
@@ -137,7 +136,9 @@ final class ArcadeModeViewController: UIViewController {
         }
         let onRestart = { [weak self] in
             guard let self = self else { return }
+            self.textView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
             self.gameProcess.restart()
+            self.startDisplayLink()
         }
         let actions = [R.string.localizable.exit().lowercased(): onExit,
                        R.string.localizable.restart().lowercased(): onRestart]
@@ -152,17 +153,22 @@ final class ArcadeModeViewController: UIViewController {
                                             onDismiss: onDismiss)
         return viewModel
     }
-    
-    private func routeToResult() {
-        let viewController = ResultViewController(score: score, type: .arcade)
-        navigationController?.pushViewController(viewController, animated: true)
-    }
 }
 
 extension ArcadeModeViewController: GameProcessDelegate {
+    func didCompleteWord(location: Int) {
+        textField.text = ""
+        currentLocation = location
+    }
+    
+    func didFinish(with score: Int) {
+        let viewController = ResultViewController(score: score, type: .arcade)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func didResume(at location: Int) {
         textView.setContentOffset(CGPoint(x: 0, y: textViewVerticalOffset), animated: false)
-        setupDisplayLink()
+        startDisplayLink()
     }
     
     func didUpdate(text: NSMutableAttributedString) {
@@ -173,20 +179,9 @@ extension ArcadeModeViewController: GameProcessDelegate {
         textField.attributedText = word
     }
     
-    func didFinishWord(location: Int) {
-        textField.text = ""
-        currentLocation = location
-    }
-    
     func didUpdate(score: Int) {
         speed += score % 5 == 0 ? 0.2 : 0
-        self.score = score
-        scoreView.setScore(score: score, type: .arcade)
-    }
-    
-    func didFinishText(with score: Int) {
-        self.score = score
-        routeToResult()
+        scoreView.setScore(score, type: .arcade)
     }
 }
 
@@ -199,6 +194,7 @@ extension ArcadeModeViewController: UIScrollViewDelegate, CALayerDelegate {
     func action(for layer: CALayer, forKey event: String) -> CAAction? {
         NSNull()
     }
+    
     private func updateGradientFrame() {
         gradient.frame = CGRect(x: 0, y: textView.contentOffset.y,
                                 width: textView.bounds.width,
