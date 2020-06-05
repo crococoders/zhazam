@@ -26,3 +26,15 @@
 "Share" = "Share";
 "Contacts" = "Contacts";
 "Rate" = "Rate";
+"ExitOrRestart" = "exit or restart";
+"ExitOrRestartQuestion" = "Do you want to exit or start again?";
+"Exit" = "Exit";
+"Restart" = "Restart";
+"Continue" = "Continue";
+"Again" = "Again";
+"GoodJob" = "Good job!";
+"Sec" = "Sec";
+"Save" = "Save";
+"AverageAll" = "Average of all time";
+"AverageLast" = "Average of last 10 games";
+"BeatenPercentage" = "Your results beats %@%% of players";

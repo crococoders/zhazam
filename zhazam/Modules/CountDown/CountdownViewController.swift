@@ -11,18 +11,38 @@ import UIKit
 final class CountdownViewController: UIViewController {
     
     private enum Constants {
-        static let timerCount = 3
         static let pickerViewRowHeight: CGFloat = 200
         static let reusingViewFontSize: CGFloat = 140
-        static let timerTimeInterval: TimeInterval = 1.0
+        static let timeInterval: TimeInterval = 1.0
     }
     
+    private let count: Int = 3
+    private var index = 0
+    private var timer = Timer()
+    private var type: GameType
+    
     @IBOutlet private var pickerView: UIPickerView!
+    
+    init(type: GameType) {
+        self.type = type
+        
+        super.init(nibName: String(describing: Self.self), bundle: nil)
+    }
 
+    required init?(coder: NSCoder) {
+        return nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configurePickerView()
+        configureTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer.invalidate()
     }
     
     private func configurePickerView() {
@@ -30,53 +50,61 @@ final class CountdownViewController: UIViewController {
         pickerView.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        configureCountdownTimer {
-            //Perform transition
-        }
-    }
-    
-    private func configureCountdownTimer(completion: @escaping Callback) {
-        var rowIndex = 0
-        Timer.scheduledTimer(withTimeInterval: Constants.timerTimeInterval, repeats: true) { timer in
-            self.pickerView.selectRow(rowIndex, inComponent: 0, animated: true)
-            rowIndex += 1
-            let isCountDownEnded: Bool = Constants.timerCount < rowIndex
-            
-            if isCountDownEnded {
-                timer.invalidate()
-                completion()
-            }
-        }
+    private func configureTimer() {
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: Constants.timeInterval,
+                                     target: self, selector: #selector(timerDidUpdate),
+                                     userInfo: nil, repeats: true)
+        timer.fire()
     }
     
     private func hidePickerViewSelectionIndicator(pickerView: UIPickerView) {
         pickerView.subviews[1].isHidden = true
         pickerView.subviews[2].isHidden = true
     }
+    
+    @objc private func timerDidUpdate() {
+        pickerView.selectRow(index, inComponent: 0, animated: true)
+        index += 1
+        let isCountDownEnded: Bool = count < index
+
+        if isCountDownEnded {
+            timer.invalidate()
+            routeToGame()
+        }
+    }
+    
+    private func routeToGame() {
+        let viewController: UIViewController
+        switch type {
+        case .classic:
+            viewController = ClassicModeViewController()
+        default:
+            viewController = ArcadeModeViewController()
+        }
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 extension CountdownViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Constants.timerCount
+        count
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return Constants.pickerViewRowHeight
+        Constants.pickerViewRowHeight
     }
-    
+
     func pickerView(_ pickerView: UIPickerView,
                     viewForRow row: Int,
                     forComponent component: Int,
                     reusing view: UIView?) -> UIView {
         hidePickerViewSelectionIndicator(pickerView: pickerView)
 
-        return TimerRowView(rowData: "\(Constants.timerCount - row)")
+        return TimerRowView(rowData: "\(count - row)")
     }
 }

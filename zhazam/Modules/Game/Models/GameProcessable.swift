@@ -13,8 +13,10 @@ protocol GameProcessable {
     var game: Gaming { get set }
     
     func loadGame()
+    func finish()
     func pause()
     func resume()
+    func restart()
     func update(word: String)
 }
 
@@ -22,10 +24,18 @@ extension GameProcessable {
     func pause() {
         game.pause()
     }
-    func resume() {
-        game.resume()
-    }
     func update(word: String) {
         game.update(word: word)
+    }
+    func restart() {
+        game.restart()
+    }
+    
+    func finish() {
+        game.finish()
+    }
+    
+    func resume() {
+        game.resume()
     }
 }

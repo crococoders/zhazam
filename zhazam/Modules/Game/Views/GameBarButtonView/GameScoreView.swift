@@ -1,5 +1,5 @@
 //
-//  GameBarButtonView.swift
+//  GameScoreView.swift
 //  zhazam
 //
 //  Created by Nurbek Ismagulov on 5/8/20.
@@ -8,8 +8,9 @@
 
 import UIKit
 
-final class GameBarButtonView: UIView {
+final class GameScoreView: UIView {
     @IBOutlet private var scoreLabel: UILabel!
+    @IBOutlet private var measurementLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,7 +24,8 @@ final class GameBarButtonView: UIView {
         loadFromNib()
     }
     
-    func setScore(score: Int) {
+    func setScore(_ score: Int, type: GameType) {
         scoreLabel.text = "\(score)"
+        measurementLabel.text = type.measurement
     }
 }

@@ -12,8 +12,11 @@ enum NetworkEnvironment {
     case production
 }
 
-public enum EndPoint {
-    case addGameScore(score: Int)
+enum EndPoint {
+    case addGameScore(score: Int, type: GameType)
+    case createUser(username: String)
+    case getUsername
+    case getStatistics
 }
 
 extension EndPoint: EndPointType {
@@ -31,6 +34,10 @@ extension EndPoint: EndPointType {
         switch self {
         case .addGameScore:
             return "user/score"
+        case .createUser, .getUsername:
+            return "user"
+        case .getStatistics:
+            return "user/stats"
         }
     }
     
@@ -38,13 +45,21 @@ extension EndPoint: EndPointType {
         switch self {
         case .addGameScore:
             return .post
+        case .createUser:
+            return .put
+        case .getUsername, .getStatistics:
+            return .get
         }
     }
     
     var task: HTTPTask {
         switch self {
-        case .addGameScore(let score):
-            return .requestWithParameters(bodyParameters: ["wpm": score], urlParameters: nil)
+        case let .addGameScore(score, type):
+            return .requestWithParameters(bodyParameters: ["wpm": score, "type": type.rawValue], urlParameters: nil)
+        case .createUser(let username):
+            return .requestWithParameters(bodyParameters: ["username": username], urlParameters: nil)
+        case .getUsername, .getStatistics:
+            return .request
         }
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LoadingButtonViewDelegate: MenuSubviewsDelegate {
-    func didPressTitleButton(view: LoadingButtonView, viewController: UIViewController?)
+    func didPressTitleButton(view: LoadingButtonView, type: ViewControllerType?)
 }
 
 final class LoadingButtonView: UIView {
@@ -50,7 +50,7 @@ final class LoadingButtonView: UIView {
     }
     
     @IBAction private func titleButtonPressed(_ sender: UIButton) {
-        delegate?.didPressTitleButton(view: self, viewController: category.viewController)
+        delegate?.didPressTitleButton(view: self, type: category.type)
     }
     
     private func animateTitle(completion: @escaping Callback) {

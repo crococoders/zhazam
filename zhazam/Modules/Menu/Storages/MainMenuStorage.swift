@@ -15,11 +15,9 @@ struct MainMenuStorage: CategoryStorageProtocol {
     var title: String = R.string.localizable.menu().lowercased()
     
     init() {
-        categories = [CategoryViewModel(title: R.string.localizable.play(),
-                                        viewController: MenuViewController(storage: GameModesStorage())),
-                      CategoryViewModel(title: R.string.localizable.leaderboard(), viewController: nil),
-                      CategoryViewModel(title: R.string.localizable.statistics(), viewController: nil),
-                      CategoryViewModel(title: R.string.localizable.settings(),
-                                        viewController: MenuViewController(storage: SettingsStorage()))]
+        categories = [CategoryViewModel(title: R.string.localizable.play(), type: .gameModes),
+                      CategoryViewModel(title: R.string.localizable.leaderboard()),
+                      CategoryViewModel(title: R.string.localizable.statistics(), type: .statistics),
+                      CategoryViewModel(title: R.string.localizable.settings(), type: .settings)]
     }
 }

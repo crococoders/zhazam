@@ -80,7 +80,25 @@ final class MenuViewController: UIViewController {
         //TODO: refactor
     }
     
-    private func changeState(for view: LoadingButtonView, with viewController: UIViewController?) {
+    // swiftlint:disable function_body_length
+    private func changeState(for view: LoadingButtonView, with type: ViewControllerType?) {
+        guard let type = type else { return }
+        
+        var viewController: UIViewController
+        
+        switch type {
+        case .gameModes:
+            viewController = MenuViewController(storage: GameModesStorage())
+        case .settings:
+            viewController = MenuViewController(storage: SettingsStorage())
+        case .countdown(let type):
+            viewController = CountdownViewController(type: type)
+        case .choice:
+            viewController = ChoiceViewController(viewModel:
+                TitledTextViewModel(placeholder: R.string.localizable.nickname(), buttonIsHidden: true))
+        case .statistics:
+            viewController = StatisticsViewController()
+        }
         if !storage.hasLoader {
             DispatchQueue.main.asyncAfter(deadline: .now() + fadeDuration) { [weak self] in
                 guard let self = self else { return }
@@ -93,6 +111,7 @@ final class MenuViewController: UIViewController {
             }
         }
     }
+    // swiftlint:enable function_body_length
     
     private func shareScreenImageButton() {
         guard let screenShot = UIApplication.shared.screenShot else { return }
@@ -125,8 +144,8 @@ final class MenuViewController: UIViewController {
 }
 
 extension MenuViewController: LoadingButtonViewDelegate {
-    func didPressTitleButton(view: LoadingButtonView, viewController: UIViewController?) {
-        changeState(for: view, with: viewController)
+    func didPressTitleButton(view: LoadingButtonView, type: ViewControllerType?) {
+        changeState(for: view, with: type)
         fadeUnselectedViews(for: view, till: 0, false)
     }
 }
