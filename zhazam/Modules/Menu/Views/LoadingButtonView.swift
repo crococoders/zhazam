@@ -16,7 +16,7 @@ final class LoadingButtonView: UIView {
     private let category: CategoryViewModel
     weak var delegate: LoadingButtonViewDelegate?
     
-    @IBOutlet private var titleButton: UIButton!
+    @IBOutlet var titleButton: UIButton!
     @IBOutlet private var loadingLabel: LoadingLabel!
     
     init(_ category: CategoryViewModel) {
