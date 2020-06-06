@@ -8,68 +8,42 @@
 
 import Foundation
 
-enum GameTypeApi: String, Codable {
-    case classic, arcade, time
-}
-
-extension GameTypeApi {
-    func getName() -> String {
-        switch self {
-        case .classic:
-            return R.string.localizable.classic()
-        case .arcade:
-            return R.string.localizable.arcade()
-        case .time:
-            return R.string.localizable.time()
-        }
-    }
-    
-    func getUnit() -> String {
-        switch self {
-        case .classic, .time:
-            return "wpm"
-        case .arcade:
-            return R.string.localizable.sec().lowercased()
-        }
-    }
-}
-
 struct StatisticsApiResponse: Codable {
-    var status: Status?
-    var message: String?
-    var data: Statistics?
-}
-
-struct Statistics {
-    var bestAll: GameTypeApiReponse?
-    var bestTypes: [GameTypeApiReponse]?
-    var averageAll: Double?
-    var averageLast: Double?
-}
-
-extension Statistics: Codable {
-    private enum StatisticsCodingKeys: String, CodingKey {
-        case bestAll = "best_all"
-        case bestTypes = "best_types"
-        case averageAll = "average_all"
-        case averageLast = "average_last"
-    }
+    let status: Status?
+    let message: String?
+    let data: [StatisticsResult]?
     
+    private enum StatisticsApiResponseCodingKeys: String, CodingKey {
+        case status
+        case message
+        case data
+    }
+
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: StatisticsCodingKeys.self)
-        
-        bestAll = try container.decodeIfPresent(GameTypeApiReponse.self, forKey: .bestAll)
-        bestTypes = try container.decodeIfPresent([GameTypeApiReponse].self, forKey: .bestTypes)
-        averageAll = try container.decodeIfPresent(Double.self, forKey: .averageAll)
-        averageLast = try container.decodeIfPresent(Double.self, forKey: .averageLast)
+        let container = try decoder.container(keyedBy: StatisticsApiResponseCodingKeys.self)
+
+        status = try container.decodeIfPresent(Status.self, forKey: .status)
+        message = try container.decodeIfPresent(String.self, forKey: .message)
+        data = try container.decodeIfPresent([StatisticsResult].self, forKey: .data)
     }
 }
 
-struct GameTypeApiReponse: Codable {
-    var wpm: Int?
-    var type: GameMode?
-}
+struct StatisticsResult: Codable {
+    let score: Int?
+    let unit: String?
+    let title: String?
+    
+    private enum StatisticsResultCodingKeys: String, CodingKey {
+        case score
+        case unit
+        case title
+    }
 
-struct GameMode: Codable {
-    var name: GameTypeApi?
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: StatisticsResultCodingKeys.self)
+
+        score = try container.decodeIfPresent(Int.self, forKey: .score)
+        unit = try container.decodeIfPresent(String.self, forKey: .unit)
+        title = try container.decodeIfPresent(String.self, forKey: .title)
+    }
 }

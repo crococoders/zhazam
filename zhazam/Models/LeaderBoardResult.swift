@@ -9,32 +9,42 @@
 import Foundation
 
 struct LeaderBoardResultApiResponse: Codable {
+    var status: Status?
+    var message: String?
     var data: [LeaderBoardResult]?
     
     private enum LeaderBoardResultApiResponseCodingKeys: String, CodingKey {
+        case status
+        case message
         case data
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: LeaderBoardResultApiResponseCodingKeys.self)
-        
+        status = try container.decodeIfPresent(Status.self, forKey: .status)
+        message = try container.decodeIfPresent(String.self, forKey: .message)
         data = try container.decodeIfPresent([LeaderBoardResult].self, forKey: .data)
     }
 }
 
 struct LeaderBoardResult: Codable {
-    var user: Username?
-    var score: GameTypeApiReponse?
+    var username: String?
+    var score: Int?
+    var unit: String?
+    var title: String?
     
     private enum LeaderBoardResultCodingKeys: String, CodingKey {
-        case user
+        case username
         case score
+        case unit
+        case title
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: LeaderBoardResultCodingKeys.self)
-        
-        user = try container.decode(Username.self, forKey: .user)
-        score = try container.decode(GameTypeApiReponse.self, forKey: .score)
+        username = try container.decodeIfPresent(String.self, forKey: .username)
+        score = try container.decodeIfPresent(Int.self, forKey: .score)
+        unit = try container.decodeIfPresent(String.self, forKey: .unit)
+        title = try container.decodeIfPresent(String.self, forKey: .title)
     }
 }

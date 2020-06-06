@@ -16,7 +16,7 @@ struct NetworkManager: Handler {
     typealias LeaderBoardResponse = ((_ leaderBoard: [LeaderBoardResult]?) -> Void)
     typealias StatusResponse = ((_ result: Status?) -> Void)
     typealias UsernameResponse = ((_ username: String?) -> Void)
-    typealias StatisticsResponse = ((_ statistics: Statistics?) -> Void)
+    typealias StatisticsResponse = ((_ statistics: [StatisticsResult]?) -> Void)
     
     let router = Router<EndPoint>()
     

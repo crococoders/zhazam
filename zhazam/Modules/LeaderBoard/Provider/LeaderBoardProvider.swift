@@ -33,16 +33,16 @@ class LeaderBoardProvider {
     
     func setLeaderBoards(by type: GameType) {
         var leaderBoardArray: [LeaderBoardViewModel] = []
-        NetworkManager.shared.getLeaderBoardResult(by: type) { [weak self] (leaderBoards) in
-            guard let self = self, let leaderBoards = leaderBoards else { return }
-            
-            leaderBoards.forEach { (result) in
-                guard let username = result.user?.username,
-                    let score = result.score?.wpm,
-                    let unit = result.score?.type?.name?.getUnit() else { return }
-                
+        NetworkManager.shared.getLeaderBoardResult(by: type) { [weak self] (results) in
+            guard let self = self, let results = results else { return }
+
+            results.forEach { (leaderBoards) in
+                guard let username = leaderBoards.username,
+                    let score = leaderBoards.score,
+                    let unit = leaderBoards.unit else { return }
+
                 leaderBoardArray.append(LeaderBoardViewModel(playerName: username,
-                                                             resultCount: "\(score)",
+                                                             resultCount: String(score),
                                                              measurement: unit,
                                                              placeTitle: ""))
             }
