@@ -66,20 +66,20 @@ final class Game {
     }
     
     private func attribute(text: NSMutableAttributedString?, with word: String) {
-        guard let unwrappedWord = words[safe: index], let attributedText = attributedText else { return }
+        guard let unwrappedWord = words[safe: index], let attributedText = text else { return }
         
         let correctLettersLength = word.commonPrefix(with: unwrappedWord).count
         
         attributedText.addAttribute(.foregroundColor, value: R.color.textColor()!,
                                     range: NSRange(location: correctWordsCount, length: correctLettersLength))
-        if correctWordsCount + word.count <= text?.length ?? 0 {
+        if correctWordsCount + word.count <= attributedText.length {
             attributedText.addAttribute(.foregroundColor, value: R.color.defaultRed()!,
                                         range: NSRange(location: correctLettersLength + correctWordsCount,
                                                        length: word.count - correctLettersLength))
         }
         let location = correctWordsCount + word.count
         let length = lastUpdatedWord.count - word.count
-        if lastUpdatedWord.count > word.count && location + length <= text?.length ?? 0 {
+        if lastUpdatedWord.count > word.count && location + length <= attributedText.length {
             attributedText.addAttribute(.foregroundColor, value: R.color.defaultGray()!,
             range: NSRange(location: correctWordsCount + word.count, length: length))
         }
@@ -101,14 +101,15 @@ final class Game {
     @objc
     private func increaseTime() {
         time += 1
-        delegate?.didUpdate(score: score)
+        delegate?.didUpdate(score: type == .time ? 60 - time : score)
     }
 }
 
 extension Game: Gaming {
     func update(word: String) {
         attribute(word: word)
-        attribute(text: attributedText, with: word)
+        let text = type == .time ? NSMutableAttributedString(string: words[index]) : attributedText
+        attribute(text: text, with: word)
         lastUpdatedWord = word
         completeWordIfNeeded(word)
     }
@@ -116,12 +117,13 @@ extension Game: Gaming {
     private func completeWordIfNeeded(_ word: String) {
         guard let currentWord = getDelimiteredCurrentWord(), word == currentWord else { return }
         lastUpdatedWord = ""
-        correctWordsCount += currentWord.count
+        correctWordsCount += type == .time ? 0 : currentWord.count
         if isLastWord {
             stopTimer()
             delegate?.didFinish(with: score)
         } else {
-            delegate?.didCompleteWord(correctWordsCount)
+            let location = type == .time ? index : correctWordsCount
+            delegate?.didCompleteWord(location)
         }
         index += 1
     }

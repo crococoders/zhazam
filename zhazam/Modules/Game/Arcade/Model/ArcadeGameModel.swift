@@ -19,7 +19,7 @@ final class ArcadeGameModel: GameProcessable {
     }
     
     func loadGame() {
-        let text = "This younger generation grew up with touch screen devices and smartphones, so this isn't such a surprise. Older generations have been typing on keyboards and smartphones for longer, however, due to the high turnover and changes in devices over the years, their ability to type as quickly is not on par with teenagers. The main finding, though, is that typing speeds between texting and keyboard typing is decreasing in general"
+        let text = "This younger generation grew up with touch screen devices and smartphones, so this is not such a surprise. Older generations have been typing on keyboards and smartphones for longer, however, due to the high turnover and changes in devices over the years, their ability to type as quickly is not on par with teenagers. The main finding, though, is that typing speeds between texting and keyboard typing is decreasing in general"
         game.start(with: text)
     }
 }
