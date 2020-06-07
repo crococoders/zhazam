@@ -520,8 +520,6 @@
 			isa = PBXGroup;
 			children = (
 				24CFF0892486AB560048BCD8 /* Provider */,
-				24C632AE24671E4A00FC0DFA /* LeaderBoardViewController.swift */,
-				24C632B024671E6D00FC0DFA /* LeaderBoardViewController.xib */,
 				24C632B7246725FC00FC0DFA /* ViewModels */,
 				24C632B224671E7700FC0DFA /* Views */,
 			);
@@ -531,6 +529,8 @@
 		24C632B224671E7700FC0DFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				24C632AE24671E4A00FC0DFA /* LeaderBoardViewController.swift */,
+				24C632B024671E6D00FC0DFA /* LeaderBoardViewController.xib */,
 				24C632B324671F7D00FC0DFA /* LeaderBoardCell.swift */,
 				24C632B524671F8F00FC0DFA /* LeaderBoardCell.xib */,
 			);
@@ -1334,7 +1334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3CHG2WRTC8;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = zhazam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

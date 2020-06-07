@@ -37,14 +37,13 @@ class LeaderBoardProvider {
             guard let self = self, let results = results else { return }
 
             results.forEach { (leaderBoards) in
-                guard let username = leaderBoards.username,
-                    let score = leaderBoards.score,
-                    let unit = leaderBoards.unit else { return }
+                guard let username = leaderBoards.username, let score = leaderBoards.score,
+                    let unit = leaderBoards.unit, let place = leaderBoards.place else { return }
 
                 leaderBoardArray.append(LeaderBoardViewModel(playerName: username,
                                                              resultCount: String(score),
                                                              measurement: unit,
-                                                             placeTitle: ""))
+                                                             placeTitle: place))
             }
             self.leaderBoards = leaderBoardArray
         }

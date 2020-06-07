@@ -31,13 +31,13 @@ struct LeaderBoardResult: Codable {
     var username: String?
     var score: Int?
     var unit: String?
-    var title: String?
+    var place: String?
     
     private enum LeaderBoardResultCodingKeys: String, CodingKey {
         case username
         case score
         case unit
-        case title
+        case place
     }
     
     init(from decoder: Decoder) throws {
@@ -45,6 +45,6 @@ struct LeaderBoardResult: Codable {
         username = try container.decodeIfPresent(String.self, forKey: .username)
         score = try container.decodeIfPresent(Int.self, forKey: .score)
         unit = try container.decodeIfPresent(String.self, forKey: .unit)
-        title = try container.decodeIfPresent(String.self, forKey: .title)
+        place = try container.decodeIfPresent(String.self, forKey: .place)
     }
 }
