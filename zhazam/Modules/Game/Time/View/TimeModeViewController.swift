@@ -89,16 +89,16 @@ final class TimeModeViewController: UIViewController, Reusable {
             guard let self = self else { return }
             self.gameProcess.restart()
         }
-        let actions = [R.string.localizable.exit().lowercased(): onExit,
-                       R.string.localizable.restart().lowercased(): onRestart]
+        let actions = ["Exit".localized.lowercased(): onExit,
+                       "Restart".localized.lowercased(): onRestart]
         let onDismiss: Callback = { [weak self] in
             guard let self = self else { return }
             self.textField.becomeResponder()
             self.gameProcess.resume()
             
         }
-        let viewModel = TitledTextViewModel(title: R.string.localizable.exitOrRestartQuestion(),
-                                            placeholder: R.string.localizable.exitOrRestart(),
+        let viewModel = TitledTextViewModel(title: "ExitOrRestartQuestion".localized,
+                                            placeholder: "ExitOrRestart".localized,
                                             actions: actions,
                                             onDismiss: onDismiss)
         return viewModel

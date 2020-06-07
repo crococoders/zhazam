@@ -51,13 +51,13 @@ final class ResultViewController: UIViewController {
     }
     
     private func localizeViews() {
-        quitButton.setTitle(R.string.localizable.exit().lowercased(), for: .normal)
-        restartButton.setTitle(R.string.localizable.again().lowercased(), for: .normal)
+        quitButton.setTitle("Exit".localized.lowercased(), for: .normal)
+        restartButton.setTitle("Again".localized.lowercased(), for: .normal)
     }
     
     private func configureViews() {
         scoreLabel.text = "\(score)\(type.unit)"
-        stateLabel.text = R.string.localizable.goodJob().lowercased()
+        stateLabel.text = "GoodJob".localized.lowercased()
     }
     
     private func configureProvider() {
@@ -82,7 +82,7 @@ final class ResultViewController: UIViewController {
 extension ResultViewController: ResultProviderDelegate {
     func didSetResult(_ result: GameResult?) {
         guard let percentage = result?.percentage else { return }
-        percentageLabel.text = R.string.localizable.beatenPercentage(percentage.formatted())
+        percentageLabel.text = String.init(format: "BeatenPercentage".localized, percentage.formatted())
         UIView.animate(withDuration: 0.5) {
             self.percentageLabel.alpha = 1.0
         }

@@ -9,7 +9,7 @@
 import UIKit
 
 final class LogoView: UIView {
-    private let appName = R.string.localizable.appName().lowercased()
+    private let appName = "AppName".localized.lowercased()
     
     private enum Constants {
         static let cursorAnimationDuration: TimeInterval = 0.8

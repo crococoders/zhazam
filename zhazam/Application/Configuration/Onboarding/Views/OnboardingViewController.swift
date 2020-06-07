@@ -35,7 +35,7 @@ final class OnboardingViewController: UIViewController {
     private func configureContent() {
         switch page.type {
         case .interfaceStyle:
-            let horizontalView = ConfigurationView(key: R.string.localizable.lights(),
+            let horizontalView = ConfigurationView(key: "Lights".localized,
                                                         value: getInterfaceStyleString())
             horizontalView.onTap = { [weak self] in
                 guard let self = self else { return }
@@ -49,9 +49,9 @@ final class OnboardingViewController: UIViewController {
                 UserDefaultsStorage.isOnboardingCompleted = true
                 self.routeToMainScreen()
             }
-            let action = [R.string.localizable.start().lowercased(): onStart]
-            let viewModel = TitledTextViewModel(title: R.string.localizable.letsStart(),
-                                                placeholder: R.string.localizable.start().lowercased(),
+            let action = ["Start".localized.lowercased(): onStart]
+            let viewModel = TitledTextViewModel(title: "LetsStart".localized,
+                                                placeholder: "Start".localized.lowercased(),
                                                 actions: action)
             let titledTextView = TitledTextView(viewModel: viewModel)
             
@@ -65,9 +65,9 @@ final class OnboardingViewController: UIViewController {
     
     private func getInterfaceStyleString() -> String {
         if darkModeEnabled() {
-            return R.string.localizable.off().lowercased()
+            return "Off".localized.lowercased()
         }
-        return R.string.localizable.on().lowercased()
+        return "On".localized.lowercased()
     }
     
     private func darkModeEnabled() -> Bool {

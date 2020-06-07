@@ -18,7 +18,7 @@ enum GameType: String {
         case .classic:
             return "wpm"
         case .arcade, .time:
-            return R.string.localizable.time().lowercased()
+            return "Time".localized.lowercased()
         }
     }
     
@@ -27,7 +27,7 @@ enum GameType: String {
         case .classic, .time:
             return "wpm"
         case .arcade:
-            return R.string.localizable.sec().lowercased()
+            return "Sec".localized.lowercased()
         }
     }
 }
