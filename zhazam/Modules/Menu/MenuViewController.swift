@@ -98,6 +98,8 @@ final class MenuViewController: UIViewController {
                 TitledTextViewModel(placeholder: R.string.localizable.nickname(), buttonIsHidden: true))
         case .statistics:
             viewController = StatisticsViewController()
+        case .leaderBoards:
+            viewController = LeaderBoardViewController()
         }
         if !storage.hasLoader {
             DispatchQueue.main.asyncAfter(deadline: .now() + fadeDuration) { [weak self] in
