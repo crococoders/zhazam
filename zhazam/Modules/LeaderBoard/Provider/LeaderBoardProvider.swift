@@ -26,9 +26,9 @@ class LeaderBoardProvider {
     }
     
     func setConfigurationData() {
-        configuration = LeaderBoardConfigurationModel(values: [R.string.localizable.classic(),
-                                                               R.string.localizable.arcade(),
-                                                               R.string.localizable.time()])
+        configuration = LeaderBoardConfigurationModel(values: ["Classic".localized,
+                                                               "Arcade".localized,
+                                                               "Time".localized])
     }
     
     func setLeaderBoards(by type: GameType) {

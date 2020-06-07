@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimeModeViewController" customModule="zhazam" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="WNH-2M-25c" id="F8L-DY-53p"/>
+                <outlet property="scoreView" destination="1A5-aa-dOt" id="ANz-Mn-Zg7"/>
+                <outlet property="textField" destination="wcU-Dd-klr" id="hIC-0i-gDf"/>
+                <outlet property="textFieldBottomConstraint" destination="MPP-l1-8Ie" id="dQb-c3-HsE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="77" translatesAutoresizingMaskIntoConstraints="NO" id="1A5-aa-dOt" customClass="GameScoreView" customModule="zhazam" customModuleProvider="target">
+                    <rect key="frame" x="310" y="74" width="80" height="77"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="NHg-v4-gWL"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ewz-Yy-jMh">
+                    <rect key="frame" x="24" y="74" width="54" height="36"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                    <state key="normal" title="menu">
+                        <color key="titleColor" name="textColor"/>
+                    </state>
+                    <connections>
+                        <action selector="menuButtonPressed:" destination="-1" eventType="touchUpInside" id="x9E-5m-Gs2"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wcU-Dd-klr" customClass="PrimaryTextField" customModule="zhazam" customModuleProvider="target">
+                    <rect key="frame" x="24" y="800.5" width="366" height="49.5"/>
+                    <color key="tintColor" name="textColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49.5" id="NfA-ZZ-Y2Z"/>
+                    </constraints>
+                    <color key="textColor" name="textColor"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                    <connections>
+                        <action selector="textFieldDidChange:" destination="-1" eventType="editingChanged" id="eZC-el-bcu"/>
+                    </connections>
+                </textField>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="WNH-2M-25c">
+                    <rect key="frame" x="24" y="313" width="366" height="140"/>
+                    <color key="backgroundColor" name="background"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="140" id="sQq-aa-Mng"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="XDI-hi-VKU">
+                        <size key="itemSize" width="128" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" name="background"/>
+            <constraints>
+                <constraint firstItem="Ewz-Yy-jMh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="3gA-0X-wWC"/>
+                <constraint firstItem="1A5-aa-dOt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="77f-go-Fge"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wcU-Dd-klr" secondAttribute="trailing" constant="24" id="HHK-X5-5Nr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wcU-Dd-klr" secondAttribute="bottom" constant="12" id="MPP-l1-8Ie"/>
+                <constraint firstItem="wcU-Dd-klr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="REX-6J-gim"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1A5-aa-dOt" secondAttribute="trailing" constant="24" id="Rs0-u7-ZDy"/>
+                <constraint firstItem="WNH-2M-25c" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="ZPE-uc-Ur4"/>
+                <constraint firstItem="WNH-2M-25c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="ddm-ki-EfM"/>
+                <constraint firstItem="Ewz-Yy-jMh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="uzf-PC-Iqs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WNH-2M-25c" secondAttribute="trailing" constant="24" id="zOW-bA-8g5"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

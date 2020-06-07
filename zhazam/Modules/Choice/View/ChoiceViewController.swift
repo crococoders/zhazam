@@ -51,7 +51,7 @@ final class ChoiceViewController: UIViewController {
     }
     
     private func setupLocalization() {
-        backButton.setTitle(R.string.localizable.continue().lowercased(), for: .normal)
+        backButton.setTitle("Continue".localized.lowercased(), for: .normal)
         backButton.isHidden = viewModel.buttonIsHidden
     }
     
@@ -76,7 +76,7 @@ final class ChoiceViewController: UIViewController {
     }
     
     private func setupBarButtonItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.save().lowercased(),
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save".localized.lowercased(),
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(saveTapped))

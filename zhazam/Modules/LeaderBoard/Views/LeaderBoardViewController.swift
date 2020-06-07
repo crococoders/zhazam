@@ -17,7 +17,7 @@ final class LeaderBoardViewController: UIViewController, Reusable {
     @IBOutlet private var tableView: UITableView!
     
     lazy var gameTypeButton: UIBarButtonItem = {
-        let rightBarButtonItem = UIBarButtonItem(title: "Classic",
+        let rightBarButtonItem = UIBarButtonItem(title: "Classic".localized,
                                                  style: .plain,
                                                  target: self,
                                                  action: #selector(didGameTypeButtonTap))
@@ -51,6 +51,7 @@ final class LeaderBoardViewController: UIViewController, Reusable {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(LeaderBoardCell.self, forCellReuseIdentifier: identifier)
+        tableView.tableFooterView = UIView()
     }
     
     private func manageButton() {

@@ -82,6 +82,12 @@
 		7A09B4472467475A00A42C58 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A09B4462467475A00A42C58 /* UITextView+Extension.swift */; };
 		7A09B44A24677B6600A42C58 /* ResultProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A09B44924677B6600A42C58 /* ResultProvider.swift */; };
 		7A09B44C2467847500A42C58 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A09B44B2467847500A42C58 /* Double+Extension.swift */; };
+		7A49E714248AE55800360FE2 /* TimeModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A49E712248AE55800360FE2 /* TimeModeViewController.swift */; };
+		7A49E715248AE55800360FE2 /* TimeModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A49E713248AE55800360FE2 /* TimeModeViewController.xib */; };
+		7A49E717248AEA7000360FE2 /* TimeGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A49E716248AEA7000360FE2 /* TimeGameModel.swift */; };
+		7A49E71A248BE3D100360FE2 /* TimeModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A49E718248BE3D100360FE2 /* TimeModeCell.swift */; };
+		7A49E71B248BE3D100360FE2 /* TimeModeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A49E719248BE3D100360FE2 /* TimeModeCell.xib */; };
+		7A49E799248C5B7100360FE2 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A49E798248C5B7100360FE2 /* UICollectionView+Extensions.swift */; };
 		7A5498752461DC9600BE4F15 /* PrimaryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5498742461DC9600BE4F15 /* PrimaryTextField.swift */; };
 		7A5498782462159600BE4F15 /* ClassicGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A5498772462159600BE4F15 /* ClassicGameModel.swift */; };
 		7A571F1F2465F89000CFCEC7 /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A571F1D2465F89000CFCEC7 /* ChoiceViewController.swift */; };
@@ -200,6 +206,12 @@
 		7A09B4462467475A00A42C58 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		7A09B44924677B6600A42C58 /* ResultProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultProvider.swift; sourceTree = "<group>"; };
 		7A09B44B2467847500A42C58 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		7A49E712248AE55800360FE2 /* TimeModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModeViewController.swift; sourceTree = "<group>"; };
+		7A49E713248AE55800360FE2 /* TimeModeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeModeViewController.xib; sourceTree = "<group>"; };
+		7A49E716248AEA7000360FE2 /* TimeGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeGameModel.swift; sourceTree = "<group>"; };
+		7A49E718248BE3D100360FE2 /* TimeModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModeCell.swift; sourceTree = "<group>"; };
+		7A49E719248BE3D100360FE2 /* TimeModeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeModeCell.xib; sourceTree = "<group>"; };
+		7A49E798248C5B7100360FE2 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		7A5498742461DC9600BE4F15 /* PrimaryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextField.swift; sourceTree = "<group>"; };
 		7A5498772462159600BE4F15 /* ClassicGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicGameModel.swift; sourceTree = "<group>"; };
 		7A571F1D2465F89000CFCEC7 /* ChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
@@ -580,6 +592,7 @@
 				7A09B4462467475A00A42C58 /* UITextView+Extension.swift */,
 				24C632AB2466DF9800FC0DFA /* UIApplication+Extension.swift */,
 				7A09B44B2467847500A42C58 /* Double+Extension.swift */,
+				7A49E798248C5B7100360FE2 /* UICollectionView+Extensions.swift */,
 				0420DA05248BB6BB00FC57F7 /* String+Extension.swift */,
 			);
 			path = Extensions;
@@ -658,6 +671,34 @@
 				7A09B44924677B6600A42C58 /* ResultProvider.swift */,
 			);
 			path = Provider;
+			sourceTree = "<group>";
+		};
+		7A49E70F248AE51900360FE2 /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				7A49E710248AE52F00360FE2 /* View */,
+				7A49E711248AE53600360FE2 /* Model */,
+			);
+			path = Time;
+			sourceTree = "<group>";
+		};
+		7A49E710248AE52F00360FE2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7A49E712248AE55800360FE2 /* TimeModeViewController.swift */,
+				7A49E713248AE55800360FE2 /* TimeModeViewController.xib */,
+				7A49E718248BE3D100360FE2 /* TimeModeCell.swift */,
+				7A49E719248BE3D100360FE2 /* TimeModeCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7A49E711248AE53600360FE2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7A49E716248AEA7000360FE2 /* TimeGameModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7A5498732461DC6200BE4F15 /* PrimaryTextField */ = {
@@ -845,6 +886,7 @@
 				7AF36DB0245ED94100048E2F /* Models */,
 				7AF36DAA245ED2E400048E2F /* Classic */,
 				7A571F282466FA7700CFCEC7 /* Arcade */,
+				7A49E70F248AE51900360FE2 /* Time */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -1006,6 +1048,7 @@
 			files = (
 				70236EF4234BA6D300FCD963 /* HelveticaNeue-Bold.ttf in Resources */,
 				7AF36D9E245C4A8C00048E2F /* ConfigurationView.xib in Resources */,
+				7A49E715248AE55800360FE2 /* TimeModeViewController.xib in Resources */,
 				7A571F202465F89000CFCEC7 /* ChoiceViewController.xib in Resources */,
 				7A6D06552464C0DC00405665 /* GameScoreView.xib in Resources */,
 				B0172A192315347E0041EF2E /* Localizable.strings in Resources */,
@@ -1021,6 +1064,7 @@
 				0DCC8FDF2358D1670047EB90 /* LoadingViewController.xib in Resources */,
 				24C632B624671F8F00FC0DFA /* LeaderBoardCell.xib in Resources */,
 				24729FB4245B448700A69CC3 /* StatisticsCollectionCell.xib in Resources */,
+				7A49E71B248BE3D100360FE2 /* TimeModeCell.xib in Resources */,
 				7AF36DA5245C4D1D00048E2F /* TitledTextView.xib in Resources */,
 				7AF36D95245C48AB00048E2F /* OnboardingPageViewController.xib in Resources */,
 				7A571F2624663C8900CFCEC7 /* ResultViewController.xib in Resources */,
@@ -1127,6 +1171,7 @@
 				7AA49B6324659FD8005F4364 /* Gaming.swift in Sources */,
 				7AF36D90245C479500048E2F /* OnboardingPage.swift in Sources */,
 				7A6D06532464C0CE00405665 /* GameScoreView.swift in Sources */,
+				7A49E717248AEA7000360FE2 /* TimeGameModel.swift in Sources */,
 				70236F15234CCDD000FCD963 /* NavigationBarAppearanceCommand.swift in Sources */,
 				04BE896C24655C2800D39C9E /* KeychainAccess.swift in Sources */,
 				24729FB2245B447900A69CC3 /* StatisticsCollectionCell.swift in Sources */,
@@ -1166,12 +1211,14 @@
 				0484560524632E0E00932906 /* MainMenuStorage.swift in Sources */,
 				04BE8964246480CF00D39C9E /* Router.swift in Sources */,
 				24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */,
+				7A49E714248AE55800360FE2 /* TimeModeViewController.swift in Sources */,
 				7AA49B6524659FF2005F4364 /* GameProcessable.swift in Sources */,
 				7AF36DB5245EDACA00048E2F /* KeyboardStateObserver.swift in Sources */,
 				7A571F2524663C8900CFCEC7 /* ResultViewController.swift in Sources */,
 				7A6D06502464BC8D00405665 /* Array+Extension.swift in Sources */,
 				0484560A24632F2200932906 /* SettingsStorage.swift in Sources */,
 				7AF36DA0245C4A9B00048E2F /* ConfigurationView.swift in Sources */,
+				7A49E799248C5B7100360FE2 /* UICollectionView+Extensions.swift in Sources */,
 				7AF36DA9245C504B00048E2F /* UIViewController+Extension.swift in Sources */,
 				7A571F2D2466FACF00CFCEC7 /* ArcadeModeViewController.swift in Sources */,
 				0499A2A82439FE54008C6FAD /* MenuViewController.swift in Sources */,
@@ -1196,6 +1243,7 @@
 				04BE8963246480CF00D39C9E /* HTTPMethod.swift in Sources */,
 				0499A2AF243A0257008C6FAD /* LogoView.swift in Sources */,
 				7A5498782462159600BE4F15 /* ClassicGameModel.swift in Sources */,
+				7A49E71A248BE3D100360FE2 /* TimeModeCell.swift in Sources */,
 				0420DA04248ADAC800FC57F7 /* LanguageManager.swift in Sources */,
 				24C632B92467261F00FC0DFA /* LeaderBoardViewModel.swift in Sources */,
 				0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */,

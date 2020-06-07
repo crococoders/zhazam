@@ -79,8 +79,10 @@ final class CountdownViewController: UIViewController {
         switch type {
         case .classic:
             viewController = ClassicModeViewController()
-        default:
+        case .arcade:
             viewController = ArcadeModeViewController()
+        case .time:
+            viewController = TimeModeViewController()
         }
         navigationController?.pushViewController(viewController, animated: true)
     }

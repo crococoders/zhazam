@@ -26,7 +26,7 @@ enum ViewControllerType {
             return CountdownViewController(type: type)
         case .choice:
             return ChoiceViewController(viewModel:
-                TitledTextViewModel(placeholder: R.string.localizable.nickname(), buttonIsHidden: true))
+                TitledTextViewModel(placeholder: "Nickname".localized, buttonIsHidden: true))
         case .statistics:
             return StatisticsViewController()
         case .leaderboard:
