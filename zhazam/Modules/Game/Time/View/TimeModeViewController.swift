@@ -11,7 +11,7 @@ import UIKit
 final class TimeModeViewController: UIViewController, Reusable {
 
     private var keyboardObserver: KeyboardStateObservable = KeyboardStateObserver()
-    private var words = ["Nurbek", "Azhar", "Sanzhar", "Abay", "Adilet"]
+    private var words: [String] = []
     private var gameProcess = TimeGameModel()
     
     @IBOutlet private var scoreView: GameScoreView!
