@@ -17,7 +17,7 @@ final class LeaderBoardViewController: UIViewController, Reusable {
     @IBOutlet private var tableView: UITableView!
     
     lazy var gameTypeButton: UIBarButtonItem = {
-        let rightBarButtonItem = UIBarButtonItem(title: "Classic",
+        let rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.classic(),
                                                  style: .plain,
                                                  target: self,
                                                  action: #selector(didGameTypeButtonTap))
