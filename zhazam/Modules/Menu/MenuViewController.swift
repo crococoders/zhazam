@@ -104,7 +104,7 @@ final class MenuViewController: UIViewController {
     
     private func shareButtonConfiguration(view: LoadingButtonView) {
         let title = view.getButtonTitle()
-        title == R.string.localizable.share() ? sendShareData() : nil
+        title == "Share".localized ? sendShareData() : nil
     }
     
     private func sendShareData() {
