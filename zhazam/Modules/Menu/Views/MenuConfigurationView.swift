@@ -87,5 +87,6 @@ final class MenuConfigurationView: UIView {
     
     private func manageButton() {
         category.configuration?.next()
+        valueButton.setTitle(category.configuration?.currentValue.localized.lowercased(), for: .normal)
     }
 }
