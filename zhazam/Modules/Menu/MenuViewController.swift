@@ -104,25 +104,29 @@ final class MenuViewController: UIViewController {
     
     private func shareButtonConfiguration(view: LoadingButtonView) {
         let title = view.getButtonTitle()
-        title == "Share".localized ? sendShareData() : nil
+        title == "Share".localized ? sendShareData(view: view) : nil
     }
     
-    private func sendShareData() {
+    private func sendShareData(view: LoadingButtonView) {
         guard let lauchScreenImage = R.image.shareScreen() else { return }
         let mainTitle = "DownloadApp".localized
         let shareAllData: [Any] = [lauchScreenImage, mainTitle]
         let activityViewController = UIActivityViewController(activityItems: shareAllData,
                                                               applicationActivities: nil)
+        
         activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true, completion: nil)
+        activityViewController.completionWithItemsHandler = { (_, _, _, _) in
+            self.fadeUnselectedViews(for: view, till: 1, true)
+        }
+        self.present(activityViewController, animated: true)
     }
     
     private func contactButtonConfiguration(view: LoadingButtonView) {
         let title = view.getButtonTitle()
-        title == "Contacts".localized ? showMainComposer() : nil
+        title == "Contacts".localized ? showMainComposer(view: view) : nil
     }
     
-    private func showMainComposer() {
+    private func showMainComposer(view: LoadingButtonView) {
         guard MFMailComposeViewController.canSendMail() else { return }
         
         let composer = MFMailComposeViewController()
@@ -131,7 +135,18 @@ final class MenuViewController: UIViewController {
         composer.setSubject("Zhazam Support Message")
         composer.setMessageBody("Leave your feedbacks here.", isHTML: false)
         
-        present(composer, animated: true)
+        present(composer, animated: true) {
+            self.fadeUnselectedViews(for: view, till: 1, true)
+        }
+    }
+    
+    private func rateButtonConfiguration(view: LoadingButtonView) {
+        let title = view.getButtonTitle()
+        title == "Rate".localized ? rateApplication(view: view) : nil
+    }
+    
+    private func rateApplication(view: LoadingButtonView) {
+        self.fadeUnselectedViews(for: view, till: 1, true)
     }
     
     private func navigateToNextPage(with viewController: UIViewController?) {
@@ -190,6 +205,7 @@ extension MenuViewController: LoadingButtonViewDelegate {
         fadeUnselectedViews(for: view, till: 0, false)
         shareButtonConfiguration(view: view)
         contactButtonConfiguration(view: view)
+        rateButtonConfiguration(view: view)
     }
 }
 
