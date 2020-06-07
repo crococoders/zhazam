@@ -13,9 +13,10 @@ struct NetworkManager: Handler {
     static let shared = NetworkManager()
     
     typealias GameResultResponse = ((_ score: GameResult?) -> Void)
+    typealias LeaderBoardResponse = ((_ leaderBoard: [LeaderBoardResult]?) -> Void)
     typealias StatusResponse = ((_ result: Status?) -> Void)
     typealias UsernameResponse = ((_ username: String?) -> Void)
-    typealias StatisticsResponse = ((_ statistics: Statistics?) -> Void)
+    typealias StatisticsResponse = ((_ statistics: [StatisticsResult]?) -> Void)
     
     let router = Router<EndPoint>()
     
@@ -36,6 +37,35 @@ struct NetworkManager: Handler {
                     
                     do {
                         let apiResponse = try JSONDecoder().decode(GameResultApiResponse.self, from: responseData)
+                        completion(apiResponse.data)
+                    } catch {
+                        completion(nil)
+                    }
+                case .failure:
+                    completion(nil)
+                }
+            }
+        }
+    }
+    
+    func getLeaderBoardResult(by type: GameType, completion: @escaping LeaderBoardResponse) {
+        router.request(.getLeaderBoard(type: type)) { (data, response, error) in
+            if error != nil {
+                completion(nil)
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(nil)
+                        return
+                    }
+                    
+                    do {
+                        let apiResponse = try JSONDecoder().decode(LeaderBoardResultApiResponse.self,
+                                                                   from: responseData)
                         completion(apiResponse.data)
                     } catch {
                         completion(nil)

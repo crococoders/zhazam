@@ -17,6 +17,7 @@ enum EndPoint {
     case createUser(username: String)
     case getUsername
     case getStatistics
+    case getLeaderBoard(type: GameType)
 }
 
 extension EndPoint: EndPointType {
@@ -34,6 +35,8 @@ extension EndPoint: EndPointType {
         switch self {
         case .addGameScore:
             return "user/score"
+        case .getLeaderBoard:
+            return "leaderboard"
         case .createUser, .getUsername:
             return "user"
         case .getStatistics:
@@ -47,7 +50,7 @@ extension EndPoint: EndPointType {
             return .post
         case .createUser:
             return .put
-        case .getUsername, .getStatistics:
+        case .getUsername, .getStatistics, .getLeaderBoard:
             return .get
         }
     }
@@ -56,6 +59,8 @@ extension EndPoint: EndPointType {
         switch self {
         case let .addGameScore(score, type):
             return .requestWithParameters(bodyParameters: ["wpm": score, "type": type.rawValue], urlParameters: nil)
+        case .getLeaderBoard(let type):
+            return .requestWithParameters(bodyParameters: nil, urlParameters: ["type": type.rawValue])
         case .createUser(let username):
             return .requestWithParameters(bodyParameters: ["username": username], urlParameters: nil)
         case .getUsername, .getStatistics:

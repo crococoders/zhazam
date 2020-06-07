@@ -16,7 +16,7 @@ struct MainMenuStorage: CategoryStorageProtocol {
     
     init() {
         categories = [CategoryViewModel(title: R.string.localizable.play(), type: .gameModes),
-                      CategoryViewModel(title: R.string.localizable.leaderboard()),
+                      CategoryViewModel(title: R.string.localizable.leaderboard(), type: .leaderBoards),
                       CategoryViewModel(title: R.string.localizable.statistics(), type: .statistics),
                       CategoryViewModel(title: R.string.localizable.settings(), type: .settings)]
     }
