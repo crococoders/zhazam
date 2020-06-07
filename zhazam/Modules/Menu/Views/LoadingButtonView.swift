@@ -49,6 +49,11 @@ final class LoadingButtonView: UIView {
         titleButton.setTitle(category.title, for: .normal)
     }
     
+    func getButtonTitle() -> String {
+        let title = titleButton.titleLabel?.text
+        return title ?? ""
+    }
+    
     @IBAction private func titleButtonPressed(_ sender: UIButton) {
         delegate?.didPressTitleButton(view: self, type: category.type)
     }

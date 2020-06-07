@@ -8,6 +8,7 @@
 
 import UIKit
 import Hero
+import MessageUI
 
 final class MenuViewController: UIViewController {
     
@@ -115,12 +116,37 @@ final class MenuViewController: UIViewController {
     }
     // swiftlint:enable function_body_length
     
-    private func shareScreenImageButton() {
-        guard let screenShot = UIApplication.shared.screenShot else { return }
-        let activityViewController = UIActivityViewController(activityItems: [screenShot], applicationActivities: nil)
+    private func shareButtonConfiguration(view: LoadingButtonView) {
+        let title = view.getButtonTitle()
+        title == R.string.localizable.share() ? sendShareData() : nil
+    }
+    
+    private func sendShareData() {
+        guard let lauchScreenImage = R.image.shareScreen() else { return }
+        let mainTitle = R.string.localizable.downloadApp()
+        let shareAllData: [Any] = [lauchScreenImage, mainTitle]
+        let activityViewController = UIActivityViewController(activityItems: shareAllData,
+                                                              applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
-     }
+    }
+    
+    private func contactButtonConfiguration(view: LoadingButtonView) {
+        let title = view.getButtonTitle()
+        title == R.string.localizable.contacts() ? showMainComposer() : nil
+    }
+    
+    private func showMainComposer() {
+        guard MFMailComposeViewController.canSendMail() else { return }
+        
+        let composer = MFMailComposeViewController()
+        composer.mailComposeDelegate = self
+        composer.setToRecipients(["abai.kalikov@gmail.com"])
+        composer.setSubject("Zhazam Support Message")
+        composer.setMessageBody("Leave your feedbacks here.", isHTML: false)
+        
+        present(composer, animated: true)
+    }
     
     private func navigateToNextPage(with viewController: UIViewController?) {
         guard let viewController = viewController else { return }
@@ -149,6 +175,8 @@ extension MenuViewController: LoadingButtonViewDelegate {
     func didPressTitleButton(view: LoadingButtonView, type: ViewControllerType?) {
         changeState(for: view, with: type)
         fadeUnselectedViews(for: view, till: 0, false)
+        shareButtonConfiguration(view: view)
+        contactButtonConfiguration(view: view)
     }
 }
 
@@ -164,5 +192,13 @@ extension MenuViewController: ConfigurationViewDelegate {
     
     func didTapView(_ view: MenuConfigurationView, _ isActive: Bool) {
         fadeUnselectedViews(for: view, till: isActive ? 0.25 : 1, !isActive)
+    }
+}
+
+extension MenuViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult,
+                               error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
