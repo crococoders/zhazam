@@ -49,13 +49,13 @@ final class LoadingButtonView: UIView {
         titleButton.setTitle(category.title.localized, for: .normal)
     }
     
-    private func setupTitle() {
-        titleButton.setTitle(category.title.localized, for: .normal)
-    }
-    
     func getButtonTitle() -> String {
         let title = titleButton.titleLabel?.text
         return title ?? ""
+    }
+    
+    private func setupTitle() {
+        titleButton.setTitle(category.title.localized, for: .normal)
     }
     
     @IBAction private func titleButtonPressed(_ sender: UIButton) {
