@@ -91,7 +91,7 @@ final class ArcadeModeViewController: UIViewController {
     private func configureKeyboardObserving() {
         keyboardObserver.willShow = { [weak self] rect, _, curve in
             guard let self = self else { return }
-            self.updateTextFieldConstraints(offset: rect.height - 12, curve: curve)
+            self.updateTextFieldConstraints(offset: rect.height, curve: curve)
         }
         
         keyboardObserver.willHide = { [weak self] _, _, curve in

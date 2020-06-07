@@ -12,6 +12,7 @@ enum GameType: String {
     case classic
     case arcade
     case time
+    case multiplayer
     
     var measurement: String {
         switch self {
@@ -19,6 +20,8 @@ enum GameType: String {
             return "wpm"
         case .arcade, .time:
             return "Time".localized.lowercased()
+        case .multiplayer:
+            return ""
         }
     }
     
@@ -28,6 +31,8 @@ enum GameType: String {
             return "wpm"
         case .arcade:
             return "Sec".localized.lowercased()
+        case .multiplayer:
+            return ""
         }
     }
 }

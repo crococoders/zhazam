@@ -102,6 +102,8 @@
 		7A6D06532464C0CE00405665 /* GameScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6D06522464C0CE00405665 /* GameScoreView.swift */; };
 		7A6D06552464C0DC00405665 /* GameScoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6D06542464C0DC00405665 /* GameScoreView.xib */; };
 		7A708C752465E53C0047F20D /* TitledTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A708C742465E53C0047F20D /* TitledTextViewModel.swift */; };
+		7A8544DF248D2A22007767A8 /* MultiplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8544DD248D2A22007767A8 /* MultiplayerViewController.swift */; };
+		7A8544E0248D2A22007767A8 /* MultiplayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8544DE248D2A22007767A8 /* MultiplayerViewController.xib */; };
 		7AA49B6324659FD8005F4364 /* Gaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA49B6224659FD8005F4364 /* Gaming.swift */; };
 		7AA49B6524659FF2005F4364 /* GameProcessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA49B6424659FF2005F4364 /* GameProcessable.swift */; };
 		7ACE4529245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */; };
@@ -226,6 +228,8 @@
 		7A6D06522464C0CE00405665 /* GameScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreView.swift; sourceTree = "<group>"; };
 		7A6D06542464C0DC00405665 /* GameScoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameScoreView.xib; sourceTree = "<group>"; };
 		7A708C742465E53C0047F20D /* TitledTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextViewModel.swift; sourceTree = "<group>"; };
+		7A8544DD248D2A22007767A8 /* MultiplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewController.swift; sourceTree = "<group>"; };
+		7A8544DE248D2A22007767A8 /* MultiplayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultiplayerViewController.xib; sourceTree = "<group>"; };
 		7AA49B6224659FD8005F4364 /* Gaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gaming.swift; sourceTree = "<group>"; };
 		7AA49B6424659FF2005F4364 /* GameProcessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProcessable.swift; sourceTree = "<group>"; };
 		7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceStyleConfigurationCommand.swift; sourceTree = "<group>"; };
@@ -471,6 +475,7 @@
 		0DCC8FDC2358D13B0047EB90 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				7A8544DC248D29FB007767A8 /* Multiplayer */,
 				7A571F2124663C6400CFCEC7 /* Result */,
 				0499A2AB243A0050008C6FAD /* Views */,
 				7A571F1B2465F64000CFCEC7 /* Choice */,
@@ -805,6 +810,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		7A8544DC248D29FB007767A8 /* Multiplayer */ = {
+			isa = PBXGroup;
+			children = (
+				7A8544DD248D2A22007767A8 /* MultiplayerViewController.swift */,
+				7A8544DE248D2A22007767A8 /* MultiplayerViewController.xib */,
+			);
+			path = Multiplayer;
+			sourceTree = "<group>";
+		};
 		7A87F32D245F79A40016E4B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1057,6 +1071,7 @@
 				0499A2AD243A024B008C6FAD /* LogoView.xib in Resources */,
 				24729FAF245B440900A69CC3 /* StatisticsViewController.xib in Resources */,
 				7AF36DAE245ED31C00048E2F /* ClassicModeViewController.xib in Resources */,
+				7A8544E0248D2A22007767A8 /* MultiplayerViewController.xib in Resources */,
 				0D1F8A5B230C5FF500ECE3B4 /* Images.xcassets in Resources */,
 				04583708245C257C00DC0E1B /* LoadingButtonView.xib in Resources */,
 				0499A2AA2439FE69008C6FAD /* MenuViewController.xib in Resources */,
@@ -1213,6 +1228,7 @@
 				24A61750244FA9F8007F92E6 /* CountdownViewController.swift in Sources */,
 				7A49E714248AE55800360FE2 /* TimeModeViewController.swift in Sources */,
 				7AA49B6524659FF2005F4364 /* GameProcessable.swift in Sources */,
+				7A8544DF248D2A22007767A8 /* MultiplayerViewController.swift in Sources */,
 				7AF36DB5245EDACA00048E2F /* KeyboardStateObserver.swift in Sources */,
 				7A571F2524663C8900CFCEC7 /* ResultViewController.swift in Sources */,
 				7A6D06502464BC8D00405665 /* Array+Extension.swift in Sources */,
@@ -1253,7 +1269,7 @@
 				7AF36DA3245C4D1200048E2F /* TitledTextView.swift in Sources */,
 				7ACE452C245C45C70016E080 /* UserDefaultsBacked.swift in Sources */,
 				243556F62483860800A862F5 /* LeaderBoardResult.swift in Sources */,
-				7ACE452C245C45C70016E080 /* UserDefaultsStorage.swift in Sources */,
+				7ACE452C245C45C70016E080 /* UserDefaultsBacked.swift in Sources */,
 				24C632AC2466DF9800FC0DFA /* UIApplication+Extension.swift in Sources */,
 				24A6175B245209A1007F92E6 /* TimerRowView.swift in Sources */,
 				04BE8965246480CF00D39C9E /* EndPointType.swift in Sources */,

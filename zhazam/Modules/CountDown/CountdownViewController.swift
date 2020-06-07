@@ -83,6 +83,8 @@ final class CountdownViewController: UIViewController {
             viewController = ArcadeModeViewController()
         case .time:
             viewController = TimeModeViewController()
+        case .multiplayer:
+            viewController = MultiplayerViewController()
         }
         navigationController?.pushViewController(viewController, animated: true)
     }

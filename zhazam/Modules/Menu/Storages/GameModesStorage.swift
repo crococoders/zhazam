@@ -17,6 +17,8 @@ struct GameModesStorage: CategoryStorageProtocol {
     init() {
         categories = [CategoryViewModel(title: "Classic", type: .countdown(type: .classic)),
                       CategoryViewModel(title: "Arcade", type: .countdown(type: .arcade)),
-                      CategoryViewModel(title: "Time", type: .countdown(type: .time))]
+                      CategoryViewModel(title: "Time", type: .countdown(type: .time)),
+                      CategoryViewModel(title: "Multiplayer", type: .countdown(type: .multiplayer))
+        ]
     }
 }

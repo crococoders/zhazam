@@ -42,6 +42,8 @@ final class Game {
             return wpm
         case .arcade:
             return time
+        case .multiplayer:
+            return 0
         }
     }
     private var wpm: Int {
