@@ -1205,7 +1205,7 @@
 				7AF36DA3245C4D1200048E2F /* TitledTextView.swift in Sources */,
 				7ACE452C245C45C70016E080 /* UserDefaultsBacked.swift in Sources */,
 				243556F62483860800A862F5 /* LeaderBoardResult.swift in Sources */,
-				7ACE452C245C45C70016E080 /* UserDefaultsStorage.swift in Sources */,
+				7ACE452C245C45C70016E080 /* UserDefaultsBacked.swift in Sources */,
 				24C632AC2466DF9800FC0DFA /* UIApplication+Extension.swift in Sources */,
 				24A6175B245209A1007F92E6 /* TimerRowView.swift in Sources */,
 				04BE8965246480CF00D39C9E /* EndPointType.swift in Sources */,
@@ -1376,7 +1376,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8R4HNF23MD;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = zhazam/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

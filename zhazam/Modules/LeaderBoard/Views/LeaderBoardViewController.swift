@@ -50,6 +50,7 @@ final class LeaderBoardViewController: UIViewController, Reusable {
     private func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorStyle = .none
         tableView.register(LeaderBoardCell.self, forCellReuseIdentifier: identifier)
     }
     
