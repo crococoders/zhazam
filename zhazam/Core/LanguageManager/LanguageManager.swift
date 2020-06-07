@@ -11,6 +11,10 @@ import UIKit
 class LanguageManager {
     static let shared = LanguageManager()
     
+    var currentLanguage: String {
+        return UserDefaultsStorage.language
+    }
+    
     func setLanguage(_ language: String) {
         UserDefaultsStorage.language = language
         
