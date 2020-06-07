@@ -14,7 +14,25 @@ enum Action {
 }
 
 enum ViewControllerType {
-    case settings, gameModes, countdown(type: GameType), choice, statistics, leaderBoards
+    case settings, gameModes, countdown(type: GameType), choice, statistics, leaderboard
+    
+    var viewController: UIViewController {
+        switch self {
+        case .gameModes:
+            return MenuViewController(storage: GameModesStorage())
+        case .settings:
+            return MenuViewController(storage: SettingsStorage())
+        case .countdown(let type):
+            return CountdownViewController(type: type)
+        case .choice:
+            return ChoiceViewController(viewModel:
+                TitledTextViewModel(placeholder: R.string.localizable.nickname(), buttonIsHidden: true))
+        case .statistics:
+            return StatisticsViewController()
+        case .leaderboard:
+            return LeaderBoardViewController()
+        }
+    }
 }
 
 protocol MenuSubviewsDelegate: AnyObject {}

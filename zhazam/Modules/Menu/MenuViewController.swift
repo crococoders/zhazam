@@ -19,7 +19,7 @@ final class MenuViewController: UIViewController {
     private let storage: CategoryStorageProtocol
     
     private let fadeDuration: TimeInterval = 1.0
-    private let stackViewHeight: Int = 50
+    private let stackViewHeight: Int = 46
     private let stackViewSpacing: Int = 10
     private let flashCount: Float = 2
     
@@ -40,6 +40,11 @@ final class MenuViewController: UIViewController {
         configureHeaderView()
         setupStackViewHeightConstraint()
         setupHiddenNavigationTitle()
+        observeChangeLanguageNotification()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -81,40 +86,21 @@ final class MenuViewController: UIViewController {
         //TODO: refactor
     }
     
-    // swiftlint:disable function_body_length
     private func changeState(for view: LoadingButtonView, with type: ViewControllerType?) {
         guard let type = type else { return }
         
-        var viewController: UIViewController
-        
-        switch type {
-        case .gameModes:
-            viewController = MenuViewController(storage: GameModesStorage())
-        case .settings:
-            viewController = MenuViewController(storage: SettingsStorage())
-        case .countdown(let type):
-            viewController = CountdownViewController(type: type)
-        case .choice:
-            viewController = ChoiceViewController(viewModel:
-                TitledTextViewModel(placeholder: R.string.localizable.nickname(), buttonIsHidden: true))
-        case .statistics:
-            viewController = StatisticsViewController()
-        case .leaderBoards:
-            viewController = LeaderBoardViewController()
-        }
         if !storage.hasLoader {
             DispatchQueue.main.asyncAfter(deadline: .now() + fadeDuration) { [weak self] in
                 guard let self = self else { return }
-                self.navigateToNextPage(with: viewController)
+                self.navigateToNextPage(with: type.viewController)
             }
         } else {
             view.showLoading(withDuration: fadeDuration) { [weak self] in
                 guard let self = self else { return }
-                self.navigateToNextPage(with: viewController)
+                self.navigateToNextPage(with: type.viewController)
             }
         }
     }
-    // swiftlint:enable function_body_length
     
     private func shareButtonConfiguration(view: LoadingButtonView) {
         let title = view.getButtonTitle()
@@ -123,7 +109,7 @@ final class MenuViewController: UIViewController {
     
     private func sendShareData() {
         guard let lauchScreenImage = R.image.shareScreen() else { return }
-        let mainTitle = R.string.localizable.downloadApp()
+        let mainTitle = "DownloadApp".localized
         let shareAllData: [Any] = [lauchScreenImage, mainTitle]
         let activityViewController = UIActivityViewController(activityItems: shareAllData,
                                                               applicationActivities: nil)
@@ -133,7 +119,7 @@ final class MenuViewController: UIViewController {
     
     private func contactButtonConfiguration(view: LoadingButtonView) {
         let title = view.getButtonTitle()
-        title == R.string.localizable.contacts() ? showMainComposer() : nil
+        title == "Contacts".localized ? showMainComposer() : nil
     }
     
     private func showMainComposer() {
@@ -159,7 +145,7 @@ final class MenuViewController: UIViewController {
     }
     
     private func setupHiddenNavigationTitle() {
-        title = storage.title
+        title = storage.title.localized.lowercased()
         navigationItem.titleView = UIView()
     }
     
@@ -168,6 +154,33 @@ final class MenuViewController: UIViewController {
             subview.isUserInteractionEnabled = interactionEnabled
             subview.fade(withDuration: fadeDuration, till: value)
         }
+    }
+    
+    private func updateLanguage(with language: String) {
+        LanguageManager.shared.setLanguage(language)
+    }
+    
+    private func observeChangeLanguageNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateLabels),
+                                               name: NSNotification.Name("languageChanged"),
+                                               object: nil)
+    }
+    
+    @objc private func updateLabels() {
+        title = storage.title.localized.lowercased()
+        
+        titlesStackView.arrangedSubviews.forEach { view in
+            view.layoutIfNeeded()
+            
+            let loadingView = view as? LoadingButtonView
+            loadingView?.updateTitle()
+            loadingView?.layoutIfNeeded()
+            
+            let configurationView = view as? MenuConfigurationView
+            configurationView?.updateTitle()
+        }
+        //TODO: refactor
     }
 }
 
@@ -181,12 +194,12 @@ extension MenuViewController: LoadingButtonViewDelegate {
 }
 
 extension MenuViewController: ConfigurationViewDelegate {
-    func didPressValueButton(type: ConfigurationCellType) {
-        switch type {
+    func didPressValueButton(configuration: ConfigurationViewModel) {
+        switch configuration.type {
         case .lights:
             blinkBackground()
-        default:
-            break
+        case .language:
+            updateLanguage(with: configuration.currentLanguage)
         }
     }
     

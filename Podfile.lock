@@ -7,16 +7,16 @@ PODS:
 
 DEPENDENCIES:
   - Hero
-  - R.swift (~> 5.0.3)
-  - R.swift.Library (~> 5.0.0)
+  - R.swift
   - SwiftLint (= 0.34.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Hero
     - R.swift
-    - R.swift.Library
     - SwiftLint
+  trunk:
+    - R.swift.Library
 
 SPEC CHECKSUMS:
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058
@@ -24,6 +24,6 @@ SPEC CHECKSUMS:
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: 68b5576fcb68e1c2d3ef450ae3bcf6cd61920c29
+PODFILE CHECKSUM: b412912cea389260deb8a02ec7b1e779dbb45cf5
 
 COCOAPODS: 1.9.1

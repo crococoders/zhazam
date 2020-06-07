@@ -12,11 +12,11 @@ struct GameModesStorage: CategoryStorageProtocol {
     var categories: [CategoryViewModel]
     var headerIsHidden: Bool = true
     var hasLoader: Bool = true
-    var title: String = R.string.localizable.modes().lowercased()
+    var title: String = "Modes"
     
     init() {
-        categories = [CategoryViewModel(title: R.string.localizable.classic(), type: .countdown(type: .classic)),
-                      CategoryViewModel(title: R.string.localizable.arcade(), type: .countdown(type: .arcade)),
-                      CategoryViewModel(title: R.string.localizable.time())]
+        categories = [CategoryViewModel(title: "Classic", type: .countdown(type: .classic)),
+                      CategoryViewModel(title: "Arcade", type: .countdown(type: .arcade)),
+                      CategoryViewModel(title: "Time")]
     }
 }

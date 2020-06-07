@@ -12,19 +12,26 @@ struct SettingsStorage: CategoryStorageProtocol {
     var categories: [CategoryViewModel]
     var headerIsHidden: Bool = true
     var hasLoader: Bool = false
-    var title: String = R.string.localizable.settings().lowercased()
+    var title: String = "Settings"
+    
+    private let lightsViewModel = ConfigurationViewModel(type: .lights,
+                                                         values: ["Off",
+                                                                  "On"])
+    private let languagesViewModel = ConfigurationViewModel(type: .language,
+                                                            values: ["LanguageEn",
+                                                                     "LanguageRu",
+                                                                     "LanguageUk"])
     
     init() {
-        categories = [CategoryViewModel(title: R.string.localizable.nickname(), type: .choice),
-                      CategoryViewModel(title: R.string.localizable.lights(),
+        categories = [CategoryViewModel(title: "Nickname", type: .choice),
+                      CategoryViewModel(title: "Lights",
                                         action: .choose,
-                                        configuration: ConfigurationViewModel(type: .lights,
-                                                                              values: [R.string.localizable.off(),
-                                                                                       R.string.localizable.on()])),
-                      CategoryViewModel(title: R.string.localizable.language(),
-                                        action: .choose),
-                      CategoryViewModel(title: R.string.localizable.share()),
-                      CategoryViewModel(title: R.string.localizable.contacts()),
-                      CategoryViewModel(title: R.string.localizable.rate())]
+                                        configuration: lightsViewModel),
+                      CategoryViewModel(title: "Language",
+                                        action: .choose,
+                                        configuration: languagesViewModel),
+                      CategoryViewModel(title: "Share"),
+                      CategoryViewModel(title: "Contacts"),
+                      CategoryViewModel(title: "Rate")]
     }
 }

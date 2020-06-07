@@ -45,8 +45,12 @@ final class LoadingButtonView: UIView {
         loadingLabel.text = ""
     }
     
+    func updateTitle() {
+        titleButton.setTitle(category.title.localized, for: .normal)
+    }
+    
     private func setupTitle() {
-        titleButton.setTitle(category.title, for: .normal)
+        titleButton.setTitle(category.title.localized, for: .normal)
     }
     
     func getButtonTitle() -> String {

@@ -19,8 +19,3 @@ struct InterfaceStyleConfigurationCommand: Command {
         }
     }
 }
-
-extension UserDefaultsStorage {
-    @UserDefaultsBacked(key: "isDarkModeEnabled", defaultValue: false)
-    static var isDarkModeEnabled: Bool
-}
