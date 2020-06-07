@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ConfigurationViewDelegate: MenuSubviewsDelegate {
-    func didPressValueButton(type: ConfigurationCellType)
+    func didPressValueButton(configuration: ConfigurationViewModel)
     func didTapView(_ view: MenuConfigurationView, _ isActive: Bool)
 }
 
@@ -45,6 +45,11 @@ final class MenuConfigurationView: UIView {
         isActive = false
     }
     
+    func updateTitle() {
+        titleLabel.text = category.title.localized
+        valueButton.setTitle(category.configuration?.currentValue.localized.lowercased(), for: .normal)
+    }
+    
     private func changeViewState() {
         valueButton.isUserInteractionEnabled = self.isActive
         
@@ -52,8 +57,8 @@ final class MenuConfigurationView: UIView {
     }
     
     private func setupInitialState() {
-        titleLabel.text = category.title
-        valueButton.setTitle(category.configuration?.currentValue, for: .normal)
+        titleLabel.text = category.title.localized
+        valueButton.setTitle(category.configuration?.currentValue.localized.lowercased(), for: .normal)
         
         valueButton.alpha = 0
         valueButton.isUserInteractionEnabled = false
@@ -71,7 +76,7 @@ final class MenuConfigurationView: UIView {
     @IBAction private func valueButtonPressed(_ sender: UIButton) {
         guard let configuration = category.configuration else { return }
         manageButton()
-        delegate?.didPressValueButton(type: configuration.type)
+        delegate?.didPressValueButton(configuration: configuration)
     }
     
     @IBAction private func didTapView(_ sender: UITapGestureRecognizer) {
@@ -82,6 +87,5 @@ final class MenuConfigurationView: UIView {
     
     private func manageButton() {
         category.configuration?.next()
-        valueButton.setTitle(category.configuration?.currentValue, for: .normal)
     }
 }

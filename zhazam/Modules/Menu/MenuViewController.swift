@@ -18,7 +18,7 @@ final class MenuViewController: UIViewController {
     private let storage: CategoryStorageProtocol
     
     private let fadeDuration: TimeInterval = 1.0
-    private let stackViewHeight: Int = 50
+    private let stackViewHeight: Int = 46
     private let stackViewSpacing: Int = 10
     private let flashCount: Float = 2
     
@@ -39,6 +39,11 @@ final class MenuViewController: UIViewController {
         configureHeaderView()
         setupStackViewHeightConstraint()
         setupHiddenNavigationTitle()
+        observeChangeLanguageNotification()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -80,7 +85,6 @@ final class MenuViewController: UIViewController {
         //TODO: refactor
     }
     
-    // swiftlint:disable function_body_length
     private func changeState(for view: LoadingButtonView, with type: ViewControllerType?) {
         guard let type = type else { return }
         
@@ -96,7 +100,6 @@ final class MenuViewController: UIViewController {
             }
         }
     }
-    // swiftlint:enable function_body_length
     
     private func shareScreenImageButton() {
         guard let screenShot = UIApplication.shared.screenShot else { return }
@@ -116,7 +119,7 @@ final class MenuViewController: UIViewController {
     }
     
     private func setupHiddenNavigationTitle() {
-        title = storage.title
+        title = storage.title.localized.lowercased()
         navigationItem.titleView = UIView()
     }
     
@@ -125,6 +128,33 @@ final class MenuViewController: UIViewController {
             subview.isUserInteractionEnabled = interactionEnabled
             subview.fade(withDuration: fadeDuration, till: value)
         }
+    }
+    
+    private func updateLanguage(with language: String) {
+        LanguageManager.shared.setLanguage(language)
+    }
+    
+    private func observeChangeLanguageNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateLabels),
+                                               name: NSNotification.Name("languageChanged"),
+                                               object: nil)
+    }
+    
+    @objc private func updateLabels() {
+        title = storage.title.localized.lowercased()
+        
+        titlesStackView.arrangedSubviews.forEach { view in
+            view.layoutIfNeeded()
+            
+            let loadingView = view as? LoadingButtonView
+            loadingView?.updateTitle()
+            loadingView?.layoutIfNeeded()
+            
+            let configurationView = view as? MenuConfigurationView
+            configurationView?.updateTitle()
+        }
+        //TODO: refactor
     }
 }
 
@@ -136,12 +166,12 @@ extension MenuViewController: LoadingButtonViewDelegate {
 }
 
 extension MenuViewController: ConfigurationViewDelegate {
-    func didPressValueButton(type: ConfigurationCellType) {
-        switch type {
+    func didPressValueButton(configuration: ConfigurationViewModel) {
+        switch configuration.type {
         case .lights:
             blinkBackground()
-        default:
-            break
+        case .language:
+            updateLanguage(with: configuration.currentLanguage)
         }
     }
     

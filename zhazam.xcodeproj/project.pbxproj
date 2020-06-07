@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0420DA04248ADAC800FC57F7 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420DA03248ADAC800FC57F7 /* LanguageManager.swift */; };
+		0420DA06248BB6BB00FC57F7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420DA05248BB6BB00FC57F7 /* String+Extension.swift */; };
+		0420DA08248BE10A00FC57F7 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420DA07248BE10A00FC57F7 /* UserDefaultsStorage.swift */; };
 		04218FFE24558752001FF96F /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04218FFD24558752001FF96F /* CategoryViewModel.swift */; };
 		0421FC422461E6CD0093E23D /* MenuConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421FC412461E6CD0093E23D /* MenuConfigurationView.swift */; };
 		0421FC442461E6E90093E23D /* MenuConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0421FC432461E6E90093E23D /* MenuConfigurationView.xib */; };
@@ -88,7 +91,7 @@
 		7AA49B6324659FD8005F4364 /* Gaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA49B6224659FD8005F4364 /* Gaming.swift */; };
 		7AA49B6524659FF2005F4364 /* GameProcessable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA49B6424659FF2005F4364 /* GameProcessable.swift */; };
 		7ACE4529245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */; };
-		7ACE452C245C45C70016E080 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE452B245C45C70016E080 /* UserDefaultsStorage.swift */; };
+		7ACE452C245C45C70016E080 /* UserDefaultsBacked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACE452B245C45C70016E080 /* UserDefaultsBacked.swift */; };
 		7AF36D90245C479500048E2F /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36D8F245C479500048E2F /* OnboardingPage.swift */; };
 		7AF36D94245C48AB00048E2F /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36D92245C48AB00048E2F /* OnboardingPageViewController.swift */; };
 		7AF36D95245C48AB00048E2F /* OnboardingPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF36D93245C48AB00048E2F /* OnboardingPageViewController.xib */; };
@@ -112,6 +115,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0420DA03248ADAC800FC57F7 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		0420DA05248BB6BB00FC57F7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		0420DA07248BE10A00FC57F7 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		04218FFD24558752001FF96F /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		0421FC412461E6CD0093E23D /* MenuConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfigurationView.swift; sourceTree = "<group>"; };
 		0421FC432461E6E90093E23D /* MenuConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuConfigurationView.xib; sourceTree = "<group>"; };
@@ -195,7 +201,7 @@
 		7AA49B6224659FD8005F4364 /* Gaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gaming.swift; sourceTree = "<group>"; };
 		7AA49B6424659FF2005F4364 /* GameProcessable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProcessable.swift; sourceTree = "<group>"; };
 		7ACE4528245C457F0016E080 /* InterfaceStyleConfigurationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceStyleConfigurationCommand.swift; sourceTree = "<group>"; };
-		7ACE452B245C45C70016E080 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		7ACE452B245C45C70016E080 /* UserDefaultsBacked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsBacked.swift; sourceTree = "<group>"; };
 		7AF36D8F245C479500048E2F /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		7AF36D92245C48AB00048E2F /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		7AF36D93245C48AB00048E2F /* OnboardingPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingPageViewController.xib; sourceTree = "<group>"; };
@@ -234,6 +240,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0420DA02248ADAAD00FC57F7 /* LanguageManager */ = {
+			isa = PBXGroup;
+			children = (
+				0420DA03248ADAC800FC57F7 /* LanguageManager.swift */,
+			);
+			path = LanguageManager;
+			sourceTree = "<group>";
+		};
 		04218FFC245586EB001FF96F /* Storages */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +524,7 @@
 				7A09B4462467475A00A42C58 /* UITextView+Extension.swift */,
 				24C632AB2466DF9800FC0DFA /* UIApplication+Extension.swift */,
 				7A09B44B2467847500A42C58 /* Double+Extension.swift */,
+				0420DA05248BB6BB00FC57F7 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -517,6 +532,7 @@
 		70236EFF234CC66A00FCD963 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0420DA02248ADAAD00FC57F7 /* LanguageManager */,
 				04BE896D2465698F00D39C9E /* KeychainStorage */,
 				04BE8949246480CF00D39C9E /* NetworkLayer */,
 				7AF36DB3245EDAAF00048E2F /* KeyboardStateObserver */,
@@ -712,7 +728,8 @@
 		7ACE452A245C45AE0016E080 /* UserDefaultsStorage */ = {
 			isa = PBXGroup;
 			children = (
-				7ACE452B245C45C70016E080 /* UserDefaultsStorage.swift */,
+				0420DA07248BE10A00FC57F7 /* UserDefaultsStorage.swift */,
+				7ACE452B245C45C70016E080 /* UserDefaultsBacked.swift */,
 			);
 			path = UserDefaultsStorage;
 			sourceTree = "<group>";
@@ -1102,12 +1119,14 @@
 				7A5498752461DC9600BE4F15 /* PrimaryTextField.swift in Sources */,
 				7A09B4472467475A00A42C58 /* UITextView+Extension.swift in Sources */,
 				7AF36D94245C48AB00048E2F /* OnboardingPageViewController.swift in Sources */,
+				0420DA06248BB6BB00FC57F7 /* String+Extension.swift in Sources */,
 				7A571F312467050F00CFCEC7 /* ArcadeGameModel.swift in Sources */,
 				04BE895E246480CF00D39C9E /* Result.swift in Sources */,
 				7A6D064E2464977F00405665 /* GameType.swift in Sources */,
 				0D1F8A56230C5FF200ECE3B4 /* LoadingViewController.swift in Sources */,
 				7AF36DB2245ED95100048E2F /* Game.swift in Sources */,
 				70236F17234CCE0100FCD963 /* WindowConfigurationCommand.swift in Sources */,
+				0420DA08248BE10A00FC57F7 /* UserDefaultsStorage.swift in Sources */,
 				04BE896F246569C000D39C9E /* TokenGenerator.swift in Sources */,
 				0484560724632EE400932906 /* GameModesStorage.swift in Sources */,
 				04BE895C246480CF00D39C9E /* JSONParameterEncoder.swift in Sources */,
@@ -1116,12 +1135,13 @@
 				04BE8963246480CF00D39C9E /* HTTPMethod.swift in Sources */,
 				0499A2AF243A0257008C6FAD /* LogoView.swift in Sources */,
 				7A5498782462159600BE4F15 /* ClassicGameModel.swift in Sources */,
+				0420DA04248ADAC800FC57F7 /* LanguageManager.swift in Sources */,
 				0D1F8A54230C5FF200ECE3B4 /* AppDelegate.swift in Sources */,
 				7A571F1F2465F89000CFCEC7 /* ChoiceViewController.swift in Sources */,
 				B0172A02231532120041EF2E /* R.generated.swift in Sources */,
 				04DA41632465F3BC00C9CF87 /* GameResult.swift in Sources */,
 				7AF36DA3245C4D1200048E2F /* TitledTextView.swift in Sources */,
-				7ACE452C245C45C70016E080 /* UserDefaultsStorage.swift in Sources */,
+				7ACE452C245C45C70016E080 /* UserDefaultsBacked.swift in Sources */,
 				24C632AC2466DF9800FC0DFA /* UIApplication+Extension.swift in Sources */,
 				24A6175B245209A1007F92E6 /* TimerRowView.swift in Sources */,
 				04BE8965246480CF00D39C9E /* EndPointType.swift in Sources */,

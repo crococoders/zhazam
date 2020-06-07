@@ -8,7 +8,7 @@
 
 "AppName" = "Zhazam";
 "Play" = "Играть";
-"Leaderboard" = "Таблица лидеров";
+"Leaderboard" = "Лидеры";
 "Statistics" = "Статистика";
 "Settings" = "Настройки";
 "Language" = "Язык";
@@ -22,7 +22,7 @@
 "Time" = "На время";
 "Menu" = "Меню";
 "Modes" = "Игровой режим";
-"Nickname" = "Прозвище в игре";
+"Nickname" = "Прозвище";
 "Share" = "Поделиться";
 "Contacts" = "Контакты";
 "Rate" = "Оценить";
@@ -38,3 +38,6 @@
 "AverageAll" = "Среднее за все время";
 "AverageLast" = "Среднее последних 10 игр";
 "BeatenPercentage" = "Ваши результаты бьют %@%% игроков";
+"LanguageEn" = "Анг";
+"LanguageRu" = "Рус";
+"LanguageUk" = "Укр";
