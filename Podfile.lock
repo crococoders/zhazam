@@ -15,8 +15,9 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Hero
     - R.swift
-    - R.swift.Library
     - SwiftLint
+  trunk:
+    - R.swift.Library
 
 SPEC CHECKSUMS:
   Hero: b7385b75e7259da62f4f85462f59a5082d66b058

@@ -12,7 +12,7 @@ struct GameModesStorage: CategoryStorageProtocol {
     var categories: [CategoryViewModel]
     var headerIsHidden: Bool = true
     var hasLoader: Bool = true
-    var title: String = R.string.localizable.modes().lowercased()
+    var title: String = "Modes"
     
     init() {
         categories = [CategoryViewModel(title: R.string.localizable.classic(), type: .countdown(type: .classic)),

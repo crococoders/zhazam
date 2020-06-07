@@ -57,8 +57,3 @@ final class LoadingViewController: UIViewController {
         return pages
     }
 }
-
-extension UserDefaultsStorage {
-    @UserDefaultsBacked(key: "isOnboardingCompleted", defaultValue: false)
-    static var isOnboardingCompleted: Bool
-}

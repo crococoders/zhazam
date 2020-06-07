@@ -8,6 +8,7 @@
 
 import UIKit
 import Hero
+import MessageUI
 
 final class MenuViewController: UIViewController {
     
@@ -18,7 +19,7 @@ final class MenuViewController: UIViewController {
     private let storage: CategoryStorageProtocol
     
     private let fadeDuration: TimeInterval = 1.0
-    private let stackViewHeight: Int = 50
+    private let stackViewHeight: Int = 46
     private let stackViewSpacing: Int = 10
     private let flashCount: Float = 2
     
@@ -39,6 +40,11 @@ final class MenuViewController: UIViewController {
         configureHeaderView()
         setupStackViewHeightConstraint()
         setupHiddenNavigationTitle()
+        observeChangeLanguageNotification()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -80,45 +86,53 @@ final class MenuViewController: UIViewController {
         //TODO: refactor
     }
     
-    // swiftlint:disable function_body_length
     private func changeState(for view: LoadingButtonView, with type: ViewControllerType?) {
         guard let type = type else { return }
         
-        var viewController: UIViewController
-        
-        switch type {
-        case .gameModes:
-            viewController = MenuViewController(storage: GameModesStorage())
-        case .settings:
-            viewController = MenuViewController(storage: SettingsStorage())
-        case .countdown(let type):
-            viewController = CountdownViewController(type: type)
-        case .choice:
-            viewController = ChoiceViewController(viewModel:
-                TitledTextViewModel(placeholder: R.string.localizable.nickname(), buttonIsHidden: true))
-        case .statistics:
-            viewController = StatisticsViewController()
-        }
         if !storage.hasLoader {
             DispatchQueue.main.asyncAfter(deadline: .now() + fadeDuration) { [weak self] in
                 guard let self = self else { return }
-                self.navigateToNextPage(with: viewController)
+                self.navigateToNextPage(with: type.viewController)
             }
         } else {
             view.showLoading(withDuration: fadeDuration) { [weak self] in
                 guard let self = self else { return }
-                self.navigateToNextPage(with: viewController)
+                self.navigateToNextPage(with: type.viewController)
             }
         }
     }
-    // swiftlint:enable function_body_length
     
-    private func shareScreenImageButton() {
-        guard let screenShot = UIApplication.shared.screenShot else { return }
-        let activityViewController = UIActivityViewController(activityItems: [screenShot], applicationActivities: nil)
+    private func shareButtonConfiguration(view: LoadingButtonView) {
+        let title = view.getButtonTitle()
+        title == R.string.localizable.share() ? sendShareData() : nil
+    }
+    
+    private func sendShareData() {
+        guard let lauchScreenImage = R.image.shareScreen() else { return }
+        let mainTitle = "DownloadApp".localized
+        let shareAllData: [Any] = [lauchScreenImage, mainTitle]
+        let activityViewController = UIActivityViewController(activityItems: shareAllData,
+                                                              applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view
         self.present(activityViewController, animated: true, completion: nil)
-     }
+    }
+    
+    private func contactButtonConfiguration(view: LoadingButtonView) {
+        let title = view.getButtonTitle()
+        title == "Contacts".localized ? showMainComposer() : nil
+    }
+    
+    private func showMainComposer() {
+        guard MFMailComposeViewController.canSendMail() else { return }
+        
+        let composer = MFMailComposeViewController()
+        composer.mailComposeDelegate = self
+        composer.setToRecipients(["abai.kalikov@gmail.com"])
+        composer.setSubject("Zhazam Support Message")
+        composer.setMessageBody("Leave your feedbacks here.", isHTML: false)
+        
+        present(composer, animated: true)
+    }
     
     private func navigateToNextPage(with viewController: UIViewController?) {
         guard let viewController = viewController else { return }
@@ -131,7 +145,7 @@ final class MenuViewController: UIViewController {
     }
     
     private func setupHiddenNavigationTitle() {
-        title = storage.title
+        title = storage.title.localized.lowercased()
         navigationItem.titleView = UIView()
     }
     
@@ -141,26 +155,63 @@ final class MenuViewController: UIViewController {
             subview.fade(withDuration: fadeDuration, till: value)
         }
     }
+    
+    private func updateLanguage(with language: String) {
+        LanguageManager.shared.setLanguage(language)
+    }
+    
+    private func observeChangeLanguageNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateLabels),
+                                               name: NSNotification.Name("languageChanged"),
+                                               object: nil)
+    }
+    
+    @objc private func updateLabels() {
+        title = storage.title.localized.lowercased()
+        
+        titlesStackView.arrangedSubviews.forEach { view in
+            view.layoutIfNeeded()
+            
+            let loadingView = view as? LoadingButtonView
+            loadingView?.updateTitle()
+            loadingView?.layoutIfNeeded()
+            
+            let configurationView = view as? MenuConfigurationView
+            configurationView?.updateTitle()
+        }
+        //TODO: refactor
+    }
 }
 
 extension MenuViewController: LoadingButtonViewDelegate {
     func didPressTitleButton(view: LoadingButtonView, type: ViewControllerType?) {
         changeState(for: view, with: type)
         fadeUnselectedViews(for: view, till: 0, false)
+        shareButtonConfiguration(view: view)
+        contactButtonConfiguration(view: view)
     }
 }
 
 extension MenuViewController: ConfigurationViewDelegate {
-    func didPressValueButton(type: ConfigurationCellType) {
-        switch type {
+    func didPressValueButton(configuration: ConfigurationViewModel) {
+        switch configuration.type {
         case .lights:
             blinkBackground()
-        default:
-            break
+        case .language:
+            updateLanguage(with: configuration.currentLanguage)
         }
     }
     
     func didTapView(_ view: MenuConfigurationView, _ isActive: Bool) {
         fadeUnselectedViews(for: view, till: isActive ? 0.25 : 1, !isActive)
+    }
+}
+
+extension MenuViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult,
+                               error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

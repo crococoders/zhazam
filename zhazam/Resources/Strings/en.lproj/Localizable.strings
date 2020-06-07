@@ -38,3 +38,8 @@
 "AverageAll" = "Average of all time";
 "AverageLast" = "Average of last 10 games";
 "BeatenPercentage" = "Your results beats %@%% of players";
+"LanguageEn" = "En";
+"LanguageRu" = "Ru";
+"LanguageUk" = "Uk";
+"DownloadApp" = "Download the Zhazam app!";
+"LanguageCode" = "en";

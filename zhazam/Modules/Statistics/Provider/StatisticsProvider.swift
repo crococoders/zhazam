@@ -16,7 +16,7 @@ class StatisticsProvider {
     
     weak var delegate: StatisticsProviderDelegate?
     
-    var statistics: [StatisticsRowModel] = [] {
+    var statistics: [StatisticsViewModel] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.delegate?.didUpdate()
@@ -25,27 +25,18 @@ class StatisticsProvider {
     }
     
     func setStatistics() {
-        var statisticsArray: [StatisticsRowModel] = []
-        NetworkManager.shared.getStatistics { statistics in
-            guard let statistics = statistics,
-                let typeStatistics = statistics.bestTypes else { return }
+        var statisticsArray: [StatisticsViewModel] = []
+        NetworkManager.shared.getStatistics { [weak self] results in
+            guard let self = self, let results = results else { return }
             
-            typeStatistics.forEach { stats in
-                statisticsArray.append(StatisticsRowModel(totalResult: String(stats.wpm ?? 0),
-                                                          measurement: stats.type?.name?.getUnit() ?? "",
-                                                          resultTitle: stats.type?.name?.getName() ?? ""))
+            results.forEach { statistics in
+                guard let score = statistics.score, let unit = statistics.unit,
+                    let title = statistics.title else { return }
+                
+                statisticsArray.append(StatisticsViewModel(totalResult: String(score),
+                                                          measurement: unit,
+                                                          resultTitle: title))
             }
-            
-            let bestAllResultTitle = "Best (\(statistics.bestAll?.type?.name?.getName() ?? ""))"
-            statisticsArray.append(StatisticsRowModel(totalResult: String(statistics.bestAll?.wpm ?? 0),
-                                                      measurement: statistics.bestAll?.type?.name?.getUnit() ?? "",
-                                                      resultTitle: bestAllResultTitle))
-            statisticsArray.append(StatisticsRowModel(totalResult: (statistics.averageAll ?? 0.0).formatted(),
-                                                      measurement: "wpm",
-                                                      resultTitle: R.string.localizable.averageAll()))
-            statisticsArray.append(StatisticsRowModel(totalResult: (statistics.averageLast ?? 0.0).formatted(),
-                                                      measurement: "wpm",
-                                                      resultTitle: R.string.localizable.averageLast()))
             self.statistics = statisticsArray
         }
     }

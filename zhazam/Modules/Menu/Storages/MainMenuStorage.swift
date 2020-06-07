@@ -12,12 +12,12 @@ struct MainMenuStorage: CategoryStorageProtocol {
     var categories: [CategoryViewModel]
     var headerIsHidden: Bool = false
     var hasLoader: Bool = false
-    var title: String = R.string.localizable.menu().lowercased()
+    var title: String = "Menu"
     
     init() {
-        categories = [CategoryViewModel(title: R.string.localizable.play(), type: .gameModes),
-                      CategoryViewModel(title: R.string.localizable.leaderboard()),
-                      CategoryViewModel(title: R.string.localizable.statistics(), type: .statistics),
-                      CategoryViewModel(title: R.string.localizable.settings(), type: .settings)]
+        categories = [CategoryViewModel(title: "Play", type: .gameModes),
+                      CategoryViewModel(title: "Leaderboard", type: .leaderboard),
+                      CategoryViewModel(title: "Statistics", type: .statistics),
+                      CategoryViewModel(title: "Settings", type: .settings)]
     }
 }

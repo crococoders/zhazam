@@ -1,5 +1,5 @@
 //
-//  StatisticsRowModel.swift
+//  StatisticsViewModel.swift
 //  zhazam
 //
 //  Created by Abai Kalikov on 5/1/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct StatisticsRowModel {
+struct StatisticsViewModel {
     let totalResult: String
     let measurement: String
     let resultTitle: String

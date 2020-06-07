@@ -31,6 +31,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                                  timeoutInterval: 10.0)
         request.httpMethod = route.httpMethod.rawValue
         request.setValue(TokenGenerator.shared.getToken() ?? "", forHTTPHeaderField: "X-Token")
+        request.setValue(R.string.localizable.languageCode(), forHTTPHeaderField: "Accept-Language")
         
         do {
             switch route.task {
