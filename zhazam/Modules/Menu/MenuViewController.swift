@@ -117,7 +117,7 @@ final class MenuViewController: UIViewController {
     // swiftlint:enable function_body_length
     
     private func shareButtonConfiguration(view: LoadingButtonView) {
-        let title = view.titleButton.titleLabel?.text
+        let title = view.getButtonTitle()
         title == R.string.localizable.share() ? sendShareData() : nil
     }
     
@@ -132,7 +132,7 @@ final class MenuViewController: UIViewController {
     }
     
     private func contactButtonConfiguration(view: LoadingButtonView) {
-        let title = view.titleButton.titleLabel?.text
+        let title = view.getButtonTitle()
         title == R.string.localizable.contacts() ? showMainComposer() : nil
     }
     

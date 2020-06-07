@@ -16,7 +16,7 @@ final class LoadingButtonView: UIView {
     private let category: CategoryViewModel
     weak var delegate: LoadingButtonViewDelegate?
     
-    @IBOutlet var titleButton: UIButton!
+    @IBOutlet private var titleButton: UIButton!
     @IBOutlet private var loadingLabel: LoadingLabel!
     
     init(_ category: CategoryViewModel) {
@@ -47,6 +47,11 @@ final class LoadingButtonView: UIView {
     
     private func setupTitle() {
         titleButton.setTitle(category.title, for: .normal)
+    }
+    
+    func getButtonTitle() -> String {
+        let title = titleButton.titleLabel?.text
+        return title ?? ""
     }
     
     @IBAction private func titleButtonPressed(_ sender: UIButton) {
