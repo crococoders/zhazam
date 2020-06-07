@@ -14,7 +14,7 @@ enum Action {
 }
 
 enum ViewControllerType {
-    case settings, gameModes, countdown(type: GameType), choice, statistics
+    case settings, gameModes, countdown(type: GameType), choice, statistics, leaderboard
     
     var viewController: UIViewController {
         switch self {
@@ -29,6 +29,8 @@ enum ViewControllerType {
                 TitledTextViewModel(placeholder: R.string.localizable.nickname(), buttonIsHidden: true))
         case .statistics:
             return StatisticsViewController()
+        case .leaderboard:
+            return LeaderBoardViewController()
         }
     }
 }

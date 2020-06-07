@@ -16,7 +16,7 @@ struct MainMenuStorage: CategoryStorageProtocol {
     
     init() {
         categories = [CategoryViewModel(title: "Play", type: .gameModes),
-                      CategoryViewModel(title: "Leaderboard"),
+                      CategoryViewModel(title: "Leaderboard", type: .leaderboard),
                       CategoryViewModel(title: "Statistics", type: .statistics),
                       CategoryViewModel(title: "Settings", type: .settings)]
     }
