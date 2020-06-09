@@ -123,6 +123,7 @@
 		7AF36DAE245ED31C00048E2F /* ClassicModeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AF36DAC245ED31C00048E2F /* ClassicModeViewController.xib */; };
 		7AF36DB2245ED95100048E2F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36DB1245ED95100048E2F /* Game.swift */; };
 		7AF36DB5245EDACA00048E2F /* KeyboardStateObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF36DB4245EDACA00048E2F /* KeyboardStateObserver.swift */; };
+		7F8A6788248F3D14004EF148 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8A6787248F3D14004EF148 /* WebView.swift */; };
 		B0172A02231532120041EF2E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0172A01231532120041EF2E /* R.generated.swift */; };
 		B0172A192315347E0041EF2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0172A1B2315347E0041EF2E /* Localizable.strings */; };
 		B0172A25231556EF0041EF2E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0172A24231556EF0041EF2E /* Colors.xcassets */; };
@@ -249,6 +250,7 @@
 		7AF36DAC245ED31C00048E2F /* ClassicModeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassicModeViewController.xib; sourceTree = "<group>"; };
 		7AF36DB1245ED95100048E2F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		7AF36DB4245EDACA00048E2F /* KeyboardStateObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStateObserver.swift; sourceTree = "<group>"; };
+		7F8A6787248F3D14004EF148 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A0D3B98F6F39B6FC0063B84C /* Pods-zhazam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zhazam.release.xcconfig"; path = "Target Support Files/Pods-zhazam/Pods-zhazam.release.xcconfig"; sourceTree = "<group>"; };
 		B0172A01231532120041EF2E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		B0172A1A2315347E0041EF2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -815,6 +817,7 @@
 			children = (
 				7A8544DD248D2A22007767A8 /* MultiplayerViewController.swift */,
 				7A8544DE248D2A22007767A8 /* MultiplayerViewController.xib */,
+				7F8A6787248F3D14004EF148 /* WebView.swift */,
 			);
 			path = Multiplayer;
 			sourceTree = "<group>";
@@ -1220,6 +1223,7 @@
 				04DA416F2467403E00C9CF87 /* StatisticsProvider.swift in Sources */,
 				24729FAD245B43F500A69CC3 /* StatisticsViewController.swift in Sources */,
 				70236F0E234CCACA00FCD963 /* Command.swift in Sources */,
+				7F8A6788248F3D14004EF148 /* WebView.swift in Sources */,
 				04583706245C255200DC0E1B /* LoadingButtonView.swift in Sources */,
 				0458370E245C9A3C00DC0E1B /* Int+Extension.swift in Sources */,
 				04BE896824648B3900D39C9E /* EndPoint.swift in Sources */,
